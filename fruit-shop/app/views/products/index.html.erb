@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FRUIT SHOP</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/sstyle.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body> 
+    <section class="section_top ">
+      <div class="container">
+       <div class="row">
+         <div class="col-md-7 col-sm-12 col-xs-12">
+          <a href="#" class="sologan">Fruit are part of out nature</a>
+         </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">           
+            <div class="user">
+               <a href="#" ><i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập</a>
+            </div>
+            <div class="user">
+              <a href="#" ><i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký</a>
+            </div>
+         </div>
+         <div class="col-md-2 col-sm-6 col-xs-12">
+          <a class="btn btn-success" href="#">CART <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+         </div>
+      </div>
+    </section> 
+    <header>
+      <div class="container">
+        <nav class="navbar navbar-default ">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>           
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li  class="active"><a href="home.html">TRANG CHỦ</a></li>
+              <li><a href="contact.html" >SẢN PHẨM </a></li>           
+              <li><a href="traicaynhap.html">TRÁI CÂY NHẬP </a></li>
+              <li><a href="traicaymienbac.html">TRÁI CÂY MIỀN BẮC</a></li>
+              <li><a href="traicaymiennam.html">TRÁI CÂY MIỀN NAM</a></li>             
+              <li><a href="shopping_guide.html">HƯỚNG DẪN MUA HÀNG</a></li>
+              <li><a href="information.html">THÔNG TIN HỮU ÍCH</a></li>
+              <li><a href="contact.html">LIÊN HỆ</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+              <input type="text" class="form-control" placeholder="Search...">
+            </form>      
+          </div>
+        </nav>
+      </div>   
+    </header>
+    <section class="sections-lider">
+     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+        <!-- Indicators -->
+     
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag('slider1.png', class:"slider") %>
+          </div>
+
+          <div class="item">
+             <%= image_tag('slider2.png', class:"slider") %>
+          </div>
+        
+          <div class="item">
+            <%= image_tag('slider3.png', class:"slider") %>
+          </div>
+
+          <div class="item">
+            <%= image_tag('slider4.png', class:"slider") %>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+      
+      </div>
+    </section>
+    <section class="sections-wish-list">  
+      <div class="container">         
+          <div class="row">
+            <div class="col-md-9">
+              <h3 class="header">Sản phẩm bán chạy nhất</h3>
+                <div class="row">
+                  <div class="col-md-3">
+                    <!-- <a href="#" class="img-thumbnail"><img class="image" src="/images/dualuoi.png"></a> -->
+                    <%= link_to image_tag('dualuoi.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <!-- <%= image_tag('dualuoi.png', class: "image") %> -->
+                    <h5>Dua luoi</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>70,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div>
+                  <div class="col-md-3">
+                    <%= link_to image_tag('camuc.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Cam úc</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>85,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                  <div class="col-md-3">
+                    <%= link_to image_tag('chanhdao.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Chanh đào</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>240,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                  <div class="col-md-3">
+                    <%= link_to image_tag('dualuoi.png', class: "image"), '#', class: "img-thumbnail" %>
+                   <h5>Nho Nhật</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>190,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                </div>
+                <h3 class="header">Hàng mới nhập về</h3> 
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= link_to image_tag('hongkhosecau.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Hồng khô sẻ </h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>90,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div>
+                  <div class="col-md-3">
+                     <%= link_to image_tag('kiwivang.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Kiwi vàng</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>190,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                  <div class="col-md-3">
+                     <%= link_to image_tag('kiwixanh.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Kiwi xanh</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>105,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                  <div class="col-md-3">
+                   <%= link_to image_tag('nhomy.png', class: "image"), '#', class: "img-thumbnail" %>
+                   <h5>Nho Mỹ</h5>
+                   <p>Đơn vị tính: 1kilogram</p>
+                   <h4>280,000 Đ</h4>
+                   <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <%= link_to image_tag('nhoxanhhanquoc.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Nho xanh Hàn Quốc</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>640,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div>
+                  <div class="col-md-3">
+                    <%= link_to image_tag('nhodokhonghat.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Nho đỏ không hạt</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>190,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                  <div class="col-md-3">
+                     <%= link_to image_tag('nhodenkhonghat.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Nho đen không hạt</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>120,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                  <div class="col-md-3">
+                    <%= link_to image_tag('phucbontu.png', class: "image"), '#', class: "img-thumbnail" %>
+                   <h5>Phúc bồn tử</h5>
+                   <p>Đơn vị tính: 1kilogram</p>
+                   <h4>330,000 Đ</h4>
+                   <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                     <%= link_to image_tag('bogiongmy.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Bơ giống Mỹ</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>90,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div>
+                  <div class="col-md-3">
+                     <%= link_to image_tag('dualuoi.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Dưa lưới AB sweet gold</h5>
+                    <p>Cam xoàn</p>
+                    <h4>80,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                  <div class="col-md-3">
+                     <%= link_to image_tag('lemyxanh.png', class: "image"), '#', class: "img-thumbnail" %>
+                    <h5>Lê Mỹ xanh</h5>
+                    <p>Đơn vị tính: 1kilogram</p>
+                    <h4>80,000 Đ</h4>
+                    <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                  <div class="col-md-3">
+                    <%= link_to image_tag('occho.png', class: "image"), '#', class: "img-thumbnail" %>
+                   <h5>Óc chó</h5>
+                   <p>Đơn vị tính: 1kilogram</p>
+                   <h4>330,000 Đ</h4>
+                   <p><a class="btn btn-success" href="#">Thêm vào giỏ <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></p> 
+                  </div> 
+                </div>
+              </div>             
+              <div class="col-md-3">
+                 <div class="well">
+                  <h4>Sản Phẩm bán chạy</h4>
+                    <div class="sub_wish_list">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <%= image_tag('nhomy.png', class:"img-circle") %>
+                        </div>
+                        <div class="col-sm-8">
+                          <p>Nho mỹ xanh</p>
+                          <h4>370,000 D</h4>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <%= image_tag('lemyxanh.png', class:"img-circle") %>
+                        </div>
+                        <div class="col-sm-8">
+                          <p>Lê mỹ xanh</p>
+                          <h4>80,000 D</h4>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <%= image_tag('camxoan.png', class:"img-circle") %>
+                        </div>
+                        <div class="col-sm-8">
+                          <p>Cam xoan </p>
+                          <h4>80,000 D</h4>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-4">
+                         <%= image_tag('camuc.png', class:"img-circle") %>
+                        </div>
+                        <div class="col-sm-8">
+                          <p>Cam úc</p>
+                          <h4>85,000 D</h4>
+                        </div>
+                      </div>
+                    </div>                
+                </div>
+                <div class="well">
+                  <h4>Video song</h4>
+                    <iframe width="230" height="300" src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen></iframe>                  
+                </div>
+                <div class="well">
+                  <h4>Kết nối facebook</h4>
+                   <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="230" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>           
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+     <section class="section=slider">
+      
+    </section>
+    <footer>
+      <div  class="container">
+        <p>© 2016 Natures Basket Limited.  All rights reserved. | Privacy Policy |Terms of Use|Site Map|Mobile Site</p>
+      </div>
+      
+    </footer>  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>   
+    <script src="js/bootstrap.js"></script>    
+  </body>
+</html>
