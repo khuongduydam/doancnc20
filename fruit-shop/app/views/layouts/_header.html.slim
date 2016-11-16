@@ -2,29 +2,29 @@ section.section_top
   .container
     .row
       .col-md-7.col-sm-12.col-xs-12
-        a.sologan[href="#"]
+        a.sologan(href="#")
           | Fruit are part of out nature
       .col-md-3.col-sm-6.col-xs-12
         .user
-          a[href="#"]
-            i.fa.fa-lock[aria-hidden="true"]
+          a(href="#")
+            i.fa.fa-lock(aria-hidden="true")
             br
             | Đăng nhập
         .user
-          a[href="#"]
-            i.fa.fa-users[aria-hidden="true"]
+          a(href="#")
+            i.fa.fa-users(aria-hidden="true")
             br
             | Đăng ký
       .col-md-2.col-sm-6.col-xs-12
-        a.btn.btn-success[href="ordertemplate.html"]
+        a.btn.btn-success(href="ordertemplate.html")
           | CART 
-          i.fa.fa-shopping-cart[aria-hidden="true"]
+          i.fa.fa-shopping-cart(aria-hidden="true")
 header
   .container
-    nav.navbar.navbar-default
+    nav.navbar
       .container-fluid
         .navbar-header
-          button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"]
+          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
             span.sr-only
               | Toggle navigation
             span.icon-bar
@@ -33,36 +33,41 @@ header
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              a[href="home.html"]
-                | TRANG CHỦ
+              / a(href="home.html")
+              = link_to "TRANG ", root_path
+
+                / | TRANG CHỦ
             li.dropdown
-              a#sanphamm.dropdown-toggle[data-toggle="dropdown" href="product.html"]
+              a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
                 | SẢN PHẨM 
                 span.caret
-              ul.dropdown-menu[aria-labelledby="sanpham"]
+              ul.dropdown-menu(aria-labelledby="sanpham")
                 li
-                  a[href="traicaynhap.html"]
-                    | TRÁI CÂY NHẬP 
+                  / a(href="products/traicaynhap")
+                  /   | TRÁI CÂY NHẬP 
+                  = link_to "TRÁI CÂY NHẬP KHẨU ", traicaynhap_products_path
                 li
-                  a[href="traicaymienbac.html"]
-                    | TRÁI CÂY MIỀN BẮC
+                  /a(href="traicaymienbac.html")
+                    /| TRÁI CÂY MIỀN BẮC
+                  = link_to "TRÁI CÂY MIỀN BẮC", traicaymienbac_products_path
                 li
-                  a[href="traicaymiennam.html"]
-                    | TRÁI CÂY MIỀN NAM
+                  /a(href="traicaymiennam.html")
+                   / | TRÁI CÂY MIỀN NAM
+                  = link_to "TRÁI CÂY MIỀN NAM", traicaymiennam_products_path
             li
-              a[href="shopping_guide.html"]
+              a(href="shopping_guide.html")
                 | HƯỚNG DẪN MUA HÀNG
             li
-              a[href="information.html"]
-                | THÔNG TIN HỮU ÍCH
+              / a(href="information.html")
+              /   | THÔNG TIN HỮU ÍCH
+              = link_to "THÔNG TIN HỮU ÍCH", information_informations_path
             li
-              a[href="contact.html"]
-                | LIÊN HỆ
+              = link_to "LIÊN HỆ", contacts_contacts_path
           form.navbar-form.navbar-right
-            input.form-control[type="text" placeholder="Search..."]
+            input.form-control(type="text" placeholder="Search...")
 section.sections-lider
-  #myCarousel.carousel.slide[data-ride="carousel" data-interval="2000"]
-    .carousel-inner[role="listbox"]
+  #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
+    .carousel-inner(role="listbox")
       .item.active
         = image_tag("slider1.png")
       .item
@@ -71,6 +76,9 @@ section.sections-lider
         = image_tag("slider3.png")
       .item
         = image_tag("slider4.png")
-
 javascript:
-  |  $('ul.nav li.dropdown').hover(function() { $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, function() { $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); }); 
+  $('ul.nav li.dropdown').hover(function() { 
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
+    function() { 
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
+    }); 

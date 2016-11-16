@@ -1,191 +1,109 @@
-doctype html
-html[lang="en"]
-  head
-    meta[charset="utf-8"]
-    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
-    meta[name="viewport" content="width=device-width, initial-scale=1"]
-    title
-      | FRESH FRUIT
-    script[src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"]
-    script[src="js/bootstrap.js"]
-    link[href="css/bootstrap.min.css" rel="stylesheet"]
-    link[href="css/style.css" rel="stylesheet"]
-    link[href="css/animate.css" rel="stylesheet"]
-    link[href="css/font-awesome.css" rel="stylesheet"]
-    script[type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"]
-  body
-    section.section_top
-      .container
-        .row
-          .col-md-7.col-sm-12.col-xs-12
-            a.sologan[href="#"]
-              | Fruit are part of out nature
-          .col-md-3.col-sm-6.col-xs-12
-            .user
-              a[href="#"]
-                i.fa.fa-lock[aria-hidden="true"]
-                br
-                | Đăng nhập
-            .user
-              a[href="#"]
-                i.fa.fa-users[aria-hidden="true"]
-                br
-                | Đăng ký
-          .col-md-2.col-sm-6.col-xs-12
-            a.btn.btn-success[href="ordertemplate.html"]
-              | CART 
-              i.fa.fa-shopping-cart[aria-hidden="true"]
-    header
-      .container
-        nav.navbar.navbar-default
-          .navbar-header
-            button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"]
-              span.sr-only
-                | Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-          #navbar.collapse.navbar-collapse
-            ul.nav.navbar-nav
-              li
-                a[href="home.html"]
-                  | TRANG CHỦ
-              li.dropdown
-                a#sanphamm.dropdown-toggle[data-toggle="dropdown" href="product.html"]
-                  | SẢN PHẨM 
-                  span.caret
-                ul.dropdown-menu[aria-labelledby="sanpham"]
-                  li
-                    a[href="traicaynhap.html"]
-                      | TRÁI CÂY NHẬP 
-                  li
-                    a[href="traicaymienbac.html"]
-                      | TRÁI CÂY MIỀN BẮC
-                  li
-                    a[href="traicaymiennam.html"]
-                      | TRÁI CÂY MIỀN NAM
-              li
-                a[href="shopping_guide.html"]
-                  | HƯỚNG DẪN MUA HÀNG
-              li
-                a[href="information.html"]
-                  | THÔNG TIN HỮU ÍCH
-              li
-                a[href="contact.html"]
-                  | LIÊN HỆ
-            form.navbar-form.navbar-right
-              input.form-control[type="text" placeholder="Search..."]
-    section.sections-product
-      .container
-        .row
-          .col-md-9
-            ul.nav.nav-tabs
-              li.active
-                a[data-toggle="tab" href="#menu"]
-                  | Phương thức đặt hàng
-              li
-                a[href="#menu1" data-toggle="tab"]
-                  | Phương thức giao hàng
-              li
-                a[href="#menu2" data-toggle="tab"]
-                  | Phí vận chuyển
-              li
-                a[href="#menu3" data-toggle="tab"]
-                  | Phương thức thanh toán
-            .well
-              .tab-content
-                #menu.tab-pane.fade.in.active
-                  p
-                    strong
-                      | Cách 1:
-                  p
-                    strong
-                      | 1.
-                    |  Nhấn vào nút thêm vào giỏ để chọn các sản phẩm, sau đó nhấn nút CART ở trên để đi vào chi tiết đơn hàng, Nhấn vào nút gửi đơn hàng
-                  p
-                    strong
-                      | 2.
-                    |  Shop sẽ gọi lại cho khách hàng để xác nhận đơn hàng.
-                  p
-                    strong
-                      | 3.
-                    |  Nếu khách hàng chọn thanh toán trực tuyến, sẽ thanh toán trực tuyến rồi giao hàng. 
-                  p
-                    strong
-                      | 2.
-                    |  Nếu khách chọn thanh toán khi nhận hàng thì, đ4ơn hàng sẽ được giao tận tay cho khách hàng, khách sẽ kiểm tra hàng và thanh toán.
-                  p
-                    strong
-                      | Cách 2:
-                  p
-                    strong
-                      | 1.
-                    | Khách có thể nhắn tin trực tiếp vào số điện thoại hotline của shop: 0976001983, với nội dung, tên hàng, số lượng, địa chỉ, số phone, giờ giao 
-                  p
-                    span.hotline
-                      | Các thắc mắc khác vui lòng liên hệ 
-                      span.phone
-                        | hotline 0976001983 
-                      | (sms viber zalo) hoặc fanpage 
-                #menu1.tab-pane.fade
-                  p
-                    | * Giao hàng trực tiếp bằng xe máy với các đơn hàng nội thành thành phố Hồ Chí Minh.
-                  p
-                    | * Gửi xe hàng hoặc xe khách với các đơn hang ở tỉnh.
-                  p
-                    span.hotline
-                      | Các thắc mắc khác vui lòng liên hệ 
-                      span.phone
-                        | hotline 0976001983 
-                      | (sms viber zalo) hoặc fanpage 
-                #menu2.tab-pane.fade
-                  p
-                    | * Đơn hàng trên 600,000 đồng được miễn phí giao nội thành.
-                  p
-                    | * Phí giao hàng 30,000 đồng cho mỗi lần giao.
-                  p
-                    | * Khách hàng ở tỉnh sẽ trả theo cước vận chuyển của xe
-                  p
-                    span.hotline
-                      | Các thắc mắc khác vui lòng liên hệ 
-                      span.phone
-                        | hotline 0976001983 
-                      | (sms viber zalo) hoặc fanpage 
-                #menu3.tab-pane.fade
-                  p
-                    strong
-                      | Cách 1: 
-                  p
-                    | Thanh toán khi nhận hàng - áp dụng với đơn hàng nội thành
-                  p
-                    strong
-                      | Cách 2: 
-                  p
-                    strong
-                      | 1
-                    |  Nếu khách hàng chọn thanh toán trực tuyến, sẽ thanh toán trực tuyến rồi giao hàng. 
-                  p
-                    strong
-                      | 2.
-                    |  Nếu khách chọn thanh toán khi nhận hàng thì, đ4ơn hàng sẽ được giao tận tay cho khách hàng, khách sẽ kiểm tra hàng và thanh toán.
-                  p
-                    span.hotline
-                      | Các thắc mắc khác vui lòng liên hệ 
-                      span.phone
-                        | hotline 0976001983 
-                      | (sms viber zalo) hoặc fanpage 
-          .col-md-3.shopping_guide
-            .well
-              h4
-                | Video song
-              iframe[width="230" height="300" src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen]
-            .well
-              h4
-                | Kết nối facebook
-              iframe[src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="230" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"]
-    footer
-      .container
-        p
-          | © 2016 Natures Basket Limited. All rights reserved. | Privacy Policy |Terms of Use|Site Map|Mobile Site
-    javascript:
-      |  $('ul.nav li.dropdown').hover(function() { $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, function() { $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); }); 
+
+section.sections-product
+  .container
+    .row
+      .col-md-9
+        ul.nav.nav-tabs
+          li.active
+            a[data-toggle="tab" href="#menu"]
+              | Phương thức đặt hàng
+          li
+            a[href="#menu1" data-toggle="tab"]
+              | Phương thức giao hàng
+          li
+            a[href="#menu2" data-toggle="tab"]
+              | Phí vận chuyển
+          li
+            a[href="#menu3" data-toggle="tab"]
+              | Phương thức thanh toán
+        .well
+          .tab-content
+            #menu.tab-pane.fade.in.active
+              p
+                strong
+                  | Cách 1:
+              p
+                strong
+                  | 1.
+                |  Nhấn vào nút thêm vào giỏ để chọn các sản phẩm, sau đó nhấn nút CART ở trên để đi vào chi tiết đơn hàng, Nhấn vào nút gửi đơn hàng
+              p
+                strong
+                  | 2.
+                |  Shop sẽ gọi lại cho khách hàng để xác nhận đơn hàng.
+              p
+                strong
+                  | 3.
+                |  Nếu khách hàng chọn thanh toán trực tuyến, sẽ thanh toán trực tuyến rồi giao hàng. 
+              p
+                strong
+                  | 2.
+                |  Nếu khách chọn thanh toán khi nhận hàng thì, đ4ơn hàng sẽ được giao tận tay cho khách hàng, khách sẽ kiểm tra hàng và thanh toán.
+              p
+                strong
+                  | Cách 2:
+              p
+                strong
+                  | 1.
+                | Khách có thể nhắn tin trực tiếp vào số điện thoại hotline của shop: 0976001983, với nội dung, tên hàng, số lượng, địa chỉ, số phone, giờ giao 
+              p
+                span.hotline
+                  | Các thắc mắc khác vui lòng liên hệ 
+                  span.phone
+                    | hotline 0976001983 
+                  | (sms viber zalo) hoặc fanpage 
+            #menu1.tab-pane.fade
+              p
+                | * Giao hàng trực tiếp bằng xe máy với các đơn hàng nội thành thành phố Hồ Chí Minh.
+              p
+                | * Gửi xe hàng hoặc xe khách với các đơn hang ở tỉnh.
+              p
+                span.hotline
+                  | Các thắc mắc khác vui lòng liên hệ 
+                  span.phone
+                    | hotline 0976001983 
+                  | (sms viber zalo) hoặc fanpage 
+            #menu2.tab-pane.fade
+              p
+                | * Đơn hàng trên 600,000 đồng được miễn phí giao nội thành.
+              p
+                | * Phí giao hàng 30,000 đồng cho mỗi lần giao.
+              p
+                | * Khách hàng ở tỉnh sẽ trả theo cước vận chuyển của xe
+              p
+                span.hotline
+                  | Các thắc mắc khác vui lòng liên hệ 
+                  span.phone
+                    | hotline 0976001983 
+                  | (sms viber zalo) hoặc fanpage 
+            #menu3.tab-pane.fade
+              p
+                strong
+                  | Cách 1: 
+              p
+                | Thanh toán khi nhận hàng - áp dụng với đơn hàng nội thành
+              p
+                strong
+                  | Cách 2: 
+              p
+                strong
+                  | 1
+                |  Nếu khách hàng chọn thanh toán trực tuyến, sẽ thanh toán trực tuyến rồi giao hàng. 
+              p
+                strong
+                  | 2.
+                |  Nếu khách chọn thanh toán khi nhận hàng thì, đ4ơn hàng sẽ được giao tận tay cho khách hàng, khách sẽ kiểm tra hàng và thanh toán.
+              p
+                span.hotline
+                  | Các thắc mắc khác vui lòng liên hệ 
+                  span.phone
+                    | hotline 0976001983 
+                  | (sms viber zalo) hoặc fanpage 
+      .col-md-3.shopping_guide
+        .well
+          h4
+            | Video song
+          iframe[width="230" height="300" src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen]
+        .well
+          h4
+            | Kết nối facebook
+          iframe[src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="230" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"]

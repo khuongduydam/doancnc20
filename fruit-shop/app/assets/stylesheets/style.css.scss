@@ -113,8 +113,7 @@ header {
 		border-left: 1px solid black;
 	}
 }
-.navbar-default {
-	.navbar-nav {
+.navbar-nav {
 		li {
 			a {
 				color: $color_4;
@@ -125,9 +124,7 @@ header {
 			}
 		}
 	}
-}
-.navbar-default {
-	.navbar-nav {
+.navbar-nav {
 		.active {
 			a {
 				&:focus {
@@ -136,7 +133,6 @@ header {
 			}
 		}
 	}
-}
 .carousel-inner {
 	.item {
 		img {
@@ -218,16 +214,6 @@ header {
 		}
 	}
 }
-p {
-	text-align: center;
-}
-h4 {
-	text-align: center;
-	color: $color_5 !important;
-}
-h5 {
-	text-align: center;
-}
 .sub_wish_list {
 	.row {
 		.col-sm-4 {
@@ -282,6 +268,29 @@ footer {
 	background: rgba(70,170,72, 0.97);
 	color: $color_4;
 	text-align: center;
+		.container{
+			.row{
+				margin-top: 30px;
+				.col-md-7{
+					h3{
+						text-align: left;
+						font-size: 30px;
+						color: red;
+					}
+					p{
+						text-align: left;
+						font-size: 17px;
+					}
+				}
+				.col-md-5{
+					padding-top: 20px;
+					img{
+						padding-top: 20px;
+					}
+
+				}
+			}
+		}
 }
 .table {
 	thead {
