@@ -1,0 +1,4 @@
+- flash.each do |name, msg|
+ - if msg.is_a?(String)
+   div class="alert alert-dismissible alert-#{name.to_s == 'notice' ? 'success' : 'danger'} center-block text-center" style="width: 500px; font-size: 20px;"
+     = content_tag :div, msg, :id => "flash_#{name}"
