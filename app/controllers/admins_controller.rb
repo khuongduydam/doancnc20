@@ -1,9 +1,10 @@
-class AdminsController < ActionController::Base
+  class AdminsController < ActionController::Base
   before_action :admin_only, :authenticate_user!
   layout 'admin_layout'
 
   def index
     @users = User.all.order(id: :asc)
+    @products = Product.all.order(id: :asc)
   end
 
   def admin_only

@@ -19,11 +19,6 @@ class Admins::UsersController < AdminsController
     end
   end
 
-  def destroy
-    if @user.destroy
-      redirect_to admins_path
-    end
-  end
   private
 
   def find_user
