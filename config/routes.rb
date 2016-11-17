@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :news, :products, :users
   end
   resources :users, only: [:show, :edit, :update, :destroy]
-  resources :admins, only: [:index, :show]
+  resources :admins, only: :index
 end

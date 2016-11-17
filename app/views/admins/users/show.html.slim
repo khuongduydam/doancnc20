@@ -1,1 +1,31 @@
-= current_user.username
+.container
+  .table-responsive
+    table.table.table-bordered
+      thead
+        tr.active
+          th Id
+          td = @user.id
+        tr.success
+          th Username
+          td = @user.username
+        tr.info
+          th Email
+          td = @user.email
+        tr.warning
+          th First Name
+          td = @user.first_name
+        tr.danger
+          th Last Name
+          td = @user.last_name
+        tr.active
+          th Address
+          td = @user.address
+        tr.success
+          th Phone
+          td = @user.phone
+        tr.info
+          th Sex
+          td = @user.sex
+        tr.warning
+          th Birth Day
+          td = @user.birth_day     

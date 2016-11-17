@@ -6,10 +6,6 @@ class AdminsController < ActionController::Base
     @users = User.all.order(id: :asc)
   end
 
-  def show
-    @user = current_user
-  end
-
   def admin_only
     unless current_user.admin? 
       flash[:error] = "You are not allow to access"
