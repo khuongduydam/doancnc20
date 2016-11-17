@@ -12,13 +12,7 @@ class ApplicationController < ActionController::Base
     sign_up = -> u {u.permit(:username, :first_name,:email, :last_name, 
                              :password,:password_confirmation,:address, 
                              :phone, :sex, :birth_day)}
-    sign_in = -> u {u.permit(:username, :password)}
-    account_update = -> u {u.permit(:username, :first_name,:last_name, 
-                                    :email, :password,:password_confirmation,
-                                    :address, :phone, :sex, :birth_day,:current_password)}
     devise_parameter_sanitizer.permit(:sign_up,&sign_up)
-    devise_parameter_sanitizer.permit(:sign_in,&sign_in)
-    devise_parameter_sanitizer.permit(:account_update,&account_update)
   end
 
   private :permitted_params
