@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find(params[:id])
-  end 
+    begin
+      @user = User.try(:find, params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      redirect_to root_path, :alert => 'User not found!.'
+    end  
+  end
 end
