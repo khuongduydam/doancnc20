@@ -1,0 +1,21 @@
+#users.tab-pane.fade.in.active
+  .table-responsive
+    table.table
+      thead
+        tr.info
+          th Id
+          th Username
+          th Email
+          th First Name
+          th Last Name
+          th Property
+      tbody
+        - @users.each do |user|
+          tr.danger
+            td = user.id
+            td = user.username
+            td = user.email
+            td = user.first_name
+            td = user.last_name
+            td 
+              = link_to 'Detail', '#',class: 'btn btn-info'

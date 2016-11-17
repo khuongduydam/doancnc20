@@ -3,6 +3,11 @@ class AdminsController < ActionController::Base
   layout 'admin_layout'
 
   def index
+    @users = User.all.order(id: :asc)
+  end
+
+  def show
+    @user = current_user
   end
 
   def admin_only

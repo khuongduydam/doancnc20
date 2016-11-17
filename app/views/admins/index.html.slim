@@ -1,0 +1,37 @@
+.containner.center-block[style="width:900px;"]
+  h1.text-center 
+    | Admin Dash Board
+  ul.nav.nav-tabs
+    li.active
+      a[data-toggle='tab' href='#users']Users
+    li
+      a[data-toggle='tab' href='#products']Products
+    li
+      a[data-toggle='tab' href='#news']News
+  .tab-content
+    #users.tab-pane.fade.in.active  
+      = render 'admins/user'
+    #products.tab-pane.fade
+      .table-responsive
+        table.table
+          thead
+            tr.info
+              th Name
+              th Price
+              th Origin
+              th Description
+              th Quantity
+              th Property
+          / tbody
+          /   - @products.each do |product|
+          /   tr.success
+          /     td = product.name
+          /     td = product.price
+          /     td = product.origin
+          /     td = product.description
+          /     td = product.quantiy
+          /     td 
+          /       = link_to 'Detail', '#',class: 'btn btn-info'
+
+
+          
