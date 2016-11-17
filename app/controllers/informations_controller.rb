@@ -1,0 +1,1 @@
+informations_controller.rb
