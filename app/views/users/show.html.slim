@@ -29,4 +29,15 @@
         tr.warning
           th Birth Day
           td = @user.birth_day     
-= link_to 'Home', root_path,class: 'btn btn-default btn-lg center-block', style:'width:200px;'          
+= link_to 'Home', root_path,class: 'btn btn-default btn-lg center-block', style:'width:200px;' 
+h3.text-center 
+  | Submitted 
+  = time_ago_in_words(@user.created_at) 
+  |  ago  
+h3.text-center Comments
+= form_for [@user, Comment.new], html:{class:'form-group center-block', style:'width:200px;'} do |f|
+  = f.text_area :content, placeholder: 'Add a comment'
+  = f.submit 'Add a comment', class:' form-control'
+br
+br
+  = render partial: 'comments/comment', collection: @user.comments    

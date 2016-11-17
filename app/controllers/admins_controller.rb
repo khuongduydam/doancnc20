@@ -15,7 +15,12 @@
     rescue
       root_path
   end
-
+  def destroy
+    @user = User.try(:find, params[:id])
+    if @user.destroy
+      redirect_to admins_path
+    end
+  end
 
   private :admin_only
 end
