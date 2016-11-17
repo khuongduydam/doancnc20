@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :informations, :products, :users, :categories
   end
-  resources :users, only: [:show, :edit, :update, :destroy]
-  resources :admins,:informations,:categories,:products, only: [:index, :show]
+  resources :users, only: :show
+  resources :admins, only: :index
+  resources :informations,:categories,:products, only: [:index, :show]
 end

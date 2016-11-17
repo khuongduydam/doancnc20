@@ -1,0 +1,59 @@
+.container.center-block.well[style="width:800px;"]
+  h2.text-center
+    | Edit 
+  br  
+    / = resource_name.to_s.humanize
+  = form_for @user, url: admins_user_path, html: { method: :put , class:'form-group'} do |f|
+    = user_error_messages!
+    .row
+      .col-xs-4.col-md-4  
+        = f.label :username
+        = f.text_field :username, autofocus: true, class: 'form-control'
+        / br
+        / = f.label :current_password
+        / i
+        / = f.password_field :current_password, autocomplete: "off", class:'form-control'
+        br   
+        = f.label :password
+        i
+        = f.password_field :password, autocomplete: "off", class:'form-control'
+        / - if @minimum_password_length
+        /   br
+        /   em
+        /     = @minimum_password_length
+        /     |  characters minimum
+        br
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: "off",class: 'form-control'
+        br
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
+      / - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      /   div
+      /     | Currently waiting confirmation for: 
+      /   = resource.unconfirmed_email
+      .col-xs-5.col-md-5
+        = f.label :address
+        = f.text_field :address, class:'form-control'
+        br
+        = f.label :first_name
+        = f.text_field :first_name, class:'form-control'
+        br
+        = f.label :last_name
+        = f.text_field :last_name, class:'form-control'
+        br
+        = f.label :phone
+        = f.number_field :phone, class:'form-control'
+      .col-xs-3.col-md-3
+        = f.label :sex
+        = f.select :sex, options_for_select(['Male','Female']), {},class:'form-control'
+        br
+        = f.label :birth_day
+        = f.date_field :birth_day,class:'form-control'
+        br  
+        br  
+        = f.submit "Update",class:'btn btn-success actions',style:'position: relative; top:3px;width: 170px;'
+        br
+        br
+        / = link_to "Delete Account", admins_user_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger', style:'position: relative; top:7px;width:170px;'
+        = link_to 'Back', :back, class:'btn btn-default' ,style:'width:170px;'

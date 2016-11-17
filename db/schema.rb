@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20161117102456) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["category_id", "created_at"], name: "index_products_on_category_id_and_created_at", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 
