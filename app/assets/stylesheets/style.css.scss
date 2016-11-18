@@ -20,19 +20,7 @@ header {
 	margin-top: 15px;
 }
 .dropdown-menu {
-	height: 110px;
-	width: 300px;
-	position: absolute;
-	left: 0;
-	z-index: 1000;
-	display: none;
-	float: left;
-	list-style: none;
-	font-size: 15px;
-	text-align: left;
-	background-color: #46aa48;
-	border: 1px solid #cccccc;
-	border: 1px solid rgba(0, 0, 0, 0.15);
+	
 	li { 
 		a:hover{ 
 			text-decoration: none;
@@ -62,7 +50,7 @@ header {
 			li {
 				a {
 					text-decoration: none;
-					color: $color_1;
+					color: red !important;
 				}
 			}
 		}
@@ -101,6 +89,21 @@ header {
 	width: 43px;
 	height: 30px;
 	padding-left: 5px;
+}
+.section_top{
+	margin-bottom:  20px;
+	.container{
+		.row{
+			.col-md-7{
+				a:hover{
+					color: #cee48a !important;
+				}
+				a:focus{
+					color: #cee48a !important;
+				}
+			}
+		}
+	}
 }
 .section_top {
 	margin-bottom: 20px;
@@ -143,6 +146,42 @@ header {
 			img {
 				width: 100% !important;
 				margin: auto;
+			}
+		}
+	}
+}
+header{
+	.container{
+		.navbar.navbar-default{
+			.container-fluid{
+				.navbar-header{}
+				.collapse.navbar-collapse#navbar{
+					ul.nav.navbar-nav{
+						li.dropdown.open{
+							a.dropdown-toggle{
+								background-image: linear-gradient(to bottom, #d2af31 0, #d2af31 100%);
+							}
+							ul.dropdown-menu{
+								height: 110px;
+								width: 300px;
+								position: absolute;
+								left: 0;
+								z-index: 1000;
+								display: none;
+								float: left;
+								list-style: none;
+								font-size: 15px;
+								text-align: left;
+								background-color: #46aa48;
+								border: 1px solid #cccccc;
+								border: 1px solid rgba(0, 0, 0, 0.15);
+								li{
+									a{}
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -444,12 +483,12 @@ footer {
 		.item {
 			img {
 				margin: auto;
-				height: 180px;
+				height: 200px;
 			}
 			a {
 				img {
 					margin: auto;
-					height: 180px;
+					height: 200px;
 				}
 			}
 		}
@@ -647,13 +686,13 @@ footer {
 			img {
 				width: 100% !important;
 				margin: auto;
-				height: 150px;
+				height: 500px;
 			}
 			a {
 				img {
 					width: 100% !important;
 					margin: auto;
-					height: 150px;
+					height: 500px;
 				}
 			}
 		}
@@ -705,12 +744,12 @@ footer {
 		.item {
 			img {
 				width: 100% !important;
-				height: 350px;
+				height: 500px;
 			}
 			a {
 				img {
 					width: 100% !important;
-					height: 350px;
+					height: 500px;
 				}
 			}
 		}

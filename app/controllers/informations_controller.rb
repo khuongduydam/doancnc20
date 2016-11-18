@@ -1,1 +1,4 @@
-informations_controller.rb
+class InformationsController < ApplicationController
+  def information
+  end
+end

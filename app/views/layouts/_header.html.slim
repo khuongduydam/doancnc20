@@ -21,7 +21,7 @@ section.section_top
           i.fa.fa-shopping-cart(aria-hidden="true")
 header
   .container
-    nav.navbar
+    nav.navbar.navbar-default
       .container-fluid
         .navbar-header
           button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
@@ -34,7 +34,7 @@ header
           ul.nav.navbar-nav
             li
               / a(href="home.html")
-              = link_to "TRANG ", root_path
+              = link_to "TRANG CHỦ ", root_path
 
                 / | TRANG CHỦ
             li.dropdown
@@ -45,7 +45,7 @@ header
                 li
                   / a(href="products/traicaynhap")
                   /   | TRÁI CÂY NHẬP 
-                  = link_to "TRÁI CÂY NHẬP KHẨU ", traicaynhap_products_path
+                  = link_to "TRÁI CÂY NHẬP KHẨU ", products_path
                 li
                   /a(href="traicaymienbac.html")
                     /| TRÁI CÂY MIỀN BẮC
@@ -55,11 +55,8 @@ header
                    / | TRÁI CÂY MIỀN NAM
                   = link_to "TRÁI CÂY MIỀN NAM", traicaymiennam_products_path
             li
-              a(href="shopping_guide.html")
-                | HƯỚNG DẪN MUA HÀNG
+              = link_to "HƯỚNG DẪN MUA HÀNG", shoppingguide_shoppingguides_path
             li
-              / a(href="information.html")
-              /   | THÔNG TIN HỮU ÍCH
               = link_to "THÔNG TIN HỮU ÍCH", information_informations_path
             li
               = link_to "LIÊN HỆ", contacts_contacts_path
