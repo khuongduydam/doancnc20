@@ -2,7 +2,6 @@
   h2.text-center
     | Create a new account
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-group'}) do |f|
-    = devise_error_messages!
     .row
       .col-xs-4.col-md-4
         = f.label :username
@@ -37,10 +36,11 @@
         = f.number_field :phone, class:'form-control'
         br
         = f.submit "Sign up", class:'btn btn-primary center-block', style:'width: 300px;'
+        br
+        = link_to 'Home Page', products_path, class: 'btn btn-success center-block', style: 'width:300px;'
       .col-xs-3.col-md-3
         = f.label :sex
         = f.select :sex, options_for_select(['Male','Female']), {},class:'form-control'
         br
         = f.label :birth_day
         = f.date_field :birth_day, class:' form-control'
-  = render "devise/shared/links"

@@ -11,9 +11,6 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     = render "layouts/header"
-    p.notice
-      = notice
-    p.alert
-      = alert
+    = render 'layouts/flash_messages'
     = yield
     = render "layouts/footer"

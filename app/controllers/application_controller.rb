@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :permitted_params, if: :devise_controller?
+  layout :layout_devise
   def after_sign_in_path_for(resource)
     if current_user.admin?
       admins_path
@@ -8,12 +9,16 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
+
+  private
   def permitted_params
     sign_up = -> u {u.permit(:username, :first_name,:email, :last_name, 
-                             :password,:password_confirmation,:address, 
-                             :phone, :sex, :birth_day)}
+     :password,:password_confirmation,:address, 
+     :phone, :sex, :birth_day)}
     devise_parameter_sanitizer.permit(:sign_up,&sign_up)
   end
 
-  private :permitted_params
+  def layout_devise
+    devise_controller? ? 'admin_layout' : 'application'
+  end
 end

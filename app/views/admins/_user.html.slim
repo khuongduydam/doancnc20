@@ -8,7 +8,7 @@
           th Email
           th First Name
           th Last Name
-          th[style="width:300px;"] Property
+          th Property
       tbody
         - @users.each do |user|
           tr.danger
@@ -17,8 +17,8 @@
             td = user.email
             td = user.first_name
             td = user.last_name
-            td 
+            td[style="width:230px;"]
               = link_to 'Detail', admins_user_path(user),class: 'btn btn-info'
-              = link_to 'Edit', edit_admins_user_path(user), class: 'btn btn-warning',style: 'margin-left:20px;'
-              = link_to 'Delete Account', admins_user_path(user),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+              = link_to 'Edit', edit_admins_user_path(user), class: 'btn btn-warning',style:'position:relative;right: -15px;'
+              = link_to 'Delete', admins_user_path(user),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style:'position:relative;right: -30px;'
 
