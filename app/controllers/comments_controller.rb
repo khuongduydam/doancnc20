@@ -5,7 +5,13 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save
     redirect_to @commentable
-    flash[:success] = "Comment add successful"
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to :back
+    end
   end
 
   private
@@ -13,3 +19,4 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:content)
   end
 end
+

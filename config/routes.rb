@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
     resources :comments, module: :products 
   end
+  resources :comments, except: [:index, :new]
   resources :informations, only: :information do
     collection do 
       get "information"     

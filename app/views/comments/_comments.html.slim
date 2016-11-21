@@ -1,4 +1,10 @@
-h3.text-center Comments
 - commentable.comments.each do |comment|
-  .container.well[style="width:200px;"] = comment.content
-
+  .well[style="width:400px;"] 
+    = comment.content
+    strong 
+      |  posted by 
+      = comment.user.email
+      = comment.created_at.strftime(" - %d %m %Y %H:%S:%M")
+    br
+    - if comment.user == current_user
+      = link_to 'Delete', comment_path(comment), method: :delete,data: {confirm:'wanna delete?'}
