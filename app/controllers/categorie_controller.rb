@@ -1,1 +1,0 @@
-categorie_controller.rb

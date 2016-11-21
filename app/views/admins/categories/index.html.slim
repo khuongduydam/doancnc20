@@ -1,1 +1,25 @@
-index.html.slim
+= link_to "Add new Category", new_admins_category_path
+
+h1
+  | List category
+table
+  thead
+    tr
+      th
+        | Category name
+      th
+        | Image
+      th
+        | Action
+  tbody
+    - @categories.each do |category|  
+      tr
+        td
+          = link_to category.name, admins_category_path(category)
+        td
+          - category.pictures.each do |img|
+            = image_tag img.image
+        td 
+          = link_to "edit",  edit_admins_category_path(category)
+          |  | 
+          = link_to "delete", admins_category_path(category) , method: :delete, data: {confirm: "All products in this category will be delete. You sure?"}

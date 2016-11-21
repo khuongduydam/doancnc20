@@ -1,1 +1,26 @@
-show.html.slim
+h2 
+  | Product 
+  = @product.name
+= link_to "My wishlist", wishlists_path
+| Price : 
+= @product.price
+br
+| Origin : 
+= @product.origin
+br
+| Description : 
+= @product.description
+br
+| Quantity : 
+= @product.quantity
+br
+| Category :
+= @product.category.name
+br
+| Picture : 
+- @product.pictures.each do |img|
+  = image_tag img.image
+br
+- if current_user != nil
+  / =jdljaslj
+  = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post

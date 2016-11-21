@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117102456) do
+ActiveRecord::Schema.define(version: 20161120171653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,11 @@ ActiveRecord::Schema.define(version: 20161117102456) do
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
   end
 
-  create_table "informations", force: :cascade do |t|
+  create_table "newspapers", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_informations_on_user_id", using: :btree
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -63,6 +61,7 @@ ActiveRecord::Schema.define(version: 20161117102456) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["category_id", "created_at"], name: "index_products_on_category_id_and_created_at", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 
@@ -93,6 +92,17 @@ ActiveRecord::Schema.define(version: 20161117102456) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
-  add_foreign_key "informations", "users"
+  create_table "wish_lists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_wish_lists_on_product_id", using: :btree
+    t.index ["user_id", "created_at"], name: "index_wish_lists_on_user_id_and_created_at", using: :btree
+    t.index ["user_id"], name: "index_wish_lists_on_user_id", using: :btree
+  end
+
   add_foreign_key "products", "categories"
+  add_foreign_key "wish_lists", "products"
+  add_foreign_key "wish_lists", "users"
 end

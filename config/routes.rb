@@ -4,8 +4,14 @@ Rails.application.routes.draw do
   # mount Ckeditor::Engine => '/ckeditor'
   root 'homes#index'
   namespace :admins do
-    resources :informations, :products, :users, :categories
+    resources :newspapers, :products, :users, :categories
   end
   resources :users, only: [:show, :edit, :update, :destroy]
-  resources :admins,:informations,:categories,:products, only: [:index, :show]
+  resources :admins,:newspapers,:categories,only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    collection do
+      get 'new_products'
+    end
+  end
+  resources :wishlists, only: [:index, :create, :destroy]
 end

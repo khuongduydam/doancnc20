@@ -1,1 +1,37 @@
-show.html.slim
+h2 
+  | Products of 
+  = @category.name
+table
+  thead
+    tr
+      th
+        | Name
+      th 
+        | Pirce
+      th 
+        | Origin
+      th 
+        | Quantity
+      th
+        | Picture
+      th 
+        | Detail
+  tbody
+    - @products.each do |product|
+      tr
+        td
+          = product.name
+        td
+          = product.price
+        td
+          = product.origin
+        td
+          = product.quantity
+        td 
+          - product.pictures.each do |img|
+            = image_tag img.image
+        td
+          = link_to "Detail", product_path(product)
+          |  | 
+          - if current_user != nil
+            = link_to "Add to my wish_list", product_path(product)

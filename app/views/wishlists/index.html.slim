@@ -1,0 +1,29 @@
+h2
+  | My wish list
+table
+  thead
+    tr
+      th
+        | Name
+      th
+        | Price
+      th
+        | Quantity
+      th
+        | Pictures
+      th
+        | Action
+  tbody
+    - @wishlists.each do |wishlist|
+      tr
+        td
+          = wishlist.product.name
+        td 
+          = wishlist.product.price
+        td 
+          = wishlist.product.quantity
+        td
+          - wishlist.product.pictures.each do |img|
+            = image_tag img.image
+        td
+          = link_to "Destroy", wishlist_path(wishlist), method: :delete, data: {confirm: "You sure?"}

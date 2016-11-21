@@ -1,0 +1,24 @@
+h2
+ | All newspaper
+br
+= link_to "Add new newspaper", new_admins_newspaper_path
+table
+  thead
+    tr
+      th
+        | Newspaper tile
+      th
+        | Detail
+      th
+        | Action
+  tbody
+    - @newspapers.each do |newspaper|  
+      tr
+        td
+          = newspaper.title
+        td
+          = link_to "detail", admins_newspaper_path(newspaper)
+        td 
+          = link_to "edit",  edit_admins_newspaper_path(newspaper)
+          |  | 
+          = link_to "delete", admins_newspaper_path(newspaper) , method: :delete, data: {confirm: "You sure?"}

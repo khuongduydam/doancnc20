@@ -1,0 +1,16 @@
+h2
+ | All newspaper
+table
+  thead
+    tr
+      th
+        | Newspaper tile
+      th
+        | Detail
+  tbody
+    - @newspapers.each do |newspaper|  
+      tr
+        td
+          = newspaper.title
+        td
+          = link_to "detail", newspaper_path(newspaper)

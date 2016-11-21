@@ -1,0 +1,12 @@
+= simple_form_for [:admins, @category] do |f|
+  / = render 'my_devise/registrations/form', locals: {f:f}
+  / = render 'shared/error_messages', object: f.object
+  .field 
+    = f.input :name
+    br 
+  .field
+    = f.simple_fields_for :pictures do |picture|
+      = image_tag picture.object.image
+      = picture.input :image
+  .actions
+    = f.submit yield(:btn_text)
