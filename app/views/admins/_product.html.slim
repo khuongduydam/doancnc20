@@ -12,11 +12,11 @@
       tbody
         - @products.each do |product|
           tr.danger
-            td = product.id
-            td = product.username
-            td = product.email
-            td = product.first_name
-            td = product.last_name
+            / td = product.id
+            / td = product.username
+            / td = product.email
+            / td = product.first_name
+            / td = product.last_name
             td 
               = link_to 'Detail', admins_product_path(product),class: 'btn btn-info'
               = link_to 'Edit', edit_admins_product_path(product), class: 'btn btn-warning',style: 'margin-left:20px;'
