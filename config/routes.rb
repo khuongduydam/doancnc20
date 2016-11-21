@@ -25,9 +25,10 @@ Rails.application.routes.draw do
       get "traicaymiennam"
     end
   end
-  resources :informations, only: :information do
+  resources :informations do
     collection do 
-      get "information"     
+      get "information"
+      get "detail"     
     end
   end
   resources :shoppingguides do
