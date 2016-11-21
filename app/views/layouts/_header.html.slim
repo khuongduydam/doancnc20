@@ -62,17 +62,18 @@ header
               = link_to "LIÊN HỆ", contacts_contacts_path
           form.navbar-form.navbar-right
             input.form-control(type="text" placeholder="Search...")
-section.sections-lider
-  #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
-    .carousel-inner(role="listbox")
-      .item.active
-        = image_tag("slider1.png")
-      .item
-        = image_tag("slider2.png")        
-      .item
-        = image_tag("slider3.png")
-      .item
-        = image_tag("slider4.png")
+
+    section.sections-lider
+      #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
+        .carousel-inner(role="listbox")
+          .item.active
+            = image_tag("slider1.png")
+          .item
+            = image_tag("slider2.png")        
+          .item
+            = image_tag("slider3.png")
+          .item
+            = image_tag("slider4.png")
 javascript:
   $('ul.nav li.dropdown').hover(function() { 
     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
