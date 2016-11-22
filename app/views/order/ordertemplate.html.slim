@@ -1,0 +1,73 @@
+section.section_order_template
+  .container
+    form.form_order_template
+      .table-responsive
+        table.table.table-striped
+          tr
+            th
+              | Sản phẩm
+            th
+
+            th
+              | Giá
+            th
+              | Số lượng
+            th
+              | Tổng cộng
+            th
+
+          tr
+            td
+              img.img-circle[src="img/bonbon.png"]
+            td
+              a[href="#"]
+                | Bòn bon
+            td
+              | 90,000 Đ
+            td
+              input[type="number" step="1" value="1" name="quantity" min="1" max="20"]
+            td
+              | 90,000 Đ
+            td
+              a.remove[href="#" title="Remove this item"]
+                i.fa.fa-times[aria-hidden="true"]
+          tr
+            td
+              img.img-circle[src="img/bonbon.png"]
+            td
+              a[href="#"]
+                | Bòn bon
+            td
+              | 90,000 Đ
+            td
+              input[type="number" step="1" value="1" name="quantity" min="1" max="20"]
+            td
+              | 90,000 Đ
+            td
+              a.remove[href="#" title="Remove this item"]
+                i.fa.fa-times[aria-hidden="true"]
+          tr
+            td
+              img.img-circle[src="img/bonbon.png"]
+            td
+              a[href="#"]
+                | Bòn bon
+            td
+              | 90,000 Đ
+            td
+              input[type="number" step="1" value="1" name="quantity" min="1" max="20"]
+            td
+              | 90,000 Đ
+            td
+              a.remove[href="#" title="Remove this item"]
+                i.fa.fa-times[aria-hidden="true"]
+    .row
+      .col-md-9.total1
+        h3
+          | Tổng đơn hàng: 
+          strong
+            | 270,000 Đ
+      .col-md-3
+        h3
+          button.btn.btn-success.btn-lg.right[type="button"]
+            | Thanh toán đơn đặt hàng 

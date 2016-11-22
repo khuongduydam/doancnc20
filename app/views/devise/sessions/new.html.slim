@@ -1,7 +1,8 @@
-.container.center-block.well[style="width: 300px;"]
+.container.center-block.well[style="width: 330px;"]
   h2
     | Log in
   = form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:'form-group'}) do |f|
+    = devise_error_messages!
     .field
       = f.label :username
       br
@@ -16,6 +17,8 @@
       .field
         = f.check_box :remember_me
         = f.label :remember_me
-    .actions
-      = f.submit "Log in", class:'btn btn-default'
-  = render "devise/shared/links"
+    .actions[style="display: inline;"]
+      = f.submit "Đăng nhập", class:'btn btn-primary', style: 'margin-left:-1px;'
+      = link_to 'Đăng ký', new_user_registration_path, class: 'btn btn-success', style:'margin-left:10px;'
+      = link_to 'Home Page', products_path, class: 'btn btn-info pull-right'
+

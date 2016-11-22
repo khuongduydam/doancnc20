@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 = simple_form_for [:admins, @category] do |f|
   / = render 'my_devise/registrations/form', locals: {f:f}
   / = render 'shared/error_messages', object: f.object
@@ -8,5 +9,19 @@
     = f.simple_fields_for :pictures do |picture|
       = image_tag picture.object.image
       = picture.input :image
+=======
+= form_for(@category) do |f|
+  / = render 'my_devise/registrations/form', locals: {f:f}
+  / = render 'shared/error_messages', object: f.object
+  .field 
+    = f.label :name
+    br
+    = f.text_field :name
+    br 
+  .field
+    = f.fields_for :pictures do |picture|
+      = picture.label :image
+      = picture.file_field :image
+>>>>>>> 86b2e2420d51df9772aed5229d3a0e796ba3482e
   .actions
     = f.submit yield(:btn_text)

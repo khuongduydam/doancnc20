@@ -1,12 +1,9 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @product_news = Product.first(10)
+    @wishlists = WishList.first(3)
   end
   def show
     @product = Product.find(params[:id])
-  end
-
-  def new_products
-    @products = Product.first(10)
   end
 end

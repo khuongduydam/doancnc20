@@ -1,0 +1,24 @@
+/ h2 
+/  | Category
+/ table
+/   thead
+/     tr
+/       th
+/         | Category name
+/       th 
+/         | Picture
+/       th 
+/         | All products of this category
+/   tbody
+/     - @categories.each do |category|
+/       tr 
+/         td 
+/           = category.name
+/         td 
+/           - category.pictures.each  do |img_tag|
+/             = image_tag img_tag.image
+/         td  
+/           = link_to "All products", category_path(category)
+- categories.each do |category|
+  li
+    = link_to category.name, category_path(category)

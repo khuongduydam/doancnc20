@@ -1,0 +1,78 @@
+section.section_top
+  .container
+    .row
+      .col-md-7.col-sm-12.col-xs-12
+        a.sologan(href="#")
+          | Fruit are part of out nature
+      .col-md-3.col-sm-6.col-xs-12
+        .user
+          / a(href="#")
+          /   i.fa.fa-lock(aria-hidden="true")
+          /   br
+          /   | Đăng nhập
+          - unless user_signed_in?  
+            = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path  
+          - else
+            = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
+        .user
+          / a(href="#")
+          /   i.fa.fa-users(aria-hidden="true")
+          /   br
+          /   | Đăng ký
+          - unless user_signed_in?  
+            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path  
+      .col-md-2.col-sm-6.col-xs-12
+        a.btn.btn-success(href="ordertemplate.html")
+          | CART 
+          i.fa.fa-shopping-cart(aria-hidden="true")
+header
+  .container
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              / a(href="home.html")
+              = link_to "TRANG CHỦ ", root_path
+
+                / | TRANG CHỦ
+            li.dropdown
+              a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
+                | SẢN PHẨM 
+                span.caret
+              ul.dropdown-menu(aria-labelledby="sanpham")
+                - @categories = Category.all
+                = render partial: 'categories/index', locals: { categories: @categories}
+            li
+              = link_to "HƯỚNG DẪN MUA HÀNG", shoppingguide_shoppingguides_path
+            li
+              = link_to "THÔNG TIN HỮU ÍCH", newspapers_path
+            li
+              = link_to "LIÊN HỆ", contacts_contacts_path
+          form.navbar-form.navbar-right
+            input.form-control(type="text" placeholder="Search...")
+
+    section.sections-lider
+      #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
+        .carousel-inner(role="listbox")
+          .item.active
+            = image_tag("slider1.png")
+          .item
+            = image_tag("slider2.png")        
+          .item
+            = image_tag("slider3.png")
+          .item
+            = image_tag("slider4.png")
+javascript:
+  $('ul.nav li.dropdown').hover(function() { 
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
+    function() { 
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
+    }); 

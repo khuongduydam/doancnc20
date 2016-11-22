@@ -1,0 +1,12 @@
+li
+  = comment.content
+  h3.text-center
+    | Submitted
+    = time_ago_in_words(comment.created_at)
+    |  ago
+  = form_for [comment, Comment.new] do |f|
+    = f.text_area :content, placeholder: 'Add a reply'
+    = f.submit 'Reply'
+  br
+  br
+    = render partial: 'comments/comment', collection: comment.comments    

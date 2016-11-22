@@ -1,13 +1,10 @@
-class AdminsController < ActionController::Base
+  class AdminsController < ActionController::Base
   before_action :admin_only, :authenticate_user!
   layout 'admin_layout'
 
   def index
     @users = User.all.order(id: :asc)
-  end
-
-  def show
-    @user = current_user
+    @products = Product.all.order(id: :asc)
   end
 
   def admin_only
@@ -18,7 +15,12 @@ class AdminsController < ActionController::Base
     rescue
       root_path
   end
-
+  def destroy
+    @user = User.try(:find, params[:id])
+    if @user.destroy
+      redirect_to admins_path
+    end
+  end
 
   private :admin_only
 end

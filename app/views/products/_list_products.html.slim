@@ -26,7 +26,7 @@ table
           = product.quantity
         td 
           - product.pictures.each do |img|
-            = image_tag img.image
+            = link_to image_tag(img.image), product_path(product)
         td
           = link_to "Detail", product_path(product)
           |  | 
