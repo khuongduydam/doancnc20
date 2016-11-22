@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     resources :comments
   end
   #########jane
+  resources :orders do
+    collection do 
+      get "ordertemplate"
+    end
+  end
   resources :products do
     collection do 
       get "traicaymienbac"

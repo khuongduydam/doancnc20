@@ -122,6 +122,11 @@ header {
 		margin-right: 0px;
 		margin-top: 1px;
 		border-left: 1px solid black;
+		.btn.btn-success{
+			a{
+				color: #fff !important;
+			}
+		}
 	}
 }
 .navbar-nav {
@@ -221,6 +226,12 @@ header{
 				}
 			}
 		}
+	}
+	.ads-right{
+		margin:0 0 5px 0; padding:0;
+		width:200px;
+		height: 665px;
+		position:fixed; right:0; top:0;
 	}
 }
 .sections-product {

@@ -22,9 +22,9 @@ section.section_top
           - unless user_signed_in?  
             = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path  
       .col-md-2.col-sm-6.col-xs-12
-        a.btn.btn-success(href="ordertemplate.html")
-          | CART 
-          i.fa.fa-shopping-cart(aria-hidden="true")
+        /a.btn.btn-success(href="ordertemplate.html")
+        / | CART 
+        .btn.btn-success = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, ordertemplate_orders_path
 header
   .container
     nav.navbar.navbar-default
