@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'therubyracer', '~> 0.12.2'
+
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
