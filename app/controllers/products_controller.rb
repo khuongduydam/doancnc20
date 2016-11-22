@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
     @product_news = Product.first(10)
     @wishlists = WishList.first(3)
   end
+
   def show
-    @product = Product.find(params[:id])
+    @product = Product.try(:find,params[:id])
   end
 end

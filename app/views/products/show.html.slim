@@ -23,3 +23,7 @@ br
 - if current_user != nil
   / =jdljaslj
   = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post
+
+= render partial: 'comments/comments', locals: {commentable: @product}
+= render partial: 'comments/form', locals: {commentable: @product}
+

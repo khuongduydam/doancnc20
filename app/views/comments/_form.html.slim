@@ -1,0 +1,5 @@
+= form_for [commentable, Comment.new] do |f|
+  .form-group
+    = f.text_area :content, class:'form-control', placeholder: 'Add a comment',style:'width:400px;'
+    br
+    = f.submit 'Submit', class: 'btn btn-success'
