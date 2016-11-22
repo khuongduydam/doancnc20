@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117102457) do
+ActiveRecord::Schema.define(version: 20161122043729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,15 @@ ActiveRecord::Schema.define(version: 20161117102457) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "commentable_id"
+    t.integer  "user_id"
     t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.text     "content"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "parent_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "informations", force: :cascade do |t|
@@ -84,7 +88,6 @@ ActiveRecord::Schema.define(version: 20161117102457) do
     t.string   "address",                default: "", null: false
     t.string   "phone",                  default: "", null: false
     t.string   "sex",                    default: "", null: false
-    t.datetime "birth_day",                           null: false
     t.integer  "coin",                   default: 0
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -97,11 +100,15 @@ ActiveRecord::Schema.define(version: 20161117102457) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "role",                   default: 0
+    t.string   "birth_day"
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "comments", "users"
   add_foreign_key "informations", "users"
   add_foreign_key "products", "categories"
 end

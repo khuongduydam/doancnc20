@@ -21,4 +21,4 @@
       = f.submit "Đăng nhập", class:'btn btn-primary', style: 'margin-left:-1px;'
       = link_to 'Đăng ký', new_user_registration_path, class: 'btn btn-success', style:'margin-left:10px;'
       = link_to 'Home Page', products_path, class: 'btn btn-info pull-right'
-
+  = render 'devise/shared/facebook'
