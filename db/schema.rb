@@ -124,7 +124,6 @@ ActiveRecord::Schema.define(version: 20161122043729) do
   end
 
   add_foreign_key "comments", "users"
-  add_foreign_key "informations", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "wish_lists", "products"
   add_foreign_key "wish_lists", "users"
