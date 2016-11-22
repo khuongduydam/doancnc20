@@ -13,4 +13,7 @@ class ProductsController < ApplicationController
   def traicaynhap
   	
   end
+  def detailproduct
+    
+  end
 end

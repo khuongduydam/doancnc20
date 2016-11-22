@@ -149,11 +149,13 @@ header {
 		img {
 			width: 100% !important;
 			margin: auto;
+			height: 250px!important;
 		}
 		a {
 			img {
 				width: 100% !important;
 				margin: auto;
+				height: 250px!important;
 			}
 		}
 	}
@@ -167,7 +169,7 @@ header{
 					ul.nav.navbar-nav{
 						li{ a{
 							  color: #333;
-						    font-size: 18px;
+						    font-size: 16px;
 						    font-weight: 400;
 						    }
 						}
@@ -200,6 +202,27 @@ header{
 		}
 	}
 }
+.sections-product{
+	.container{
+		.row{
+			.col-md-9.detailproduct{
+				margin-top: 15px;
+				.row{
+					.col-md-7{}
+					.col-md-5{
+						.detail{
+							margin-top: -25px;							
+							h4,h5{color: red;}					
+						}
+						.quantity.buttons_added{
+							margin-top: 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 .sections-product {
 	.img-thumbnail {
 		img {
@@ -213,7 +236,7 @@ header{
 			/*color: $color_5 !important;*/
 		}
 	}
-	margin-top: 50px;
+	margin-top: 30px;
 	.container {
 		.row {
 			.col-md-3 {
@@ -626,22 +649,7 @@ footer {
 		float: left;
 		text-align: center;
 	}
-	.carousel-inner {
-		.item {
-			img {
-				width: 100% !important;
-				margin: auto;
-				height: 150px;
-			}
-			a {
-				img {
-					width: 100% !important;
-					margin: auto;
-					height: 150px;
-				}
-			}
-		}
-	}
+	
 	.sections-product {
 		.img-thumbnail {
 			img {
@@ -691,22 +699,6 @@ footer {
 	.col-sm-6 {
 		float: left;
 		text-align: center;
-	}
-	.carousel-inner {
-		.item {
-			img {
-				width: 100% !important;
-				margin: auto;
-				height: 500px;
-			}
-			a {
-				img {
-					width: 100% !important;
-					margin: auto;
-					height: 500px;
-				}
-			}
-		}
 	}
 	.sections-product {
 		.img-thumbnail {

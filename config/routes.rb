@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     collection do 
       get "traicaymienbac"
       get "traicaymiennam"
+      get "detailproduct"
     end
   end
   resources :informations do
