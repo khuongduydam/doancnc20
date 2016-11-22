@@ -36,14 +36,6 @@ ActiveRecord::Schema.define(version: 20161122043729) do
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
   end
 
-  create_table "comment_hierarchies", id: false, force: :cascade do |t|
-    t.integer "ancestor_id",   null: false
-    t.integer "descendant_id", null: false
-    t.integer "generations",   null: false
-    t.index ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true, using: :btree
-    t.index ["descendant_id"], name: "comment_desc_idx", using: :btree
-  end
-
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "commentable_type"
