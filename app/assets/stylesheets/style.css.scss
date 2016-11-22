@@ -12,7 +12,7 @@ body {
 	padding-top: 25px;
 }
 header {
-	background: rgba(70,170,72, 0.97);
+	background:#ffffff;
 }
 .navbar {
 	background: rgba(70,170,72, 0.97);
@@ -63,7 +63,7 @@ header {
 }
 .sologan {
 	font-family: $font-family_1;
-	color: $color_2;
+	color: #5cb85c;
 	font-size: 30px;
 	text-decoration: none !important;
 	padding-left: 26px;
@@ -109,6 +109,14 @@ header {
 	margin-bottom: 20px;
 	.col-md-3 {
 		margin-top: -7px;
+		.user{
+			a:hover{
+				color: #5cb85c;
+			}
+			a:focus{
+					color: #5cb85c !important;
+				}
+		}
 	}
 	.col-md-2 {
 		margin-right: 0px;
@@ -157,6 +165,12 @@ header{
 				.navbar-header{}
 				.collapse.navbar-collapse#navbar{
 					ul.nav.navbar-nav{
+						li{ a{
+							  color: #333;
+						    font-size: 18px;
+						    font-weight: 400;
+						    }
+						}
 						li.dropdown.open{
 							a.dropdown-toggle{
 								background-image: linear-gradient(to bottom, #d2af31 0, #d2af31 100%);
@@ -206,7 +220,7 @@ header{
 				margin-top: 15px;
 			}
 			.shopping_guide {
-				margin-top: 37px;
+				margin-top: 48px;
 			}
 			.col-md-9 {
 				.well {
@@ -253,6 +267,33 @@ header{
 		}
 	}
 }
+.sections-product{
+ 	.container{
+  	.row{
+  		.col-md-9{
+  			p{
+  				line-height: 30px;
+  			}
+  			.vuacacloaihat{
+  				margin-top: 30px;
+  				margin-left: 25%;
+  				margin-bottom: 30px;
+  			}
+   			.row{
+    			.col-md-8{
+     				a{
+     					color: black;
+     					text-decoration: none;
+     				}
+     				a:hover{
+     					color: green;
+     				}
+     			}
+     		}
+     	}
+     }
+   }
+ }
 .sub_wish_list {
 	.row {
 		.col-sm-4 {
@@ -275,19 +316,22 @@ header{
 .nav-tabs {
 	li.active {
 		a {
-			background-color: #d2af31;
-			&:focus {
-				background-color: #d2af31;
-			}
-			&:hover {
-				background-color: #d2af31;
+			font-size: 18px;
+			font-weight: 400;
+			color:green  !important;
+			background-color: #c2c723!important;
 			}
 		}
-	}
 	li {
 		a {
+			color:green;
+			font-size: 18px;
+				font-weight: 400 ;
 			&:hover {
-				background-color: #d2af31;
+				color:green;
+				font-size: 18px;
+				font-weight: 400 ;
+				background-color: #c2c723 !important;
 			}
 		}
 	}
@@ -304,25 +348,40 @@ header{
 }
 footer {
 	margin-top: 15px;
-	background: rgba(70,170,72, 0.97);
-	color: $color_4;
+	color: black;
 	text-align: center;
 		.container{
+			background: #e7e7e7;
 			.row{
 				margin-top: 30px;
 				.col-md-7{
-					h3{
-						text-align: left;
-						font-size: 30px;
-						color: red;
+					a{
+						text-decoration: none;
+
+						h3{
+							text-align: left;
+							font-size: 30px;
+							color: red;						
+
+						}
 					}
 					p{
 						text-align: left;
 						font-size: 17px;
+						font-weight: 30px;
 					}
 				}
 				.col-md-5{
 					padding-top: 20px;
+					a{
+						color: #5cb85c;
+					}
+					a:hover{
+						color: #5cb85c;
+					}
+					a:focus{
+						color: #5cb85c;
+					}
 					img{
 						padding-top: 20px;
 					}
@@ -445,73 +504,8 @@ footer {
 .btn_post_comment {
 	float: right;
 }
-@media (max-width: 471px) {
-	.sologan {
-		text-align: center;
-	}
-	.section_top {
-		.col-md-3 {
-			margin-top: -7px;
-			text-align: center;
-			padding-top: 10px;
-		}
-		.col-sm-12 {
-			margin-top: -7px;
-			text-align: center;
-			padding-top: 10px;
-		}
-		.col-xs-12 {
-			margin-top: -7px;
-			text-align: center;
-			padding-top: 10px;
-		}
-		.user {
-			float: none;
-		}
-	}
-	.col-sm-12 {
-		text-align: center;
-		padding-left: 15px;
-	}
-	.col-xs-12 {
-		.iconimg {
-			text-align: center;
-			padding-left: 15px;
-		}
-	}
-	.carousel-inner {
-		.item {
-			img {
-				margin: auto;
-				height: 200px;
-			}
-			a {
-				img {
-					margin: auto;
-					height: 200px;
-				}
-			}
-		}
-	}
-	iframe {
-		margin-left: 15%;
-		width: 250px;
-		height: 150px;
-	}
-	.sub_wish_list {
-		.row {
-			.col-xs-12 {
-				img {
-					margin-left: 42%;
-				}
-			}
-		}
-	}
-	.img-thumbnail {
-		margin-left: 25%;
-	}
-}
-@media (min-width: 472px) and (max-width: 540px) {
+
+@media (max-width: 320px) and (max-width: 540px) {
 	.sologan {
 		text-align: center;
 	}
@@ -552,9 +546,25 @@ footer {
 				height: 180px;
 			}
 			a {
+				text-align: center;
 				img {
 					margin: auto;
 					height: 180px;
+				}
+			}
+		}
+	}
+	.sections-product{
+		.container{
+			.row{
+				.col-md-9{
+					.row{
+						.col-xs-12{
+							p,h5,h4{
+								margin-left: 35%;
+						}
+					}
+					}
 				}
 			}
 		}
@@ -567,9 +577,10 @@ footer {
 	.sub_wish_list {
 		.row {
 			.col-xs-12 {
-				img {
+				img,p,h4 {
 					margin-left: 42%;
 				}
+
 			}
 		}
 	}

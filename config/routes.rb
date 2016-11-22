@@ -16,10 +16,12 @@ Rails.application.routes.draw do
     end
     resources :comments, module: :products 
   end
+  resources :users, only: :show
   resources :comments, except: [:index, :new]
   resources :informations, only: :information do
     collection do 
-      get "information"     
+      get "information"
+      get "detail"     
     end
   end
   resources :shoppingguides do
