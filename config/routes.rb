@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'}
+  devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},
+             :controllers => { :omniauth_callbacks => "callbacks" }
   # mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
