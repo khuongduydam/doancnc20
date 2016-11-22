@@ -1,0 +1,21 @@
+- provide(:title,"All Category")
+h1
+  | List category
+table
+  thead
+    tr
+      th
+        | Category name
+      th
+        | Image
+      th
+        | Action
+  tbody
+    - @categories.each do |category|  
+      tr
+        td
+          = category.name
+        td
+          = image_tag category.pictures.first.image
+        td 
+          = link_to "edit", edit_category_path(category)

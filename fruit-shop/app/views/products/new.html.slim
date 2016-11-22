@@ -1,0 +1,45 @@
+- provide(:title, "Add product")
+h2 
+  |Add new product
+= form_for(@product, :html => { :multipart => true }) do |f|
+  / = render 'my_devise/registrations/form', locals: {f:f}
+  / = render 'shared/error_messages', object: f.object
+  .field 
+    = f.label :name
+    br
+    = f.text_field :name
+    br
+  .field 
+    = f.label :price
+    br
+    = f.text_field :price
+    br
+  .field 
+    = f.label :origin
+    br
+    = f.text_field :origin
+    br
+  .field 
+    = f.label 'Category'
+    br
+    = f.select(:category_id) do
+      - @categories.each do |c|
+        = content_tag(:option, c.name, value: c.id)
+    / = f.select :category_id, options_for_select(@categories.each.name,:disabled => ["Select One"])
+    br
+  .field 
+    = f.label :description
+    br
+    = f.text_field :description
+    br
+  .field 
+    = f.label :quantity
+    br
+    = f.text_field :quantity
+    br 
+  .field
+    = f.fields_for :pictures do |picture|
+      = picture.label :image
+      = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
+  .actions
+    = f.submit "Add product"
