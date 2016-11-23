@@ -5,7 +5,9 @@ html
       | Admin Dash Board
     = csrf_meta_tags
     = stylesheet_link_tag    'admins', media: 'all', 'data-turbolinks-track': 'reload'
+    / = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    = render "layouts/header_admin"
     = render 'layouts/flash_messages'
     = yield

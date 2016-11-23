@@ -14,6 +14,12 @@ body {
 header {
 	background:#ffffff;
 }
+/* phuong - fix size image */ 
+.fix-image img {
+	width: 90% !important;
+	height: 90% !important;
+}
+/*end*/
 .navbar {
 	background: rgba(70,170,72, 0.97);
 	border: none;

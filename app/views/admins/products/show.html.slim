@@ -1,1 +1,35 @@
-show.html.slim
+section.sections-product
+  .container
+    .row.img-reponsive
+      .col-md-9.detailproduct
+        .row
+          .col-md-5
+            - @product.pictures.each do |img|
+              = image_tag img.image, size: "200x200", class:'img-thumbnail'
+            end
+          .col-md-7
+            .detail
+              h2.Title_product 
+                = @product.name
+                br
+              h4 
+                | Giá bán: 
+                = @product.price
+                |  vnd
+              p 
+                | Số lượng trong kho : 
+                = @product.quantity
+                |  kg
+              .about_product
+                p 
+                  | Xuất xứ: 
+                  = @product.origin
+              .about_product
+                p 
+                  | Mô tả : 
+                  = @product.description
+                  / = @product.category.name
+              br
+              .btn-lg.right
+                = link_to "Edit", edit_admins_product_path(@product), class: 'btn btn-warning'
+                = link_to "Delete", admins_product_path(@product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'

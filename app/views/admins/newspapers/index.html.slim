@@ -1,24 +1,19 @@
-h2
- | All newspaper
-br
-= link_to "Add new newspaper", new_admins_newspaper_path
-table
-  thead
-    tr
-      th
-        | Newspaper tile
-      th
-        | Detail
-      th
-        | Action
-  tbody
-    - @newspapers.each do |newspaper|  
-      tr
-        td
-          = newspaper.title
-        td
-          = link_to "detail", admins_newspaper_path(newspaper)
-        td 
-          = link_to "edit",  edit_admins_newspaper_path(newspaper)
-          |  | 
-          = link_to "delete", admins_newspaper_path(newspaper) , method: :delete, data: {confirm: "You sure?"}
+section.sections-product
+  .container
+    .row
+      .table-responsive
+          table.table
+            thead
+              tr.info
+                th Title
+                th Content
+                th[style="width:300px;"] Property
+            tbody
+              - @newspapers.each do |newspaper|
+                tr.danger
+                  td = newspaper.title
+                  td = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
+                  td 
+                    = link_to 'Detail', admins_newspaper_path(newspaper),class: 'btn btn-info'
+                    = link_to 'Edit', edit_admins_newspaper_path(newspaper), class: 'btn btn-warning',style: 'margin-left:20px;'
+                    = link_to 'Delete', admins_newspaper_path(newspaper),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'

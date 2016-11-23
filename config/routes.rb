@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
-    resources :newspapers, :products, :users, :categories
+    resources :newspapers, :products, :users
+    resources :categories do
+      member do 
+        get "pro_of_cate"
+      end
+    end
   end
   resources :admins,:newspapers,:categories,only: [:index, :show]
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},

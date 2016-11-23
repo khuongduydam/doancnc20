@@ -1,50 +1,42 @@
-h2 
-  |Modify product
-= simple_form_for [:admins, @product], :html => { :multipart => true } do |f|
-  / = render 'my_devise/registrations/form', locals: {f:f}
-  / = render 'shared/error_messages', object: f.object
-  .field 
-    = f.text_field :name
-    br
-  .field 
-    = f.text_field :price
-    br
-  .field 
-    = f.text_field :origin
-    br
-  .field
-    = f.text_field :category_id,:collection => @categories,:label_method => :name,:value_method => :id,:label => "Category" ,:include_blank => false
-    br
-  .field 
-    = f.text_field :description
-    br
-  .field 
-    = f.text_field :quantity
-    br 
-  .field
+section.section-contact
+  .container
+    .row
+      .col-md-10
+        h2 
+          |Modify product
+        = simple_form_for [:admins, @product], :html => { :multipart => true } do |f|
+          / = render 'my_devise/registrations/form', locals: {f:f}
+          / = render 'shared/error_messages', object: f.object
+          .field 
+            = f.input :name
+            br
+          .field 
+            = f.input :price
+            br
+          .field 
+            = f.input :origin
+            br
+          .field
+            = f.input :category_id,:collection => @categories,:label_method => :name,:value_method => :id,:label => "Category" ,:include_blank => false
+            br
+          .field 
+            = f.label :description
+            = f.text_area :description, class: 'form-control'
+          .field 
+            = f.input :quantity
+            br 
+          .field
 
-    = f.label "Image"
-    - if @product.pictures.blank?
-      = f.simple_fields_for :pictures, @product.pictures.build do |picture|
-        = picture.file_field :image      
-    - else 
-      = f.simple_fields_for :pictures do |picture|
-        = image_tag picture.object.image_url
-        = picture.check_box :_destroy 
-        = picture.label "Remove"
-        = picture.file_field :image
-
-      
-  / .field
-  /   = f.label "Image"
-  /   = f.simple_fields_for @product.pictures.build do |picture|
-  /     = image_tag picture.object.image_url
-  /     = picture.file_field :image
-
-    / = f.simple_fields_for :pictures, Picture.new do |picture|
-    /   = picture.text_field :image
-    /   = picture.link_to_remove "Remove this task"
-    / = f.link_to_add :pictures
-    br
-  .actions
-    = f.submit "Modify"
+            = f.label "Image"
+            - if @product.pictures.blank?
+              = f.simple_fields_for :pictures, @product.pictures.build do |picture|
+                = picture.file_field :image      
+            - else 
+              = f.simple_fields_for :pictures do |picture|
+                = image_tag picture.object.image_url
+                = picture.check_box :_destroy 
+                = picture.label "Remove"
+                = picture.file_field :image
+            br
+          .actions
+            = f.submit "Modify"

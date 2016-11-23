@@ -31,7 +31,7 @@ class Admins::ProductsController < AdminsController
     end
   end
   def show
-    
+    @product = Product.find(params[:id])
   end
   def destroy
     Product.find(params[:id]).destroy
