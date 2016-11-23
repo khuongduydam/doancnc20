@@ -1,28 +1,34 @@
-  - provide(:text, "akhdaskdh")
-  table
-  thead
-    tr
-      th
-        | Newspaper tile
-      th
-        | Detail
-  tbody
-    - @newspapers.each do |newspaper|  
-      tr
-        td
-          = newspaper.title
-        td
-          = link_to "detail", newspaper_path(newspaper)
 section.sections-product
   .container
     .row
       .col-md-9
+        .row.img-reponsive
+          .col-md-4.col-sm-6.col-xs-12
+            a[href="#"]
+              = image_tag("occho.png", class: "img img-rounded")   
+          .col-md-8.col-sm-6.col-xs-12
+            h3
+              = link_to "Tác dụng của quả óc chó", detail_informations_path
+            p
+              | Óc chó là loại quả quý không phải ở đâu cũng trồng được nó phụ thuộc rất nhiều vào ...
         .row
           .col-md-4.col-sm-6.col-xs-12
             a[href="#"]
               = image_tag("dualuoi.png", class: "img img-rounded")
           .col-md-8.col-sm-6.col-xs-12
             h3
+              = link_to "Cách chọn dưa lưới ngon ngọt", detail_informations_path
+            p
+              | Dưa lưới là loại quả được rất nhiều người ưa chuộng, tuy nhiên, không phải ở đâu cũng trồng được nó phụ thuộc rất nhiều vào ...
+        .row
+          .col-md-4.col-sm-6.col-xs-12
+            a[href="#"]
+              = image_tag("momienbac.png", class: "img img-rounded")
+          .col-md-8.col-sm-6.col-xs-12
+            h3
+              = link_to "Cách làm xí muội từ mơ", detail_informations_path
+            p
+              | Mơ là loại quả quý không phải ở đâu cũng trồng được nó phụ thuộc rất nhiều vào ...
         .pagination_center
           nav[aria-label="Page navigation right"]
             ul.pagination
@@ -51,8 +57,7 @@ section.sections-product
                     | »
       .col-md-3
         .well
-          .h.list
-            h3 Hàng bán chạy
+          .h3 hàng bán 
           .sub_wish_list
             .row
               .col-sm-4.col-xs-12
@@ -80,4 +85,4 @@ section.sections-product
         .well
           .h
             h3 Kết nối facebook
-          iframe allowtransparency="true" frameborder="0" height="350" scrolling="no" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=280&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" style="border:none;overflow:hidden" width="230" 
+          iframe allowtransparency="true" frameborder="0" height="350" scrolling="no" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" style="border:none;overflow:hidden" width="230" 

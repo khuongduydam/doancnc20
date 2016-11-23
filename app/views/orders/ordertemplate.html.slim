@@ -1,8 +1,30 @@
 section.section_order_template
   .container
+    .row
+      .col-md-7
+        form
+          h3 Thông tin khách hàng
+          .form-group
+            label[for="InputName"]
+              | Tên/ Công ty
+            input#InputName.form-control[type="text"]
+          .form-group
+            label[for="Inputadress"]
+              | Địa chỉ *
+            input#Inputadress.form-control[type="text"]
+          .form-group
+            label[for="Inputadress"]
+              | Số điện thoại *
+            input#Inputadress.form-control[type="text"]
+          .form-group
+            label[for="InputMessange"]
+              | Tin nhắn
+          textarea.form-control#InputMessange[type="text"]
+      .col-md-5
     form.form_order_template
       .table-responsive
         table.table.table-striped
+          h3 Đơn hàng của bạn
           tr
             th
               | Sản phẩm
@@ -62,12 +84,12 @@ section.section_order_template
               a.remove[href="#" title="Remove this item"]
                 i.fa.fa-times[aria-hidden="true"]
     .row
-      .col-md-9.total1
-        h3
+      .col-md-6.total1
+        h3.sum
           | Tổng đơn hàng: 
           strong
-            | 270,000 Đ
-      .col-md-3
+            | 270,000 vnđ
+      .col-md-6
         h3
-          button.btn.btn-success.btn-lg.right[type="button"]
-            | Thanh toán đơn đặt hàng 
+          .btn.btn-success.btn-lg.right1 = link_to 'Thanh toán trực tuyến', orderdetailproduct_products_path
+          .btn.btn-success.btn-lg.right2 = link_to 'Thanh toán khi giao hàng', orderdetailproduct_products_path

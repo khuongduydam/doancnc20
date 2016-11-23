@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :admins,:newspapers,:categories,only: [:index, :show]
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},
              :controllers => { :omniauth_callbacks => "callbacks" }
+  resources :users, only: :show
+  end
+  #resources :admins, only: :index
+  resources :categories, only: [:index, :show]
   #########jane
   resources :orders do
     collection do 
@@ -16,7 +20,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show] do
     resources :comments, module: :products 
   end
-  resources :users, only: :show
+ ## resources :users, only: :show
   resources :comments, except: [:index, :new]
   resources :wishlists, only: [:index, :create, :destroy]
   resources :shoppingguides do
