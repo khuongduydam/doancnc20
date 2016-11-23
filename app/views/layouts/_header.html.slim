@@ -20,7 +20,14 @@ section.section_top
           /   br
           /   | Đăng ký
           - unless user_signed_in?  
-            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path  
+            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path
+          - else
+            .dropdown
+              = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Account'.html_safe, '','data-toggle': 'dropdown', class: 'dropdown-toggle'
+              ul.dropdown-menu[style="min-width:60px;"]
+                = link_to 'Profile', user_path(current_user)
+                br
+                = link_to 'Edit', edit_user_registration_path
       .col-md-2.col-sm-6.col-xs-12
         /a.btn.btn-success(href="ordertemplate.html")
         / | CART 

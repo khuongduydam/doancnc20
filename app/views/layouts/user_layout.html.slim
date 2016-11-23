@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title
+      | Admin Dash Board
+    = csrf_meta_tags
+    = stylesheet_link_tag    'users', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    = render 'layouts/flash_messages'
+    = yield
