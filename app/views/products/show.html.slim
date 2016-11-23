@@ -4,7 +4,9 @@ section.sections-product
       .col-md-9.detailproduct
         .row
           .col-md-7
-            = image_tag('dualuoi.png', class:'img-thumbnail')
+            - @product.pictures.each do |img|
+              = image_tag img.image, size: "200x200", class:'img-thumbnail'
+            end
           .col-md-5
             .detail
               h3.Title_product 
