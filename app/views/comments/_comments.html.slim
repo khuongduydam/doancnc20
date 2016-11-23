@@ -1,6 +1,7 @@
 - commentable.comments.each do |comment|
   .well[style="width:400px;"] 
     = comment.content
+    br
     strong 
       |  posted by 
       = comment.user.email

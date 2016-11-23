@@ -6,10 +6,12 @@
 
 javascript:
   $('#comments').on('submit',function(e){
+    $('p').remove();
     var comment = $('#comment_content')
     var empty = $(this).find(comment).val();
     if(!$.trim(empty)){
-      alert('Comment can not be empty!!!');
+    $('#comments').prepend('<p style="color:red;">Comment can not blank</p>')
+      return false;
     }
   });
  
