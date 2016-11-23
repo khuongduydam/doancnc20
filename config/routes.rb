@@ -5,14 +5,15 @@ Rails.application.routes.draw do
   # mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
-    resources :informations, :products, :users, :categories
+    resources :users
   end
-  resources :admins, only: :index
+  #resources :admins, only: :index
   resources :categories, only: [:index, :show]
   #########jane
   resources :orders do
     collection do 
       get "ordertemplate"
+      
     end
   end
   resources :products do
@@ -20,10 +21,11 @@ Rails.application.routes.draw do
       get "traicaymienbac"
       get "traicaymiennam"
       get "detailproduct"
+      get "orderdetailproduct"
     end
     resources :comments, module: :products 
   end
-  resources :users, only: :show
+ ## resources :users, only: :show
   resources :comments, except: [:index, :new]
   resources :informations, only: :information do
     collection do 

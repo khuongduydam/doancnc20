@@ -20,4 +20,7 @@ class ProductsController < ApplicationController
   def detailproduct
     
   end
+  def orderdetailproduct
+
+  end
 end
