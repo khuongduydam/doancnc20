@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},
              :controllers => { :omniauth_callbacks => "callbacks" }
   resources :users, only: :show
-  end
   #resources :admins, only: :index
   resources :categories, only: [:index, :show]
   #########jane

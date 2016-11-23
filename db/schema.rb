@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20161123022325) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
+
   create_table "wish_lists", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "product_id"
@@ -127,6 +128,7 @@ ActiveRecord::Schema.define(version: 20161123022325) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "informations", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "wish_lists", "products"
