@@ -1,5 +1,15 @@
-= form_for [commentable, Comment.new] do |f|
+= form_for [commentable, Comment.new],html: {id: 'comments'} do |f|
   .form-group
     = f.text_area :content, class:'form-control', placeholder: 'Add a comment',style:'width:400px;'
     br
     = f.submit 'Submit', class: 'btn btn-success'
+
+javascript:
+  $('#comments').on('submit',function(e){
+    var comment = $('#comment_content')
+    var empty = $(this).find(comment).val();
+    if(!$.trim(empty)){
+      alert('Comment can not be empty!!!');
+    }
+  });
+ 
