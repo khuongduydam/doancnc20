@@ -33,9 +33,12 @@ class Admins::CategoriesController < AdminsController
   end
   
   def show
+    @category = Category.find(params[:id])
+  end
+
+  def pro_of_cate
     @products = Product.where(category_id: params[:id])
     @category = Category.find_by(id: params[:id])
-    # kjsda
   end
   
   def destroy

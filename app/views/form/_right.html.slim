@@ -1,0 +1,51 @@
+/ .well
+/   h4
+/     | Sản Phẩm bán chạy
+/   .sub_wish_list
+/     .row
+/       .col-sm-4.col-xs-12
+/          = image_tag('kiwivang.png', class:"img-responsive")
+/       .col-sm-8.col-xs-12
+/         p
+/           | Nho mỹ xanh
+/         h4
+/           | 370,000 D
+/     .row
+/       .col-sm-4.col-xs-12
+
+/         =image_tag('lemyxanh.png', class:"img-responsive")
+/       .col-sm-8.col-xs-12
+/         p
+/           | Lê mỹ xanh
+/         h4
+/           | 80,000 D
+/     .row
+/       .col-sm-4.col-xs-12
+/          = image_tag('camxoan.png', class:"img-responsive")
+/       .col-sm-8.col-xs-12
+/         p
+/           | Cam Xoan
+/         h4
+/           | 80,000 D
+- if current_user != nil && @wishlists.present?
+  .well
+    h4
+      = link_to "Sản Phẩm Yêu Thích", wishlists_path
+    .sub_wish_list
+      - @wishlists.each do |wishlist|
+        .row
+          .col-sm-4.col-xs-12
+             = image_tag(wishlist.product.pictures.first.image, class:"img-responsive")
+          .col-sm-8.col-xs-12
+            p
+              = wishlist.product.name
+            h4
+              = wishlist.product.price
+.well
+  h4
+    | Video song
+  iframe(src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen)
+.well
+  h4
+    | Kết nối facebook
+  iframe(src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="230" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true")

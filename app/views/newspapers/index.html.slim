@@ -1,83 +1,33 @@
-  - provide(:text, "akhdaskdh")
-  table
-  thead
-    tr
-      th
-        | Newspaper tile
-      th
-        | Detail
-  tbody
-    - @newspapers.each do |newspaper|  
-      tr
-        td
-          = newspaper.title
-        td
-          = link_to "detail", newspaper_path(newspaper)
 section.sections-product
   .container
     .row
       .col-md-9
-        .row
-          .col-md-4
-            a[href="#"]
-              = image_tag("occho.png", class: "img img-rounded")   
-          .col-md-8
-            h3
-              = link_to newspaper.name#, detail_informations_path
-            p
-              | Óc chó là loại quả quý không phải ở đâu cũng trồng được nó phụ thuộc rất nhiều vào ...
-        .pagination_center
-          nav[aria-label="Page navigation right"]
-            ul.pagination
-              li
-                a[href="#" aria-label="Previous"]
-                  span[aria-hidden="true"]
-                    | «
-              li
-                a[href="#"]
-                  | 1
-              li
-                a[href="#"]
-                  | 2
-              li
-                a[href="#"]
-                  | 3
-              li
-                a[href="#"]
-                  | 4
-              li
-                a[href="#"]
-                  | 5
-              li
-                a[href="#" aria-label="Next"]
-                  span[aria-hidden="true"]
-                    | »
+        - @newspapers.each do |newspaper|
+          .row
+            .col-md-4
+              / a[href="#"]
+              / - orig_text = newspaper.content
+              / - img_text  = orig_text.match(/<img.+(\/)?>/).to_s if orig_text.match(/<img.+(\/)?>/)
+              / - if img_text.present?
+              /   .fix-image
+                  
+              /     = img_text.html_safe                                   
+              /     .clearfix
+              / - else             
+              /   .fix-image
+              = image_tag('newspaper.png', class: 'img-thumbnail')
+                  / .clearfix
+            .col-md-8
+              h3
+                = link_to newspaper.title, newspaper_path(newspaper)
+              p 
+                = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
       .col-md-3
-        .well
-          h4 Sản Phẩm bán chạy
-          .sub_wish_list
-            .row
-              .col-sm-4.col-xs-12
-                 = image_tag("nhomy.png", class: "img img-circle")                 
-              .col-sm-8.col-xs-12
-                p Nho mỹ xanh
-                h4 370,000 D
-            .row
-              .col-sm-4.col-xs-12
-                / img.img-circle src="img/lemyxanh.png" 
-                = image_tag("lemyxanh.png", class: "img img-circle")
-              .col-sm-8.col-xs-12
-                p Lê mỹ xanh
-                h4 80,000 D
-            .row
-              .col-sm-4.col-xs-12
-                = image_tag("camxoan.png", class: "img img-circle") 
-              .col-sm-8.col-xs-12
-                p Cam Xoan
-                h4 80,000 D
-        .well
-          h4 Video song
-          iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/GvxwyR88FoA" 
-        .well
-          h4 Kết nối facebook
-          iframe allowtransparency="true" frameborder="0" height="350" scrolling="no" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" style="border:none;overflow:hidden" width="230" 
+        = render 'form/right'
+
+css:
+  
+  .fix-image img{
+    height: 100px !important;
+    width: 100px !important;
+  }

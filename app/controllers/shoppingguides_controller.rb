@@ -1,5 +1,5 @@
 class ShoppingguidesController < ApplicationController
  def shoppingguide
-  	
-end
+    @wishlists = WishList.first(3)
+ end
 end

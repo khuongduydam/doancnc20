@@ -1,3 +1,7 @@
 class Newspaper < ApplicationRecord
+  # ActionView::Base.full_sanitizer.sanitize(:content)
   default_scope -> { order(created_at: :desc) }
+
+  # validates :title, presence: true, 
+  # validates :content
 end

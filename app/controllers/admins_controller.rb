@@ -5,6 +5,8 @@
   def index
     @users = User.all.order(id: :asc)
     @products = Product.all.order(id: :asc)
+    @newspapers = Newspaper.all
+    @categories = Category.all
   end
 
   def admin_only

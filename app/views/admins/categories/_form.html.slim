@@ -2,7 +2,7 @@
   / = render 'my_devise/registrations/form', locals: {f:f}
   / = render 'shared/error_messages', object: f.object
   .field 
-    = f.input :name
+    = f.input :name, class: 'form-control'
     br 
   .field
     = f.simple_fields_for :pictures do |picture|

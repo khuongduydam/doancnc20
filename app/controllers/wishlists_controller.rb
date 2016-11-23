@@ -2,7 +2,8 @@ class WishlistsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :index]
   
   def index
-    @wishlists = WishList.where(user_id: current_user.id)
+    @wishlistss = WishList.where(user_id: current_user.id)
+    @wishlists = WishList.first(3)
   end
 
   def create
@@ -10,7 +11,7 @@ class WishlistsController < ApplicationController
     @wishlist.product_id=params[:format]
     @wishlist.user_id=current_user.id
     if @wishlist.save
-      redirect_to products_path
+      flash[:success] = "Add to wishlist success"
     else
       p "*"*50
       p @wishlist.errors
@@ -20,7 +21,7 @@ class WishlistsController < ApplicationController
   end
   def destroy
     WishList.find(params[:id]).destroy
-    flash[:success] = "Product deleted"
+    flash[:success] = "Product in wishlist has deleted"
     redirect_to wishlists_path
   end
 

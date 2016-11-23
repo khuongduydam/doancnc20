@@ -1,0 +1,57 @@
+header
+  .container
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+            span.sr-only
+              | Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        #navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              / a(href="home.html")
+              = link_to "TRANG CHỦ ", admins_path
+
+                / | TRANG CHỦ
+            li.dropdown
+              a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
+                | DANH MỤC 
+                span.caret
+              ul.dropdown-menu(aria-labelledby="sanpham")
+                li
+                  = link_to "TẤT CẢ DANH MỤC", admins_categories_path
+                li
+                  = link_to "THÊM DANH MỤC", new_admins_category_path
+            li.dropdown
+              a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
+                | SẢN PHẨM 
+                span.caret
+              ul.dropdown-menu(aria-labelledby="sanpham")
+                li
+                  = link_to "TẤT CẢ SẢN PHẨM", admins_products_path
+                li
+                  = link_to "THÊM SẢN PHẨM", new_admins_product_path
+            li.dropdown
+              a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
+                | THÔNG TIN HỮU ÍCH
+                span.caret
+              ul.dropdown-menu(aria-labelledby="sanpham")
+                li
+                  = link_to "TẤT CẢ THÔNG TIN HỮU ÍCH", admins_newspapers_path
+                li
+                  = link_to "THÊM THÔNG TIN HỮU ÍCH", new_admins_newspaper_path
+            / li
+            /   = link_to "LIÊN HỆ", contacts_contacts_path
+          .user
+          .navbar-right
+            = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
+
+javascript:
+  $('ul.nav li.dropdown').hover(function() { 
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
+    function() { 
+    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
+    }); 

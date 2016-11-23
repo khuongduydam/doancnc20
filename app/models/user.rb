@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :phone, numericality: {only_integer: true}
   validates_length_of :phone, minimum: 10, maximum: 11, allow_blank: true
 
-  has_many :wishlists, dependent: :destroy
+  has_many :wish_lists, dependent: :destroy
 
   has_many :comments
 
