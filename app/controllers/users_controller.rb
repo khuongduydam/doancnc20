@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :show
+  before_action :show, :authenticate_user!
   def show
     begin
       @user  = User.try(:find,params[:id]) if params[:id]
