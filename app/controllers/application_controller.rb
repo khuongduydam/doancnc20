@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # before_action :authenticate_user!, except: [:index, :show]
   before_action :permitted_params, if: :devise_controller?
   layout :layout_devise
+
+
   def after_sign_in_path_for(resource)
     if current_user.admin?
       admins_path

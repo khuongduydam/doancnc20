@@ -48,22 +48,12 @@ header
                 | SẢN PHẨM 
                 span.caret
               ul.dropdown-menu(aria-labelledby="sanpham")
-                li
-                  / a(href="products/traicaynhap")
-                  /   | TRÁI CÂY NHẬP 
-                  = link_to "TRÁI CÂY NHẬP KHẨU ", products_path
-                li
-                  /a(href="traicaymienbac.html")
-                    /| TRÁI CÂY MIỀN BẮC
-                  = link_to "TRÁI CÂY MIỀN BẮC", traicaymienbac_products_path
-                li
-                  /a(href="traicaymiennam.html")
-                   / | TRÁI CÂY MIỀN NAM
-                  = link_to "TRÁI CÂY MIỀN NAM", traicaymiennam_products_path
+                - @categories = Category.all
+                = render partial: 'categories/index', locals: { categories: @categories}
             li
               = link_to "HƯỚNG DẪN MUA HÀNG", shoppingguide_shoppingguides_path
             li
-              = link_to "THÔNG TIN HỮU ÍCH", information_informations_path
+              = link_to "THÔNG TIN HỮU ÍCH", newspapers_path
             li
               = link_to "LIÊN HỆ", contacts_contacts_path
           form.navbar-form.navbar-right

@@ -1,1 +1,29 @@
-index.html.slim
+h1
+  | List cProduct
+h3
+  = link_to "New product", new_admins_product_path
+table
+  thead
+    tr
+      th
+        | Produt name
+      th
+        | Description
+      th
+        | Image
+      th
+        | Action
+  tbody
+    - @products.each do |product|  
+      tr
+        td
+          = product.name
+        td
+          = product.description
+        td
+          - product.pictures.each do |p_Img|
+            = image_tag p_Img.image
+        td 
+          = link_to "edit", edit_admins_product_path(product)
+          |  | 
+          = link_to "delete", admins_product_path(product), method: :delete, data: {confirm: "You sure?"}

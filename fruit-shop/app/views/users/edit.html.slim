@@ -1,0 +1,52 @@
+/ - provide(:btn_text, "Update")
+- provide(:title, "Update profile")
+h2
+  | Edit 
+= form_for(@user) do |f|
+  / = render 'my_devise/registrations/form', locals: {f:f}
+  / = render 'shared/error_messages', object: f.object
+  .field
+    = f.label :email
+    br
+    = f.email_field :email, autofocus: true
+  .field
+    = f.label :password
+    br
+    = f.password_field :password, autocomplete: "off"
+  .field
+    = f.label :password_confirmation
+    br
+    = f.password_field :password_confirmation, autocomplete: "off"
+  .field
+    = f.label :first_name
+    br
+    = f.text_field :first_name, autofocus: true
+  .field
+    = f.label :last_name
+    br
+    = f.text_field :last_name, autofocus: true
+    br
+  .field
+    = f.label :sex
+    = f.select :sex, User.sex.options, selected: f.object.sex
+  .field
+    = f.label :birth_day
+    br
+    = f.text_field :birth_day,id: 'datepicker'
+    br      
+  .field 
+    = f.label :address
+    br
+    = f.text_field :address
+    br 
+  .field 
+    = f.label :phone
+    br
+    = f.text_field :phone
+    br     
+  .actions
+    = f.submit "Update"
+h3 Cancel my account
+p
+  | Unhappy? #{button_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete}
+= link_to "Back", :back

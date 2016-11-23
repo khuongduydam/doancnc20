@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require ckeditor/init
+//= require jquery_nested_form

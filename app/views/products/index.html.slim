@@ -5,152 +5,29 @@ section.sections-product
         h3.header
           | Hàng mới nhập về
         .row
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('hongkhosecau.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Hồng khô sẻ 
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 90,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('kiwivang.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Kiwi vàng
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 190,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('kiwixanh.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Kiwi xanh
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 105,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('nhomy.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Nho Mỹ
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 280,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-        .row
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('nhoxanhhanquoc.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Nho xanh Hàn Quốc
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 640,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('nhodokhonghat.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Nho đỏ không hạt
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 190,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('nhodenkhonghat.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | NHo đen không hạt
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 120,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('phucbontu.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Phúc bồn tử
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 330,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-        .row
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('bogiongmy.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Bơ giống Mỹ
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 90,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('camxoan.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Dưa lưới AB sweet gold
-            p
-              | Cam xoàn
-            h4
-              | 80,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('lemyxanh.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Lê Mỹ xanh
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 80,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-          .col-md-3.col-sm-6.col-xs-12
-            = link_to image_tag('occho.png'), detailproduct_products_path,  class: 'img-thumbnail'
-            h5
-              | Óc chó
-            p
-              | Đơn vị tính: 1kilogram
-            h4
-              | 330,000 Đ
-            p
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
+          - @product_news.each do |product|
+            .col-md-3.col-sm-6.col-xs-12
+              .img-thumbnail
+                = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+              h5
+                = product.name
+              p 
+                | Số lượng còn : 
+                = product.quantity
+                |  kg
+              h4
+                |  Gía : 
+                = product.price 
+                |  vnd/kg
+              p
+                = link_to "Detail", product_path(product)
+              p
+                - if current_user != nil
+                  = link_to "Add to my wish list", wishlists_path(product.id), method: :post
+              p
+                a.btn.btn-success(href="#")
+                  | Thêm vào giỏ 
+                  i.fa.fa-shopping-cart(aria-hidden="true")
       .col-md-3
         .well
           h4
@@ -180,6 +57,20 @@ section.sections-product
                   | Cam Xoan
                 h4
                   | 80,000 D
+        - if current_user != nil
+          .well
+            h4
+              = link_to "Sản Phẩm Yêu Thích", wishlists_path
+            .sub_wish_list
+              - @wishlists.each do |wishlist|
+                .row
+                  .col-sm-4.col-xs-12
+                     = image_tag(wishlist.product.pictures.first.image, class:"img-responsive")
+                  .col-sm-8.col-xs-12
+                    p
+                      = wishlist.product.name
+                    h4
+                      = wishlist.product.price
         .well
           h4
             | Video song
@@ -188,6 +79,3 @@ section.sections-product
           h4
             | Kết nối facebook
           iframe(src='https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId' width='230' height='350' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowtransparency='true')
-
-
-

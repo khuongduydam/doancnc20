@@ -1,0 +1,28 @@
+- provide(:title, "My profile")
+h2 Profile
+|Email : 
+= @user.email 
+br
+|First name : 
+= @user.first_name
+br
+|Last name : 
+= @user.last_name
+br
+|Sex : 
+= @user.sex
+br
+|Address : 
+= @user.address
+br
+|Phone : 
+= @user.phone
+br
+|Birthday : 
+= @user.birth_day.to_date
+br 
+|Now you have : 
+= @user.coin 
+| coin
+br
+= link_to('Change profile', edit_user_path(current_user), class: 'btn btn-default')

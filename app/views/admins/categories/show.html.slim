@@ -1,1 +1,32 @@
-show.html.slim
+h2 
+  | Product of 
+  = @category.name
+table
+  thead
+    tr
+      th
+        | Name
+      th 
+        | Price
+      th  
+        | Category id
+      th 
+        | Picture
+      th
+        | Action
+  tbody
+    - @products.each do |product|
+      tr
+        td
+          = product.name
+        td 
+          = product.price
+        td
+          = product.category_id
+        td  
+          - product.pictures.each do |img|
+           = image_tag img.image
+        td 
+          = link_to "edit", edit_admins_product_path(product)
+          |  | 
+          = link_to "delete", admins_product_path(product), method: :delete, data: {confirm: "You sure?"}
