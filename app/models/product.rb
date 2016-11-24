@@ -8,4 +8,5 @@ class Product < ActiveRecord::Base
 
   default_scope -> { order(created_at: :desc)}
   has_many :comments, -> order{ order 'created_at asc'}, as: :commentable, dependent: :destroy
+  has_many :order_details
 end

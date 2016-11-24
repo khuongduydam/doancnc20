@@ -2,9 +2,7 @@ class ProductsController < ApplicationController
   def index
     @product_news = Product.first(10)
     @wishlists = WishList.first(3)
-    if current_user != nil
-      @user = User.find(current_user.id)
-    end
+    @user = User.find_by(id: current_user.id) unless current_user.nil?
   end
 
   def show

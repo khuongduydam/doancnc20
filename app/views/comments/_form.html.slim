@@ -6,11 +6,11 @@
 
 javascript:
   $('#comments').on('submit',function(e){
-    $('p').remove();
+    $('p[name=comment]').remove();
     var comment = $('#comment_content')
     var empty = $(this).find(comment).val();
     if(!$.trim(empty)){
-    $('#comments').prepend('<p style="color:red;">Comment can not blank</p>')
+    $('#comments').prepend('<p style="color:red;" name="comment">Comment can not blank</p>')
       return false;
     }
   });

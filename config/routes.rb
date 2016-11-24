@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'carts/show'
+
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
@@ -13,7 +15,6 @@ Rails.application.routes.draw do
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},
              :controllers => { :omniauth_callbacks => "callbacks" }
   resources :users, only: :show
-  #resources :admins, only: :index
   resources :categories, only: [:index, :show]
   #########jane
   resources :orders do
@@ -24,7 +25,6 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show] do
     resources :comments, module: :products 
   end
- ## resources :users, only: :show
   resources :comments, except: [:index, :new]
   resources :wishlists, only: [:index, :create, :destroy]
   resources :shoppingguides do
@@ -38,4 +38,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :cart, only: :show
+  resources :order_details, only: [:create, :update, :destroy]
 end
