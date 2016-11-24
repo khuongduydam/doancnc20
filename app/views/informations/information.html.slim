@@ -1,0 +1,89 @@
+section.sections-information
+  .container
+    .row
+      .col-md-9.infor
+        .row
+          .col-md-4.col-sm-6.col-xs-12.infor-image
+            a[href="#"]
+              = image_tag("dualuoi.png", class: "img img-rounded")
+          .col-md-8.col-sm-6.col-xs-12.infor-detail
+            h3
+              = link_to "Cách chọn dưa lưới ngon ngọt", detail_informations_path
+            p
+              | Dưa lưới là loại quả được rất nhiều người ưa chuộng, tuy nhiên, không phải ở đâu cũng trồng được nó phụ thuộc rất nhiều vào ...
+        .row
+          .col-md-4.col-sm-6.col-xs-12.infor-image
+            a[href="#"]
+              = image_tag("occho.png", class: "img img-rounded")   
+          .col-md-8.col-sm-6.col-xs-12.infor-detail
+            h3
+              = link_to "Cách chọn óc chó chất lượng ", detail_informations_path
+            p
+              | Óc chó là loại quả quý không phải ở đâu cũng trồng được nó phụ thuộc rất nhiều vào ...
+        .row
+          .col-md-4.col-sm-6.col-xs-12.infor-image
+            a[href="#"]
+              = image_tag("momienbac.png", class: "img img-rounded")
+          .col-md-8.col-sm-6.col-xs-12.infor-detail
+            h3
+              = link_to "Mẹo hay để bạn ngâm mơ rừng", detail_informations_path
+            p
+              | Mơ là loại quả quý không phải ở đâu cũng trồng được nó phụ thuộc rất nhiều vào ...
+        .pagination_center
+          nav[aria-label="Page navigation right"]
+            ul.pagination
+              li
+                a[href="#" aria-label="Previous"]
+                  span[aria-hidden="true"]
+                    | «
+              li
+                a[href="#"]
+                  | 1
+              li
+                a[href="#"]
+                  | 2
+              li
+                a[href="#"]
+                  | 3
+              li
+                a[href="#"]
+                  | 4
+              li
+                a[href="#"]
+                  | 5
+              li
+                a[href="#" aria-label="Next"]
+                  span[aria-hidden="true"]
+                    | »
+      .col-md-3.well-right
+        .well
+          .h.list
+            h3 Hàng bán chạy
+          .sub_wish_list
+            .row
+              .col-sm-4.col-xs-12
+                 = image_tag("nhomy.png", class: "img img-circle")                 
+              .col-sm-8.col-xs-12
+                p Nho mỹ xanh
+                h4 370,000 D
+            .row
+              .col-sm-4.col-xs-12
+                / img.img-circle src="img/lemyxanh.png" 
+                = image_tag("lemyxanh.png", class: "img img-circle")
+              .col-sm-8.col-xs-12
+                p Lê mỹ xanh
+                h4 80,000 D
+            .row
+              .col-sm-4.col-xs-12
+                = image_tag("camxoan.png", class: "img img-circle") 
+              .col-sm-8.col-xs-12
+                p Cam Xoan
+                h4 80,000 D
+        .well
+          .h
+            h3 Video song
+          iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/GvxwyR88FoA" 
+        .well
+          .h
+            h3 Kết nối facebook
+          iframe allowtransparency="true" frameborder="0" height="350" scrolling="no" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=280&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" style="border:none;overflow:hidden" width="230" 
