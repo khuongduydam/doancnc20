@@ -11,51 +11,8 @@ $font-family_1: 'Pacifico', cursive;
 body {
 	padding-top: 25px;
 }
-<<<<<<< HEAD
-header {
-	background:#ffffff;
-}
-/* phuong - fix size image */ 
-.fix-image img {
-	width: 90% !important;
-	height: 90% !important;
-}
-/*end*/
-.navbar {
-	background: rgba(70,170,72, 0.97);
-	border: none;
-	margin-top: 15px;
-}
-.dropdown-menu {
-	
-	li { 
-		a:hover{ 
-			text-decoration: none;
-			color: $color_1;
-			background: #da8b13 !important;
-			padding-top: 10px;
-			height: 40px;
-	li {
-		margin-top: -5px;
-		height: 40px;
-		&:hover {
-			margin-top: -5px;
-			height: 40px;
-		}
-		a {
-			&:hover {
-				text-decoration: none;
-				color: $color_1;
-				padding-top: 10px;
-				height: 40px;
-				background: #da8b13 !important;
-			}
-		}
-	}
-=======
 .header {
 	background-color: #d2af31;
->>>>>>> refactor
 }
 header{
 	background:#ffffff;
