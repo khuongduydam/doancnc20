@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :category
+  
   has_many :pictures, as: :imageable, dependent: :destroy
   has_many :wish_lists, dependent: :destroy
   has_many :comments, -> order{ order 'created_at asc'}, as: :commentable, dependent: :destroy
