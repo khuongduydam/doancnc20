@@ -6,19 +6,11 @@ section.section_top
           | Fruit are part of out nature
       .col-md-3.col-sm-6.col-xs-12
         .user
-          / a(href="#")
-          /   i.fa.fa-lock(aria-hidden="true")
-          /   br
-          /   | Đăng nhập
           - unless user_signed_in?  
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path  
           - else
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
         .user
-          / a(href="#")
-          /   i.fa.fa-users(aria-hidden="true")
-          /   br
-          /   | Đăng ký
           - unless user_signed_in?  
             = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path
           - else
@@ -62,7 +54,7 @@ header
             li
               = link_to "THÔNG TIN HỮU ÍCH", newspapers_path
             li
-              = link_to "LIÊN HỆ", contacts_contacts_path
+              = link_to "LIÊN HỆ", new_contact_path
           form.navbar-form.navbar-right
             input.form-control(type="text" placeholder="Search...")
 

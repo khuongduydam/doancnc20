@@ -43,8 +43,8 @@ header
                   = link_to "TẤT CẢ THÔNG TIN HỮU ÍCH", admins_newspapers_path
                 li
                   = link_to "THÊM THÔNG TIN HỮU ÍCH", new_admins_newspaper_path
-            / li
-            /   = link_to "LIÊN HỆ", contacts_contacts_path
+            li
+              = link_to "LIÊN HỆ", admins_contacts_path
           .user
           .navbar-right
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  

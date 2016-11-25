@@ -1,0 +1,16 @@
+.table-responsive
+  table.table
+    thead
+      tr.info
+        th Title
+        th Content
+        th[style="width:300px;"] Property
+    tbody
+      - @newspapers.each do |newspaper|
+        tr.danger
+          td = newspaper.title
+          td = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
+          td 
+            = link_to 'Detail', admins_newspaper_path(newspaper),class: 'btn btn-info'
+            = link_to 'Edit', edit_admins_newspaper_path(newspaper), class: 'btn btn-warning',style: 'margin-left:20px;'
+            = link_to 'Delete', admins_newspaper_path(newspaper),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'

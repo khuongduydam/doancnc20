@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123022325) do
+ActiveRecord::Schema.define(version: 20161125074957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,14 @@ ActiveRecord::Schema.define(version: 20161123022325) do
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
   end
 
+  create_table "comment_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true, using: :btree
+    t.index ["descendant_id"], name: "comment_desc_idx", using: :btree
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "commentable_type"
@@ -46,6 +54,14 @@ ActiveRecord::Schema.define(version: 20161123022325) do
     t.integer  "parent_id"
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.text     "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "newspapers", force: :cascade do |t|
@@ -128,7 +144,6 @@ ActiveRecord::Schema.define(version: 20161123022325) do
   end
 
   add_foreign_key "comments", "users"
-  add_foreign_key "informations", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "wish_lists", "products"

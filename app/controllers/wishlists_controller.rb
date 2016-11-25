@@ -3,7 +3,6 @@ class WishlistsController < ApplicationController
   
   def index
     @wishlistss = WishList.where(user_id: current_user.id)
-    @wishlists = WishList.first(3)
   end
 
   def create
@@ -12,9 +11,10 @@ class WishlistsController < ApplicationController
     @wishlist.user_id=current_user.id
     if @wishlist.save
       flash[:success] = "Add to wishlist success"
+      redirect_to(:back)
     else
       p "*"*50
-      p @wishlist.errors
+      p @wishlist.errors.messages
       p "*"*50
       redirect_to root_path
     end

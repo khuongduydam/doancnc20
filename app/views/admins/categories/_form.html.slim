@@ -1,12 +1,19 @@
 = simple_form_for [:admins, @category] do |f|
   / = render 'my_devise/registrations/form', locals: {f:f}
   / = render 'shared/error_messages', object: f.object
-  .field 
-    = f.input :name, class: 'form-control'
-    br 
-  .field
+  = f.input :name, class: 'form-control'
+  / = f.simple_fields_for :pictures do |picture|
+  /   = image_tag picture.object.image
+  /   = picture.input :image
+  = f.label "Image"
+  - if @category.pictures.blank?
+    = f.simple_fields_for :pictures, @category.pictures.build do |picture|
+      = picture.file_field :image      
+  - else 
     = f.simple_fields_for :pictures do |picture|
-      = image_tag picture.object.image
-      = picture.input :image
-  .actions
-    = f.submit yield(:btn_text)
+      = image_tag picture.object.image_url
+      = picture.check_box :_destroy 
+      = picture.label "Remove"
+      = picture.file_field :image
+  = f.submit yield(:btn_text)
+  = link_to "Back", :back, class: "btn btn-default"

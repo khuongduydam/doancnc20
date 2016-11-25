@@ -7,6 +7,7 @@
     @products = Product.all.order(id: :asc)
     @newspapers = Newspaper.all
     @categories = Category.all
+    @contacts = Contact.all.order(created_at: :desc)
   end
 
   def admin_only

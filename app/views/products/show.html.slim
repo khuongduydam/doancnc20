@@ -34,7 +34,17 @@ section.sections-product
                    / = @product.category.name
               br
               - if current_user != nil
-                = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post, class: 'btn btn-default'
+                - flat = 0
+                - if user.wish_lists.present?
+                  - user.wish_lists.each do |p_id|
+                    - if p_id.product_id == @product.id
+                      - flat = 1
+                      - break
+                - else
+                  - flat = 2
+                  = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post, class: 'btn btn-default'
+                - if flat == 0
+                  = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post, class: 'btn btn-default'
               h3  
                 button.btn.btn-success.btn-lg.right type="button"  Mua ngay
         br

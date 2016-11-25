@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
+    resources :contacts, only: [:index, :show, :destroy]
     resources :newspapers, :products, :users
     resources :categories do
       member do 
@@ -32,10 +33,5 @@ Rails.application.routes.draw do
       get "shoppingguide"     
     end
   end
-  resources :contacts do
-    collection do 
-      get "contacts"      
-    end
-  end
-
+  resources :contacts
 end

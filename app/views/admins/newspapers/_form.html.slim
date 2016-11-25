@@ -2,6 +2,11 @@
   = f.input :title
   br
   = f.label :content
+  - if @newspaper.errors.messages[:content].present?
+    |  
+    i
+      = @newspaper.errors.messages[:content][0]
   = f.cktext_area :content
   br
   = f.submit yield(:btn_text)
+  = link_to "Back", :back, class: "btn btn-default"

@@ -5,21 +5,18 @@ class Admins::ProductsController < AdminsController
   
   def new
     @product = Product.new
-    @categories = Category.all
-    @picture = @product.pictures.build
   end
   def create
     @product = Product.new(product_params)
     if @product.save
       redirect_to admins_products_path
     else
-      redirect_to root_path
+      render 'new'
     end
   end
 
   def edit
     @product = Product.find(params[:id])
-    @categories = Category.all
   end
   
   def update
@@ -27,7 +24,7 @@ class Admins::ProductsController < AdminsController
     if @product.update_attributes(product_params)
       redirect_to admins_products_path
     else
-      redirect_to root_path
+      render 'edit'
     end
   end
   def show

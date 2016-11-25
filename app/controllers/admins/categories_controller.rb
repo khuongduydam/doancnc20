@@ -5,7 +5,7 @@ class Admins::CategoriesController < AdminsController
 
   def new
     @category = Category.new                                                                                                                              
-    @category.pictures.build
+    # @category.pictures.build
   end
 
   def create
@@ -13,9 +13,10 @@ class Admins::CategoriesController < AdminsController
     if @category.save
       redirect_to admins_categories_path
     else
-      flash[:error] = @category.errors.full_messages
+      # flash[:error] = @category.errors.full_messages
+      render 'new'
       puts @category.errors.full_messages
-      redirect_to root_path
+      # render new_admins_category_path
     end
   end
 
@@ -28,7 +29,7 @@ class Admins::CategoriesController < AdminsController
     if @category.update_attributes(category_params)
       redirect_to admins_categories_path
     else
-      redirect_to root_path
+      render 'edit'
     end
   end
   
@@ -43,7 +44,7 @@ class Admins::CategoriesController < AdminsController
   
   def destroy
     Category.find(params[:id]).destroy
-    flash[:success] = "Product deleted"
+    flash[:success] = "Category deleted"
     redirect_to admins_categories_path
   end
 

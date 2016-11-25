@@ -22,17 +22,21 @@ section.sections-product
               p
                 = link_to "Detail", product_path(product)
                 - if current_user != nil
-                  - if @user.wish_lists.present?
-                    - @user.wish_lists.each do |p_id|
-                      - if p_id.product_id != product.id
-                        |  | 
-                        = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
+                  - flat = 0
+                  - if user.wish_lists.present?
+                    - user.wish_lists.each do |p_id|
+                      - if p_id.product_id == product.id
+                        - flat = 1
+                        - break
                   - else
+                    - flat = 2
                     |  | 
                     = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
-              p
-                a.btn.btn-success(href="#")
-                  | Thêm vào giỏ 
-                  i.fa.fa-shopping-cart(aria-hidden="true")
+                  - if flat == 0
+                    |  | 
+                    = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
+              a.btn.btn-success(href="#")
+                | Thêm vào giỏ 
+                i.fa.fa-shopping-cart(aria-hidden="true")
       .col-md-3
         = render 'form/right'

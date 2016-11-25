@@ -1,0 +1,2 @@
+module ContactNewHelper
+end

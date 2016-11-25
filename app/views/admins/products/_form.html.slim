@@ -1,0 +1,40 @@
+= simple_form_for [:admins, @product], :html => { :multipart => true } do |f|
+  / = render 'my_devise/registrations/form', locals: {f:f}
+  / = render 'shared/error_messages', object: f.object
+  .field 
+    = f.input :name
+    br
+  .field 
+    = f.input :price, label: "Price (vnd)"
+    br
+  .field 
+    = f.input :origin
+    br
+  .field
+    = f.input :category_id,:collection => categories,:label_method => :name,:value_method => :id,:label => "Category" ,:include_blank => false
+    br
+  .field 
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+    br
+  .field 
+    = f.input :quantity, label: "Quantity (kg)"
+    br 
+  .field
+    = f.label "Image"
+    / = f.simple_fields_for :pictures do |picture|
+    /   = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
+
+    - if @product.pictures.blank?
+      = f.simple_fields_for :pictures, @product.pictures.build do |picture|
+        = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
+    - else 
+      = f.simple_fields_for :pictures do |picture|
+        = image_tag picture.object.image_url
+        = picture.check_box :_destroy 
+        = picture.label "Remove"
+        = picture.file_field :image
+    br
+  .actions
+    = f.submit yield(:btn_text)
+    = link_to "Back", :back, class: "btn btn-default"
