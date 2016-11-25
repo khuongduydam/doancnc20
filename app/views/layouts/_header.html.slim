@@ -1,29 +1,19 @@
 section.section_top
   .container
     .row
-      .col-md-7.col-sm-12.col-xs-12
+      .col-md-7.col-sm-12.col-xs-12.solo
         a.sologan(href="#")
           | Fruit are part of out nature
-      .col-md-3.col-sm-6.col-xs-12
+      .col-md-3.col-sm-6.col-xs-12.use
         .user
-          / a(href="#")
-          /   i.fa.fa-lock(aria-hidden="true")
-          /   br
-          /   | Đăng nhập
           - unless user_signed_in?  
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path  
           - else
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
         .user
-          / a(href="#")
-          /   i.fa.fa-users(aria-hidden="true")
-          /   br
-          /   | Đăng ký
           - unless user_signed_in?  
             = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path  
-      .col-md-2.col-sm-6.col-xs-12
-        /a.btn.btn-success(href="ordertemplate.html")
-        / | CART 
+      .col-md-2.col-sm-6.col-xs-12.cart
         .btn.btn-success = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, ordertemplate_orders_path
 header
   .container

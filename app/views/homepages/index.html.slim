@@ -168,37 +168,40 @@ section.sections-product
               a.btn.btn-success href="#" 
                 | Thêm vào giỏ
                 i.fa.fa-shopping-cart aria-hidden="true" 
-      .col-md-3
-        .well
-          h4 Sản Phẩm bán chạy
+      .col-md-3.well-right
+        .well.well-swl
+          h4.title
+            | Sản Phẩm bán chạy
           .sub_wish_list
             .row
-              .col-sm-4.col-xs-12
-                img.img-circle src="img/nhomy.png"                 
-              .col-sm-8.col-xs-12
-                p Nho mỹ xanh
-                h4 370,000 D
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('kiwivang.png')
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Nho mỹ xanh
+                h4
+                  | 370,000 D
             .row
-              .col-sm-4.col-xs-12
-                / img.img-circle src="img/lemyxanh.png" 
-                = image_tag("lemyxanh.png", class: "img img-circle")
-              .col-sm-8.col-xs-12
-                p Lê mỹ xanh
-                h4 80,000 D
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('lemyxanh.png') 
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Lê mỹ xanh
+                h4
+                  | 80,000 D
             .row
-              .col-sm-4.col-xs-12
-                img.img-circle src="img/camxoan.png" 
-              .col-sm-8.col-xs-12
-                p Cam Xoan
-                h4 80,000 D
-        .well
-          h4 Video song
-          iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/GvxwyR88FoA" 
-        .well
-          h4 Kết nối facebook
-          iframe allowtransparency="true" frameborder="0" height="350" scrolling="no" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" style="border:none;overflow:hidden" width="230" 
-
-
-
-
-
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('camxoan.png')
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Cam Xoan
+                h4
+                  | 80,000 D
+        .well.well-song
+          h4.title
+            | Video song
+          iframe.iframe-song(src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen)
+        .well.well-face
+          h4.title
+            | Kết nối facebook
+          iframe.iframe[src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"]

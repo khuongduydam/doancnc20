@@ -98,11 +98,39 @@ section.sections-shoppingguide
                     | hotline 0976001983 
                   | (sms viber zalo) hoặc fanpage 
       .col-md-3.well-right
-        .well
-          h4
+        .well.well-swl
+          h4.title
+            | Sản Phẩm bán chạy
+          .sub_wish_list
+            .row
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('kiwivang.png')
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Nho mỹ xanh
+                h4
+                  | 370,000 D
+            .row
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('lemyxanh.png') 
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Lê mỹ xanh
+                h4
+                  | 80,000 D
+            .row
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('camxoan.png')
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Cam Xoan
+                h4
+                  | 80,000 D
+        .well.well-song
+          h4.title
             | Video song
-          iframe[width="230" height="300" src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen]
-        .well
-          h4
+          iframe.iframe-song(src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen)
+        .well.well-face
+          h4.title
             | Kết nối facebook
-          iframe[src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="230" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"]
+          iframe.iframe[src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"]

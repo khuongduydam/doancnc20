@@ -1,7 +1,7 @@
-section.sections-product
+section.sections-detail-information
   .container
     .row
-      .col-md-9
+      .col-md-9.vuahat
        h2 QUẢ ÓC CHÓ MUA Ở ĐÂU UY TÍN? QUẢ ÓC CHÓ CÓ TÁC DỤNG GÌ?
        p Quả óc chó là loại quả quý không phải ở đâu cũng trồng được, nó phục thuộc rất nhiều vào khí hậu và môi trường tự nhiên như đất đai màu mỡ, thảm thực vật tươi tốt. Hiện nay thì Mỹ là nước trồng quả óc chó đứng đầu thế giới cả về chất lượng và số lượng. Hạt óc chó là một trong những loại hạt được nuôi dưỡng bởi chất hữu cơ tự nhiên mà không chịu ảnh hưởng bởi bất kì sự ô nhiễm nào, do đó, hạt óc chó được cho là thực phẩm tinh khiết đến từ thiên nhiên, là loại quả quý hiếm có tác dụng tuyệt vời cho não bộ và có khả năng chống lại nhiều loại bệnh.
        .vuacacloaihat
@@ -16,41 +16,40 @@ section.sections-product
        p Dùng quả óc chó trong một thời gian dài nhất định sẽ giảm thiểu đáng kể bệnh viêm nhiễm phụ khoa, u xơ tử cung, ung thư cổ tử cung và các bệnh liên quan v.v.., từ đó chị em có thể phần nào bớt đi nỗi lo sợ về những căn bệnh ám ảnh này.
        h5 Cải thiện sức khỏe tim mạch!
        p Cơ quan quản lý thực phẩm và dược phẩm Hoa Kỳ đã công bố: quả óc chó là thực phẩm thiết yếu cho trái tim và nên được bổ sung vào chế độ ăn uống hàng ngày để có trái tim khỏe mạnh. Trong quả óc chó có chứa chất chống Oxy hóa Polyphenol giúp ngăn ngừa các cục máu đông. Khi Polyphenol kết hợp với Omega-3, chất xơ, các loại vitamin và khoáng chất sẽ giúp cơ thể loại trừ Cholesterol, một trong những tác nhân ảnh hưởng đến sức khỏe hệ tim mạch. Quả óc chó có rất nhiều lợi ích đối với trái tim và hiệu quả hơn bất kỳ loại quả nào khác trên trái đất.
-       #HCB_comment_box
-        a href="http://www.htmlcommentbox.com"  HTML Comment Box
-        | is loading comments...
-      link href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" rel="stylesheet" type="text/css" /
-      script#hcb type="text/javascript" 
-        | 
-         if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).|replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="|+encodeURIComponent(l).replace("+","%2B")+"&amp;opts=16862&amp;num=10&amp;ts=1479781415818");if (typeof s!="undefined") document. |getElementsByTagName("head")[0].appendChild(s);})(); /*
- 
-      end www.htmlcommentbox.com
-      .col-md-3
-        .well
-          h4 Sản Phẩm bán chạy
+      .col-md-3.well-right
+        .well.well-swl
+          h4.title
+            | Sản Phẩm bán chạy
           .sub_wish_list
             .row
-              .col-sm-4.col-xs-12
-                 = image_tag("nhomy.png", class: "img img-circle")                 
-              .col-sm-8.col-xs-12
-                p Nho mỹ xanh
-                h4 370,000 D
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('kiwivang.png')
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Nho mỹ xanh
+                h4
+                  | 370,000 D
             .row
-              .col-sm-4.col-xs-12
-                / img.img-circle src="img/lemyxanh.png" 
-                = image_tag("lemyxanh.png", class: "img img-circle")
-              .col-sm-8.col-xs-12
-                p Lê mỹ xanh
-                h4 80,000 D
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('lemyxanh.png') 
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Lê mỹ xanh
+                h4
+                  | 80,000 D
             .row
-              .col-sm-4.col-xs-12
-                = image_tag("camxoan.png", class: "img img-circle") 
-              .col-sm-8.col-xs-12
-                p Cam Xoan
-                h4 80,000 D
-        .well
-          h4 Video song
-          iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/GvxwyR88FoA" 
-        .well
-          h4 Kết nối facebook
-          iframe allowtransparency="true" frameborder="0" height="350" scrolling="no" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=230&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" style="border:none;overflow:hidden" width="230" 
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('camxoan.png')
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Cam Xoan
+                h4
+                  | 80,000 D
+        .well.well-song
+          h4.title
+            | Video song
+          iframe.iframe-song(src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen)
+        .well.well-face
+          h4.title
+            | Kết nối facebook
+          iframe.iframe[src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"]

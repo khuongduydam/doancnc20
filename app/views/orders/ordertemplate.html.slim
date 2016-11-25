@@ -1,8 +1,8 @@
 section.section_order_template
   .container
     .row
-      .col-md-7
-        form
+      .col-md-7.tt-customer
+        form.form-tt-customer
           h3 Thông tin khách hàng
           .form-group
             label[for="InputName"]
@@ -89,7 +89,7 @@ section.section_order_template
           | Tổng đơn hàng: 
           strong
             | 270,000 vnđ
-      .col-md-6
+      .col-md-6.total2
         h3
           .btn.btn-success.btn-lg.right1 = link_to 'Thanh toán trực tuyến', orderdetailproduct_products_path
           .btn.btn-success.btn-lg.right2 = link_to 'Thanh toán khi giao hàng', orderdetailproduct_products_path
