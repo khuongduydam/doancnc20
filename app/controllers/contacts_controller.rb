@@ -9,6 +9,9 @@ class ContactsController < ApplicationController
       flash[:success] = "Message sended"
       redirect_to :back
     else
+      p "*"*50
+      p @contact.errors.messages
+      p "*"*50
       render 'new'
     end
   end

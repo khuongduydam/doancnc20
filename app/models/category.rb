@@ -1,5 +1,4 @@
 class Category < ActiveRecord::Base
-  # include ActiveModel::Validation
   has_many :products, dependent: :destroy
   has_many :pictures, as: :imageable
 
