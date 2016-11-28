@@ -1,1 +1,48 @@
-edit.html.slim
+section.section-contact
+  .container
+    .row
+      .col-md-3.list-group
+        = link_to '<i class="fa fa-home" aria-hidden="true"></i>  DASHBOARD'.html_safe, admins_path , lable: 'left', class:'list-group-item active'
+        = link_to '<i class="fa fa-folder-open" aria-hidden="true"></i>  CATEGORIES'.html_safe, admins_categories_path, class:'list-group-item'
+        = link_to '<i class="fa fa-tachometer" aria-hidden="true"></i>  PRODUCT'.html_safe, admins_products_path, class:'list-group-item '
+        = link_to '<i class="fa fa-file" aria-hidden="true"></i>  INFORMATIONS'.html_safe, admins_newspapers_path, class:'list-group-item '
+        = link_to '<i class="fa fa-user" aria-hidden="true"></i>  USERS'.html_safe, admins_users_path, class:'list-group-item '
+      .col-md-9
+        h2 
+          |Modify product
+        = simple_form_for [:admins, @product], :html => { :multipart => true } do |f|
+          / = render 'my_devise/registrations/form', locals: {f:f}
+          / = render 'shared/error_messages', object: f.object
+          .field 
+            = f.input :name
+            br
+          .field 
+            = f.input :price
+            br
+          .field 
+            = f.input :origin
+            br
+          .field
+            = f.input :category_id,:collection => @categories,:label_method => :name,:value_method => :id,:label => "Category" ,:include_blank => false
+            br
+          .field 
+            = f.label :description
+            = f.text_area :description, class: 'form-control'
+          .field 
+            = f.input :quantity
+            br 
+          .field
+
+            = f.label "Image"
+            - if @product.pictures.blank?
+              = f.simple_fields_for :pictures, @product.pictures.build do |picture|
+                = picture.file_field :image      
+            - else 
+              = f.simple_fields_for :pictures do |picture|
+                = image_tag picture.object.image_url
+                = picture.check_box :_destroy 
+                = picture.label "Remove"
+                = picture.file_field :image
+            br
+          .actions
+            = f.submit "Modify"

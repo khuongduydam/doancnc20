@@ -1,0 +1,7 @@
+= simple_form_for [:admins, @newspaper] do |f|
+  = f.input :title
+  br
+  = f.label :content
+  = f.cktext_area :content
+  br
+  = f.submit yield(:btn_text)

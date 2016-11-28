@@ -3,4 +3,6 @@ class Category < ApplicationRecord
   has_many :pictures, as: :imageable, dependent: :destroy
 
   accepts_nested_attributes_for :pictures, :allow_destroy => true
+
+  validates :name, presence: true, uniqueness: true
 end

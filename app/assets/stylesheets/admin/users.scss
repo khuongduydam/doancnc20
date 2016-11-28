@@ -1,3 +1,26 @@
-// Place all the styles related to the admin/users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+section.layout-adminuser{
+	.container{
+		.row{
+			.list-group{
+				.active{
+					background-color: #1995dc;
+					border-color: #1995dc;
+					color: #ffffff;
+				}
+			}
+			.main-adminproduct{
+				.page-title{
+					.page-header.pull-left{
+						color: #1995dc;
+					}
+					.pull-right{
+						.btn-default{
+							background-color: #1995dc!important;
+							border-color:#1995dc;
+							color: #ffffff;}
+					}
+				}
+			}
+		}
+	}
+}

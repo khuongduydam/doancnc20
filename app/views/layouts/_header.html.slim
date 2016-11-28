@@ -13,9 +13,16 @@ section.section_top
         .user
           - unless user_signed_in?  
             = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path  
+          - else
+            .dropdown
+              = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Account'.html_safe, '','data-toggle': 'dropdown', class: 'dropdown-toggle'
+              ul.dropdown-menu[style="min-width:60px;"]
+                = link_to 'Profile', user_path(current_user)
+                br
+                = link_to 'Edit', edit_user_registration_path
       .col-md-2.col-sm-6.col-xs-12.cart
         .btn.btn-success = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, ordertemplate_orders_path
-header
+header.frontend
   .container
     nav.navbar.navbar-default
       .container-fluid
@@ -38,22 +45,12 @@ header
                 | SẢN PHẨM 
                 span.caret
               ul.dropdown-menu(aria-labelledby="sanpham")
-                li
-                  / a(href="products/traicaynhap")
-                  /   | TRÁI CÂY NHẬP 
-                  = link_to "TRÁI CÂY NHẬP KHẨU ", products_path
-                li
-                  /a(href="traicaymienbac.html")
-                    /| TRÁI CÂY MIỀN BẮC
-                  = link_to "TRÁI CÂY MIỀN BẮC", traicaymienbac_products_path
-                li
-                  /a(href="traicaymiennam.html")
-                   / | TRÁI CÂY MIỀN NAM
-                  = link_to "TRÁI CÂY MIỀN NAM", traicaymiennam_products_path
+                - @categories = Category.all
+                = render partial: 'categories/index', locals: { categories: @categories}
             li
               = link_to "HƯỚNG DẪN MUA HÀNG", shoppingguide_shoppingguides_path
             li
-              = link_to "THÔNG TIN HỮU ÍCH", information_informations_path
+              = link_to "THÔNG TIN HỮU ÍCH", newspapers_path
             li
               = link_to "LIÊN HỆ", contacts_contacts_path
           form.navbar-form.navbar-right

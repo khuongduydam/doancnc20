@@ -154,7 +154,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 6..128
+  config.password_length = 6..10
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -283,7 +283,7 @@ Devise.setup do |config|
     config.stretches = Rails.env.test? ? 1 : 10
     config.reconfirmable = true
     config.expire_all_remember_me_on_sign_out = true
-    config.password_length = 8..128
+    config.password_length = 6..10
     config.reset_password_within = 6.hours
     config.sign_out_via = :delete
 

@@ -1,10 +1,45 @@
-/ .container.well[style='width:300px;']
-/   h3 = @product.name
-/   h3 = @product.price
-/   h3 = @product.origin
-/   h3 = @product.description
-/   h3 = @product.quantity
-
-= render partial: 'comments/comments', locals: {commentable: @product}
-= render partial: 'comments/form', locals: {commentable: @product}
-
+section.sections-product
+  .container
+    .row.img-reponsive
+      .col-md-9.detailproduct
+        .row
+          .col-md-7
+            - @product.pictures.each do |img|
+              = image_tag img.image, size: "200x200", class:'img-thumbnail'
+            end
+          .col-md-5
+            .detail
+              h3.Title_product 
+                = @product.name
+              h4 
+                | Giá bán: 
+                = @product.price
+                |  vnd
+              p 
+                | Số lượng trong kho : 
+                = @product.quantity
+                |  kg
+              .about_product
+                p 
+                  | Xuất xứ: 
+                  = @product.origin
+              | Số lượng : 
+              .quantity.buttons_added
+                input max="20" min="1" name="quantity" step="1" type="number" value="1" 
+                | Kg    
+              .about_product
+                p 
+                  | Mô tả : 
+                  = @product.description
+                   / = @product.category.name
+              br
+              - if current_user != nil
+                = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post, class: 'btn btn-default'
+              h3  
+                button.btn.btn-success.btn-lg.right type="button"  Mua ngay
+        br
+        br
+        = render partial: 'comments/comments', locals: {commentable: @product}
+        = render partial: 'comments/form', locals: {commentable: @product}
+      .col-md-3
+        = render 'form/right'

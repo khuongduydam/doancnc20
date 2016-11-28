@@ -6,9 +6,11 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook],
          :authentication_keys => [:username]
   enum role: [:member, :admin]
+
   validates :username, presence: true, uniqueness: true
   validates :phone, numericality: {only_integer: true}
   validates_length_of :phone, minimum: 10, maximum: 11, allow_blank: true
+  has_many :wish_lists, dependent: :destroy
 
   has_many :comments
 

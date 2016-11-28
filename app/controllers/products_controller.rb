@@ -1,26 +1,14 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @product_news = Product.first(10)
+    @wishlists = WishList.first(3)
+    if current_user != nil
+      @user = User.find(current_user.id)
+    end
   end
 
   def show
+    @wishlists = WishList.first(3)  
     @product = Product.try(:find,params[:id])
-  end
-  def traicaymienbac
-  	
-  end
-
-  def traicaymiennam
-  	
-  end
-
-  def traicaynhap
-  	
-  end
-  def detailproduct
-    
-  end
-  def orderdetailproduct
-
   end
 end
