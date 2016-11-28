@@ -5,7 +5,7 @@ class Category < ActiveRecord::Base
   accepts_nested_attributes_for :pictures,:allow_destroy => true
 
   validates :name,  presence: true, length: { maximum: 50 }
-
+  validates_associated :pictures
   before_save :titleize_name
 
   private

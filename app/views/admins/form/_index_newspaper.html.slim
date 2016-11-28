@@ -2,15 +2,22 @@
   table.table
     thead
       tr.info
+        th Image
         th Title
         th Content
         th[style="width:300px;"] Property
     tbody
       - @newspapers.each do |newspaper|
         tr.danger
+          td 
+            - if newspaper.pictures.present?
+              = image_tag(newspaper.pictures.first.image, class:"img-responsive", size: "200x200")
+            - else 
+              = image_tag('newspaper.png', class: 'img-thumbnail', size: "200x200")
           td = newspaper.title
           td = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
           td 
             = link_to 'Detail', admins_newspaper_path(newspaper),class: 'btn btn-info'
             = link_to 'Edit', edit_admins_newspaper_path(newspaper), class: 'btn btn-warning',style: 'margin-left:20px;'
             = link_to 'Delete', admins_newspaper_path(newspaper),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+  = will_paginate @newspapers

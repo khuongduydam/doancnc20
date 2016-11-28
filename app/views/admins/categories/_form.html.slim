@@ -11,9 +11,7 @@
       = picture.file_field :image      
   - else 
     = f.simple_fields_for :pictures do |picture|
-      = image_tag picture.object.image_url
-      = picture.check_box :_destroy 
-      = picture.label "Remove"
+      = image_tag picture.object.image_url, size: "400x400"
       = picture.file_field :image
   = f.submit yield(:btn_text)
   = link_to "Back", :back, class: "btn btn-default"

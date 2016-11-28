@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :admins,:newspapers,:categories,only: [:index, :show]
+  resources :admins,:newspapers,only: [:index, :show]
+  resources :categories, only: :show
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},
              :controllers => { :omniauth_callbacks => "callbacks" }
   resources :users, only: :show

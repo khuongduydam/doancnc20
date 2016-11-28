@@ -1,6 +1,6 @@
 class Admins::ContactsController < AdminsController
   def index
-    @contacts = Contact.all.order(created_at: :desc)
+    @contacts = Contact.all.order(created_at: :desc).paginate(:per_page => 10, :page => params[:page])
   end
   def show
     @contact = Contact.find(params[:id])

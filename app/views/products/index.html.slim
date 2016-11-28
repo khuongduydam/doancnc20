@@ -7,8 +7,11 @@ section.sections-product
         .row
           - @product_news.each do |product|
             .col-md-3.col-sm-6.col-xs-12
-              / .img-thumbnail
-              /   = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+              .img-thumbnail
+                - if product.pictures.present?
+                  = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+                - else 
+                  = link_to image_tag('default.png'), product_path(product)
               h5
                 = product.name
               p 

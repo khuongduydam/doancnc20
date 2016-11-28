@@ -33,7 +33,11 @@
         = image_tag picture.object.image_url
         = picture.check_box :_destroy 
         = picture.label "Remove"
+        br
+        = picture.label "Chance"
         = picture.file_field :image
+      = f.label "Add new image"
+      = f.file_field :image
     br
   .actions
     = f.submit yield(:btn_text)

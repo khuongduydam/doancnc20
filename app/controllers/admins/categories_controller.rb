@@ -1,22 +1,26 @@
 class Admins::CategoriesController < AdminsController
   def index
-    @categories = Category.all 
+    @categories = Category.all.paginate(:per_page => 10, :page => params[:page])
   end
 
   def new
-    @category = Category.new                                                                                                                              
-    # @category.pictures.build
+    @category = Category.new     
   end
 
   def create
     @category = Category.new(category_params)
-    if @category.save
-      redirect_to admins_categories_path
+
+    if params[:category][:pictures_attributes].present?
+      if @category.save
+        redirect_to admins_categories_path
+      else
+        # flash[:error] = @category.errors.full_messages
+        render 'new'
+        puts @category.errors.full_messages
+      end
     else
-      # flash[:error] = @category.errors.full_messages
+      flash[:error]="Please choice image!" 
       render 'new'
-      puts @category.errors.full_messages
-      # render new_admins_category_path
     end
   end
 
@@ -45,11 +49,12 @@ class Admins::CategoriesController < AdminsController
   def destroy
     Category.find(params[:id]).destroy
     flash[:success] = "Category deleted"
-    redirect_to admins_categories_path
+    redirect_to admins_categoriesla_path
   end
 
   private
   def category_params
+    # ksjdakjd
     params.require(:category).permit(:name, pictures_attributes: [:id, :image, :_destroy])
   end
 end

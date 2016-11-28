@@ -1,11 +1,10 @@
 class Product < ActiveRecord::Base
   belongs_to :category
-  
   has_many :pictures, as: :imageable, dependent: :destroy
   has_many :wish_lists, dependent: :destroy
   has_many :comments, -> order{ order 'created_at asc'}, as: :commentable, dependent: :destroy
 
-  default_scope -> { order(created_at: :desc)}
+  # default_scope -> { order(created_at: :desc)}
   accepts_nested_attributes_for :pictures, :allow_destroy => true
 
   validates :name,  presence: true, uniqueness: {case_sensitive: false}
@@ -15,6 +14,14 @@ class Product < ActiveRecord::Base
   validates_numericality_of :quantity, greater_than: 0, less_than: 1000, presence: true
 
   before_save :titleize_name
+
+  def self.search(search)
+    if search
+      where('name LIKE ?',"%#{search}%")
+    else
+      all
+    end
+  end
 
   private
   def titleize_name

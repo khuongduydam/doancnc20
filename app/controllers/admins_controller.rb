@@ -3,11 +3,11 @@
   layout 'admin_layout'
 
   def index
-    @users = User.all.order(id: :asc)
-    @products = Product.all.order(id: :asc)
-    @newspapers = Newspaper.all
-    @categories = Category.all
-    @contacts = Contact.all.order(created_at: :desc)
+    @users = User.all.order(id: :asc).paginate(:per_page => 10, :page => params[:page])
+    @products = Product.all.order(id: :asc).paginate(:per_page => 10, :page => params[:page])
+    @newspapers = Newspaper.all.order(created_at: :desc).paginate(:per_page => 10, :page => params[:page])
+    @categories = Category.all.paginate(:per_page => 10, :page => params[:page])
+    @contacts = Contact.all.order(created_at: :desc).paginate(:per_page => 10, :page => params[:page])
   end
 
   def admin_only
