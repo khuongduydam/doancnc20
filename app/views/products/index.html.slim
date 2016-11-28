@@ -31,8 +31,10 @@ section.sections-product
                     |  | 
                     = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
               p
-                a.btn.btn-success(href="#")
-                  | Thêm vào giỏ 
-                  i.fa.fa-shopping-cart(aria-hidden="true")
+                / a.btn.btn-success(href="#")
+                /   | Thêm vào giỏ 
+                /   i.fa.fa-shopping-cart(aria-hidden="true")
+                = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success', remote: true
       .col-md-3
+
         = render 'form/right'

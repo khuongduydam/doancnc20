@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'carts/show'
-
+  resources :order_items
+  resources :carts, except: :index
+  get '/carts' => 'products#index'
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
@@ -17,11 +18,6 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :categories, only: [:index, :show]
   #########jane
-  resources :orders do
-    collection do 
-      get "ordertemplate"
-    end
-  end
   resources :products, only: [:index, :show] do
     resources :comments, module: :products 
   end
@@ -38,6 +34,4 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :cart, only: :show
-  resources :order_details, only: [:create, :update, :destroy]
 end

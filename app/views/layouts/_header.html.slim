@@ -29,9 +29,10 @@ section.section_top
                 br
                 = link_to 'Edit', edit_user_registration_path
       .col-md-2.col-sm-6.col-xs-12
-        /a.btn.btn-success(href="ordertemplate.html")
-        / | CART 
-        .btn.btn-success = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, ordertemplate_orders_path
+        / a.btn.btn-success(href="ordertemplate.html")
+        /   | CART 
+        /   i.fa.fa-shopping-cart(arian-hidden="true")
+        = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success'  
 header
   .container
     nav.navbar.navbar-default
