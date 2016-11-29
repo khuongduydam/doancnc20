@@ -21,10 +21,7 @@ section.section_top
                 br
                 = link_to 'Edit', edit_user_registration_path
       .col-md-2.col-sm-6.col-xs-12
-        / a.btn.btn-success(href="ordertemplate.html")
-        /   | CART 
-        /   i.fa.fa-shopping-cart(arian-hidden="true")
-        = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success'  
+        = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success',style:'color:#fff'  
 header.frontend
   .container
     nav.navbar.navbar-default
@@ -39,10 +36,8 @@ header.frontend
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              / a(href="home.html")
               = link_to "TRANG CHỦ ", root_path
 
-                / | TRANG CHỦ
             li.dropdown
               a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
                 | SẢN PHẨM 
