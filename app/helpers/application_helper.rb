@@ -7,6 +7,7 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+  
   def wishlists
     unless current_user.nil?
       @wishlists = WishList.where(user_id: current_user.id).first(3)

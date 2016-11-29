@@ -8,7 +8,7 @@ header.backend
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        a.navbar-brand href="#navbar" FRUITS SHOP
+        = link_to 'FRUITS SHOP', root_path,class:'navbar-brand'
       #navbar.collapse.navbar-collapse.navbar-reponsive-collapse
         ul.nav.navbar-nav
           li
@@ -23,15 +23,11 @@ header.backend
             = link_to "USER", admins_users_path, label:'top'
           li
             = link_to "CONTACT", admins_contacts_path, label:'top'
+          li
+            = link_to "ORDERS", admins_orders_path,label:'top'  
         form.navbar-form.navbar-left role="search"
             .form-group
               input.form-control type='text' placeholder="search" 
         .user
         .navbar-right
-          = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
-/ javascript:
-/   $('ul.nav li.dropdown').hover(function() { 
-/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
-/     function() { 
-/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
-/     }); 
+          = link_to '<i class="fa fa-lock fa-lg" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'},class:'btn btn-warning',style:'float:right'  
