@@ -3,11 +3,11 @@ section.sections-product
     .row.img-reponsive
       .col-md-9.detailproduct
         .row
-          .col-md-7
+          .col-md-8.col-sm-6.col-xs-12.detailimg
             - @product.pictures.each do |img|
-              = image_tag img.image, size: "200x200", class:'img-thumbnail'
+              = image_tag img.image, class:'img-thumbnail '
             end
-          .col-md-5
+          .col-md-4.col-sm-6.col-xs-12.detailinfo
             .detail
               h3.Title_product 
                 = @product.name
@@ -41,5 +41,5 @@ section.sections-product
         br
         = render partial: 'comments/comments', locals: {commentable: @product}
         = render partial: 'comments/form', locals: {commentable: @product}
-      .col-md-3
+      .col-md-3.well-right
         = render 'form/right'
