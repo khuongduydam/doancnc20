@@ -1,0 +1,26 @@
+section.layout-admininformation{
+	.container{
+		.row{
+			.list-group{
+				.active{
+					background-color: #1995dc;
+					border-color: #1995dc;
+					color: #ffffff;
+				}
+			}
+			.main-adminproduct{
+				.page-title{
+					.page-header.pull-left{
+						color: #1995dc;
+					}
+					.pull-right{
+						.btn-default{
+							background-color: #1995dc!important;
+							border-color:#1995dc;
+							color: #ffffff;}
+					}
+				}
+			}
+		}
+	}
+}
