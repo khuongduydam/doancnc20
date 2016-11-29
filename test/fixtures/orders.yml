@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  status: MyString
-  note: MyString
-  total_price: 1
-  user: one
+  address: MyString
+  phone: MyString
+  email: MyString
+  pay_type: MyString
 
 two:
   name: MyString
-  status: MyString
-  note: MyString
-  total_price: 1
-  user: two
+  address: MyString
+  phone: MyString
+  email: MyString
+  pay_type: MyString

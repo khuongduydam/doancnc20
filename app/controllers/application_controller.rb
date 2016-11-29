@@ -10,6 +10,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_order
+    unless session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
+
   private
   def permitted_params
     sign_up = -> u {u.permit(:username, :first_name,:email, :last_name, 

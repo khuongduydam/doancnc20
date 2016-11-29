@@ -1,14 +1,17 @@
 section.sections-product
   .container
-    .row
-      .col-md-9
-        h3.header
-          | Hàng mới nhập về
+    .row.img-reponsive
+      .col-md-9.detailproduct
+        h3.title-head
+          | San Pham Moi Nhap
         .row
           - @product_news.each do |product|
-            .col-md-3.col-sm-6.col-xs-12
-              / .img-thumbnail
-              /   = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+            .col-md-3.col-sm-6.col-xs-12.img-thum
+              .img-thumbnail
+                - if product.pictures.present?
+                  = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+                - else 
+                  = link_to image_tag('default.png'), product_path(product)
               h5
                 = product.name
               p 
@@ -35,8 +38,8 @@ section.sections-product
                   - if flat == 0
                     |  | 
                     = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
-              a.btn.btn-success(href="#")
-                | Thêm vào giỏ 
-                i.fa.fa-shopping-cart(aria-hidden="true")
-      .col-md-3
+              p
+                = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success center-block', remote: true
+      .col-md-3.well-right
         = render 'form/right'
+        

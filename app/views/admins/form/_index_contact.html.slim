@@ -13,7 +13,8 @@
           td = contact.name
           td = contact.address
           td = truncate(contact.message, length: 30)
-          td = contact.created_at
+          td = distance_of_time_in_words(Time.now, contact.created_at)
           td 
             = link_to 'Detail', admins_contact_path(contact),class: 'btn btn-info'
             = link_to 'Delete', admins_contact_path(contact),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+  = will_paginate @contacts

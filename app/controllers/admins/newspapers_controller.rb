@@ -1,6 +1,6 @@
 class Admins::NewspapersController < AdminsController
   def index
-    @newspapers = Newspaper.all
+    @newspapers = Newspaper.order(created_at: :desc).all.paginate(:per_page => 10, :page => params[:page])
   end
 
   def new
@@ -15,7 +15,7 @@ class Admins::NewspapersController < AdminsController
       p "*"*50
       p @newspaper.errors.messages[:content]
       p "*"*50
-      render new_admins_newspaper_path
+      render 'new'
     end
   end
 
@@ -28,7 +28,7 @@ class Admins::NewspapersController < AdminsController
     if @newspaper.update_attributes(newspaper_params)
       redirect_to admins_newspapers_path
     else
-      render edit_admins_newspaper_path
+      render 'edit'
     end
   end
 
@@ -44,6 +44,6 @@ class Admins::NewspapersController < AdminsController
   
   private
   def newspaper_params
-    params.require(:newspaper).permit(:title, :content)
+    params.require(:newspaper).permit(:title, :content, pictures_attributes: [:id, :image, :_destroy])
   end
 end

@@ -1,26 +1,24 @@
-.containner.center-block[style="width:900px;"]
-  h1.text-center 
-    | Admin Dash Board
-  ul.nav.nav-tabs
-    li.active
-      a[data-toggle='tab' href='#users']Users
-    li
-      a[data-toggle='tab' href='#categories']Categories
-    li
-      a[data-toggle='tab' href='#products']Products
-    li
-      a[data-toggle='tab' href='#infos']Newspapers
-    li
-      a[data-toggle='tab' href='#contact']Contact
-  .tab-content
-    #users.tab-pane.fade.in.active  
-      = render 'admins/user'
-    #categories.tab-pane.fade
-      = render 'admins/category'
-    #products.tab-pane.fade
-      = render 'admins/product'
-    #infos.tab-pane.fade  
-      = render 'admins/newspaper'
-    #contact.tab-pane.fade  
-      = render 'admins/contact'
-      
+section.layout-admin
+  .container
+    .row
+      .col-md-3.list-group
+        = render 'left'
+      .col-md-9.main-admin
+        .row
+          .col-md-12.main-body
+            h3.us <i class="fa fa-folder-open" aria-hidden="true"></i> CATEGORIES              
+            #categories
+              = render 'admins/category'
+            h3.us <i class="fa fa-tachometer" aria-hidden="true"></i> PRODUCTS
+            #products
+              = render 'admins/product'
+            h3.us <i class="fa fa-file" aria-hidden="true"></i> NEWSPAPERS
+            #infos
+              = render 'admins/newspaper'
+            h3 <i class="fa fa-user" aria-hidden="true"></i> USERS
+            #users
+              = render 'admins/user'
+            h3.us <i class="fa fa-handshake-o" aria-hidden="true"></i> CONTACTS
+            #contact  
+              = render 'admins/contact'
+

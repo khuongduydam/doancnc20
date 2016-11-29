@@ -1,0 +1,55 @@
+.sections-shoppingguide{
+	.container{
+		margin-top: 30px;
+		.row{
+			.menutab{
+				margin-top: 30px;
+				.nav-tabs {
+					li.active {
+						a {
+							font-size: 14px;
+							color:green  !important;
+							background-color: #c2c723!important;
+							}
+						}
+					li {
+						a {
+							color:green;
+							font-size: 14px;
+							&:hover {
+								color:green;
+								font-size: 14px;
+								background-color: #c2c723 !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	@media (max-width: 540px) and (min-width: 320px){
+		.container{
+			.row{
+				.menutab{
+					.nav-tabs {
+						width: 200px;
+					}
+				}
+			}
+		}
+	}
+	@media (min-width: 540px) and (max-width: 767px){
+			.container{
+				.row{
+					.menutab{
+						.nav-tabs {
+							li{
+								width: 130px;
+								text-align: center;
+							}
+						}
+					}
+				}
+			}
+		}
+}

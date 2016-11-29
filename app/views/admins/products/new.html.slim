@@ -1,8 +1,10 @@
 - provide(:btn_text, "Add")
-section.section-contact
+section.layout-admin-newproduct
   .container
     .row
-      .col-md-10
+      .col-md-3.list-group
+        = render 'admins/left'
+      .col-md-9
         h2 
           |Add new product
         = render 'form'

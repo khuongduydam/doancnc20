@@ -2,10 +2,10 @@ section.section_top
   ///////
   .container
     .row
-      .col-md-7.col-sm-12.col-xs-12
+      .col-md-7.col-sm-12.col-xs-12.solo
         a.sologan(href="#")
           | Fruit are part of out nature
-      .col-md-3.col-sm-6.col-xs-12
+      .col-md-3.col-sm-6.col-xs-12.use
         .user
           - unless user_signed_in?  
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path  
@@ -13,7 +13,7 @@ section.section_top
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
         .user
           - unless user_signed_in?  
-            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path
+            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path  
           - else
             .dropdown
               = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Account'.html_safe, '','data-toggle': 'dropdown', class: 'dropdown-toggle'
@@ -22,10 +22,8 @@ section.section_top
                 br
                 = link_to 'Edit', edit_user_registration_path
       .col-md-2.col-sm-6.col-xs-12
-        /a.btn.btn-success(href="ordertemplate.html")
-        / | CART 
-        .btn.btn-success = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, ordertemplate_orders_path
-header
+        = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success',style:'color:#fff'  
+header.frontend
   .container
     nav.navbar.navbar-default
       .container-fluid
@@ -39,10 +37,8 @@ header
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
-              / a(href="home.html")
               = link_to "TRANG CHỦ ", root_path
 
-                / | TRANG CHỦ
             li.dropdown
               a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
                 | SẢN PHẨM 
@@ -57,7 +53,18 @@ header
             li
               = link_to "LIÊN HỆ", new_contact_path
           form.navbar-form.navbar-right
-            input.form-control(type="text" placeholder="Search...")
+            = form_tag products_path, :method => 'get', :id => "products_search" do
+              p
+                = text_field_tag :search, params[:search]
+                = submit_tag "Search", :name => nil
+                / = render 'products'
+            / = form_tag products_path, method: :get, id: "product_search" do }
+            / = simple_form_for products_path, method: :get do |f|
+            /   = f.input :search, params[:search]
+            /   = f.submit "Search"
+
+            / input.form-control(type="text" placeholder="Search...")
+
 
     section.sections-lider
       #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")

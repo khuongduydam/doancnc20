@@ -27,5 +27,6 @@ section.sections-product
                 a.btn.btn-success(href="#")
                   | Thêm vào giỏ 
                   i.fa.fa-shopping-cart(aria-hidden="true")
-      .col-md-3
+        = will_paginate @wishlistss
+      .col-md-3.well-right
         = render 'form/right'

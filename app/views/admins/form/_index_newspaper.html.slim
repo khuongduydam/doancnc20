@@ -14,3 +14,4 @@
             = link_to 'Detail', admins_newspaper_path(newspaper),class: 'btn btn-info'
             = link_to 'Edit', edit_admins_newspaper_path(newspaper), class: 'btn btn-warning',style: 'margin-left:20px;'
             = link_to 'Delete', admins_newspaper_path(newspaper),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+  = will_paginate @newspapers

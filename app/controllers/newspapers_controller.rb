@@ -4,6 +4,6 @@ class NewspapersController < ApplicationController
   end
 
   def index
-    @newspapers = Newspaper.all
+    @newspapers = Newspaper.all.order(created_at: :desc).paginate(:per_page => 10, :page => params[:page])
   end
 end

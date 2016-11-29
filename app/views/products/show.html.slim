@@ -4,9 +4,14 @@ section.sections-product
       .col-md-9.detailproduct
         .row
           .col-md-7
-            - @product.pictures.each do |img|
-              = image_tag img.image, size: "200x200", class:'img-thumbnail'
-            end
+            - if @product.pictures.present?
+              - if @product.pictures.size == 1
+                = image_tag @product.pictures.first.image,size: "400x400", class:"img-responsive"
+              - else
+                - @product.pictures.each do |img|
+                = image_tag img.image, size: "200x200", class:'img-responsive'
+            - else 
+              = image_tag('default.png', size: "400x400")
           .col-md-5
             .detail
               h3.Title_product 

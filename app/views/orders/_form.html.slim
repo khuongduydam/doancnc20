@@ -1,0 +1,38 @@
+.container-fluid
+  .row
+    .col-xs-4.col-md-4
+      = simple_form_for(@order) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.input :name
+          = f.input :address
+          = f.input :phone, as: :numeric
+          = f.input :email
+          = f.select :pay_type, Order::PAYMENT_TYPES,prompt: 'dasad',class:'form-control'
+          = f.button :submit,class:'pull-right'
+    .col-xs-8.col-md-8
+      - unless @cart.order_items.empty?
+        .container-fluid
+          .tabel-responsive
+            table.table
+              thead
+                tr.danger
+                  th 
+                    | Name
+                  th 
+                    | Quantity
+                  th 
+                    | Price
+              tbody    
+                = render @cart.order_items
+                tr    
+                  td 
+                    = link_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger'
+                tr
+                  td
+                    | Total
+                  td
+                    = number_to_currency @cart.total_price
+                          
+            
