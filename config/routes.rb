@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :orders
+  resources :order_members
   resources :order_items
   resources :carts, except: :index
   get '/carts' => 'products#index'
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   root 'products#index'
   namespace :admins do
     resources :contacts, only: [:index, :show, :destroy]
-    resources :newspapers, :products, :users, :orders
+    resources :newspapers, :products, :users, :orders, :order_members
     resources :categories do
       member do 
         get "pro_of_cate"

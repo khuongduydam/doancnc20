@@ -1,0 +1,26 @@
+.col-md-12.bodyad
+  .table-responsive
+    table.table
+      thead
+        tr.info
+          th User
+          th Name
+          th Note
+          th Status
+          th Pay Type
+          th Total Buy
+          th[style="width:270px;"] Property
+      tbody
+        - @order_members.each do |order_member|
+          tr.danger
+            td = order_member.user.first_name + " " + order_member.user.last_name
+            td = order_member.name
+            td = order_member.note
+            td[style="color:red;"] = order_member.status
+            td = order_member.pay_type
+            td = number_to_currency order_member.total_price
+            td 
+              = link_to 'Detail', admins_order_member_path(order_member),class: 'btn btn-info',style: 'margin-left:20px;'
+              = link_to 'Edit', edit_admins_order_member_path(order_member), class:'btn btn-info',style: 'margin-left:20px;'
+              = link_to 'Delete', admins_order_member_path(order_member),method: :delete, data: {confirm: "All products of this order_member will be delete. Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+  = will_paginate @order_members
