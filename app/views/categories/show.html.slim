@@ -1,12 +1,12 @@
 section.sections-product
   .container
     .row
-      .col-md-9
+      .col-md-9.allproduct
         h3.header
           = @category.name
         .row
           - @products.each do |product|
-            .col-md-3.col-sm-6.col-xs-12
+            .col-md-3.col-sm-6.col-xs-12.img-pro
               .img-thumbnail
                 - if product.pictures.present?
                   = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
@@ -23,8 +23,8 @@ section.sections-product
                 |  Gía : 
                 = product.price 
                 |  vnd/kg
-              p
-                = link_to "Detail", product_path(product)
+              / p
+              /   = link_to "Detail", product_path(product)
               p
                 - if current_user != nil
                   = link_to "Add to my wish list", wishlists_path(product.id), method: :post
