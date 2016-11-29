@@ -1,19 +1,35 @@
-section.sections-product
+section.layout-admincategory
   .container
-    .table-responsive
-      table.table
-        thead
-          tr.info
-            th Name
-            th Image
-            th[style="width:300px;"] Property
-        tbody
-          - @categories.each do |category|
-            tr.danger
-              td = category.name
-              td 
-                = image_tag category.pictures.first.image, size: "90x90"
-              td 
-                = link_to 'Detail', admins_category_path(category),class: 'btn btn-info',style: 'margin-left:20px;'
-                = link_to 'Edit', edit_admins_category_path(category), class: 'btn btn-warning',style: 'margin-left:20px;'
-                = link_to 'Delete', admins_category_path(category),method: :delete, data: {confirm: "All products of this category will be delete. Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+    .row
+      .col-md-3.list-group
+        = link_to '<i class="fa fa-home" aria-hidden="true"></i>  DASHBOARD'.html_safe, admins_path , lable: 'left', class:'list-group-item '
+        = link_to '<i class="fa fa-folder-open" aria-hidden="true"></i>  CATEGORIES'.html_safe, admins_categories_path, class:'list-group-item active'
+        = link_to '<i class="fa fa-tachometer" aria-hidden="true"></i>  PRODUCT'.html_safe, admins_products_path, class:'list-group-item '
+        = link_to '<i class="fa fa-file" aria-hidden="true"></i>  INFORMATIONS'.html_safe, admins_newspapers_path, class:'list-group-item '
+        = link_to '<i class="fa fa-user" aria-hidden="true"></i>  USERS'.html_safe, admins_users_path, class:'list-group-item '
+      .col-md-9.main-adminproduct
+        .page-title
+          h1.page-header.pull-left
+            | <i class="fa fa-folder-open" aria-hidden="true"></i> CATEGORIES 
+          .pull-right
+            .btn-group.btn-success
+              = link_to 'NEW CATEGORIES', new_admins_category_path, class: 'btn btn-default', style:'float: right;'
+        .row.main-body
+          .col-md-12.bodyad
+            .table-responsive
+              table.table
+                thead
+                  tr.info
+                    th Name
+                    th Image
+                    th[style="width:300px;"] Property
+                tbody
+                  - @categories.each do |category|
+                    tr.danger
+                      td = category.name
+                      td 
+                        = image_tag category.pictures.first.image, size: "90x90"
+                      td 
+                        = link_to 'Detail', admins_category_path(category),class: 'btn btn-info',style: 'margin-left:20px;'
+                        = link_to 'Edit', edit_admins_category_path(category), class: 'btn btn-warning',style: 'margin-left:20px;'
+                        = link_to 'Delete', admins_category_path(category),method: :delete, data: {confirm: "All products of this category will be delete. Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'

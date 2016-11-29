@@ -13,5 +13,16 @@
  *= require_self
  *= require style
  *= require bootstrap.min
+ *= require informations/information
+ *= require informations/detail
+ *= require orders/ordertemplate
+ *= require contacts/contact
+ *= require product/orderdetailproduct
+ *= require footer/footer
+ *= require header/header
+ *= require header/headeradmin
+ *= require sectiontop/sectiontop
+ *= require shoppingguides/shoppingguide
+ *= require product/products
  */
 @import "font-awesome";

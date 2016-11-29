@@ -1,23 +1,24 @@
-.containner.center-block[style="width:900px;"]
-  h1.text-center 
-    | Admin Dash Board
-  ul.nav.nav-tabs
-    li.active
-      a[data-toggle='tab' href='#users']Users
-    li
-      a[data-toggle='tab' href='#categories']Categories
-    li
-      a[data-toggle='tab' href='#products']Products
-    li
-      a[data-toggle='tab' href='#infos']Newspapers
-    = link_to 'Log Out', destroy_user_session_path, method: :delete,class: 'btn btn-default', style:'float: right;'
-  .tab-content
-    #users.tab-pane.fade.in.active  
-      = render 'admins/user'
-    #categories.tab-pane.fade
-      = render 'admins/category'
-    #products.tab-pane.fade
-      = render 'admins/product'
-    #infos.tab-pane.fade  
-      = render 'admins/newspaper'
-      
+section.layout-admin
+  .container
+    .row
+      .col-md-3.list-group
+        = link_to '<i class="fa fa-home" aria-hidden="true"></i>  DASHBOARD'.html_safe, admins_path , lable: 'left', class:'list-group-item active'
+        = link_to '<i class="fa fa-folder-open" aria-hidden="true"></i>  CATEGORIES'.html_safe, admins_categories_path, class:'list-group-item'
+        = link_to '<i class="fa fa-tachometer" aria-hidden="true"></i>  PRODUCT'.html_safe, admins_products_path, class:'list-group-item '
+        = link_to '<i class="fa fa-file" aria-hidden="true"></i>  INFORMATIONS'.html_safe, admins_newspapers_path, class:'list-group-item '
+        = link_to '<i class="fa fa-user" aria-hidden="true"></i>  USERS'.html_safe, admins_users_path, class:'list-group-item '
+      .col-md-9.main-admin
+        .row
+          .col-md-12.main-body
+            h3.us <i class="fa fa-folder-open" aria-hidden="true"></i> CATEGORIES              
+            #categories
+              = render 'admins/category'
+            h3.us <i class="fa fa-tachometer" aria-hidden="true"></i> PRODUCTS
+            #products
+              = render 'admins/product'
+            h3.us <i class="fa fa-file" aria-hidden="true"></i> INFORMATIONS
+            #infos
+              = render 'admins/newspaper'
+            h3 <i class="fa fa-user" aria-hidden="true"></i> USERS
+            #users
+              = render 'admins/user'

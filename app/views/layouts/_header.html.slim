@@ -1,26 +1,18 @@
 section.section_top
   .container
     .row
-      .col-md-7.col-sm-12.col-xs-12
+      .col-md-7.col-sm-12.col-xs-12.solo
         a.sologan(href="#")
           | Fruit are part of out nature
-      .col-md-3.col-sm-6.col-xs-12
+      .col-md-3.col-sm-6.col-xs-12.use
         .user
-          / a(href="#")
-          /   i.fa.fa-lock(aria-hidden="true")
-          /   br
-          /   | Đăng nhập
           - unless user_signed_in?  
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path  
           - else
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
         .user
-          / a(href="#")
-          /   i.fa.fa-users(aria-hidden="true")
-          /   br
-          /   | Đăng ký
           - unless user_signed_in?  
-            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path
+            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path  
           - else
             .dropdown
               = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Account'.html_safe, '','data-toggle': 'dropdown', class: 'dropdown-toggle'
@@ -33,7 +25,7 @@ section.section_top
         /   | CART 
         /   i.fa.fa-shopping-cart(arian-hidden="true")
         = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success'  
-header
+header.frontend
   .container
     nav.navbar.navbar-default
       .container-fluid

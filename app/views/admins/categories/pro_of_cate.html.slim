@@ -1,36 +1,43 @@
 section.sections-product
   .container
     .row
-        / .col-md-8
-        h2 
-          | Sản Phẩm Của 
-          = @category.name
-        table.table
-          thead
-            tr
-              th
-                | Name
-              th 
-                | Price
-              th  
-                | Category id
-              th 
-                | Picture
-              th
-                | Action
-          tbody
-            - @products.each do |product|
+      .col-md-3.list-group
+        = link_to '<i class="fa fa-home" aria-hidden="true"></i>  DASHBOARD'.html_safe, admins_path , lable: 'left', class:'list-group-item '
+        = link_to '<i class="fa fa-folder-open" aria-hidden="true"></i>  CATEGORIES'.html_safe, admins_categories_path, class:'list-group-item active'
+        = link_to '<i class="fa fa-tachometer" aria-hidden="true"></i>  PRODUCT'.html_safe, admins_products_path, class:'list-group-item '
+        = link_to '<i class="fa fa-file" aria-hidden="true"></i>  INFORMATIONS'.html_safe, admins_newspapers_path, class:'list-group-item '
+        = link_to '<i class="fa fa-user" aria-hidden="true"></i>  USERS'.html_safe, admins_users_path, class:'list-group-item '       
+      .col-md-9.detailpr
+        form.update-cate
+          h2 
+            | Sản phẩm  
+            = @category.name
+          table.table
+            thead
               tr
-                td
-                  = product.name
-                td 
-                  = product.price
-                td
-                  = product.category_id
-                td  
-                  - product.pictures.each do |img|
-                   = image_tag img.image
-                td 
-                  = link_to "edit", edit_admins_product_path(product), class: 'btn btn-warning'
-                  |  | 
-                  = link_to "delete", admins_product_path(product), method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-danger'
+                th
+                  | Name
+                th 
+                  | Price
+                th  
+                  | Category id
+                th 
+                  | Picture
+                th
+                  | Action
+            tbody
+              - @products.each do |product|
+                tr
+                  td
+                    = product.name
+                  td 
+                    = product.price
+                  td
+                    = product.category_id
+                  td  
+                    - product.pictures.each do |img|
+                     = image_tag img.image
+                  td 
+                    = link_to "edit", edit_admins_product_path(product), class: 'btn btn-warning'
+                    |  | 
+                    = link_to "delete", admins_product_path(product), method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-danger'

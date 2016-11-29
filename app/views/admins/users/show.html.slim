@@ -1,32 +1,41 @@
-.container
-  .table-responsive
-    table.table.table-bordered
-      thead
-        tr.active
-          th Id
-          td = @user.id
-        tr.success
-          th Username
-          td = @user.username
-        tr.info
-          th Email
-          td = @user.email
-        tr.warning
-          th First Name
-          td = @user.first_name
-        tr.danger
-          th Last Name
-          td = @user.last_name
-        tr.active
-          th Address
-          td = @user.address
-        tr.success
-          th Phone
-          td = @user.phone
-        tr.info
-          th Sex
-          td = @user.sex
-        tr.warning
-          th Birth Day
-          td = @user.birth_day     
+section.layout-adminuser
+  .container
+    .row
+      .col-md-3.list-group
+        = link_to '<i class="fa fa-home" aria-hidden="true"></i>  DASHBOARD'.html_safe, admins_path , lable: 'left', class:'list-group-item '
+        = link_to '<i class="fa fa-folder-open" aria-hidden="true"></i>  CATEGORIES'.html_safe, admins_categories_path, class:'list-group-item'
+        = link_to '<i class="fa fa-tachometer" aria-hidden="true"></i>  PRODUCT'.html_safe, admins_products_path, class:'list-group-item '
+        = link_to '<i class="fa fa-file" aria-hidden="true"></i>  INFORMATIONS'.html_safe, admins_newspapers_path, class:'list-group-item '
+        = link_to '<i class="fa fa-user" aria-hidden="true"></i>  USERS'.html_safe, admins_users_path, class:'list-group-item active'
+      .col-md-9.main-adminuser
+        .table-responsive
+          table.table.table-bordered
+            thead
+              tr.active
+                th Id
+                td = @user.id
+              tr.success
+                th Username
+                td = @user.username
+              tr.info
+                th Email
+                td = @user.email
+              tr.warning
+                th First Name
+                td = @user.first_name
+              tr.danger
+                th Last Name
+                td = @user.last_name
+              tr.active
+                th Address
+                td = @user.address
+              tr.success
+                th Phone
+                td = @user.phone
+              tr.info
+                th Sex
+                td = @user.sex
+              tr.warning
+                th Birth Day
+                td = @user.birth_day     
 = link_to 'Admin Page', admins_path,class: 'btn btn-default btn-lg center-block', style:'width:200px;'          

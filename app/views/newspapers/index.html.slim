@@ -22,7 +22,7 @@ section.sections-product
                 = link_to newspaper.title, newspaper_path(newspaper)
               p 
                 = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
-      .col-md-3
+      .col-md-3.well-right
         = render 'form/right'
 
 css:
