@@ -13,22 +13,23 @@ header.frontend{
 							    font-weight: 300;
 						    }
 						    a:hover{
-							    background-image: linear-gradient(#91dd70, #55ae2e);
-									color: #fff;
-						    }
+							background-color: #a88c39;
+								}
+								a:focus{
+									background-color: #a88c39;
+								}
 						}
-						li.dropdown.open{
+						li.dropdown{
 							a.dropdown-toggle{
 								background-image: linear-gradient(#91dd70, #55ae2e);
     						border: 1px solid #5aad35;
 							}
 							ul.dropdown-menu{
 								height: 110px;
-								width: 300px;
+								width: 250px;
 								position: absolute;
 								left: 0;
 								z-index: 1000;
-								display: none;
 								float: left;
 								list-style: none;
 								font-size: 15px;
@@ -38,14 +39,14 @@ header.frontend{
 								border: 1px solid rgba(0, 0, 0, 0.15);
 								li {
 									margin-top: -5px;
-									height: 40px;
-									&:hover {
-										margin-top: -5px;
-										height: 40px;
-									}
+									height: 150px;
+									// &:hover {
+									// 	margin-top: -5px;
+									// 	height: 40px;
+									// }
 									a {
 										text-decoration: none;
-										color: red !important;										
+										color:  !important;										
 										} 
 									a:hover{ 
 										text-decoration: none;
@@ -55,7 +56,7 @@ header.frontend{
 										height: 40px;
 									}	
 								}
-							}
+							}					
 						}
 					}
 				}
@@ -121,12 +122,11 @@ header.frontend{
 				position: absolute;
 				left: 0;
 				z-index: 1000;
-				display: none;
 				float: left;
 				list-style: none;
 				font-size: 15px;
 				text-align: left;
-				background-color: #46aa48;
+				background-color: red !important;
 				border: 1px solid #cccccc;
 				border: 1px solid rgba(0, 0, 0, 0.15);
 				li {
