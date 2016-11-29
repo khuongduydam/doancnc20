@@ -2,6 +2,9 @@
 section.sections-product
   .container
     .row
-      h2
-        | Thêm thông tin hữu ích
-      = render 'form'
+      .col-md-3.list-group
+        = render 'admins/left'
+      .col-md-9.main-adminproduct
+        h2
+          | Thêm thông tin hữu ích
+        = render 'form'

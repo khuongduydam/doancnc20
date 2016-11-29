@@ -1,5 +1,10 @@
 section.section-contact
   .container
-    h1
-      | Danh sách tất cả liên hệ
-    = render 'admins/form/index_contact'
+    .row
+      .col-md-3.list-group
+        = render 'admins/left'
+      .col-md-9
+        h1
+          | Danh sách tất cả liên hệ
+        = render 'admins/form/index_contact'
+    

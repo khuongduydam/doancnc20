@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
-  PAYMENT_TYPES = [ "Choose an pay type","Check", "Credit card", "Purchase order" ]
+  PAYMENT_TYPES = ["Check", "Credit card", "Purchase order" ]
   validates :name, :address, :email, :phone, presence: true
   validates :pay_type, inclusion: PAYMENT_TYPES
 

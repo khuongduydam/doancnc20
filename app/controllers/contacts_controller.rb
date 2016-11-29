@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       flash[:success] = "Message sended"
-      redirect_to :back
+      redirect_to root_path
     else
       p "*"*50
       p @contact.errors.messages

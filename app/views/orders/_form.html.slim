@@ -7,9 +7,9 @@
         .form-inputs
           = f.input :name
           = f.input :address
-          = f.input :phone
+          = f.input :phone, as: :numeric
           = f.input :email
-          = f.select :pay_type, options_for_select(Order::PAYMENT_TYPES), {}, class:'form-control'
+          = f.select :pay_type, Order::PAYMENT_TYPES,prompt: 'dasad',class:'form-control'
           = f.button :submit,class:'pull-right'
     .col-xs-8.col-md-8
       - unless @cart.order_items.empty?
