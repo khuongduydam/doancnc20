@@ -1,7 +1,21 @@
 = simple_form_for [:admins, @newspaper] do |f|
   = f.input :title
   br
+  = f.label "Avatar image"
+  - if @newspaper.pictures.blank?
+    = f.simple_fields_for :pictures, @newspaper.pictures.build do |picture|
+      = picture.file_field :image      
+  - else 
+    = f.simple_fields_for :pictures do |picture|
+      = image_tag picture.object.image_url
+      = picture.file_field :image
+  
   = f.label :content
+  - if @newspaper.errors.messages[:content].present?
+    |  
+    i
+      = @newspaper.errors.messages[:content][0]
   = f.cktext_area :content
   br
   = f.submit yield(:btn_text)
+  = link_to "Back", :back, class: "btn btn-default" 

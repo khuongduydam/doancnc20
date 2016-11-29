@@ -50,9 +50,20 @@ header.frontend
             li
               = link_to "THÔNG TIN HỮU ÍCH", newspapers_path
             li
-              = link_to "LIÊN HỆ", contacts_contacts_path
+              = link_to "LIÊN HỆ", new_contact_path
           form.navbar-form.navbar-right
-            input.form-control(type="text" placeholder="Search...")
+            = form_tag products_path, :method => 'get', :id => "products_search" do
+              p
+                = text_field_tag :search, params[:search]
+                = submit_tag "Search", :name => nil
+                / = render 'products'
+            / = form_tag products_path, method: :get, id: "product_search" do }
+            / = simple_form_for products_path, method: :get do |f|
+            /   = f.input :search, params[:search]
+            /   = f.submit "Search"
+
+            / input.form-control(type="text" placeholder="Search...")
+
 
     section.sections-lider
       #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")

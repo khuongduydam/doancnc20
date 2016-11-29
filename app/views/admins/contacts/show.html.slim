@@ -1,0 +1,24 @@
+section.sections-product
+  .container
+    .row.img-reponsive
+      .col-md-9.detailproduct
+        .row
+          .detail
+            h2.Title_product 
+              | Tên : 
+              = @contact.name
+              br
+            h4 
+              | Địa chỉ : 
+              = @contact.address
+            p 
+              | Tin nhắn : 
+              = @contact.message
+              |  kg
+            .about_product
+              p 
+                | Thời gian nhắn : 
+                = @contact.created_at
+            .btn-lg.right
+              = link_to "Back", :back, class: "btn btn-default"
+              = link_to "Delete", admins_contact_path(@contact),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'

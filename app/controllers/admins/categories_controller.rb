@@ -1,21 +1,26 @@
 class Admins::CategoriesController < AdminsController
   def index
-    @categories = Category.all 
+    @categories = Category.all.paginate(:per_page => 10, :page => params[:page])
   end
 
   def new
-    @category = Category.new                                                                                                                              
-    @category.pictures.build
+    @category = Category.new     
   end
 
   def create
     @category = Category.new(category_params)
-    if @category.save
-      redirect_to admins_categories_path
+
+    if params[:category][:pictures_attributes].present?
+      if @category.save
+        redirect_to admins_categories_path
+      else
+        # flash[:error] = @category.errors.full_messages
+        render 'new'
+        # puts @category.errors.full_messages
+      end
     else
-      flash[:error] = @category.errors.full_messages
-      puts @category.errors.full_messages
-      redirect_to root_path
+      flash[:error]="Please choice image!" 
+      render 'new'
     end
   end
 
@@ -28,7 +33,7 @@ class Admins::CategoriesController < AdminsController
     if @category.update_attributes(category_params)
       redirect_to admins_categories_path
     else
-      redirect_to root_path
+      render 'edit'
     end
   end
   
@@ -43,8 +48,8 @@ class Admins::CategoriesController < AdminsController
   
   def destroy
     Category.find(params[:id]).destroy
-    flash[:success] = "Product deleted"
-    redirect_to admins_categories_path
+    flash[:success] = "Category deleted"
+    redirect_to admins_categoriesla_path
   end
 
   private

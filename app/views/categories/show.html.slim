@@ -14,7 +14,11 @@ section.sections-product
           - @products.each do |product|
             .col-md-3.col-sm-6.col-xs-12
               .img-thumbnail
-                = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+                - if product.pictures.present?
+                  = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+                - else 
+                  = link_to image_tag('default.png'), product_path(product)
+                / = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
               h5
                 = product.name
               p 
@@ -34,5 +38,6 @@ section.sections-product
                 a.btn.btn-success(href="#")
                   | Thêm vào giỏ 
                   i.fa.fa-shopping-cart(aria-hidden="true")          
+        = will_paginate @products
       .col-md-3
         = render 'form/right'

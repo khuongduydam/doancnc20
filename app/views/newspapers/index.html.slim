@@ -5,19 +5,18 @@ section.sections-newspaper-admin
         - @newspapers.each do |newspaper|
           .row
             .col-md-4.img
-              = image_tag('newspaper.png', class: 'img-thumbnail')
+              .img-thumbnail
+                - if newspaper.pictures.present?
+                  = link_to image_tag(newspaper.pictures.first.image, class:"img-responsive"), newspaper_path(newspaper)
+                - else 
+                  = link_to image_tag('newspaper.png', class: 'img-thumbnail'), newspaper_path(newspaper)
             .col-md-8.link
               h3
                 = link_to newspaper.title, newspaper_path(newspaper)
               p 
                 = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
+        = will_paginate @newspapers
       .col-md-3.well-right
         = render 'form/right'
 
-css:
-  
-  .fix-image img{
-    height: 100px !important;
-    width: 100px !important;
-  }
   

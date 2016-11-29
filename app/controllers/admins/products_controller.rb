@@ -1,33 +1,45 @@
 class Admins::ProductsController < AdminsController
   def index
-     @products = Product.all
+     @products = Product.all.order(created_at: :desc).paginate(:per_page => 10, :page => params[:page])
   end 
   
   def new
     @product = Product.new
-    @categories = Category.all
-    @picture = @product.pictures.build
   end
   def create
     @product = Product.new(product_params)
-    if @product.save
-      redirect_to admins_products_path
+    if params[:product][:pictures_attributes].present?
+      if @product.save
+        redirect_to admins_products_path
+      else
+        render 'new'
+      end
     else
-      redirect_to root_path
+      flash[:error] = "Please choice image!"
+      render 'new'
     end
   end
 
   def edit
     @product = Product.find(params[:id])
-    @categories = Category.all
   end
   
   def update
     @product = Product.find(params[:id])
-    if @product.update_attributes(product_params)
-      redirect_to admins_products_path
+    if params[:product][:pictures_attributes].blank?
+      flash[:error] = "Please choice image!"
+      render 'edit'
     else
-      redirect_to root_path
+      # sss
+      if @product.update_attributes(product_params)
+        if params[:product][:image].present?
+          @product.pictures << Picture.create(image: params[:product][:image])
+        end
+        # ssajd
+        redirect_to admins_products_path
+      else
+        render 'edit'
+      end
     end
   end
   def show
@@ -41,6 +53,7 @@ class Admins::ProductsController < AdminsController
 
   private
   def product_params
+
     params.require(:product).permit(:name, :price, :origin, :category_id, :description, :quantity ,pictures_attributes: [:id, :image, :_destroy])
   end
 end

@@ -1,0 +1,19 @@
+.col-md-12.bodyad
+  .table-responsive
+    table.table
+      thead
+        tr.info
+          th Name
+          th Image
+          th[style="width:300px;"] Property
+      tbody
+        - @categories.each do |category|
+          tr.danger
+            td = category.name
+            td 
+              = image_tag category.pictures.first.image, size: "90x90"
+            td 
+              = link_to 'Detail', admins_category_path(category),class: 'btn btn-info',style: 'margin-left:20px;'
+              = link_to 'Edit', edit_admins_category_path(category), class: 'btn btn-warning',style: 'margin-left:20px;'
+              = link_to 'Delete', admins_category_path(category),method: :delete, data: {confirm: "All products of this category will be delete. Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+  = will_paginate @categories

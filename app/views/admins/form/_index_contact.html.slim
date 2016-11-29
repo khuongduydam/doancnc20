@@ -1,0 +1,20 @@
+.table-responsive
+  table.table
+    thead
+      tr.info
+        th Name
+        th Address
+        th Message
+        th Time
+        th[style="width:300px;"] Property
+    tbody
+      - @contacts.each do |contact|
+        tr.danger
+          td = contact.name
+          td = contact.address
+          td = truncate(contact.message, length: 30)
+          td = distance_of_time_in_words(Time.now, contact.created_at)
+          td 
+            = link_to 'Detail', admins_contact_path(contact),class: 'btn btn-info'
+            = link_to 'Delete', admins_contact_path(contact),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+  = will_paginate @contacts

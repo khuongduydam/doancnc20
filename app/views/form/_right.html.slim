@@ -1,6 +1,6 @@
-/ .well
-/   h4
-/     | Sản Phẩm bán chạy
+/ .well.well-swl
+/    h4.title
+/      = link_to 'Sản Phẩm bán chạy',wishlists_path
 /   .sub_wish_list
 /     .row
 /       .col-sm-4.col-xs-12
@@ -27,28 +27,13 @@
 /           | Cam Xoan
 /         h4
 /           | 80,000 D
-/ daisy
-/ - if current_user != nil && @wishlists.present?
-/   .well
-/     h4
-/       = link_to "Sản Phẩm Yêu Thích", wishlists_path
-/     .sub_wish_list
-/       - @wishlists.each do |wishlist|
-/         .row
-/           .col-sm-4.col-xs-12
-/              = image_tag(wishlist.product.pictures.first.image, class:"img-responsive")
-/           .col-sm-8.col-xs-12
-/             p
-/               = wishlist.product.name
-/             h4
-/               = wishlist.product.price
-
-- if current_user != nil && @wishlists.present?
-  .well.well-swl
-    h4.title
-      = link_to 'Sản Phẩm bán chạy',wishlists_path
+  
+- if current_user != nil && wishlists.present?
+  .well
+    h4
+      = link_to "Sản Phẩm Yêu Thích", wishlists_path
     .sub_wish_list
-      - @wishlists.each do |wishlist|
+      - wishlists.each do |wishlist|
         .row
           .col-sm-4.col-xs-12.col-img-swl
             = image_tag(wishlist.product.pictures.first.image, class:"img-responsive")

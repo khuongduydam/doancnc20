@@ -39,3 +39,5 @@ section.layout-admin
               .btn-lg.right
                 = link_to "Edit", edit_admins_product_path(@product), class: 'btn btn-info'
                 = link_to "Delete", admins_product_path(@product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+                = link_to "Back", :back, class: "btn btn-default", style: 'margin-left:20px;'
+

@@ -3,11 +3,14 @@ section.sections-product
     .row.img-reponsive
       .col-md-9.detailproduct
         h3.title-head
-          | Đặc sản miền Bắc
+          | San Pham Moi Nhap
         .row
           - @product_news.each do |product|
             .col-md-3.col-sm-6.col-xs-12.img-thum
-              = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product),class: 'img-thumbnail' 
+              - if product.pictures.present?
+                = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+              - else 
+                = link_to image_tag('default.png'), product_path(product)
               h5
                 = product.name
               p 
@@ -20,13 +23,19 @@ section.sections-product
                 |  vnd/kg
               p
                 = link_to "Detail", product_path(product)
-                - if current_user != nil
-                  - if @user.wish_lists.present?
-                    - @user.wish_lists.each do |p_id|
-                      - if p_id.product_id != product.id
-                        = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
-                  - else
-                    = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
+                - flat = 0
+                - if user.wish_lists.present?
+                  - user.wish_lists.each do |p_id|
+                    - if p_id.product_id == product.id
+                      - flat = 1
+                      - break
+                - else
+                  - flat = 2
+                  |  | 
+                  = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
+                - if flat == 0
+                  |  | 
+                  = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
               p
                 = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success', remote: true
       .col-md-3
