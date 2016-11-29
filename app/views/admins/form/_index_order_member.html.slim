@@ -4,7 +4,6 @@
       thead
         tr.info
           th User
-          th Name
           th Note
           th Status
           th Pay Type
@@ -13,8 +12,7 @@
       tbody
         - @order_members.each do |order_member|
           tr.danger
-            td = order_member.user.first_name + " " + order_member.user.last_name
-            td = order_member.name
+            td = order_member.user.username
             td = order_member.note
             td[style="color:red;"] = order_member.status
             td = order_member.pay_type

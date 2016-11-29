@@ -29,22 +29,19 @@ class OrdersController < ApplicationController
         Cart.last.delete
         session[:cart_id] = nil
         format.html { redirect_to root_path, notice: 'Thank you for your order' }
-        format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
-    respond_to do |format|
-      if @order.update(order_params)
-        format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { render :show, status: :ok, location: @order }
+    if current_user.admin?
+      if @order.update(order_params_update)
+        flash[:success] = "Order Completed"
+        redirect_to admins_orders_path
       else
-        format.html { render :edit }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
   end
@@ -64,5 +61,9 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:name, :address, :phone, :email, :pay_type)
+  end
+
+  def order_params_update
+    params.require(:order).permit(:status)
   end
 end

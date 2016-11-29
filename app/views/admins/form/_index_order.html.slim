@@ -7,9 +7,10 @@
           th Address
           th Phone
           th Email
+          th Status
           th Pay Type
           th Total Buy
-          th[style="width:300px;"] Property
+          th.text-center[style="width:260px;"] Property
       tbody
         - @orders.each do |order|
           tr.danger
@@ -17,9 +18,11 @@
             td = order.address
             td = order.phone
             td = order.email
+            td[style="color:red;"] = order.status
             td = order.pay_type
             td = number_to_currency order.total_price
             td 
               = link_to 'Detail', admins_order_path(order),class: 'btn btn-info',style: 'margin-left:20px;'
+              = link_to 'Edit', edit_admins_order_path(order),class: 'btn btn-info',style: 'margin-left:20px;'
               = link_to 'Delete', admins_order_path(order),method: :delete, data: {confirm: "All products of this order will be delete. Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
   = will_paginate @orders
