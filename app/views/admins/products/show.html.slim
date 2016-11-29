@@ -1,11 +1,15 @@
-section.sections-product
+section.layout-admin
   .container
-    .row.img-reponsive
+    .row
+      .col-md-3.list-group
+        = render 'admins/left'
+        
+        
       .col-md-9.detailproduct
         .row
           .col-md-5
             - @product.pictures.each do |img|
-              = image_tag img.image, size: "200x200", class:'img-thumbnail'
+              = image_tag img.image, size: "350x200", class:'img-thumbnail'
             end
           .col-md-7
             .detail
@@ -31,6 +35,7 @@ section.sections-product
                   / = @product.category.name
               br
               .btn-lg.right
-                = link_to "Edit", edit_admins_product_path(@product), class: 'btn btn-warning'
+                = link_to "Edit", edit_admins_product_path(@product), class: 'btn btn-info'
                 = link_to "Delete", admins_product_path(@product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
-                = link_to "Back", :back, class: "btn btn-default"
+                = link_to "Back", :back, class: "btn btn-default", style: 'margin-left:20px;'
+

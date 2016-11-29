@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :order_items
+  resources :carts, except: :index
+  get '/carts' => 'products#index'
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
@@ -15,18 +19,11 @@ Rails.application.routes.draw do
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},
              :controllers => { :omniauth_callbacks => "callbacks" }
   resources :users, only: :show
-  #resources :admins, only: :index
   resources :categories, only: [:index, :show]
   #########jane
-  resources :orders do
-    collection do 
-      get "ordertemplate"
-    end
-  end
   resources :products, only: [:index, :show] do
     resources :comments, module: :products 
   end
- ## resources :users, only: :show
   resources :comments, except: [:index, :new]
   resources :wishlists, only: [:index, :create, :destroy]
   resources :shoppingguides do

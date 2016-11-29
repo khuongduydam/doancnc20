@@ -1,0 +1,27 @@
+section.sections-detail-information{
+	.container{
+		.row{
+			.vuahat{
+				p{
+  				line-height: 30px;
+  			}
+  			.vuacacloaihat{
+  				margin-top: 30px;
+  				margin-left: 25%;
+  				margin-bottom: 30px;
+  			}
+			}
+		}
+	}
+	@media (max-width: 540px) and (min-width: 320px) {
+		.container{
+			.row{
+				.vuahat{
+					.vuacacloaihat{
+	  				margin-left: 0%;
+	  			}
+				}
+		}
+		}	
+	}
+}

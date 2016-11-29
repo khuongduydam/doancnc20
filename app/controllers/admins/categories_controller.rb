@@ -16,7 +16,7 @@ class Admins::CategoriesController < AdminsController
       else
         # flash[:error] = @category.errors.full_messages
         render 'new'
-        puts @category.errors.full_messages
+        # puts @category.errors.full_messages
       end
     else
       flash[:error]="Please choice image!" 
@@ -54,7 +54,6 @@ class Admins::CategoriesController < AdminsController
 
   private
   def category_params
-    # ksjdakjd
     params.require(:category).permit(:name, pictures_attributes: [:id, :image, :_destroy])
   end
 end

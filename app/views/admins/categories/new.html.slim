@@ -2,7 +2,11 @@
 section.sections-product
   .container
     .row
-      .col-md-8
-        h2
-          | Add Category
-        = render 'form'
+      .col-md-3.list-group
+        = render 'admins/left'
+        
+      .col-md-9.detailpr
+        .update-cate
+	        h2
+	          | Add Category
+	        = render 'form'

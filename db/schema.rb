@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125074957) do
+ActiveRecord::Schema.define(version: 20161128114612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -34,14 +39,6 @@ ActiveRecord::Schema.define(version: 20161125074957) do
     t.datetime "updated_at",                   null: false
     t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
-  end
-
-  create_table "comment_hierarchies", id: false, force: :cascade do |t|
-    t.integer "ancestor_id",   null: false
-    t.integer "descendant_id", null: false
-    t.integer "generations",   null: false
-    t.index ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true, using: :btree
-    t.index ["descendant_id"], name: "comment_desc_idx", using: :btree
   end
 
   create_table "comments", force: :cascade do |t|
@@ -71,15 +68,25 @@ ActiveRecord::Schema.define(version: 20161125074957) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "quantity",   default: 1
+    t.integer  "order_id"
+    t.index ["cart_id"], name: "index_order_items_on_cart_id", using: :btree
+    t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string   "name"
-    t.string   "status"
-    t.string   "note"
-    t.integer  "total_price"
-    t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+    t.string   "address"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "pay_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -144,7 +151,8 @@ ActiveRecord::Schema.define(version: 20161125074957) do
   end
 
   add_foreign_key "comments", "users"
-  add_foreign_key "orders", "users"
+  add_foreign_key "order_items", "carts"
+  add_foreign_key "order_items", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "wish_lists", "products"
   add_foreign_key "wish_lists", "users"

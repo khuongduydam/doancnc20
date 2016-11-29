@@ -34,7 +34,9 @@ class Admins::ProductsController < AdminsController
     else
       # sss
       if @product.update_attributes(product_params)
-        @product.pictures << Picture.create(image: params[:product][:image])
+        if params[:product][:image].present?
+          @product.pictures << Picture.create(image: params[:product][:image])
+        end
         # ssajd
         redirect_to admins_products_path
       else

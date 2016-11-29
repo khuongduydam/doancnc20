@@ -1,6 +1,7 @@
 class Admins::UsersController < AdminsController
   before_action :find_user, except: :index
   def index
+    @newspapers = Newspaper.all
   end
 
   def show

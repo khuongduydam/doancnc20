@@ -7,7 +7,7 @@ class UsersController < ActionController::Base
       if @user.admin?
         redirect_to root_path, :alert => 'User not found!.'
       end
-    rescue ActiveRecord::RecordNotFound => e
+    rescue ActiveRecord::RecordNotFound
       redirect_to root_path, :alert => 'User not found!.'
     end
   end

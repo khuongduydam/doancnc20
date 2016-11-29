@@ -1,6 +1,6 @@
 section.sections-product
   .container
-    .row.img-reponsive
+    .row
       .col-md-9
         h3.header
           = @category.name
@@ -33,5 +33,5 @@ section.sections-product
                   | Thêm vào giỏ 
                   i.fa.fa-shopping-cart(aria-hidden="true")          
         = will_paginate @products
-      .col-md-3
+      .col-md-3.well-right
         = render 'form/right'

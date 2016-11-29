@@ -1,3 +1,15 @@
-section.sections-product
+section.layout-admincategory
   .container
-    = render 'admins/form/index_category'
+    .row
+      .col-md-3.list-group
+        = render 'admins/left'
+        
+      .col-md-9.main-adminproduct
+        .page-title
+          h1.page-header.pull-left
+            | <i class="fa fa-folder-open" aria-hidden="true"></i> CATEGORIES 
+          .pull-right
+            .btn-group.btn-success
+              = link_to 'NEW CATEGORIES', new_admins_category_path, class: 'btn btn-default', style:'float: right;'
+        .row.main-body
+          = render 'admins/form/index_category'

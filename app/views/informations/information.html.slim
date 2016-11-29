@@ -29,61 +29,66 @@ section.sections-information
               = link_to "Mẹo hay để bạn ngâm mơ rừng", detail_informations_path
             p
               | Mơ là loại quả quý không phải ở đâu cũng trồng được nó phụ thuộc rất nhiều vào ...
-        .pagination_center
-          nav[aria-label="Page navigation right"]
-            ul.pagination
-              li
-                a[href="#" aria-label="Previous"]
-                  span[aria-hidden="true"]
-                    | «
-              li
-                a[href="#"]
-                  | 1
-              li
-                a[href="#"]
-                  | 2
-              li
-                a[href="#"]
-                  | 3
-              li
-                a[href="#"]
-                  | 4
-              li
-                a[href="#"]
-                  | 5
-              li
-                a[href="#" aria-label="Next"]
-                  span[aria-hidden="true"]
-                    | »
+        / .pagination_center
+        /   nav[aria-label="Page navigation right"]
+        /     ul.pagination
+        /       li
+        /         a[href="#" aria-label="Previous"]
+        /           span[aria-hidden="true"]
+        /             | «
+        /       li
+        /         a[href="#"]
+        /           | 1
+        /       li
+        /         a[href="#"]
+        /           | 2
+        /       li
+        /         a[href="#"]
+        /           | 3
+        /       li
+        /         a[href="#"]
+        /           | 4
+        /       li
+        /         a[href="#"]
+        /           | 5
+        /       li
+        /         a[href="#" aria-label="Next"]
+        /           span[aria-hidden="true"]
+        /             | »
       .col-md-3.well-right
-        .well
-          .h.list
-            h3 Hàng bán chạy
+        .well.well-swl
+          h4.title
+            | Sản Phẩm bán chạy
           .sub_wish_list
             .row
-              .col-sm-4.col-xs-12
-                 = image_tag("nhomy.png", class: "img img-circle")                 
-              .col-sm-8.col-xs-12
-                p Nho mỹ xanh
-                h4 370,000 D
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('kiwivang.png')
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Nho mỹ xanh
+                h4
+                  | 370,000 D
             .row
-              .col-sm-4.col-xs-12
-                / img.img-circle src="img/lemyxanh.png" 
-                = image_tag("lemyxanh.png", class: "img img-circle")
-              .col-sm-8.col-xs-12
-                p Lê mỹ xanh
-                h4 80,000 D
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('lemyxanh.png') 
+              .col-sm-8.col-xs-12.col-detail-swl
+                p
+                  | Lê mỹ xanh
+                h4
+                  | 80,000 D
             .row
-              .col-sm-4.col-xs-12
-                = image_tag("camxoan.png", class: "img img-circle") 
-              .col-sm-8.col-xs-12
-                p Cam Xoan
-                h4 80,000 D
-        .well
-          .h
-            h3 Video song
-          iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/GvxwyR88FoA" 
-        .well
-          .h
-            h3 Kết nối facebook
-          iframe allowtransparency="true" frameborder="0" height="350" scrolling="no" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&width=280&height=350&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" style="border:none;overflow:hidden" width="230" 
+              .col-sm-4.col-xs-12.col-img-swl
+                = image_tag('camxoan.png')
+              .col-sm-8.col-xs-12.col-detail-
+          h4.titleswl
+                p
+                  | Cam Xoan
+                h4
+                  | 80,000 D
+        .well.well-song
+          h4.title
+            | Video song
+          iframe.iframe-song(src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen)
+        .well.well-face
+            | Kết nối facebook
+          iframe.iframe[src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"]

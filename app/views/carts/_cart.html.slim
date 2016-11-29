@@ -1,0 +1,25 @@
+- unless cart.order_items.empty?
+  .container.center-block[style="width:900px;"]
+    .tabel-responsive
+      table.table
+        thead
+          tr.danger
+            th 
+              | Name
+            th 
+              | Quantity
+            th 
+              | Price
+        tbody    
+          = render cart.order_items
+          tr    
+            td 
+              = link_to 'Empty Cart', cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger'
+              = link_to 'Checkout', new_order_path,class:'btn btn-primary'
+          tr
+            td
+              | Total
+            td
+              = number_to_currency cart.total_price
+                    
+      
