@@ -7,6 +7,8 @@ class Admins::ProductsController < AdminsController
     @product = Product.new
   end
   def create
+    # puts "*"*50
+    # p controller.controller_name
     @product = Product.new(product_params)
     if params[:product][:pictures_attributes].present?
       if @product.save

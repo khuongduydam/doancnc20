@@ -2,7 +2,7 @@ class WishlistsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :index]
   
   def index
-    @wishlistss = WishList.where(user_id: current_user.id).order(created_at: :desc)..paginate(:per_page => 10, :page => params[:page])
+    @wishlistss = WishList.where(user_id: current_user.id).order(created_at: :desc).paginate(:per_page => 10, :page => params[:page])
   end
 
   def create
