@@ -1,0 +1,33 @@
+header.backend{
+	background-color: #1995dc!important;
+	nav.navbar.navbar-success.nav-pills{
+		.container-fluid{
+			.navbar-header{
+				background-color: #1995dc!important;
+				.navbar-brand{ 
+					color: #ffffff;}
+			}
+			#navbar.collapse.navbar-collapse.navbar-reponsive-collapse{
+				ul.nav.navbar-nav{
+					li{
+						a{
+							color: #ffffff;
+						}
+						a:hover{
+							background-color: #a88c39;
+						}
+						a:focus{
+							background-color: #a88c39;
+						}
+						
+					}
+				}
+				.navbar-right{
+					a{
+						color: #ffffff;
+					}
+				}
+			}
+		}
+	}
+}

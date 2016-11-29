@@ -1,0 +1,22 @@
+section.layout-admin{
+	.container{
+		.row{
+			.list-group{
+				.active{
+					background-color: #1995dc;
+					border-color: #1995dc;
+					color: #ffffff;
+				}
+			}
+			.main-admin{
+				.row{
+					.main-body{
+						h3.us{
+							color: #1995dc;
+						}
+					}
+				}
+			}
+		}
+	}
+}

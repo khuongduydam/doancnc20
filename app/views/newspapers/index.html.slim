@@ -1,23 +1,12 @@
-section.sections-product
+section.sections-newspaper-admin
   .container
     .row
-      .col-md-9
+      .col-md-9.newspp
         - @newspapers.each do |newspaper|
           .row
-            .col-md-4
-              / a[href="#"]
-              / - orig_text = newspaper.content
-              / - img_text  = orig_text.match(/<img.+(\/)?>/).to_s if orig_text.match(/<img.+(\/)?>/)
-              / - if img_text.present?
-              /   .fix-image
-                  
-              /     = img_text.html_safe                                   
-              /     .clearfix
-              / - else             
-              /   .fix-image
+            .col-md-4.img
               = image_tag('newspaper.png', class: 'img-thumbnail')
-                  / .clearfix
-            .col-md-8
+            .col-md-8.link
               h3
                 = link_to newspaper.title, newspaper_path(newspaper)
               p 
