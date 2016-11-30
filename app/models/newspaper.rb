@@ -2,7 +2,8 @@ class Newspaper < ApplicationRecord
   # default_scope -> { order(created_at: :desc) }
   has_many :pictures, as: :imageable, dependent: :destroy
   
-  validates :title,  presence: true, length: {minimum: 20, maximum: 255}
+  VALID_TEXT_REGEX = /\w+/
+  validates :title,  presence: true, length: {minimum: 10, maximum: 255}, format: {with: VALID_TEXT_REGEX, message: "can only contain letters and numbers."}
   validates :content,  presence: true, length: {minimum: 500}
 
   accepts_nested_attributes_for :pictures, :allow_destroy => true

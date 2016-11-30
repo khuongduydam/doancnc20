@@ -15,6 +15,10 @@
     br
   .field 
     = f.label :description
+    - if @product.errors.messages[:description].present?
+    |  
+    i
+      = @product.errors.messages[:description][0]
     = f.text_area :description, class: 'form-control'
     br
   .field 
@@ -37,6 +41,7 @@
         br
         = picture.label "Chance"
         = picture.file_field :image
+      br
       = f.label "Add new image"
       = f.file_field :image
     br

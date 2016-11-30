@@ -17,7 +17,7 @@ class Admins::ProductsController < AdminsController
         render 'new'
       end
     else
-      flash[:error] = "Please choice image!"
+      flash[:error] = "Please choose image!"
       render 'new'
     end
   end
@@ -32,9 +32,11 @@ class Admins::ProductsController < AdminsController
       flash[:error] = "Please choice image!"
       render 'edit'
     else
-      # sss
       if @product.update_attributes(product_params)
         if params[:product][:image].present?
+          if params[:product][:image].size == 1
+            lklskfl
+          end
           @product.pictures << Picture.create(image: params[:product][:image])
         end
         # ssajd
