@@ -1,4 +1,4 @@
 - categories.each do |category|
   - if category.products.present?
     li
-      = link_to category.name, category_path(category)
+      = active_link_to category.name, category_path(category)

@@ -15,6 +15,10 @@
     br
   .field 
     = f.label :description
+    - if @product.errors.messages[:description].present?
+    |  
+    i
+      = @product.errors.messages[:description][0]
     = f.text_area :description, class: 'form-control'
     br
   .field 
@@ -25,10 +29,11 @@
     / = f.simple_fields_for :pictures do |picture|
     /   = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
 
-    - if @product.pictures.blank?
+    /- if @product.pictures.blank?
+    - if params[:controller] == 'admins/products' && (params[:action] == 'new' || params[:action] == 'create' )
       = f.simple_fields_for :pictures, @product.pictures.build do |picture|
         = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
-    - else 
+    - if params[:controller] == 'admins/products' && (params[:action] == 'edit' || params[:action] == 'update' )
       = f.simple_fields_for :pictures do |picture|
         = image_tag picture.object.image_url
         = picture.check_box :_destroy 
@@ -36,9 +41,10 @@
         br
         = picture.label "Chance"
         = picture.file_field :image
+      br
       = f.label "Add new image"
       = f.file_field :image
     br
   .actions
-    = f.submit yield(:btn_text)
+    = f.submit 
     = link_to "Back", :back, class: "btn btn-default"

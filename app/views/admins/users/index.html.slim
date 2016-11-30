@@ -9,6 +9,12 @@ section.layout-adminuser
             | <i class="fa fa-file" aria-hidden="true"></i> USERS          
         .row.main-body
           .col-md-12.bodyad
+            = form_tag admins_categories_path, :method => 'get', :id => "products_search" do
+              p
+                = text_field_tag :search, params[:search], placeholder: "Username, firt name, ...."
+                = submit_tag "Search", :name => nil
+        .row.main-body
+          .col-md-12.bodyad
             .table-responsive
                 table.table
                   thead

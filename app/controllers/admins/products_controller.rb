@@ -1,12 +1,14 @@
 class Admins::ProductsController < AdminsController
   def index
-     @products = Product.all.order(created_at: :desc).paginate(:per_page => 10, :page => params[:page])
+     @products = Product.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 10, :page => params[:page])
   end 
   
   def new
     @product = Product.new
   end
   def create
+    # puts "*"*50
+    # p controller.controller_name
     @product = Product.new(product_params)
     if params[:product][:pictures_attributes].present?
       if @product.save
@@ -15,7 +17,7 @@ class Admins::ProductsController < AdminsController
         render 'new'
       end
     else
-      flash[:error] = "Please choice image!"
+      flash[:error] = "Please choose image!"
       render 'new'
     end
   end
@@ -30,9 +32,11 @@ class Admins::ProductsController < AdminsController
       flash[:error] = "Please choice image!"
       render 'edit'
     else
-      # sss
       if @product.update_attributes(product_params)
         if params[:product][:image].present?
+          if params[:product][:image].size == 1
+            lklskfl
+          end
           @product.pictures << Picture.create(image: params[:product][:image])
         end
         # ssajd

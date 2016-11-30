@@ -1,6 +1,6 @@
 class Admins::NewspapersController < AdminsController
   def index
-    @newspapers = Newspaper.order(created_at: :desc).all.paginate(:per_page => 10, :page => params[:page])
+    @newspapers = Newspaper.order(created_at: :desc).all.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
   end
 
   def new

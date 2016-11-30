@@ -1,6 +1,6 @@
 class Admins::CategoriesController < AdminsController
   def index
-    @categories = Category.all.paginate(:per_page => 10, :page => params[:page])
+    @categories = Category.all.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
   end
 
   def new
@@ -19,7 +19,7 @@ class Admins::CategoriesController < AdminsController
         # puts @category.errors.full_messages
       end
     else
-      flash[:error]="Please choice image!" 
+      flash[:error]="Please choose image!" 
       render 'new'
     end
   end
