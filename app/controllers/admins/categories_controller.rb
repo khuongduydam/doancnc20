@@ -49,7 +49,7 @@ class Admins::CategoriesController < AdminsController
   def destroy
     Category.find(params[:id]).destroy
     flash[:success] = "Category deleted"
-    redirect_to admins_categoriesla_path
+    redirect_to admins_categories_path
   end
 
   private
