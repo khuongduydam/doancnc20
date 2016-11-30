@@ -8,6 +8,10 @@ module ApplicationHelper
     end
   end
   
+  def categories_list_head
+    categories = Category.all
+  end
+  
   def wishlists
     unless current_user.nil?
       @wishlists = WishList.where(user_id: current_user.id).first(3)

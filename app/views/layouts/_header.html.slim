@@ -36,37 +36,33 @@ header.frontend
         #navbar.collapse.navbar-collapse.navbar-reponsive-collapse
           ul.nav.navbar-nav
             li
-              = active_link_to "TRANG CHỦ ", root_path
-
+              - if current_page?root_path
+                = active_link_to "TRANG CHỦ ", root_path
+              - else 
+                = link_to "TRANG CHỦ ", root_path
             li.dropdown
-              a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="#")
+              a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
+                / -if current_page?(controller: 'categories', action: 'show')
+                  .active
                 | SẢN PHẨM 
                 span.caret
+                / - else 
+                /   | SẢN PHẨM 
+                /   span.caret
               ul.dropdown-menu(aria-labelledby="sanpham")
-                - @categories = Category.all
-                = render partial: 'categories/index', locals: { categories: @categories}
-                / li hello
-                / li google
-            li  
+                = render partial: 'categories/index', locals: { categories: categories_list_head}
+            li
               = active_link_to "HƯỚNG DẪN MUA HÀNG", shoppingguide_shoppingguides_path
             li
               = active_link_to "THÔNG TIN HỮU ÍCH", newspapers_path
             li
               = active_link_to "LIÊN HỆ", new_contact_path
-          form.navbar-form.navbar-right
-            = form_tag products_path, :method => 'get', :id => "products_search" do
+          .navbar-form.navbar-right
+            = form_tag all_pro_products_path, :method => 'get', :id => "products_search" do
               p
                 = text_field_tag :search, params[:search]
                 = submit_tag "Search", :name => nil
                 / = render 'products'
-            / = form_tag products_path, method: :get, id: "product_search" do }
-            / = simple_form_for products_path, method: :get do |f|
-            /   = f.input :search, params[:search]
-            /   = f.submit "Search"
-
-            / input.form-control(type="text" placeholder="Search...")
-
-
     section.sections-lider
       #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
         .carousel-inner(role="listbox")

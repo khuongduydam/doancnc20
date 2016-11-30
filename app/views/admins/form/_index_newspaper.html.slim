@@ -4,12 +4,14 @@
       tr.info
         th Title
         th Content
+        th Created at
         th[style="width:300px;"] Property
     tbody
       - @newspapers.each do |newspaper|
         tr.danger
           td = newspaper.title
           td = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
+          td = newspaper.created_at
           td 
             = link_to 'Detail', admins_newspaper_path(newspaper),class: 'btn btn-info'
             = link_to 'Edit', edit_admins_newspaper_path(newspaper), class: 'btn btn-warning',style: 'margin-left:20px;'

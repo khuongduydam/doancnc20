@@ -6,6 +6,7 @@ one:
   phone: MyString
   email: MyString
   pay_type: MyString
+  status: MyString
 
 two:
   name: MyString
@@ -13,3 +14,4 @@ two:
   phone: MyString
   email: MyString
   pay_type: MyString
+  status: MyString

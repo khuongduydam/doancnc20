@@ -12,24 +12,23 @@ header.backend
       #navbar.collapse.navbar-collapse.navbar-reponsive-collapse
         ul.nav.navbar-nav
           li
-            = link_to "HOME", admins_path, label:'top'
+            - if current_page?admins_path
+              = active_link_to "HOME", admins_path, label:'top'
+            - else 
+              = link_to "HOME", admins_path, label:'top'
           li
-            = link_to "CATEGORY ", admins_categories_path, label:'top'
+            = active_link_to "CATEGORY ", admins_categories_path, label:'top'
           li
-            = link_to "PRODUCT ", admins_products_path, label:'top'
+            = active_link_to "PRODUCT ", admins_products_path, label:'top'
           li
-            = link_to "NEWSPAPERS", admins_newspapers_path, label:'top'
+            = active_link_to "NEWSPAPERS", admins_newspapers_path, label:'top'
           li
-            = link_to "USER", admins_users_path, label:'top'
+            = active_link_to "USER", admins_users_path, label:'top'
           li
-            = link_to "CONTACT", admins_contacts_path, label:'top'
-          li
-            = link_to "ORDERS", admins_orders_path,label:'top'  
-          li
-            = link_to "ORDERS MEMBER", admins_order_members_path, label:'top'  
-        form.navbar-form.navbar-left role="search"
-            .form-group
-              input.form-control type='text' placeholder="search" 
+            = active_link_to "CONTACT", admins_contacts_path, label:'top'
+        / form.navbar-form.navbar-left role="search"
+        /     .form-group
+        /       input.form-control type='text' placeholder="search" 
         .user
         .navbar-right
           = link_to '<i class="fa fa-lock fa-lg" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'},class:'btn btn-warning',style:'float:right'  

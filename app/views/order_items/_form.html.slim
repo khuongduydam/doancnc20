@@ -1,9 +1,0 @@
-= simple_form_for(@order_item) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.association :product
-    = f.association :cart
-
-  .form-actions
-    = f.button :submit

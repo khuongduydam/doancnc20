@@ -13,7 +13,11 @@ section.layout-adminproduct
               = link_to 'NEW PRODUCT',  new_admins_product_path, class: 'btn btn-default', style:'float: right;'
         .row.main-body
           .col-md-12.bodyad
-            h2
-              | Danh sách tất cả sản phẩm 
+            = form_tag admins_products_path, :method => 'get', :id => "products_search" do
+              p
+                = text_field_tag :search, params[:search], placeholder: "Name, origin, ...."
+                = submit_tag "Search", :name => nil
+        .row.main-body
+          .col-md-12.bodyad
             = render 'admins/form/index_product'
             = link_to "Back", :back, class: "btn btn-default"

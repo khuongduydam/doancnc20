@@ -2,12 +2,18 @@ section.layout-admin
   .container
     .row
       .col-md-3.list-group
-        = render 'admins/left'       
+        = render 'admins/left'
       .col-md-9.detailproduct
         .row
           .col-md-5
-            - @product.pictures.each do |img|
-              = image_tag img.image, size: "350x200", class:'img-thumbnail'
+            - if @product.pictures.present?
+              - if @product.pictures.size == 1
+                = image_tag @product.pictures.first.image,size: "400x400", class:"img-thumbnail"
+              - else
+                - @product.pictures.each do |img|
+                = image_tag img.image, size: "200x200", class:'img-thumbnail'
+            - else 
+              = image_tag('default.png', size: "300x300")
             end
           .col-md-7
             .detail
