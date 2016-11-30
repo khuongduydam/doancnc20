@@ -3,7 +3,7 @@ section.sections-product
     .row.img-reponsive
       .col-md-9.detailproduct
         h3.title-head
-          | San pham ban chay
+          | Sản phẩm mới nhập
         .row
           - @product_news.each do |product|
             .col-md-3.col-sm-4.col-xs-12.img-thum
@@ -40,7 +40,7 @@ section.sections-product
               p
                 = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success addcart', remote: true
         h3.title-head
-          = link_to 'Tat ca san pham', all_pro_products_path
+          = link_to 'Tất cả sản phẩm', all_pro_products_path
         .row
           = render 'showpro_of_indexpro'
         = will_paginate @products
