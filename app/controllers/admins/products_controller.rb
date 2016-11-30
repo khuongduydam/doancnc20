@@ -1,6 +1,6 @@
 class Admins::ProductsController < AdminsController
   def index
-     @products = Product.all.order(created_at: :desc).paginate(:per_page => 10, :page => params[:page])
+     @products = Product.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 10, :page => params[:page])
   end 
   
   def new

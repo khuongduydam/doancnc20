@@ -18,8 +18,9 @@ class Product < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('name LIKE ?',"%#{search}%")
+      where('LOWER(name) LIKE ? or LOWER(origin) LIKE ?',"%#{search.downcase}%","%#{search.downcase}%")
     else
+      # scoped
       all
     end
   end
@@ -28,6 +29,7 @@ class Product < ActiveRecord::Base
   def titleize_name
     self.name = name.titleize
   end
+  
   def ensure_not_referenced_by_any_order_item
     if order_items.empty?
       return true

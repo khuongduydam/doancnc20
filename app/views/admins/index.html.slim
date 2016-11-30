@@ -5,6 +5,11 @@ section.layout-admin
         = render 'left'
       .col-md-9.main-admin
         .row
+          / .navbar-form.navbar-right
+          /   = form_tag admins_path, :method => 'get', :id => "products_search" do
+          /     p
+          /       = text_field_tag :search, params[:search], placeholder: "Username, firt name, title ...."
+          /       = submit_tag "Search", :name => nil
           .col-md-12.main-body
             h3.us <i class="fa fa-folder-open" aria-hidden="true"></i> CATEGORIES              
             #categories
@@ -15,10 +20,9 @@ section.layout-admin
             h3.us <i class="fa fa-file" aria-hidden="true"></i> NEWSPAPERS
             #infos
               = render 'admins/newspaper'
-            h3 <i class="fa fa-user" aria-hidden="true"></i> USERS
+            h3.us <i class="fa fa-user" aria-hidden="true"></i> USERS
             #users
               = render 'admins/user'
             h3.us <i class="fa fa-handshake-o" aria-hidden="true"></i> CONTACTS
             #contact  
               = render 'admins/contact'
-

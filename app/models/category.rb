@@ -8,6 +8,15 @@ class Category < ActiveRecord::Base
   validates_associated :pictures
   before_save :titleize_name
 
+  def self.search(search)
+    if search
+      where('LOWER(name) LIKE ?',"%#{search.downcase}%")
+    else
+      # scoped
+      all
+    end
+  end
+
   private
   def titleize_name
     self.name = name.titleize

@@ -22,4 +22,13 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  def self.search(search)
+    if search
+      where('LOWER(username) LIKE ? or LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ?',"%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
+    else
+      # scoped
+      all
+    end
+  end
 end

@@ -3,7 +3,6 @@ section.layout-admincategory
     .row
       .col-md-3.list-group
         = render 'admins/left'
-        
       .col-md-9.main-adminproduct
         .page-title
           h1.page-header.pull-left
@@ -12,4 +11,11 @@ section.layout-admincategory
             .btn-group.btn-success
               = link_to 'NEW CATEGORIES', new_admins_category_path, class: 'btn btn-default', style:'float: right;'
         .row.main-body
-          = render 'admins/form/index_category'
+          .col-md-12.bodyad
+            = form_tag admins_categories_path, :method => 'get', :id => "products_search" do
+              p
+                = text_field_tag :search, params[:search], placeholder: "Name"
+                = submit_tag "Search", :name => nil
+        .row.main-body
+          .col-md-12.bodyad
+            = render 'admins/form/index_category'

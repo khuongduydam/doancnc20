@@ -19,10 +19,12 @@ Rails.application.routes.draw do
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},
              :controllers => { :omniauth_callbacks => "callbacks" }
   resources :users, only: :show
-  resources :categories, only: [:index, :show]
   #########jane
   resources :products, only: [:index, :show] do
     resources :comments, module: :products 
+    collection do
+      get "all_pro"
+    end
   end
   resources :comments, except: [:index, :new]
   resources :wishlists, only: [:index, :create, :destroy]
@@ -31,5 +33,5 @@ Rails.application.routes.draw do
       get "shoppingguide"     
     end
   end
-  resources :contacts
+  resources :contacts, only: [:new, :create]
 end

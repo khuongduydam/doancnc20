@@ -9,8 +9,17 @@ class Newspaper < ApplicationRecord
 
   before_save :upcase_firstcharac
 
+  def self.search(search)
+    if search
+      where('LOWER(title) LIKE ?',"%#{search.downcase}%")
+    else
+      # scoped
+      all
+    end
+  end
+
   private
   def upcase_firstcharac
-    self.title = title.capitalize
+    self.title = title.titleize
   end
 end

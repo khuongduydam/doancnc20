@@ -27,7 +27,8 @@ gem 'will_paginate', '3.1.0'
 gem 'ckeditor'
 gem 'carrierwave'
 gem "mini_magick"
-
+# active link to
+gem 'active_link_to', '~> 1.0', '>= 1.0.3'
 # nested
 gem "nested_form", "~> 0.3.2"
 # Use jquery as the JavaScript library
