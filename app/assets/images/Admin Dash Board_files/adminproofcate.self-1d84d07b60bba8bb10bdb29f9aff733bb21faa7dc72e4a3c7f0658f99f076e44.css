@@ -1,0 +1,9 @@
+/* line 3, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/admin/adminproofcate.scss */
+section.sections-product-pro-of-cate .container h2 {
+  color: #1995dc;
+}
+/* line 4, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/admin/adminproofcate.scss */
+section.sections-product-pro-of-cate .container table.table {
+  border: 1px solid #1995dc;
+  padding: 15px;
+}

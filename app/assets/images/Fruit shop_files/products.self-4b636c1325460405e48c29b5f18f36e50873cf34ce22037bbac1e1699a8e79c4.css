@@ -1,0 +1,69 @@
+/* line 4, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+section.sections-product .container .img-reponsive .detailproduct {
+  margin-top: 30px;
+}
+/* line 6, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+section.sections-product .container .img-reponsive .detailproduct .title-head {
+  color: red;
+}
+/* line 8, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+section.sections-product .container .img-reponsive .detailproduct .img-thum img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  object-position: 25% 25%;
+}
+/* line 14, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+section.sections-product .container .img-reponsive .detailproduct .img-thum h5, section.sections-product .container .img-reponsive .detailproduct .img-thum p, section.sections-product .container .img-reponsive .detailproduct .img-thum h4 {
+  text-align: center;
+}
+@media (max-width: 540px) and (min-width: 320px) {
+  /* line 22, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum {
+    margin-left: 80px;
+  }
+  /* line 24, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum h5, section.sections-product .img-thum p, section.sections-product .img-thum h4 {
+    margin-left: -170px;
+  }
+  /* line 27, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
+@media (max-width: 767px) and (min-width: 540px) {
+  /* line 36, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum {
+    margin-left: 250px;
+  }
+  /* line 38, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum img {
+    width: 180px;
+    height: 180px;
+  }
+  /* line 42, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum h5, section.sections-product .img-thum p, section.sections-product .img-thum h4 {
+    margin-left: -520px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 49, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum img {
+    width: 180px;
+    height: 180px;
+  }
+  /* line 53, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum h5, section.sections-product .img-thum p, section.sections-product .img-thum h4 {
+    margin-left: -160px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 60, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum img {
+    width: 130px !important;
+    height: 150px;
+  }
+}

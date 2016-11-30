@@ -1,0 +1,161 @@
+/* line 3, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .dropdown-toggle:hover {
+  background-color: red;
+}
+/* line 6, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills {
+  background-color: #5cb85c;
+}
+/* line 12, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 30px;
+  padding-left: 15px !important;
+}
+/* line 19, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li a:hover {
+  background-color: #f4d24e;
+  color: #fff;
+  line-height: 30px;
+}
+/* line 24, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li a:focus {
+  background-color: #f4d24e;
+  color: #fff;
+  line-height: 30px;
+}
+/* line 29, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li a:active {
+  background-color: #f4d24e;
+  color: #fff;
+  line-height: 30px;
+  padding: none !important;
+}
+/* line 37, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown.open a {
+  background-color: #5cb85c;
+}
+/* line 42, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown a.dropdown-toggle:hover {
+  background-color: #f4d24e;
+}
+/* line 45, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown ul.dropdown-menu {
+  margin-top: -1px;
+  min-height: 50px;
+  min-width: 180px;
+  text-align: left;
+  background-color: #5cb85c !important;
+}
+/* line 51, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown ul.dropdown-menu li {
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+/* line 54, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown ul.dropdown-menu li a {
+  line-height: 40px;
+}
+
+/* line 68, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+.carousel-inner .item img {
+  width: 100% !important;
+  margin: auto;
+  height: 250px !important;
+}
+/* line 74, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+.carousel-inner .item a img {
+  width: 100% !important;
+  margin: auto;
+  height: 250px !important;
+}
+
+@media (min-width: 320px) and (max-width: 540px) {
+  /* line 87, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  .container .sections-lider .carousel-inner .item img {
+    margin: auto;
+    height: 150px !important;
+  }
+  /* line 91, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  .container .sections-lider .carousel-inner .item a {
+    text-align: center;
+  }
+  /* line 93, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  .container .sections-lider .carousel-inner .item a img {
+    margin: auto;
+    height: 150px !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 105, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li a {
+    color: #333;
+    font-size: 13px;
+    font-weight: 300;
+  }
+  /* line 110, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li a:hover {
+    background-color: #d2af31 !important;
+    color: #fff;
+  }
+  /* line 116, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open a.dropdown-toggle {
+    background-image: linear-gradient(to bottom, #d2af31 0, #d2af31 100%);
+  }
+  /* line 119, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu {
+    height: 110px;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    list-style: none;
+    font-size: 15px;
+    text-align: left;
+    background-color: red !important;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+  /* line 131, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu li {
+    margin-top: -5px;
+    height: 40px;
+  }
+  /* line 134, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu li:hover {
+    margin-top: -5px;
+    height: 40px;
+  }
+  /* line 138, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu li a {
+    text-decoration: none;
+    color: red !important;
+  }
+  /* line 142, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu li a:hover {
+    text-decoration: none;
+    color: #ffffff;
+    background: #da8b13 !important;
+    padding-top: 10px;
+    height: 40px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) and (min-width: 540px) and (max-width: 767px) {
+  /* line 159, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/header/header.scss */
+  .container ul.dropdown-menu {
+    height: 110px;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    list-style: none;
+    font-size: 13px !important;
+    text-align: left;
+    background-color: #46aa48;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+}
