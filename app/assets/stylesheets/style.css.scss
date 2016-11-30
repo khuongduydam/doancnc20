@@ -3,8 +3,10 @@ $font-family_1: 'Pacifico', cursive;
 .title {
 	color: red;
 }
+//end
 body {
 	padding-top: 25px;
+	font-family: 'Conv_UTM Helve',Sans-Serif !important;
 }
 .section_top, footer {
 	a.sologan {
@@ -35,7 +37,6 @@ body {
 				.col-img-swl {
 					img {
 						width: 70px;
-						height: 70px;
 					}
 				}
 				.col-detail-swl {

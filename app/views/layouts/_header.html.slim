@@ -4,7 +4,7 @@ section.section_top
       .col-md-7.col-sm-12.col-xs-12.solo
         a.sologan(href="#")
           | Fruit are part of out nature
-      .col-md-3.col-sm-6.col-xs-12.use
+      .col-md-3.col-sm-6.col-xs-7.use
         .user
           - unless user_signed_in?  
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path  
@@ -20,11 +20,11 @@ section.section_top
                 = link_to 'Profile', user_path(current_user)
                 br
                 = link_to 'Edit', edit_user_registration_path
-      .col-md-2.col-sm-6.col-xs-12
+      .col-md-2.col-sm-6.col-xs-5.cart
         = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success',style:'color:#fff'  
 header.frontend
   .container
-    nav.navbar.navbar-default
+    nav.navbar.navbar-default.nav-pills
       .container-fluid
         .navbar-header
           button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
@@ -33,7 +33,7 @@ header.frontend
             span.icon-bar
             span.icon-bar
             span.icon-bar
-        #navbar.collapse.navbar-collapse
+        #navbar.collapse.navbar-collapse.navbar-reponsive-collapse
           ul.nav.navbar-nav
             li
               - if current_page?root_path

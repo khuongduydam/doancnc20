@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  resources :orders
+  resources :carts
   resources :order_items
-  resources :carts, except: :index
-  get '/carts' => 'products#index'
+  resources :orders
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
     resources :contacts, only: [:index, :show, :destroy]
-    resources :newspapers, :products, :users
+    resources :newspapers, :products, :users, :orders, :order_members
     resources :categories do
       member do 
         get "pro_of_cate"

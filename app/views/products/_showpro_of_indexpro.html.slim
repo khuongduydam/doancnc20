@@ -1,18 +1,17 @@
 - @products.each do |product|
-  .col-md-3.col-sm-6.col-xs-12.img-thum
-    .img-thumbnail
-      - if product.pictures.present?
-        = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
-      - else 
-        = link_to image_tag('default.png'), product_path(product)
+  .col-md-3.col-sm-4.col-xs-12.img-thum
+    - if product.pictures.present?
+      = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
+    - else 
+      = link_to image_tag('default.png'), product_path(product)
     h5
       = product.name
-    p 
+    p       
       | Số lượng còn : 
       = product.quantity
       |  kg
     h4
-      |  Gía : 
+      |  Giá : 
       = product.price 
       |  vnd/kg
     p

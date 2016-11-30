@@ -2,24 +2,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :permitted_params, if: :devise_controller?
   layout :layout_devise
+  
   def after_sign_in_path_for(resource)
     if current_user.admin?
-      # admins_path
-      admins_contacts_path
+      admins_path
+      # admins_contacts_path
     else
       root_path
     end
   end
 
-  def current_order
-    unless session[:order_id].nil?
-      Order.find(session[:order_id])
-    else
-      Order.new
-    end
-  end
-
   private
+
   def permitted_params
     sign_up = -> u {u.permit(:username, :first_name,:email, :last_name, 
      :password,:password_confirmation,:address, 
@@ -32,6 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def layout_devise
-    devise_controller? ? 'admin_layout' : 'application'
+    devise_controller? ? 'user_layout' : 'application'
   end
+
 end

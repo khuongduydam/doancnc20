@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+gem 'therubyracer'
+gem 'active_link_to', '~> 1.0', '>= 1.0.3'
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
@@ -28,7 +29,6 @@ gem 'ckeditor'
 gem 'carrierwave'
 gem "mini_magick"
 # active link to
-gem 'active_link_to', '~> 1.0', '>= 1.0.3'
 # nested
 gem "nested_form", "~> 0.3.2"
 # Use jquery as the JavaScript library
@@ -44,7 +44,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
 
 
 group :development, :test do

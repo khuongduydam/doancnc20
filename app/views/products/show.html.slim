@@ -3,7 +3,7 @@ section.sections-product
     .row.img-reponsive
       .col-md-9.detailproduct
         .row
-          .col-md-7
+          .col-md-7.col-sm-12
             - if @product.pictures.present?
               - if @product.pictures.size == 1
                 = image_tag @product.pictures.first.image,size: "400x400", class:"img-responsive"
@@ -12,7 +12,7 @@ section.sections-product
                 = image_tag img.image, size: "200x200", class:'img-responsive'
             - else 
               = image_tag('default.png', size: "400x400")
-          .col-md-5
+          .col-md-5.col-sm-12
             .detail
               h3.Title_product 
                 = @product.name
@@ -30,7 +30,7 @@ section.sections-product
                   = @product.origin
               | Số lượng : 
               .quantity.buttons_added
-                input max="20" min="1" name="quantity" step="1" type="number" value="1" 
+                = @product.quantity
                 | Kg    
               .about_product
                 p 
@@ -51,10 +51,11 @@ section.sections-product
                 - if flat == 0
                   = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post, class: 'btn btn-default'
               h3  
-                button.btn.btn-success.btn-lg.right type="button"  Mua ngay
+                / button.btn.btn-success.btn-lg.right type="button"  
+                = button_to_with_icon 'Mua ngay', order_items_path(product_id: @product),class:'btn btn-success btn-lg right'
         br
         br
         = render partial: 'comments/comments', locals: {commentable: @product}
         = render partial: 'comments/form', locals: {commentable: @product}
-      .col-md-3
+      .col-md-3.well-right
         = render 'form/right'
