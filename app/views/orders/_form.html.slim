@@ -1,4 +1,5 @@
 .container-fluid
+  h3[style="color:blue;"] Please enter your details
   .row
     .col-xs-4.col-md-4
       = simple_form_for @order do |f|
@@ -6,7 +7,40 @@
         = f.input :address
         = f.input :email
         = f.input :phone
-        = f.select :pay_type, ['Paypal','Direct'],prompt: 'Choose a pay type'
+        = f.select :pay_type, Order::PAYMENT_TYPES ,prompt: 'Choose a pay type'
         br
         br
         = f.submit 'Submit',class:' btn btn-success'
+    .col-xs-8.col-md-8
+        - unless @cart.order_items.empty?
+          .container-fluid
+            h1[style="color:blue"] Your Cart
+            .table-responsive
+              table.table
+                thead
+                  tr.danger
+                    th Ten Sp
+                    th So luong
+                    th Don gia
+                    th Thanh tien
+                tbody
+                  - @cart.order_items.each do |item|
+                    tr.success
+                      td 
+                        = item.product.name
+                      td 
+                        = item.quantity
+                      td 
+                        = item.product.price
+                        | 
+                      td 
+                        = item.total_price
+                        | 
+            h3
+              | Total: 
+              strong[style="color:red;"] 
+                = @cart.total_price
+                | 
+            p
+              .btn-group      
+                = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger'
