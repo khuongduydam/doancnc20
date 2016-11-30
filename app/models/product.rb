@@ -25,9 +25,11 @@ class Product < ActiveRecord::Base
   end
 
   private
+
   def titleize_name
     self.name = name.titleize
   end
+  
   def ensure_not_referenced_by_any_order_item
     if order_items.empty?
       return true

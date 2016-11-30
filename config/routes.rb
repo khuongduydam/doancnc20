@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  resources :orders
-  resources :order_members
+  resources :carts
   resources :order_items
-  resources :carts, except: :index
-  get '/carts' => 'products#index'
+  resources :orders
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do

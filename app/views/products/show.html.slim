@@ -30,7 +30,7 @@ section.sections-product
                   = @product.origin
               | Số lượng : 
               .quantity.buttons_added
-                input max="20" min="1" name="quantity" step="1" type="number" value="1" 
+                = @product.quantity
                 | Kg    
               .about_product
                 p 
@@ -51,7 +51,8 @@ section.sections-product
                 - if flat == 0
                   = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post, class: 'btn btn-default'
               h3  
-                button.btn.btn-success.btn-lg.right type="button"  Mua ngay
+                / button.btn.btn-success.btn-lg.right type="button"  
+                = button_to_with_icon 'Mua ngay', order_items_path(product_id: @product),class:'btn btn-success btn-lg right'
         br
         br
         = render partial: 'comments/comments', locals: {commentable: @product}
