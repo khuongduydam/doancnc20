@@ -4,6 +4,10 @@ header.backend{
 		.container-fluid{
 			.navbar-header{
 				background-color: #1995dc!important;
+				button.navbar-toggle.collapsed{
+					color: #ffffff;
+					background-color: #fff;
+				}
 				.navbar-brand{ 
 					color: #ffffff;}
 			}
@@ -12,12 +16,15 @@ header.backend{
 					li{
 						a{
 							color: #ffffff;
+							line-height: 30px;
 						}
 						a:hover{
-							background-color: #a88c39;
+							background-color: #a88c39; 
+							line-height: 30px;
 						}
 						a:focus{
-							background-color: #a88c39;
+							background-color: #a88c39; 
+							line-height: 30px;
 						}
 						
 					}

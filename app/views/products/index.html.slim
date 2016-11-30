@@ -4,15 +4,14 @@ section.sections-product
       .col-md-9.detailproduct
         .row
           - @product_news.each do |product|
-            .col-md-3.col-sm-6.col-xs-12.img-thum
-              .img-thumbnail
-                - if product.pictures.present?
-                  = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
-                - else 
-                  = link_to image_tag('default.png'), product_path(product)
+            .col-md-3.col-sm-4.col-xs-12.img-thum
+              - if product.pictures.present?
+                = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
+              - else 
+                = link_to image_tag('default.png'), product_path(product)
               h5
                 = product.name
-              p 
+              p       
                 | Số lượng còn : 
                 = product.quantity
                 |  kg
@@ -37,7 +36,7 @@ section.sections-product
                     |  | 
                     = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
               p
-                = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success center-block', remote: true
+                = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success addcart', remote: true
       .col-md-3.well-right
         = render 'form/right'
         
