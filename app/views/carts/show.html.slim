@@ -30,5 +30,8 @@
     p
       .btn-group      
         = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger'
-        = link_to 'Checkout', new_order_path,class:'btn btn-primary'
+        - if user_signed_in?
+          = link_to 'Checkout', new_order_member_path,class:'btn btn-primary'
+        - else  
+          = link_to 'Checkout', new_order_path,class:'btn btn-primary'
         = link_to 'Checkout by Paypal', @cart.paypal_url(products_url),class:'btn btn-success'
