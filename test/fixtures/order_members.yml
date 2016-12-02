@@ -2,18 +2,24 @@
 
 one:
   username: MyString
-  full_name: MyString
+  fullname: MyString
   address: MyString
   phone: MyString
   pay_type: MyString
   user: one
   status: MyString
+  note: MyString
+  email: MyString
+  total_price: 1
 
 two:
   username: MyString
-  full_name: MyString
+  fullname: MyString
   address: MyString
   phone: MyString
   pay_type: MyString
   user: two
   status: MyString
+  note: MyString
+  email: MyString
+  total_price: 1

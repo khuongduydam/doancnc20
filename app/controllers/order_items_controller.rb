@@ -17,6 +17,7 @@ class OrderItemsController < ApplicationController
     if @order_item.save
       redirect_to root_path
     else
+      flash.now[:error] = "Oops, something wrong. Try again!!!"
       render 'new'
     end
   end

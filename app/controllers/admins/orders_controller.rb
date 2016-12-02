@@ -15,7 +15,7 @@ class Admins::OrdersController < AdminsController
   def find_order
     unless params[:id].present?
       flash.now[:error] = "Order is not valid???"
-      redirect_to admins_path
+      redirect_to admins_orders_path
     else
       @order = Order.find_by(id: params[:id])
     end
