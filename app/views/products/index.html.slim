@@ -4,41 +4,43 @@ section.sections-product
       .col-md-9.detailproduct
         h3.title-head
           | Sản phẩm mới nhập
-        - @product_news.each do |product|
-          .row
-            .col-md-3.col-sm-4.col-xs-12.img-thum
-              - if product.pictures.present?
-                = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
-              - else 
-                = link_to image_tag('default.png'), product_path(product)
-              h5
-                = product.name
-              p       
-                | Số lượng còn : 
-                = product.quantity
-                |  kg
-              h4
-                |  Giá : 
-                = product.price 
-                |  vnd/kg
-              p
-                = link_to "Detail", product_path(product)
-                - if current_user != nil
-                  - flat = 0
-                  - if user.wish_lists.present?
-                    - user.wish_lists.each do |p_id|
-                      - if p_id.product_id == product.id
-                        - flat = 1
-                        - break
-                  - else
-                    - flat = 2
-                    |  | 
-                    = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
-                  - if flat == 0
-                    |  | 
-                    = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
-              p
-                = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success addcart', remote: true
+        .row
+          - @product_news.each do |product|
+            .col-md-3.col-sm-6.col-xs-12.img-thum
+              .img-thumbnail
+                - if product.pictures.present?
+                  = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+                - else 
+                  = link_to image_tag('default.png'), product_path(product)
+              .cont-pro
+                h5
+                  = product.name
+                p 
+                  | Số lượng còn : 
+                  = product.quantity
+                  |  kg
+                h4
+                  |  Gía : 
+                  = product.price 
+                  |  vnd/kg
+                p
+                  = link_to "Detail", product_path(product)
+                  - if current_user != nil
+                    - flat = 0
+                    - if user.wish_lists.present?
+                      - user.wish_lists.each do |p_id|
+                        - if p_id.product_id == product.id
+                          - flat = 1
+                          - break
+                    - else
+                      - flat = 2
+                      |  | 
+                      = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
+                    - if flat == 0
+                      |  | 
+                      = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
+                p
+                  = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success addcart', remote: true
         h3.title-head
           = link_to 'Tất cả sản phẩm', all_pro_products_path
         .row

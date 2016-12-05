@@ -4,8 +4,7 @@ section.sections-product
       .col-md-9.detailproduct
         h3.title-head
           | Tat ca san pham
-        .row
-          = render 'showpro_of_indexpro'
+        = render 'showpro_of_indexpro'
         = will_paginate @products
       .col-md-3.well-right
         = render 'form/right'
