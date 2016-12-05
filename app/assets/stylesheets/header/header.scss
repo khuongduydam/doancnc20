@@ -30,6 +30,11 @@ header.frontend{
 									line-height: 30px;
 						    }
 						}
+						li{
+							a{
+								padding-right: 2px !important;
+							}
+						}
 						li.dropdown.open{
 							a{
 									background-color: #5cb85c;								 
@@ -55,10 +60,34 @@ header.frontend{
 							}					
 						}
 					}
+					.navbar-form.navbar-right{
+						margin-top: 17px;
+							form.search_mini{
+								input.txt-search{
+									line-height: 1.8;}
+								button#mini-search-submit{
+									height: 30px;
+    							background-color: gray;
+								}
+						}
+					}
 				}
 			}
 		}
 	}
+}
+.search1{
+	display: none;
+	margin-top: -10px;
+	margin-bottom: 10px;
+		form.search_mini{
+			input.txt-search{
+				line-height: 1.7;}
+			button#mini-search-submit{
+				height: 30px;
+    		background-color: gray;
+			}
+		}
 }
 .carousel-inner {
 	.item {
@@ -76,10 +105,21 @@ header.frontend{
 		}
 	}
 }
-@media (min-width: 320px) and (max-width: 540px) {
-	.container{
-			.sections-lider{
-				.carousel-inner {
+@media (min-width: 240px){
+	.navbar-form.navbar-right{
+		display: none;
+	}
+	.search1{
+		display: block;
+		form.search_mini{
+			input.txt-search{
+			width: 85%}
+		}
+	}
+	.carousel-inner{display: none;}
+}
+@media (min-width: 320px) and (max-width: 479px) {
+	.carousel-inner {
 					.item {
 						img {
 							margin: auto;
@@ -90,81 +130,125 @@ header.frontend{
 							img {
 								margin: auto;
 								height: 150px!important;
-							}
-						}
 					}
 				}
 			}
+		}
+	.navbar-form.navbar-right{
+		display: none;
+	}
+	.search1{
+		display: block;
+		form.search_mini{
+			input.txt-search{
+				width: 89%;}
+		}
 	}
 }
-@media (min-width: 992px) and (max-width:1199px){
-	ul.nav.navbar-nav{
-		li{ a{
-				  color: #333;
-			    font-size: 13px;
-			    font-weight: 300;
-		    }
-		    a:hover{
-			    background-color: #d2af31 !important;
-					color: #fff;
-		    }
+@media (min-width: 480px) and (max-width:567px){
+	.navbar-form.navbar-right{
+		display: none;
+	}
+	.search1{
+		display: block;
+		form.search_mini{
+			input.txt-search{
+				width: 93%;}
 		}
-		li.dropdown.open{
-			a.dropdown-toggle{
-				background-image: linear-gradient(to bottom, #d2af31 0, #d2af31 100%);
-			}
-			ul.dropdown-menu{
-				height: 110px;
-				position: absolute;
-				left: 0;
-				z-index: 1000;
-				float: left;
-				list-style: none;
-				font-size: 15px;
-				text-align: left;
-				background-color: red !important;
-				border: 1px solid #cccccc;
-				border: 1px solid rgba(0, 0, 0, 0.15);
-				li {
-					margin-top: -5px;
-					height: 40px;
-					&:hover {
-						margin-top: -5px;
-						height: 40px;
+	}
+}
+@media (min-width: 568px) and (max-width:599px){
+	.navbar-form.navbar-right{
+		display: none;
+	}
+	.search1{
+		display: block;
+		form.search_mini{
+			input.txt-search{
+				width: 94%;}
+		}
+	}
+}
+@media (min-width: 600px) and (max-width:767px){
+	.navbar-form.navbar-right{
+		display: none;
+	}
+	.search1{
+		display: block;
+		form.search_mini{
+			input.txt-search{
+				width: 94%;}
+		}
+	}
+}
+@media (min-width: 768px) and (max-width:799px){
+	.navbar-form.navbar-right{
+		display: none;
+	}
+	.search1{
+		display: block;
+		form.search_mini{
+			input.txt-search{
+				width: 95.8%;}
+		}
+	}
+}
+@media (min-width: 800px) and (max-width:992px){
+	.navbar-form.navbar-right{
+		display: none;
+	}
+	.search1{
+		display: block;
+		form.search_mini{
+			input.txt-search{
+				width: 95.8%;}
+		}
+	}
+}
+
+@media (min-width: 993px) and (max-width:1023px){
+	.navbar-form.navbar-right{
+		display: none;
+	}
+	.search1{
+		display: block;
+		form.search_mini{
+			input.txt-search{
+				width: 95.8%;}
+		}
+	}
+}
+@media (min-width: 1024px) and (max-width:1280px){
+		.navbar.navbar-default.nav-pills{
+			.container-fluid{
+				.navbar-header{}
+				.collapse.navbar-collapse.navbar-reponsive-collapse#navbar{
+					ul.nav.navbar-nav{						
 					}
-					a {
-						text-decoration: none;
-						color: red !important;										
-						} 
-					a:hover{ 
-						text-decoration: none;
-						color: #ffffff;
-						background: #da8b13 !important;
-						padding-top: 10px;
-						height: 40px;
-					}	
+					.navbar-form.navbar-right{
+						display: block;
+					}
 				}
 			}
 		}
-				
-				
-			
-		
+		.search1{
+		display: none;
 	}
-	@media (min-width: 540px) and (max-width: 767px){
-			.container{
-			ul.dropdown-menu{
-				height: 110px;
-				position: absolute;
-				left: 0;
-				z-index: 1000;
-				display: none;
-				float: left;
-				list-style: none;
-				font-size: 13px !important;
-				text-align: left;
-				background-color: #46aa48;
-				border: 1px solid #cccccc;
-				border: 1px solid rgba(0, 0, 0, 0.15);}
-	} }
+}
+@media (min-width:1281px) and (max-width: 2560px) {
+		.navbar.navbar-default.nav-pills{
+			.container-fluid{
+				.navbar-header{}
+				.collapse.navbar-collapse.navbar-reponsive-collapse#navbar{
+					ul.nav.navbar-nav{						
+					}
+					.navbar-form.navbar-right{
+						display: block;
+					}
+				}
+			}
+		}
+		.search1{
+		display: none;
+	}
 }

@@ -40,39 +40,8 @@ section.layout-adminproduct{
 		}
 	}
 	@media (min-width:320px) and (max-width:767px){
-		.container{
-			.row{
-				.list-group{
-					display: none;
-				}
-				.main-adminproduct{
-					.main-body{
-						.bodyad{
-							margin-top: 10px;
-							.table-responsive{
-								margin-top: 50px;
-							}
-						}
-					}
-				}
-			}
-		}
+		
 	}
 	@media (min-width:768px) and (max-width:1023px){
-		.container{
-			.row{
-				.list-group{
-					display: none;
-				}
-				.main-adminproduct{
-					.main-body{
-						.bodyad{
-							margin-top: 50px;
-						}
-					}
-				}
-			}
-
-		}
-	}
+	}	
 }

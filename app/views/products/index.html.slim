@@ -4,8 +4,8 @@ section.sections-product
       .col-md-9.detailproduct
         h3.title-head
           | Sản phẩm mới nhập
-        .row
-          - @product_news.each do |product|
+        - @product_news.each do |product|
+          .row
             .col-md-3.col-sm-4.col-xs-12.img-thum
               - if product.pictures.present?
                 = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)

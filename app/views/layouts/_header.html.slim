@@ -42,13 +42,8 @@ header.frontend
                 = link_to "TRANG CHỦ ", root_path
             li.dropdown
               a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
-                / -if current_page?(controller: 'categories', action: 'show')
-                  .active
                 | SẢN PHẨM 
                 span.caret
-                / - else 
-                /   | SẢN PHẨM 
-                /   span.caret
               ul.dropdown-menu(aria-labelledby="sanpham")
                 = render partial: 'categories/index', locals: { categories: categories_list_head}
             li
@@ -58,18 +53,27 @@ header.frontend
             li
               = active_link_to "LIÊN HỆ", new_contact_path
           .navbar-form.navbar-right
-            = form_tag all_pro_products_path, :method => 'get', :id => "products_search" do
-              p
-                = text_field_tag :search, params[:search]
-                = submit_tag "Search", :name => nil
-                / = render 'products'
+            td.top_search colspan="2" 
+              form.search_mini action="http://localhost:3000/" method="get" 
+                input#search_mini.float-left.txt-search name="s" placeholder=("Tìm kiếm sản phẩm") type="text" value="" /
+                input name="post_type" type="hidden" value="product" /
+                button#mini-search-submit.float-left type="submit" 
+                  i.fa.fa-search
+    section.search1
+      td.top_search colspan="2" 
+        form.search_mini action="http://localhost:3000/" method="get" 
+          input#search_mini.float-left.txt-search name="s" placeholder=("Tìm kiếm sản phẩm") type="text" value="" /
+          input name="post_type" type="hidden" value="product" /
+          button#mini-search-submit.float-left type="submit" 
+            i.fa.fa-search
+
     section.sections-lider
       #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
         .carousel-inner(role="listbox")
           .item.active
             = image_tag("slider1.png")
           .item
-            = image_tag("slider2.png")        
+            = image_tag("slider2.png")     
           .item
             = image_tag("slider3.png")
           .item
