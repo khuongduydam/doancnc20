@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create]
-  before_action :find_order_item, only: [:show, :edit, :update, :destroy]
+  before_action :find_order_item, only: [:show, :edit, :destroy]
 
   def index
     @order_items = OrderItem.all
@@ -14,11 +14,16 @@ class OrderItemsController < ApplicationController
   def create
     product = Product.find(params[:product_id])
     @order_item = @cart.add_product(product.id)
-    if @order_item.save
-      redirect_to root_path
-    else
-      flash.now[:error] = "Oops, something wrong. Try again!!!"
-      render 'new'
+    respond_to do |format|
+      if @order_item.save
+        format.html {redirect_to root_path}
+        format.js
+        product.quantity -= @order_item.quantity
+        product.save
+      else
+        format.html {render 'new'}
+        flash.now[:error] = "Oops, something wrong. Try again!!!"
+      end
     end
   end
 
@@ -29,9 +34,30 @@ class OrderItemsController < ApplicationController
   end
 
   def update
+    @cart = Cart.find(session[:cart_id])
+    @order_item = @cart.order_items.find(params[:id])
+    @order_item.update(order_item_params)
+    if @order_item.save
+      product = Product.find_by(id: @order_item.product_id)
+      product.quantity -= @order_item.quantity - 1
+      product.save
+      @order_items = @cart.order_items
+    end
   end
 
   def destroy
+    @cart = Cart.find(session[:cart_id])
+    @order_item = @cart.order_items.find(params[:id])
+    respond_to do |format|
+      if @order_item.destroy
+        product = Product.find_by(id: @order_item.product_id)
+        product.quantity += @order_item.quantity
+        product.save
+        @order_items = @cart.order_items
+        format.html {redirect_to cart_path(session[:cart_id])}
+        format.js
+      end
+    end
   end
 
   private
@@ -41,6 +67,6 @@ class OrderItemsController < ApplicationController
   end
 
   def order_item_params
-    params.require(:order_item).permit(:product_id)
+    params.require(:order_item).permit(:product_id, :quantity)
   end
 end

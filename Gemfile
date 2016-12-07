@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'therubyracer'
 gem 'active_link_to', '~> 1.0', '>= 1.0.3'
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
@@ -32,7 +34,6 @@ gem "mini_magick"
 # nested
 gem "nested_form", "~> 0.3.2"
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

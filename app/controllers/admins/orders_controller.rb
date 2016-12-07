@@ -1,8 +1,10 @@
 class Admins::OrdersController < AdminsController
-  before_action :find_order, only: [:show, :edit, :update, :destroy]
+  before_action :find_order, only: [:show, :destroy, :edit]
 
   def show
-    
+  end
+
+  def edit
   end
 
   def destroy

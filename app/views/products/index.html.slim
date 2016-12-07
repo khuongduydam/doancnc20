@@ -38,7 +38,7 @@ section.sections-product
                     |  | 
                     = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
               p
-                = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success center-block', remote: true
+                = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success center-block adding'
         h3.title-head
           = link_to 'Tat ca san pham', all_pro_products_path
         .row
@@ -46,4 +46,8 @@ section.sections-product
         = will_paginate @products
       .col-md-3.well-right
         = render 'form/right'
-        
+i.fa.fa-thumbs-up.fa-6        
+javascript:
+  $('.adding').on('click',function(){
+    $(this).text('Added');
+  });

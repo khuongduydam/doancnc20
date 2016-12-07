@@ -1,0 +1,2 @@
+$('#order_items').html("<%= escape_javascript render partial: "order_item", locals:{order_item: @order_item} %>");
+$(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")  

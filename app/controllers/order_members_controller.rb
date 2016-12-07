@@ -1,7 +1,7 @@
 class OrderMembersController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
-  before_action :find_order_member, only: [:edit, :update]
+  before_action :find_order_member, only: :update
   
   def new
     if @cart.order_items.empty?
@@ -15,25 +15,28 @@ class OrderMembersController < ApplicationController
     @order_member = OrderMember.new(member_params)
     @order_member.add_order_items_from_cart(@cart)
     @order_member.total_price = @cart.total_price
-    if @order_member.save
+    if @order_member.pay_type == 'Direct' && @order_member.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       flash[:success] = "Thank you for your OrderMember"
       redirect_to root_path
+    elsif @order_member.pay_type == 'Paypal' && @order_member.save
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      redirect_to @cart.paypal_url(products_url)    
     else
       flash.now[:error] = "Sorry, something wrong here. Try again!!!"
       p @order_member.errors.messages
       render :new
     end
   end
-  def edit
-    
-  end
 
   def update
     @order_member.update(member_update)
-    if @order_member.save
+    if @order_member.status == "Complete" && @order_member.save
       flash[:success] = "Order is completed, ready to delivery"
+      redirect_to admins_order_members_path
+    elsif @order_member.status == "Uncomplete" && @order_member.save
       redirect_to admins_order_members_path
     else
       render :edit

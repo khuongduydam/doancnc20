@@ -1,0 +1,31 @@
+.table-responsive
+  table.table
+    thead
+      tr.info
+        th.text-center User
+        th.text-center Ho&ten
+        th.text-center Dia chi
+        th.text-center So dien thoai
+        th.text-center Email
+        th.text-center Status
+        th.text-center Pay Type
+        th.text-center Total Buy
+        th.text-center.col-md-2 Property
+    tbody
+      - @order_members.each do |member|
+        tr.danger
+          td.text-center = member.username
+          td.text-center = member.fullname
+          td.text-center = member.address
+          td.text-center = member.phone
+          td.text-center = member.email
+          td.text-center[style="color:red;"] = member.status
+          td.text-center[style="color:red;"] = member.pay_type
+          td.text-center[style="color:red;"] = member.total_price
+          td.text-center
+            .btn-group
+              = link_to 'Detail', admins_order_member_path(member),class: 'btn btn-info btn-xs'
+              = link_to 'Edit', edit_admins_order_member_path(member),class: 'btn btn-primary btn-xs'
+              = link_to 'Delete', admins_order_member_path(member),method: :delete, data: {confirm: "All products of this member will be delete. Are you sure?"}, class: 'btn btn-danger btn-xs'
+= will_paginate @orders
+
