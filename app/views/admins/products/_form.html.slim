@@ -5,7 +5,7 @@
     = f.input :name
     br
   .field 
-    = f.input :price, label: "Price (vnd)"
+    = f.input :price, label: "* Price (USD)"
     br
   .field 
     = f.input :origin
@@ -22,7 +22,7 @@
     = f.text_area :description, class: 'form-control'
     br
   .field 
-    = f.input :quantity, label: "Quantity (kg)"
+    = f.input :quantity, label: "Quantity (kg)",min: 1
     br 
   .field
     = f.label "Image"

@@ -19,8 +19,8 @@ section.sections-product
                 |  kg
               h4
                 |  Giá : 
-                = product.price 
-                |  vnd/kg
+                = number_to_currency product.price 
+                |  USD/kg
               p
                 = link_to "Detail", product_path(product)
                 - if current_user != nil

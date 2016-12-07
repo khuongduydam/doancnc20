@@ -32,14 +32,14 @@
                       td.text-center.col-xs-2.col-md-2 
                         = item.quantity
                       td.text-center.col-xs-2.col-md-2 
-                        = item.product.price
+                        = number_to_currency item.product.price
                         | 
                       td.text-center.col-xs-2.col-md-2 
-                        = item.total_price
+                        = number_to_currency item.total_price
                         |
               .pull-left
                 h4[style="color:red"] 
                   | Total: 
-                  = @cart.total_price
+                  = number_to_currency @cart.total_price
               .pull-right
                 = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'

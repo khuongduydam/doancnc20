@@ -17,8 +17,8 @@ section.sections-product
                 |  kg
               h4
                 |  Gía : 
-                = wishlist.product.price 
-                |  vnd/kg
+                = number_to_currency wishlist.product.price 
+                |  USD/kg
               p
                 = link_to "Detail", product_path(wishlist.product)
               p

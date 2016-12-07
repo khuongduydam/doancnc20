@@ -3,13 +3,13 @@ tr.success id="#{order_item.id}"
     = order_item.product.name
   td
     = form_for order_item, remote: true do |f| 
-      = f.number_field :quantity, value: order_item.quantity.to_i,class:'form-control', style:'width:80px; display:inline',min:1, max: order_item.product.quantity 
+      = f.number_field :quantity, value: order_item.quantity.to_i,class:'form-control', style:'width:80px; display:inline',max: order_item.product.quantity 
       = f.button :submit,class:'btn btn-success btn-xs', id:'btn-update' do
         <i class="fa fa-arrow-up" aria-hidden="true"></i> 
 
       = link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe,order_item,data:{confirm:'Are you sure?'},method: :delete,remote: true,class:'btn btn-danger btn-xs'
   td[id="item-price"] 
-    = order_item.product.price
+    =  order_item.product.price
   td[id="item-total-price"] 
-    = order_item.total_price
+    =  order_item.total_price
 

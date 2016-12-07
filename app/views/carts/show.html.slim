@@ -17,7 +17,7 @@
     h3
       | Total: 
       strong#cart-total-price[style="color:red;"] 
-        = @cart.total_price
+        = number_to_currency @cart.total_price
         | 
     p
       .btn-group     
@@ -36,14 +36,14 @@ javascript:
     
     sum = 0;
     $('td#item-total-price').each(function(){
-      sum += parseInt($(this).text())
-      $('#cart-total-price').html(sum);
+      sum += parseFloat($(this).text())
+      $('#cart-total-price').html(sum).prepend('$');
     });
   });
   
   $('.btn-danger.btn-xs').on('click',function(){
     price = $(this).closest('.success').find('td#item-total-price').text();
     total = $('#cart-total-price').text();
-    total = (parseInt(total)-parseInt(price)).toString();
+    total = (parseFloat(total)-parseFloat(price)).toString();
     return $('#cart-total-price').text(total);
   });
