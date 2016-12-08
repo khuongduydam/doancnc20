@@ -41,5 +41,8 @@
                 h4[style="color:red"] 
                   | Total: 
                   = number_to_currency @cart.total_price
+                  |  (
+                  = number_with_delimiter((@cart.total_price * 22700).round, delimiter: '.')
+                  |  vnd)
               .pull-right
                 = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'

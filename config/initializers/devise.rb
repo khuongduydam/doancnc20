@@ -272,6 +272,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   require 'omniauth-facebook'
+  require 'omniauth-google-oauth2'
   Devise.setup do |config|
     #Replace example.com with your own domain name
     config.mailer_sender = 'ron@vinova.sg'
@@ -290,5 +291,7 @@ Devise.setup do |config|
     #Add your ID and secret here
     #ID first, secret second
     config.omniauth :facebook, "1872053286372823", "464c298378543753273fd5fd0649174a", scope: 'user_birthday'
+    config.omniauth :google_oauth2, '410939124399-3k4of088779s9bgid8d0n20kja484p7m.apps.googleusercontent.com
+','pi16yST96kfuexgOTlMD6Qmf'
   end
 end

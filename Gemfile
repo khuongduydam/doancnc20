@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'therubyracer'

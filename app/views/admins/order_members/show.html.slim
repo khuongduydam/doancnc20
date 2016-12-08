@@ -4,19 +4,24 @@
       thead
         tr.danger
           th.text-left.col-md-2 Ten San Pham
-          th.text-left.col-md-1 So luong(kg)
+          th.text-left.col-md-2 So luong(kg)
           th.text-left.col-md-1 Gia
           th.text-left.col-md-1 Thanh tien
-          th.text-center.col-md-6 Ghi chu
-          th.text-right.col-md-1 Tong cong
+          th.text-center.col-md-4 Ghi chu
       tbody
         - @order_member.order_items.map do |item|
           tr.info
             td.text-left.col-md-2 = item.product.name
-            td.text-left.col-md-1 = item.quantity
+            td.text-left.col-md-2 = item.quantity
             td.text-left.col-md-1 = number_to_currency item.product.price
             td.text-left.col-md-1 = number_to_currency item.total_price 
-            td.text-left.col-md-1
-            td.text-right.col-md-1[style="color:red"] = number_to_currency @order_member.total_price
+            td.text-left.col-md-4
+  h4[style="color:red"] 
+    | Tong cong: 
+    = number_to_currency @order_member.total_price            
+    |  (
+    = number_with_delimiter((@order_member.total_price * 22700).round, delimiter: '.')
+    |  VND)
 .text-center  
   = link_to 'Back',:back, class:'btn btn-default'            
+
