@@ -1,6 +1,4 @@
 class OrderItemsController < ApplicationController
-  include CurrentCart
-  before_action :set_cart, only: [:create]
   before_action :find_order_item, only: [:show, :edit, :destroy]
 
   def index
