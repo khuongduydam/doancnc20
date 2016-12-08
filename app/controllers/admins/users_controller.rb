@@ -1,7 +1,7 @@
 class Admins::UsersController < AdminsController
   before_action :find_user, except: :index
   def index
-    @newspapers = Newspaper.all
+    @users = User.all.paginate(:per_page => 10, :page => params[:page])
   end
 
   def show

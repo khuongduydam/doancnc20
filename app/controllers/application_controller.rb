@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   layout :layout_devise
   def after_sign_in_path_for(resource)
     if current_user.admin?
-      # admins_path
-      admins_contacts_path
+      admins_path
+      # admins_contacts_path
     else
       root_path
     end
