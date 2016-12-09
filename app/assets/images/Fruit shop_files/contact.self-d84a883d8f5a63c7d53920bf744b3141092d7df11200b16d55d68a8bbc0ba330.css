@@ -1,0 +1,9 @@
+/* line 1, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/contacts/contact.scss */
+section.page-section-contact {
+  margin-top: 50px;
+}
+/* line 3, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/contacts/contact.scss */
+section.page-section-contact .google-map {
+  width: 95%;
+  height: 500px;
+}

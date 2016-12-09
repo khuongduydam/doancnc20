@@ -30,11 +30,15 @@ footer {
 			}
 		}
 }
+@media (min-width: 240px){
+	img{
+		width: 95%;
+	}
+}
 @media (min-width: 320px) and (max-width: 540px) {
 	footer{
 		.solo{
 			a{ img{
-						width: 300px;
 						margin-bottom: 15px;
 					}
 				}

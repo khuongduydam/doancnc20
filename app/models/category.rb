@@ -20,6 +20,6 @@ class Category < ActiveRecord::Base
 
   private
   def titleize_name
-    self.name = name.titleize
+    self.name = name.mb_chars.titleize.to_s
   end
 end

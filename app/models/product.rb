@@ -29,7 +29,7 @@ class Product < ActiveRecord::Base
   private
 
   def titleize_name
-    self.name = name.upcase
+    self.name = name.mb_chars.titleize.to_s
   end
   
   def ensure_not_referenced_by_any_order_item

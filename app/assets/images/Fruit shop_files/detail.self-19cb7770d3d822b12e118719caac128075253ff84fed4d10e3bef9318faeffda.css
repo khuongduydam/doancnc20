@@ -1,0 +1,20 @@
+/* line 3, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/detail.scss */
+section.sections-product .container .row.img-reponsive {
+  margin-top: 50px;
+}
+/* line 8, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/detail.scss */
+section.sections-product .container .row.img-reponsive .detailproduct .row .detailimg img.img-thumbnail {
+  width: 400px;
+  height: 400px;
+}
+/* line 13, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/detail.scss */
+section.sections-product .container .row.img-reponsive .detailproduct .row .detailinfo {
+  margin-left: -90px;
+  margin-top: -25px;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* line 23, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/product/detail.scss */
+  section.sections-product .detailinfo {
+    padding-left: 90px;
+  }
+}

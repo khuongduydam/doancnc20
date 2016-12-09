@@ -1,0 +1,42 @@
+/* line 2, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/shoppingguides/shoppingguide.scss */
+.sections-shoppingguide .container {
+  margin-top: 30px;
+}
+/* line 5, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/shoppingguides/shoppingguide.scss */
+.sections-shoppingguide .container .row .menutab {
+  margin-top: 30px;
+}
+/* line 9, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/shoppingguides/shoppingguide.scss */
+.sections-shoppingguide .container .row .menutab .nav-tabs li.active a {
+  font-size: 14px;
+  color: green  !important;
+  background-color: #c2c723 !important;
+}
+/* line 16, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/shoppingguides/shoppingguide.scss */
+.sections-shoppingguide .container .row .menutab .nav-tabs li a {
+  color: green;
+  font-size: 14px;
+}
+/* line 19, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/shoppingguides/shoppingguide.scss */
+.sections-shoppingguide .container .row .menutab .nav-tabs li a:hover {
+  color: green;
+  font-size: 14px;
+  background-color: #c2c723 !important;
+}
+/* line 28, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/shoppingguides/shoppingguide.scss */
+.sections-shoppingguide .container .row .well-right {
+  margin-top: 70px;
+}
+@media (max-width: 540px) and (min-width: 320px) {
+  /* line 37, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/shoppingguides/shoppingguide.scss */
+  .sections-shoppingguide .container .row .menutab .nav-tabs {
+    width: 200px;
+  }
+}
+@media (min-width: 540px) and (max-width: 767px) {
+  /* line 49, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/shoppingguides/shoppingguide.scss */
+  .sections-shoppingguide .container .row .menutab .nav-tabs li {
+    width: 130px;
+    text-align: center;
+  }
+}

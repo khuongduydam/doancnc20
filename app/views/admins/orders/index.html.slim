@@ -1,0 +1,14 @@
+section.layout-adminproduct
+  .container
+    .row
+      .col-md-3.list-group
+        = render 'admins/left'        
+      .col-md-9.main-adminproduct
+        .page-title
+          h1.page-header.pull-left
+            | <i class="fa fa-first-order" aria-hidden="true"></i> ORDERS
+        .row.main-body
+          / h2
+          /   | Danh sách tất cả đơn hàng khach vang lai
+          = render 'admins/form/index_order'
+          = link_to "Back", :back, class: "btn btn-default"
