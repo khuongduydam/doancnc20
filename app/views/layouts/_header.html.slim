@@ -7,12 +7,13 @@ section.section_top
       .col-md-3.col-sm-6.col-xs-7.use
         .user
           - unless user_signed_in?  
-            = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path  
+            = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, '#my-modal','data-toggle' => 'modal'   
+
           - else
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
         .user
           - unless user_signed_in?  
-            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path  
+            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe,'#another-modal','data-toggle'=>'modal'  
           - else
             .dropdown
               = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Account'.html_safe, '','data-toggle': 'dropdown', class: 'dropdown-toggle'
@@ -76,6 +77,96 @@ header.frontend
             = image_tag("slider3.png")
           .item
             = image_tag("slider4.png")
+
+.modal.fade#my-modal
+  .modal-dialog.modal-content.modal-popout-bg[style="width:550px;height:350px;"]
+    .modal-body
+      .container-fluid[style="height:300px;border-style:ridge;margin:10px;border-radius:5px;background-color:#f9f9f9"]
+        h4[style="color:#3d8d18;font-size:25px;"] Sign In 
+        hr
+        = form_for(:user,  url: new_user_session_path , html:{class:'form-horizontal',style:'font-size:15px;font-family:Lato, sans-serif;'}) do |f|
+          = devise_error_messages!
+          .form-group
+            = f.label :username, 'Username: ',class:'control-label col-sm-2'
+            = f.text_field :username, autofocus: true,class:'form-control  col-sm-10',style:'width:350px;margin-left:15px;',placeholder: 'USERNAME'
+          .form-group
+            = f.label :password,"Password: ",class:'control-label col-sm-2'
+            = f.password_field :password, autocomplete: "off",class:'form-control  col-sm-10', style:'width:350px;margin-left:15px;',placeholder: 'PASSWORD'
+          - if devise_mapping.rememberable?
+            .field.col-sm-offset-2
+              = f.check_box :remember_me
+              = f.label :remember_me,' Keep me sign in'  
+          .form-group
+            = button_tag type: 'submit',class:'btn btn-success col-sm-offset-2 col-sm-10 pull-right', style: 'width:200px;position:relative;top:-35px;left:-45px;font-size:15px;' do
+              <i class="fa fa-sign-in" aria-hidden="true"></i> Log in
+        .row[style='position:relative;top:-50px;']                
+          hr      
+          .row
+            .col-xs-3.col-md-3
+              = link_to '<i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook'.html_safe,user_facebook_omniauth_authorize_path,class:'btn btn-primary btn-lg',style:'margin-left:20px;'
+            .col-xs-3.col-md-3
+            .col-xs-3.col-md-3
+              = link_to '<i class="fa fa-google" aria-hidden="true"></i> Login with Google'.html_safe,user_facebook_omniauth_authorize_path,class:'btn btn-danger btn-lg',style:'width:185px'
+
+.modal.fade#another-modal
+  .modal-dialog.modal-content.modal-popout-bg[style="width: 550px;height:650px;"]
+    .modal-body
+      .container-fluid[style="height:600px;border-style:ridge;margin:10px;border-radius:5px;background-color:#f9f9f9"]
+        h4[style="color:#ec0529;font-size:25px;"] Sign Up
+        hr
+        = form_for(:user, url: user_registration_path, html:{class:'form-vertical',style:'font-size:15px;font-family:Lato, sans-serif;'}) do |f| 
+          = devise_error_messages!
+          .row
+            .col-sm-6
+              .form-group
+                = f.label :username, 'Username'
+                = f.text_field :username,class:'form-control',placeholder:'USERNAME'
+            .col-sm-6
+              .form-group
+                = f.label :email, 'Email'
+                = f.email_field :email,class:'form-control',placeholder: 'EMAIL'
+          .row
+            .col-sm-12
+              .form-group
+                = f.label :password, 'Password'
+                = f.password_field :password, class:'form-control', placeholder: 'PASSWORD'
+          .row
+            .col-sm-12
+              .form-group
+                = f.label :password_confirmation, 'Password Confirmation'
+                = f.password_field :password_confirmation, class:'form-control', placeholder: 'password_confirmation'
+          .row
+            .col-sm-6
+              .form-group
+                = f.label :last_name, 'Last Name'
+                = f.text_field :last_name, class:'form-control',placeholder: 'LAST NAME'
+            .col-sm-6
+              .form-group
+                = f.label :first_name, 'First Name'
+                = f.text_field :first_name, class:'form-control',placeholder:'FIRST NAME'
+          .row
+            .col-sm-6
+              .form-group
+                = f.label :address, 'Address'
+                = f.text_field :address, class:'form-control',placeholder: 'ADDRESS'
+            .col-sm-6
+              .form-group
+                = f.label :phone, 'Phone'
+                = f.text_field :phone, class:'form-control',placeholder: 'PHONE NUMBER'
+          .row
+            .col-sm-6
+              .form-group
+                = f.label :sex, 'Sex'
+                = f.select :sex, options_for_select(['Male','Female']), {},class:'form-control'
+            .col-sm-6
+              .form-group
+                = f.label :birth_day,'Birth Day'
+                = f.date_field :birth_day, class:' form-control'    
+          br  
+          .form-group
+            = button_tag type: 'submit',class:'btn btn-success center-block',style:'width:300px' do
+              <i class="fa fa-sign-in" aria-hidden="true"></i> Sign Up    
+
 javascript:
   $('ul.nav li.dropdown').hover(function() { 
     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 

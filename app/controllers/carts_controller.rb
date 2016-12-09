@@ -4,6 +4,9 @@ class CartsController < ApplicationController
 
   def show
     @order_items = @cart.order_items
+    if @order_items.size == 0
+      redirect_to root_path
+    end
   end
 
   def destroy

@@ -53,7 +53,7 @@ class OrderItemsController < ApplicationController
         product.save
         @order_items = @cart.order_items
         format.html {redirect_to cart_path(session[:cart_id])}
-        format.js
+        format.js 
       end
     end
   end
