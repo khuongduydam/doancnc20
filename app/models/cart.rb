@@ -17,7 +17,7 @@ class Cart < ApplicationRecord
 
   def paypal_url(return_url)
     values = {
-      :business => 'ron@vinova.sg',
+      :business => 'ron-facilitator@vinova.sg',
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,

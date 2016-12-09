@@ -29,4 +29,9 @@
  *= require product/detail
  *= require categories/showcategory
  */
-@import "font-awesome";
+ @import "font-awesome";
+ .modal-popout-bg {
+  background-image: url("fresh_fruits-wallpaper.jpg");
+  background-repeat: no-repeat;
+}
+

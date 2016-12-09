@@ -8,6 +8,8 @@
     @newspapers = Newspaper.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 5, :page => params[:page])
     @categories = Category.all.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
     @contacts = Contact.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+    @orders = Order.all.order(created_at: :desc).paginate(:per_page => 5, :page => params[:page])
+    @order_members = OrderMember.all.order(created_at: :desc).paginate(:per_page => 5, :page => params[:page])
   end
 
   def admin_only

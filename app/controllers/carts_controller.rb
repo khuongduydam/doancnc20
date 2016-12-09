@@ -3,10 +3,18 @@ class CartsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   def show
-    
+    @order_items = @cart.order_items
+    if @order_items.size == 0
+      redirect_to root_path
+    end
   end
 
   def destroy
+    @cart.order_items.map do |item|
+      product = Product.find_by(id: item.product_id)
+      product.quantity += item.quantity
+      product.save!
+    end  
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     redirect_to root_path

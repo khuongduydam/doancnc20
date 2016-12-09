@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :order_items
   resources :orders
+  resources :order_members
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
@@ -27,10 +28,6 @@ Rails.application.routes.draw do
   end
   resources :comments, except: [:index, :new]
   resources :wishlists, only: [:index, :create, :destroy]
-  resources :shoppingguides do
-    collection do 
-      get "shoppingguide"     
-    end
-  end
+  resources :shoppingguides, only: :index 
   resources :contacts, only: [:new, :create]
 end

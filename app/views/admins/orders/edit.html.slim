@@ -1,0 +1,10 @@
+section.layout-adminproduct
+  .container
+    .row
+      .col-md-2.list-group
+        = render 'admins/left'
+      .col-md-10
+        = simple_form_for @order do |f|
+          = f.select :status, options_for_select(["Uncomplete","Complete"]), {},class:'form-control',style:'width:150px;'
+          br
+          = f.submit 'Submit', class:'btn btn-success'

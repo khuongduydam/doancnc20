@@ -1,5 +1,5 @@
 class ShoppingguidesController < ApplicationController
- def shoppingguide
+ def index
     @wishlists = WishList.first(3)
  end
 end
