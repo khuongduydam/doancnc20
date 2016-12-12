@@ -2,7 +2,20 @@ class OrderItemsController < ApplicationController
   before_action :find_order_item, only: [:show, :edit, :destroy]
 
   def index
-    @order_items = OrderItem.all
+  @order_items = OrderItem.all
+  p 'dsaadsadsadsadsadsadsadsaa'
+  order_item = OrderItem.find_by(id: params[:id])
+  p 'dsadsadsaddadddsadadadsdda'
+  order_item.update(quantity: params[:quantity])
+  product = order_item.product
+  p '**************************************'
+  p product
+  p '************************************'
+  product.quantity -= params[:quantity].to_i - 1
+  p '********************************'
+  product.save
+  p '*********************************'
+  p product
   end
 
   def new
@@ -41,6 +54,8 @@ class OrderItemsController < ApplicationController
       product.save
       @order_items = @cart.order_items
     end
+    #ajax update cart
+
   end
 
   def destroy

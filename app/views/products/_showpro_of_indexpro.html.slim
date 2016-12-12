@@ -12,8 +12,8 @@
       |  kg
     h4
       |  Gía : 
-      = number_to_currency product.price 
-      |  USD/kg
+      =  product.price 
+      |  /kg
     p
       = link_to "Detail", product_path(product)
       - if current_user != nil

@@ -19,7 +19,7 @@
           td.text-center = order.email
           td.text-center[style="color:red;"] = order.status
           td.text-center[style="color:red;"] = order.pay_type
-          td.text-center[style="color:red;"] = number_to_currency order.total_price
+          td.text-center[style="color:red;"] =  order.total_price
           td.text-center
             .btn-group
               = link_to 'Detail', admins_order_path(order),class: 'btn btn-info btn-xs'

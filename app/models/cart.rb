@@ -25,7 +25,7 @@ class Cart < ApplicationRecord
     }
     order_items.each_with_index do |item, index|
       values.merge!({
-        "amount_#{index+1}" => item.product.price,
+        "amount_#{index+1}" => ((item.product.price.to_f) / 22700).round ,
         "item_name_#{index+1}" => item.product.name,
         "item_number_#{index+1}" => item.id,
         "quantity_#{index+1}" => item.quantity

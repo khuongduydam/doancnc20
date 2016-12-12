@@ -21,7 +21,7 @@
 /               h4
 /                 |  Gía : 
 /                 = product.price 
-/                 |  USD/kg
+/                 |  /kg
 /               p
 /                 - if current_user != nil
 /                   = link_to "Add to my wish list", wishlists_path(product.id), method: :post
@@ -54,8 +54,8 @@ section.sections-product
                 |  kg
               h4
                 |  Gía : 
-                = number_to_currency product.price 
-                |  USD/kg
+                =  product.price 
+                |  /kg
               p
                 - if current_user != nil
                   = link_to "Add to my wish list", wishlists_path(product.id), method: :post
