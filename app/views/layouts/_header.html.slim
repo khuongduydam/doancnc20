@@ -7,7 +7,7 @@ section.section_top
       .col-md-3.col-sm-6.col-xs-7.use
         .user
           - unless user_signed_in?  
-            = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, '#my-modal','data-toggle' => 'modal'   
+            = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path
 
           - else
             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
@@ -78,13 +78,13 @@ header.frontend
           .item
             = image_tag("slider4.png")
 
-.modal.fade#my-modal
+//.modal.fade#my-modal
   .modal-dialog.modal-content.modal-popout-bg[style="width:550px;height:350px;"]
     .modal-body
       .container-fluid[style="height:300px;border-style:ridge;margin:10px;border-radius:5px;background-color:#f9f9f9"]
         h4[style="color:#3d8d18;font-size:25px;"] Sign In 
         hr
-        = form_for(:user,  url: new_user_session_path , html:{class:'form-horizontal',style:'font-size:15px;font-family:Lato, sans-serif;'}) do |f|
+        = form_for(:user,  url: new_user_session_path , html:{class:'form-horizontal',id:'signinForm',style:'font-size:15px;font-family:Lato, sans-serif;'}) do |f|
           = devise_error_messages!
           .form-group
             = f.label :username, 'Username: ',class:'control-label col-sm-2'
@@ -168,8 +168,10 @@ header.frontend
               <i class="fa fa-sign-in" aria-hidden="true"></i> Sign Up    
 
 javascript:
-  $('ul.nav li.dropdown').hover(function() { 
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
-    function() { 
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
-    }); 
+  $(document).ready(function(){
+    $('ul.nav li.dropdown').hover(function() { 
+      $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
+      function() { 
+      $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
+    });
+  });

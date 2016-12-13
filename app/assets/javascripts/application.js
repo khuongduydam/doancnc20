@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery-ui/effect.all
 //= require jquery_ujs
+//= require jquery-1.11.1
+//= require jquery.validate 
 //= require bootstrap.min
 //= require ckeditor/init
 //= require jquery_nested_form

@@ -3,19 +3,11 @@ class OrderItemsController < ApplicationController
 
   def index
   @order_items = OrderItem.all
-  p 'dsaadsadsadsadsadsadsadsaa'
   order_item = OrderItem.find_by(id: params[:id])
-  p 'dsadsadsaddadddsadadadsdda'
   order_item.update(quantity: params[:quantity])
   product = order_item.product
-  p '**************************************'
-  p product
-  p '************************************'
   product.quantity -= params[:quantity].to_i - 1
-  p '********************************'
   product.save
-  p '*********************************'
-  p product
   end
 
   def new
