@@ -1,20 +1,27 @@
 .container-fluid[style="padding-right:0px;"]
   .col-sm-10.col-sm-offset-2.col-lg-10.col-lg-offset-2[style="padding-right:0px;"]
     ul.nav.nav-pills
-      li.active.col-sm-6.col-lg-6
+      li.active.col-xs-6
         a[data-toggle='pill' href="#all-fruits"] All Fruits
-      li.col-sm-6.col-lg-6
+      li.col-xs-6
         a[data-toggle='pill' href="#premium-fruits"] Premium Fruits
     .tab-content
       #all-fruits.tab-pane.fade.in.active
         br
         - @product_news.each do |product|
-          .col-sm-3
+          .col-xs-12.col-sm-6.col-md-3
             - if product.pictures.present?
               = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
             - else  
-              = link_to image_tag('default.png'), product_path(product) 
-      #premium-fruits.tab-pane.fade
-        h2 ALL PREMIUM FRUITS HERE
+              = link_to image_tag('default.png'), product_path(product)
+            .col-xs-12
+              strong = product.name
+              h4 
+                = number_with_delimiter(product.price,delimiter: '.')
+                |(vnd)/kg
+            .col-xs-12
+              = button_to_with_icon "<i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success'
+              hr
 
-= link_to 'Log out', destroy_user_session_path,method: :delete
+      #premium-fruits.tab-pane.fade
+= link_to 'Log out', destroy_user_session_path,method: :delete,class:'btn btn-success'
