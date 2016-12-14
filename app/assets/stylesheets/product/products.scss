@@ -116,7 +116,6 @@ section.sections-product{
 }
 
 .img-thumbnail {
-  display: inline-block;
   max-width: 100%;
   min-height: 210px;
   padding: 4px;
@@ -136,3 +135,12 @@ section.sections-product{
 		font-size: 25px;
 	}
 }
+
+.btn:focus{
+		outline: 0;
+		outline-offset: 0;
+	}
+	.btn:active{
+		outline: 0;
+		outline-offset: 0;
+	}

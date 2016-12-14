@@ -1,0 +1,46 @@
+/* line 1, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/footer/footer.scss */
+footer {
+  margin-top: 15px;
+  color: black;
+  text-align: center;
+}
+/* line 5, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/footer/footer.scss */
+footer .container {
+  background: #e7e7e7;
+}
+/* line 7, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/footer/footer.scss */
+footer .container .row {
+  margin-top: 30px;
+}
+/* line 10, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/footer/footer.scss */
+footer .container .row .address a {
+  text-decoration: none;
+}
+/* line 12, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/footer/footer.scss */
+footer .container .row .address a h3 {
+  text-align: left;
+  font-size: 30px;
+  color: red;
+}
+/* line 18, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/footer/footer.scss */
+footer .container .row .address p {
+  text-align: left;
+  font-size: 17px;
+  font-weight: 30px;
+}
+/* line 24, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/footer/footer.scss */
+footer .container .row .solo {
+  padding-top: 20px;
+}
+/* line 26, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/footer/footer.scss */
+footer .container .row .solo img {
+  padding-top: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 540px) {
+  /* line 36, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/footer/footer.scss */
+  footer .solo a img {
+    width: 300px;
+    margin-bottom: 15px;
+  }
+}

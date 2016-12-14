@@ -1,0 +1,23 @@
+/* line 3, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/informations/newspaper.scss */
+section.sections-newspaper-admin .container .row {
+  margin-top: 50px;
+}
+/* line 8, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/informations/newspaper.scss */
+section.sections-newspaper-admin .container .row .newspp .link h3 {
+  margin-top: -5px;
+}
+/* line 10, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/informations/newspaper.scss */
+section.sections-newspaper-admin .container .row .newspp .link h3 a {
+  text-decoration: none;
+  color: black;
+}
+/* line 17, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/informations/newspaper.scss */
+section.sections-newspaper-admin .container .row .well-right {
+  margin-top: 40px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 23, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/informations/newspaper.scss */
+  section.sections-newspaper-admin .link {
+    margin-top: 30px;
+  }
+}

@@ -1,0 +1,158 @@
+/* line 3, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .dropdown-toggle:hover {
+  background-color: red;
+}
+/* line 6, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills {
+  background-color: #5cb85c;
+}
+/* line 12, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 30px;
+  padding-left: 15px !important;
+}
+/* line 19, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li .active {
+  background-color: #f4d24e;
+}
+/* line 22, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li a:hover {
+  background-color: #f4d24e;
+  color: #fff;
+  line-height: 30px;
+}
+/* line 27, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li a:focus {
+  background-color: #f4d24e;
+  color: #fff;
+  line-height: 30px;
+}
+/* line 34, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown.open a {
+  background-color: #5cb85c;
+}
+/* line 39, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown a.dropdown-toggle:hover {
+  background-color: #f4d24e;
+}
+/* line 42, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown ul.dropdown-menu {
+  margin-top: -1px;
+  min-height: 50px;
+  min-width: 180px;
+  text-align: left;
+  background-color: #5cb85c !important;
+}
+/* line 48, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown ul.dropdown-menu li {
+  margin-top: -5px;
+  margin-bottom: -5px;
+}
+/* line 51, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+header.frontend .container .navbar.navbar-default.nav-pills .container-fluid .collapse.navbar-collapse.navbar-reponsive-collapse#navbar ul.nav.navbar-nav li.dropdown ul.dropdown-menu li a {
+  line-height: 40px;
+}
+
+/* line 65, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+.carousel-inner .item img {
+  width: 100% !important;
+  margin: auto;
+  height: 250px !important;
+}
+/* line 71, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+.carousel-inner .item a img {
+  width: 100% !important;
+  margin: auto;
+  height: 250px !important;
+}
+
+@media (min-width: 320px) and (max-width: 540px) {
+  /* line 84, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  .container .sections-lider .carousel-inner .item img {
+    margin: auto;
+    height: 150px !important;
+  }
+  /* line 88, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  .container .sections-lider .carousel-inner .item a {
+    text-align: center;
+  }
+  /* line 90, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  .container .sections-lider .carousel-inner .item a img {
+    margin: auto;
+    height: 150px !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 102, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li a {
+    color: #333;
+    font-size: 13px;
+    font-weight: 300;
+  }
+  /* line 107, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li a:hover {
+    background-color: #d2af31 !important;
+    color: #fff;
+  }
+  /* line 113, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open a.dropdown-toggle {
+    background-image: linear-gradient(to bottom, #d2af31 0, #d2af31 100%);
+  }
+  /* line 116, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu {
+    height: 110px;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    list-style: none;
+    font-size: 15px;
+    text-align: left;
+    background-color: red !important;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+  /* line 128, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu li {
+    margin-top: -5px;
+    height: 40px;
+  }
+  /* line 131, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu li:hover {
+    margin-top: -5px;
+    height: 40px;
+  }
+  /* line 135, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu li a {
+    text-decoration: none;
+    color: red !important;
+  }
+  /* line 139, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  ul.nav.navbar-nav li.dropdown.open ul.dropdown-menu li a:hover {
+    text-decoration: none;
+    color: #ffffff;
+    background: #da8b13 !important;
+    padding-top: 10px;
+    height: 40px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) and (min-width: 540px) and (max-width: 767px) {
+  /* line 156, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/header.scss */
+  .container ul.dropdown-menu {
+    height: 110px;
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    list-style: none;
+    font-size: 13px !important;
+    text-align: left;
+    background-color: #46aa48;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+}

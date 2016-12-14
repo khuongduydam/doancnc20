@@ -1,0 +1,9 @@
+/* line 1, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/contacts/contact.scss */
+section.page-section-contact {
+  margin-top: 50px;
+}
+/* line 3, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/contacts/contact.scss */
+section.page-section-contact .google-map {
+  width: 95%;
+  height: 500px;
+}

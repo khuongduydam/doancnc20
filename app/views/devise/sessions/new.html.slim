@@ -2,8 +2,9 @@
   h2[style='margin-top:-5px;']
     | Log in
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:'form-horizontal',id:'signinForm'},wrapper: :horizontal_form) do |f|
-    = f.input :username,autofocus: true,class:'form-control'
-    = f.input :password, autocomplete: "off",class:'form-control'
+    = devise_error_messages!
+    = f.input :username,class:'form-control'
+    = f.input :password,class:'form-control'
     = f.submit "Đăng nhập", class:'btn btn-primary', style: 'margin-left:-1px;'
     = link_to 'Đăng ký', new_user_registration_path, class: 'btn btn-success', style:'margin-left:10px;'
     = link_to 'Home Page', products_path, class: 'btn btn-info pull-right'
@@ -30,13 +31,13 @@ javascript:
         }
       },
       messages: {
-        username: {
+        "user[username]": {
           required: 'Please enter a username',
-          minlength: 'Your username is too short, at least 2 characters, plz'
+          minlength: 'Your username is too short'
         },
-        password: {
+        "user[password]": {
           required: 'Please enter a password',
-          minlength: 'Your password is too short, at least 4 characters, plz'
+          minlength: 'Your password is too short'
         }
       },
       errorElement: 'em',

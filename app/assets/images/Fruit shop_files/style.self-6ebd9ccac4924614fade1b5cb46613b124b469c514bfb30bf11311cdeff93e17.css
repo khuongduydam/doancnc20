@@ -1,0 +1,293 @@
+/*phuong*/
+/* line 3, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.title {
+  color: red;
+}
+
+/* line 7, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+body {
+  padding-top: 25px;
+  font-family: 'Conv_UTM Helve',Sans-Serif !important;
+}
+
+/* line 12, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section_top a.sologan, footer a.sologan {
+  font-family: "Pacifico", cursive;
+  color: #5cb85c;
+  font-size: 30px;
+  text-decoration: none !important;
+  padding-left: 26px;
+}
+/* line 19, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section_top a, footer a {
+  color: #5cb85c;
+}
+/* line 22, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section_top a:hover, footer a:hover {
+  color: #5cb85c;
+}
+/* line 25, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section_top a:focus, footer a:focus {
+  color: #5cb85c;
+}
+
+/* line 30, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.sections-information .well-right, .sections-shoppingguide .well-right, .sections-product .well-right, .sections-product-ct.sections-detail-information .well-right, .sections-detail-information .well-right {
+  margin-top: 30px;
+}
+/* line 31, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.sections-information .well-right .title, .sections-shoppingguide .well-right .title, .sections-product .well-right .title, .sections-product-ct.sections-detail-information .well-right .title, .sections-detail-information .well-right .title {
+  color: red;
+}
+/* line 36, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.sections-information .well-right .sub_wish_list .row, .sections-shoppingguide .well-right .sub_wish_list .row, .sections-product .well-right .sub_wish_list .row, .sections-product-ct.sections-detail-information .well-right .sub_wish_list .row, .sections-detail-information .well-right .sub_wish_list .row {
+  margin-top: 10px;
+}
+/* line 38, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.sections-information .well-right .sub_wish_list .row .col-img-swl img, .sections-shoppingguide .well-right .sub_wish_list .row .col-img-swl img, .sections-product .well-right .sub_wish_list .row .col-img-swl img, .sections-product-ct.sections-detail-information .well-right .sub_wish_list .row .col-img-swl img, .sections-detail-information .well-right .sub_wish_list .row .col-img-swl img {
+  width: 70px;
+}
+/* line 43, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.sections-information .well-right .sub_wish_list .row .col-detail-swl h4, .sections-shoppingguide .well-right .sub_wish_list .row .col-detail-swl h4, .sections-product .well-right .sub_wish_list .row .col-detail-swl h4, .sections-product-ct.sections-detail-information .well-right .sub_wish_list .row .col-detail-swl h4, .sections-detail-information .well-right .sub_wish_list .row .col-detail-swl h4 {
+  color: green !important;
+}
+
+/* line 53, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template, .section_order_template .form_order_template {
+  margin-top: 50px;
+  border: 1px solid #cccccc;
+}
+/* line 57, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template .table-responsive h3, .section_order_template .form_order_template .table-responsive h3 {
+  padding-left: 15px;
+  color: green;
+}
+/* line 64, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template .table-responsive .table thead tr th, .section_order_template .form_order_template .table-responsive .table thead tr th {
+  padding: 30px !important;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+/* line 70, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template .table-responsive .table thead tr td, .section_order_template .form_order_template .table-responsive .table thead tr td {
+  padding: 30px !important;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+/* line 80, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template .table-responsive .table tbody tr th, .section_order_template .form_order_template .table-responsive .table tbody tr th {
+  padding: 30px !important;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+/* line 86, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template .table-responsive .table tbody tr td, .section_order_template .form_order_template .table-responsive .table tbody tr td {
+  padding: 30px !important;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+/* line 91, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template .table-responsive .table tbody tr td .img-circle, .section_order_template .form_order_template .table-responsive .table tbody tr td .img-circle {
+  width: 50px;
+  height: 50px;
+}
+/* line 95, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template .table-responsive .table tbody tr td a, .section_order_template .form_order_template .table-responsive .table tbody tr td a {
+  color: #141415;
+}
+/* line 103, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template .table-responsive .table tfoot tr th, .section_order_template .form_order_template .table-responsive .table tfoot tr th {
+  padding: 30px !important;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+/* line 109, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+.section-order-detail-product .form_order_template .table-responsive .table tfoot tr td, .section_order_template .form_order_template .table-responsive .table tfoot tr td {
+  padding: 30px !important;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+
+@media (max-width: 540px) and (min-width: 320px) {
+  /* line 123, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .sections-information .well-right, .sections-shoppingguide .well-right, .sections-product .well-right, .sections-product-ct.sections-detail-information .well-right, .sections-detail-information .well-right {
+    width: 360px;
+    margin-top: 10px;
+  }
+  /* line 126, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .sections-information .well-right .title, .sections-shoppingguide .well-right .title, .sections-product .well-right .title, .sections-product-ct.sections-detail-information .well-right .title, .sections-detail-information .well-right .title {
+    text-align: center;
+  }
+  /* line 132, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .sections-information .well-right .sub_wish_list .row .col-img-swl img, .sections-shoppingguide .well-right .sub_wish_list .row .col-img-swl img, .sections-product .well-right .sub_wish_list .row .col-img-swl img, .sections-product-ct.sections-detail-information .well-right .sub_wish_list .row .col-img-swl img, .sections-detail-information .well-right .sub_wish_list .row .col-img-swl img {
+    margin-left: 90px;
+  }
+  /* line 136, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .sections-information .well-right .sub_wish_list .row .col-detail-swl, .sections-shoppingguide .well-right .sub_wish_list .row .col-detail-swl, .sections-product .well-right .sub_wish_list .row .col-detail-swl, .sections-product-ct.sections-detail-information .well-right .sub_wish_list .row .col-detail-swl, .sections-detail-information .well-right .sub_wish_list .row .col-detail-swl {
+    margin-left: 80px;
+  }
+  /* line 141, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .sections-information .well-right .well-face, .sections-shoppingguide .well-right .well-face, .sections-product .well-right .well-face, .sections-product-ct.sections-detail-information .well-right .well-face, .sections-detail-information .well-right .well-face {
+    height: 250px;
+  }
+  /* line 143, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .sections-information .well-right .well-face .iframe, .sections-shoppingguide .well-right .well-face .iframe, .sections-product .well-right .well-face .iframe, .sections-product-ct.sections-detail-information .well-right .well-face .iframe, .sections-detail-information .well-right .well-face .iframe {
+    margin-left: -8px !important;
+    width: 300px;
+  }
+  /* line 148, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .sections-information .well-right .well-song, .sections-shoppingguide .well-right .well-song, .sections-product .well-right .well-song, .sections-product-ct.sections-detail-information .well-right .well-song, .sections-detail-information .well-right .well-song {
+    height: 250px;
+  }
+  /* line 150, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .sections-information .well-right .well-song .iframe-song, .sections-shoppingguide .well-right .well-song .iframe-song, .sections-product .well-right .well-song .iframe-song, .sections-product-ct.sections-detail-information .well-right .well-song .iframe-song, .sections-detail-information .well-right .well-song .iframe-song {
+    margin-left: -8px !important;
+    width: 300px;
+  }
+}
+@media (min-width: 540px) and (max-width: 767px) {
+  /* line 164, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right {
+    margin-left: 120px;
+  }
+  /* line 166, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .title {
+    text-align: center;
+  }
+  /* line 169, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-song {
+    height: 250px;
+    width: 450px;
+  }
+  /* line 172, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-song .iframe-song {
+    margin-left: 60px;
+  }
+  /* line 176, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-face {
+    height: 230px;
+    width: 450px;
+  }
+  /* line 179, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-face iframe.iframe {
+    margin-left: 70px !important;
+  }
+  /* line 183, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl {
+    width: 450px;
+  }
+  /* line 186, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list .row {
+    margin-top: 10px;
+    margin-left: 50px;
+  }
+  /* line 190, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list .row .col-img-swl img {
+    margin-left: 90px;
+  }
+  /* line 194, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list .row .col-detail-swl {
+    margin-left: 90px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 204, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .title {
+    text-align: center;
+  }
+  /* line 207, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-song {
+    height: 250px;
+  }
+  /* line 209, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-song .iframe-song {
+    margin-left: 200px;
+  }
+  /* line 213, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-face {
+    height: 230px;
+  }
+  /* line 215, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-face iframe.iframe {
+    margin-left: 200px;
+  }
+  /* line 221, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list {
+    margin-left: 150px;
+  }
+  /* line 223, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list .row {
+    margin-top: 10px;
+    margin-left: 50px;
+  }
+  /* line 227, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list .row .col-img-swl img {
+    margin-left: 90px;
+  }
+  /* line 231, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list .row .col-detail-swl {
+    margin-left: 90px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 241, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .title {
+    text-align: center;
+  }
+  /* line 244, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-song {
+    height: 250px;
+  }
+  /* line 246, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-song .iframe-song {
+    width: 170px;
+  }
+  /* line 250, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-face {
+    height: 230px;
+  }
+  /* line 252, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-face iframe.iframe {
+    width: 170px;
+  }
+  /* line 258, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list .row {
+    margin-top: 10px;
+  }
+  /* line 261, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list .row .col-img-swl img {
+    margin-left: 2px;
+  }
+  /* line 265, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-swl .sub_wish_list .row .col-detail-swl {
+    padding-left: 30px;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 275, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .title {
+    text-align: center;
+  }
+  /* line 278, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-song {
+    height: 250px;
+  }
+  /* line 280, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-song .iframe-song {
+    width: 225px;
+  }
+  /* line 284, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-face {
+    height: 230px;
+  }
+  /* line 286, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/style.css.scss */
+  .well-right .well-face iframe.iframe {
+    width: 225px;
+  }
+}

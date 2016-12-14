@@ -1,47 +1,21 @@
-//  .container.center-block.well[style="width:800px;"]
+.container.center-block.well[style="width:800px;"]
   h2.text-center
     | Create a new account
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-group'}) do |f|
-    = devise_error_messages!
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-group'}) do |f|
     .row
       .col-xs-4.col-md-4
-        = f.label :username
-        = f.text_field :username, autofocus: true,class: 'form-control'
-        br
-        = f.label :email
-        = f.email_field :email, class: 'form-control'
-        br
-        = f.label :password
-        - if @minimum_password_length
-          em
-            | (
-            = @minimum_password_length
-            |  characters minimum)
-        br
-        = f.password_field :password, autocomplete: "off",class: 'form-control'
-        br
-        = f.label :password_confirmation
-        br
-        = f.password_field :password_confirmation, autocomplete: "off",class:'form-control'
+        = f.input :username, autofocus: true,class: 'form-control'
+        = f.input :email, class: 'form-control'
+        = f.input :password, autocomplete: "off",class: 'form-control'
+        = f.input :password_confirmation, autocomplete: "off",class:'form-control'
       .col-xs-5.col-md-5
-        = f.label :address
-        = f.text_field :address, class:'form-control'
-        br
-        = f.label :first_name
-        = f.text_field :first_name, class:'form-control'
-        br
-        = f.label :last_name
-        = f.text_field :last_name, class:'form-control'
-        br
-        = f.label :phone
-        = f.number_field :phone, class:'form-control'
-        br
+        = f.input :address, class:'form-control'
+        = f.input :first_name, class:'form-control'
+        = f.input :last_name, class:'form-control'
+        = f.input :phone, class:'form-control'
         = f.submit "Sign up", class:'btn btn-primary center-block', style:'width: 300px;'
         br
         = link_to 'Home Page', products_path, class: 'btn btn-success center-block', style: 'width:300px;'
       .col-xs-3.col-md-3
-        = f.label :sex
-        = f.select :sex, options_for_select(['Male','Female']), {},class:'form-control'
-        br
-        = f.label :birth_day
-        = f.date_field :birth_day, class:' form-control'
+        = f.input :sex, as: :select, collection: [['Male'],['Female']],include_blank: 'Choose one'
+        = f.input :birth_day, class:' form-control'
