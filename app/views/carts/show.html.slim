@@ -30,27 +30,22 @@
 javascript:
   quantity = $('input#order_item_quantity');
   cart_total = $('#cart-total-price');
-
   quantity.on('change',function(){
     price = $(this).closest(".success").find('td#item-price').text();
     quantity = $(this).closest(".success").find('input#order_item_quantity').val();
     total = $(this).closest(".success").find('td#item-total-price').text(price * quantity);
-    id = $(this).closest('.success').attr('id');
-
-      
+    id = $(this).closest('.success').attr('id');     
     sum = 0;
     $.each($('td#item-total-price'),function(){
       sum += parseFloat($(this).text());
       cart_total.text(sum);
-    });
-    
+    });    
     $.ajax({
       url: '/order_items/',
       dataType: 'script',
       data: {quantity, quantity, id: id}
     });  
-  });
-  
+  });  
   $('.btn-danger.btn-xs').on('click',function(){
     price = $(this).closest('.success').find('td#item-total-price').text();
     total = $('#cart-total-price').text();

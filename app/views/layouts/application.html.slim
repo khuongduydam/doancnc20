@@ -8,7 +8,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     meta content="width=device-width,initial-scale=1.0" name="viewport"
   body[style="padding-top:0px;"]
-    = render "layouts/header"
-    
-    = yield
+    .col-xs-3
+      = render "layouts/header"
+    .col-xs-9
+      = yield
     //= render "layouts/footer"

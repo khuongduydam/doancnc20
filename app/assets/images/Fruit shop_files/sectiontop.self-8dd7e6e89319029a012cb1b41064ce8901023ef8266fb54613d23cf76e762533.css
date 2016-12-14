@@ -1,0 +1,102 @@
+/* line 1, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+.section_top {
+  margin-bottom: 20px;
+}
+/* line 5, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+.section_top .container .row .solo {
+  text-align: center;
+  padding-top: 10px;
+}
+/* line 9, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+.section_top .container .row .use {
+  margin-top: -7px;
+}
+/* line 11, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+.section_top .container .row .use .user {
+  float: right;
+  margin-left: 15px;
+  text-align: center;
+}
+/* line 15, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+.section_top .container .row .use .user a {
+  font-size: 16px;
+  color: #46aa48;
+  text-decoration: none;
+}
+/* line 20, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+.section_top .container .row .use .user a:hover {
+  color: #5cb85c;
+}
+/* line 23, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+.section_top .container .row .use .user a:focus {
+  color: #5cb85c !important;
+}
+/* line 28, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+.section_top .container .row .cart {
+  margin-right: 0px;
+  margin-top: 1px;
+  border-left: 1px solid black;
+}
+/* line 33, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+.section_top .container .row .cart .btn.btn-success a {
+  color: #fff !important;
+}
+@media (min-width: 320px) and (max-width: 540px) {
+  /* line 43, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .cart {
+    margin-right: 0px;
+    margin-top: 1px;
+    border-left: 1px solid white;
+    text-align: center;
+    padding-top: 10px;
+  }
+  /* line 50, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .cart .btn.btn-success a {
+    color: #fff !important;
+  }
+  /* line 55, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .use {
+    padding-right: 100px;
+    margin-top: 20px;
+  }
+}
+@media (min-width: 540px) and (max-width: 767px) {
+  /* line 65, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .cart {
+    margin-right: 0px;
+    margin-top: 1px;
+    border-left: 1px solid white;
+    text-align: center;
+    padding-top: 10px;
+  }
+  /* line 72, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .cart .btn.btn-success a {
+    color: #fff !important;
+  }
+  /* line 77, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .use {
+    padding-right: 250px;
+    margin-top: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 87, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .cart {
+    margin-top: 1px;
+    text-align: center;
+    padding-top: 10px;
+  }
+  /* line 91, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .cart .btn.btn-success {
+    margin-top: 30px;
+    margin-left: -250px;
+  }
+  /* line 94, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .cart .btn.btn-success a {
+    color: #fff !important;
+  }
+  /* line 99, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/sectiontop/sectiontop.scss */
+  .section_top .container .row .use {
+    margin-top: 30px;
+  }
+}

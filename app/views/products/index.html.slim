@@ -1,3 +1,759 @@
+/ section.sections-product
+/   .container
+/     .row.img-reponsive
+/       .detailproduct
+/         h3.title-head
+/           | Sản phẩm mới nhập
+/         .row
+/           - @product_news.each do |product|
+/             .col-md-3.col-sm-4.col-xs-12.img-thum
+/               - if product.pictures.present?
+/                 = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
+/               - else 
+/                 = link_to image_tag('default.png'), product_path(product)
+/               h5
+/                 = product.name
+/               p       
+/                 | Số lượng còn : 
+/                 = product.quantity
+/                 |  kg
+/               h4
+/                 |  Giá : 
+/                 = number_to_currency product.price 
+/                 |  USD/kg
+/               p
+/                 = link_to "Detail", product_path(product)
+/                 - if current_user != nil
+/                   - flat = 0
+/                   - if user.wish_lists.present?
+/                     - user.wish_lists.each do |p_id|
+/                       - if p_id.product_id == product.id
+/                         - flat = 1
+/                         - break
+/                   - else
+/                     - flat = 2
+/                     |  | 
+/                     = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
+/                   - if flat == 0
+/                     |  | 
+/                     = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
+/               p
+/                 = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success center-block adding'
+/         h3.title-head
+/           = link_to 'Tất cả sản phẩm', all_pro_products_path
+
+/         = render 'form/right'
+/ i.fa.fa-thumbs-up.fa-6        
+/ javascript:
+/   $('.adding').on('click',function(){
+/     $(this).text('Added');
+/   });
+/header.frontend
+  nav.navbar.sidebar role="navigation" 
+    .container-fluid
+      /! Brand and toggle get grouped for better mobile display
+      .navbar-header
+        button.navbar-toggle data-target="#bs-sidebar-navbar-collapse-1" data-toggle="collapse" type="button" 
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand 
+          = image_tag("logo.png", class:'logo') 
+        .icon
+          a href="#"
+            i.fa.fa-user data-target="#myModal1" data-toggle="modal"
+          #myModal1.modal.fade role="dialog" 
+            .modal-dialog.modal-lg
+              .modal-content
+                .modal-header
+                  i.close data-dismiss="modal"   &times;
+                  h4.modal-title Modal Header
+                .modal-body
+                  p This is a large modal.
+                .modal-footer
+                  button.btn.btn-default data-dismiss="modal" type="button"  Close
+          a href="#"         
+            i.fa.fa-search data-target="#myModal" data-toggle="modal"
+          #myModal.modal.fade role="dialog" 
+            .modal-dialog.modal-lg
+              .modal-content
+                .modal-header
+                  i.close data-dismiss="modal"  &times;
+                  h4.modal-title Search
+                .modal-body
+                  .header-nav-search-con
+                    .container-full
+                      form.global-search action="/search" 
+                        input.input placeholder=("Search by fruit name") type="text" value="" 
+                        input.global-button type="submit" value="Submit" 
+                        input#q name="q" type="hidden" value="" 
+                        input name="type" type="hidden" value="product" 
+                .modal-footer
+                  button.btn.btn-default data-dismiss="modal" type="button"  Close
+          a href="#"
+            i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
+          #myModal2.modal.fade role="dialog" 
+            .modal-dialog.modal-lg
+              .modal-content
+                .modal-header
+                  i.close data-dismiss="modal"  &times;
+                  h4.modal-title Modal Header
+                .modal-body
+                  p This is a large modal.
+                .modal-footer
+                  button.btn.btn-default data-dismiss="modal" type="button"  Close
+      #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li.active
+            a href="#" 
+              | OUR FRUITS
+              span.pull-right.hidden-xs.showopacity.i.fa.fa-home aria-hidden="true"  style="font-size:16px;" 
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#" 
+              | CATEGORY
+              span.caret
+              span.pull-right.hidden-xs.showopacity.i.fa.fa-viadeo aria-hidden="true"  style="font-size:16px;" 
+            ul.dropdown-menu.forAnimate role="menu" 
+              li
+                a href="#"  Action
+              li
+                a href="#"  Another action
+              li
+                a href="#"  Something else here              
+          li
+            a href="#" 
+              | ORDER GUIDE
+              span.pull-right.hidden-xs.showopacity.i.fa.fa-truck aria-hidden="true"  style="font-size:16px;" 
+          li
+            a href="#" 
+              | INFORMATIONS
+              span.pull-right.hidden-xs.showopacity.i.fa.fa-envira aria-hidden="true"  style="font-size:16px;" 
+          li
+            a href="#" 
+              | CONTACTS
+              span.pull-right.hidden-xs.showopacity.i.fa.fa-envelope-o aria-hidden="true"   style="font-size:16px;" 
+              
+  / .row
+  /   .col-md-2.col-sm-4.headerleft
+  /     .imge
+  /       = image_tag("logo.png", class:'logo') 
+  /     .icon
+  /       i.fa.fa-user
+  /       i.fa.fa-search
+  /       i.fa.fa-shopping-cart
+  /     /button.btn.btn-info data-target="#mySidenav" data-toggle="collapse" type="button"  Simple collapsible
+  /     .sidenav#mySidenav
+  /       ul.menu-main
+  /         li.outfruits
+  /           a href="#" OUR FRUITS
+  /         li.category
+  /           a id="category" href="#" data-target="#mySidenav" data-toggle="collapse" CATEGORY
+  /           #dropdown-category
+  /             p Example
+  /             p Example1
+  /             p Example2 
+  /         li.orderguide
+  /           a href="#" ORDER GUIDE
+  /         li.informations
+  /           a href="#" INFORMATIONS
+  /         li.contacts
+  /           a href="#" CONTACTS
+          / .brand Brand Logo
+    / i.fa.fa-bars.fa-2x. toggle-btn data-target="#menu-content" data-toggle="collapse" 
+    / .menu-list
+    /   ul#menu-content.menu-content.collapse.out
+    /     li
+    /       a href="#" 
+    /         i.fa.fa-dashboard.fa-lg
+    /         | Dashboard
+    /     li.collapsed.active data-target="#products" data-toggle="collapse" 
+    /       a href="#" 
+    /         i.fa.fa-gift.fa-lg
+    /         | UI Elements
+    /         span.arrow
+    /   ul#products.sub-menu.collapse
+    /     li.active
+    /       a href="#"  CSS3 Animation
+    /     li
+    /       a href="#"  General
+    /     li
+    /       a href="#"  Buttons
+    /     li
+    /       a href="#"  Tabs & Accordions
+    /     li
+    /       a href="#"  Typography
+    /     li
+    /       a href="#"  FontAwesome
+    /     li
+    /       a href="#"  Slider
+    /     li
+    /       a href="#"  Panels
+    /     li
+    /       a href="#"  Widgets
+    /     li
+    /       a href="#"  Bootstrap Model
+    /   li.collapsed data-target="#service" data-toggle="collapse" 
+    /     a href="#" 
+    /       i.fa.fa-globe.fa-lg
+    /       | Services
+    /       span.arrow
+    /   ul#service.sub-menu.collapse
+    /     li New Service 1
+    /     li New Service 2
+    /     li New Service 3
+    /   li.collapsed data-target="#new" data-toggle="collapse" 
+    /     a href="#" 
+    /       i.fa.fa-car.fa-lg
+    /       | New
+    /       span.arrow
+    /   ul#new.sub-menu.collapse
+    /     li New New 1
+    /     li New New 2
+    /     li New New 3
+    /   li
+    /     a href="#" 
+    /       i.fa.fa-user.fa-lg
+    /       | Profile
+    /   li
+    /     a href="#" 
+    /       i.fa.fa-users.fa-lg
+    /       | Users
+/ / section.section_top
+/ /   .container
+/ /     .row
+/ /       .col-md-4.col-xs-12.logo-solo
+/ /         = image_tag("logo.png", style:'width:100px; heigh: 100px;', class:'logo') 
+/ /       / .col-md-3.col-sm-6.col-xs-7.use
+/ /       /   .user
+/ /       /     - unless user_signed_in?  
+/ /       /       = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, '#my-modal','data-toggle' => 'modal'   
+
+/ /       /     - else
+/ /       /       = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
+/ /       /   .user
+/ /       /     - unless user_signed_in?  
+/ /       /       = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe,'#another-modal','data-toggle'=>'modal'  
+/ /       /     - else
+/ /       /       .dropdown
+/ /       /         = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Account'.html_safe, '','data-toggle': 'dropdown', class: 'dropdown-toggle'
+/ /       /         ul.dropdown-menu[style="min-width:60px;"]
+/ /       /           = link_to 'Profile', user_path(current_user)
+/ /       /           br
+/ /       /           = link_to 'Edit', edit_user_registration_path
+/ /       / .col-md-2.col-sm-6.col-xs-5.cart
+/ /       /   = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success',style:'color:#fff'
+/ /       /   .cart-text[style="color:red;"] 
+/ /       /     = render 'layouts/cart_text'
+/ /       .col-md-8.col-xs-12.hdr_rit
+/ /         .menu-top
+/ /           ul.shorticonlist  
+/ /             li.user
+/ /               i.fa.fa-users aria-hidden="true" 
+/ /             li.cart 
+/ /               i.fa.fa-shopping-cart aria-hidden="true"        
+/ /             li.cash
+/ /               p Cash On Delivery           
+/ /             li.shipping
+/ /               p Free Shipping
+/ /             li.delivery
+/ /               p Delivery Info
+            
+/ header.frontend
+/   .nav-side-menu
+/     .brand Brand Logo
+/     i.fa.fa-bars.fa-2x.toggle-btn data-target="#menu-content" data-toggle="collapse" 
+/     .menu-list
+/       ul#menu-content.menu-content.collapse.out
+/         li
+/           a href="#" 
+/             i.fa.fa-dashboard.fa-lg
+/             | Dashboard
+/         li.collapsed.active data-target="#products" data-toggle="collapse" 
+/           a href="#" 
+/             i.fa.fa-gift.fa-lg
+/             | UI Elements
+/             span.arrow
+/       ul#products.sub-menu.collapse
+/         li.active
+/           a href="#"  CSS3 Animation
+/         li
+/           a href="#"  General
+/         li
+/           a href="#"  Buttons
+/         li
+/           a href="#"  Tabs & Accordions
+/         li
+/           a href="#"  Typography
+/         li
+/           a href="#"  FontAwesome
+/         li
+/           a href="#"  Slider
+/         li
+/           a href="#"  Panels
+/         li
+/           a href="#"  Widgets
+/         li
+/           a href="#"  Bootstrap Model
+/       li.collapsed data-target="#service" data-toggle="collapse" 
+/         a href="#" 
+/           i.fa.fa-globe.fa-lg
+/           | Services
+/           span.arrow
+/       ul#service.sub-menu.collapse
+/         li New Service 1
+/         li New Service 2
+/         li New Service 3
+/       li.collapsed data-target="#new" data-toggle="collapse" 
+/         a href="#" 
+/           i.fa.fa-car.fa-lg
+/           | New
+/           span.arrow
+/       ul#new.sub-menu.collapse
+/         li New New 1
+/         li New New 2
+/         li New New 3
+/       li
+/         a href="#" 
+/           i.fa.fa-user.fa-lg
+/           | Profile
+/       li
+/         a href="#" 
+/           i.fa.fa-users.fa-lg
+/           | Users
+
+/   / .container
+/   /   nav.navbar.navbar-default.nav-pills
+/   /     .container-fluid
+/   /       .navbar-header
+/   /         button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+/   /           span.sr-only
+/   /             | Toggle navigation
+/   /           span.icon-bar
+/   /           span.icon-bar
+/   /           span.icon-bar
+/   /       #navbar.collapse.navbar-collapse.navbar-reponsive-collapse
+/   /         ul.nav.navbar-nav
+/   /           li
+/   /             - if current_page?root_path
+/   /               = active_link_to "TRANG CHỦ ", root_path
+/   /             - else 
+/   /               = link_to "TRANG CHỦ ", root_path
+/   /           li.dropdown
+/   /             a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
+/   /               | SẢN PHẨM 
+/   /               span.caret
+/   /             ul.dropdown-menu(aria-labelledby="sanpham")
+/   /               = render partial: 'categories/index', locals: { categories: categories_list_head}
+/   /           li
+/   /             = active_link_to "HƯỚNG DẪN MUA HÀNG", shoppingguides_path
+/   /           li
+/   /             = active_link_to "THÔNG TIN HỮU ÍCH", newspapers_path
+/   /           li
+/   /             = active_link_to "LIÊN HỆ", new_contact_path
+/   /         .navbar-form.navbar-right
+/   /           td.top_search colspan="2" 
+/   /             form.search_mini action="http://localhost:3000/" method="get" 
+/   /               input#search_mini.float-left.txt-search name="s" placeholder=("Tìm kiếm sản phẩm") type="text" value="" /
+/   /               input name="post_type" type="hidden" value="product" /
+/   /               button#mini-search-submit.float-left type="submit" 
+/   /                 i.fa.fa-search
+/   /   section.search1
+/   /     td.top_search colspan="2" 
+/   /       form.search_mini action="http://localhost:3000/" method="get" 
+/   /         input#search_mini.float-left.txt-search name="s" placeholder=("Tìm kiếm sản phẩm") type="text" value="" /
+/   /         input name="post_type" type="hidden" value="product" /
+/   /         button#mini-search-submit.float-left type="submit" 
+/   /           i.fa.fa-search
+/   /   section.sections-lider
+/   /     #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
+/   /       .carousel-inner(role="listbox")
+/   /         .item.active
+/   /           = image_tag("slider1.png")
+/   /         .item
+/   /           = image_tag("slider2.png")     
+/   /         .item
+/   /           = image_tag("slider3.png")
+/   /         .item
+/   /           = image_tag("slider4.png")
+/   / .container
+/   /   .row
+/   /     .btn-group.btn-group-justified
+/   /       .btn-group
+/   /         button.btn.btn-nav type="button" 
+/   /           span.i.fa.fa-home aria-hidden="true" 
+/   /           p HOME
+/   /       .btn-group
+/   /         button.btn.btn-nav type="button" 
+/   /           spani.fa.fa-apple aria-hidden="true" 
+/   /           p PRODUCTS
+/   /       .btn-group
+/   /         button.btn.btn-nav type="button" 
+/   /           span.i.fa.fa-truck aria-hidden="true" 
+/   /           p ODER GUIDES
+/   /       .btn-group
+/   /         button.btn.btn-nav type="button" 
+/   /           span.i.fa.fa-info-circle aria-hidden="true" 
+/   /           p INFORMATIONS
+/   /       .btn-group
+/   /         button.btn.btn-nav type="button" 
+/   /           span.i.fa.fa-envira aria-hidden="true" 
+/   /           p CONTACT US       
+/   .container
+/     .row
+/       nav.navbar.navbar-inverse
+/         .container
+/           /! Brand and toggle get grouped for better mobile display
+/           .navbar-header
+/             button.navbar-toggle.collapsed data-target="#navbar-collapse-3" data-toggle="collapse" type="button" 
+/               span.sr-only Toggle navigation
+/               span.icon-bar
+/               span.icon-bar
+/               span.icon-bar            
+/           /! Collect the nav links, forms, and other content for toggling
+/           #navbar-collapse-3.collapse.navbar-collapse
+/             ul.nav.navbar-nav
+/               li
+/                 a href="#"  Home
+/               li
+/                 a href="#"  About
+/               li
+/                 a href="#"  Services
+/               li
+/                 a href="#"  Works
+/               li
+/                 a href="#"  News
+/               li
+/                 a href="#"  Contact
+/             ul.nav.navbar-nav.navbar-right
+/               li.s-icon
+/                 a#addClass href="#" 
+/                   i.fa.fa-search aria-hidden="true" 
+/               / a.navbar-brand href="#"  
+/               /   i.fa.fa-search aria-hidden="true"
+
+                
+/ .modal.fade#my-modal
+/ section.section_top
+/   .container
+/     .row
+/       .col-md-7.col-sm-12.col-xs-12.solo
+/         a.sologan(href="#")
+/           | Fruit are part of out nature
+/       .col-md-3.col-sm-6.col-xs-7.use
+/         .user
+/           - unless user_signed_in?  
+/             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path
+
+/           - else
+/             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
+/         .user
+/           - unless user_signed_in?  
+/             = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe,'#another-modal','data-toggle'=>'modal'  
+/           - else
+/             .dropdown
+/               = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Account'.html_safe, '','data-toggle': 'dropdown', class: 'dropdown-toggle'
+/               ul.dropdown-menu[style="min-width:60px;"]
+/                 = link_to 'Profile', user_path(current_user)
+/                 br
+/                 = link_to 'Edit', edit_user_registration_path
+/       .col-md-2.col-sm-6.col-xs-5.cart
+/         = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success',style:'color:#fff'
+/         .cart-text[style="color:red;"] 
+/           = render 'layouts/cart_text'
+/ header.frontend
+/   .container
+/     nav.navbar.navbar-default.nav-pills
+/       .container-fluid
+/         .navbar-header
+/           button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+/             span.sr-only
+/               | Toggle navigation
+/             span.icon-bar
+/             span.icon-bar
+/             span.icon-bar
+/         #navbar.collapse.navbar-collapse.navbar-reponsive-collapse
+/           ul.nav.navbar-nav
+/             li
+/               - if current_page?root_path
+/                 = active_link_to "TRANG CHỦ ", root_path
+/               - else 
+/                 = link_to "TRANG CHỦ ", root_path
+/             li.dropdown
+/               a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
+/                 / -if current_page?(controller: 'categories', action: 'show')
+/                   .active
+/                 | SẢN PHẨM 
+/                 span.caret
+/                 / - else 
+/                 /   | SẢN PHẨM 
+/                 /   span.caret
+/               ul.dropdown-menu(aria-labelledby="sanpham")
+/                 = render partial: 'categories/index', locals: { categories: categories_list_head}
+/             li
+/               = active_link_to "HƯỚNG DẪN MUA HÀNG", shoppingguides_path
+/             li
+/               = active_link_to "THÔNG TIN HỮU ÍCH", newspapers_path
+/             li
+/               = active_link_to "LIÊN HỆ", new_contact_path
+/           .navbar-form.navbar-right
+/             = form_tag all_pro_products_path, :method => 'get', :id => "products_search" do
+/               p
+/                 = text_field_tag :search, params[:search]
+/                 = submit_tag "Search", :name => nil
+/                 / = render 'products'
+/     section.sections-lider
+/       #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
+/         .carousel-inner(role="listbox")
+/           .item.active
+/             = image_tag("slider1.png")
+/           .item
+/             = image_tag("slider2.png")        
+/           .item
+/             = image_tag("slider3.png")
+/           .item
+/             = image_tag("slider4.png")
+
+/ //.modal.fade#my-modal
+/   .modal-dialog.modal-content.modal-popout-bg[style="width:550px;height:350px;"]
+/     .modal-body
+/       .container-fluid[style="height:300px;border-style:ridge;margin:10px;border-radius:5px;background-color:#f9f9f9"]
+/         h4[style="color:#3d8d18;font-size:25px;"] Sign In 
+/         hr
+/         = form_for(:user,  url: new_user_session_path , html:{class:'form-horizontal',style:'font-size:15px;font-family:Lato, sans-serif;'}) do |f|
+/         = form_for(:user,  url: new_user_session_path , html:{class:'form-horizontal',id:'signinForm',style:'font-size:15px;font-family:Lato, sans-serif;'}) do |f|
+/           = devise_error_messages!
+/           .form-group
+/             = f.label :username, 'Username: ',class:'control-label col-sm-2'
+/             = f.text_field :username, autofocus: true,class:'form-control  col-sm-10',style:'width:350px;margin-left:15px;',placeholder: 'USERNAME'
+/           .form-group
+/             = f.label :password,"Password: ",class:'control-label col-sm-2'
+/             = f.password_field :password, autocomplete: "off",class:'form-control  col-sm-10', style:'width:350px;margin-left:15px;',placeholder: 'PASSWORD'
+/           - if devise_mapping.rememberable?
+/             .field.col-sm-offset-2
+/               = f.check_box :remember_me
+/               = f.label :remember_me,' Keep me sign in'  
+/           .form-group
+/             = button_tag type: 'submit',class:'btn btn-success col-sm-offset-2 col-sm-10 pull-right', style: 'width:200px;position:relative;top:-35px;left:-45px;font-size:15px;' do
+/               <i class="fa fa-sign-in" aria-hidden="true"></i> Log in
+/         .row[style='position:relative;top:-50px;']                
+/           hr      
+/           .row
+/             .col-xs-3.col-md-3
+/               = link_to '<i class="fa fa-facebook-square" aria-hidden="true"></i> Login with Facebook'.html_safe,user_facebook_omniauth_authorize_path,class:'btn btn-primary btn-lg',style:'margin-left:20px;'
+/             .col-xs-3.col-md-3
+/             .col-xs-3.col-md-3
+/               = link_to '<i class="fa fa-google" aria-hidden="true"></i> Login with Google'.html_safe,user_facebook_omniauth_authorize_path,class:'btn btn-danger btn-lg',style:'width:185px'
+/ .modal.fade#another-modal
+/   .modal-dialog.modal-content.modal-popout-bg[style="width: 550px;height:650px;"]
+/     .modal-body
+/       .container-fluid[style="height:600px;border-style:ridge;margin:10px;border-radius:5px;background-color:#f9f9f9"]
+/         h4[style="color:#ec0529;font-size:25px;"] Sign Up
+/         hr
+/         = form_for(:user, url: user_registration_path, html:{class:'form-vertical',style:'font-size:15px;font-family:Lato, sans-serif;'}) do |f| 
+/           = devise_error_messages!
+/           .row
+/             .col-sm-6
+/               .form-group
+/                 = f.label :username, 'Username'
+/                 = f.text_field :username,class:'form-control',placeholder:'USERNAME'
+/             .col-sm-6
+/               .form-group
+/                 = f.label :email, 'Email'
+/                 = f.email_field :email,class:'form-control',placeholder: 'EMAIL'
+/           .row
+/             .col-sm-12
+/               .form-group
+/                 = f.label :password, 'Password'
+/                 = f.password_field :password, class:'form-control', placeholder: 'PASSWORD'
+/           .row
+/             .col-sm-12
+/               .form-group
+/                 = f.label :password_confirmation, 'Password Confirmation'
+/                 = f.password_field :password_confirmation, class:'form-control', placeholder: 'password_confirmation'
+/           .row
+/             .col-sm-6
+/               .form-group
+/                 = f.label :last_name, 'Last Name'
+/                 = f.text_field :last_name, class:'form-control',placeholder: 'LAST NAME'
+/             .col-sm-6
+/               .form-group
+/                 = f.label :first_name, 'First Name'
+/                 = f.text_field :first_name, class:'form-control',placeholder:'FIRST NAME'
+/           .row
+/             .col-sm-6
+/               .form-group
+/                 = f.label :address, 'Address'
+/                 = f.text_field :address, class:'form-control',placeholder: 'ADDRESS'
+/             .col-sm-6
+/               .form-group
+/                 = f.label :phone, 'Phone'
+/                 = f.text_field :phone, class:'form-control',placeholder: 'PHONE NUMBER'
+/           .row
+/             .col-sm-6
+/               .form-group
+/                 = f.label :sex, 'Sex'
+/                 = f.select :sex, options_for_select(['Male','Female']), {},class:'form-control'
+/             .col-sm-6
+/               .form-group
+/                 = f.label :birth_day,'Birth Day'
+/                 = f.date_field :birth_day, class:' form-control'    
+/           br  
+/           .form-group
+/             = button_tag type: 'submit',class:'btn btn-success center-block',style:'width:300px' do
+/               <i class="fa fa-sign-in" aria-hidden="true"></i> Sign Up    
+
+/ javascript:
+/   $(document).ready(function(){
+/     $('ul.nav li.dropdown').hover(function() { 
+/       $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
+/       function() { 
+/       $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
+/     });
+/   });
+
+link[rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"]
+link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css"] 
+.container-fluid[style="padding-right:0px;"]
+  .col-sm-10.col-sm-offset-2.col-lg-10.col-lg-offset-2[style="padding-right:0px;"]
+    #first-slider
+      #carousel-example-generic.carousel.slide.carousel-fade
+        ol.carousel-indicators
+          li.active[data-target="#carousel-example-generic" data-slide-to="0"]
+          li[data-target="#carousel-example-generic" data-slide-to="1"]
+          li[data-target="#carousel-example-generic" data-slide-to="2"]
+        .carousel-inner[role="listbox"]
+          .item.active.slide1
+            .row
+              .container
+                .col-md-3.text-right
+                  /img[style="max-width: 200px;" data-animation="animated zoomInLeft" src="http://s20.postimg.org/pfmmo6qj1/window_domain.png"]
+                .col-md-9.text-left
+                  h3[data-animation="animated bounceInDown"]
+                    | Add images, or even your logo!
+                  h4[data-animation="animated bounceInUp"]
+                    | Easily use stunning effects
+          .item.slide2
+            .row
+              .container
+                .col-md-7.text-left
+                  h3[data-animation="animated bounceInDown"]
+                    |  50 animation options A beautiful
+                  h4[data-animation="animated bounceInUp"]
+                    | Create beautiful slideshows 
+                .col-md-5.text-right
+                  /img[style="max-width: 200px;" data-animation="animated zoomInLeft" src="http://s20.postimg.org/sp11uneml/rack_server_unlock.png"]
+          .item.slide3
+            .row
+              .container
+                .col-md-7.text-left
+                  h3[data-animation="animated bounceInDown"]
+                    | Simple Bootstrap Carousel
+                  h4[data-animation="animated bounceInUp"]
+                    | Bootstrap Image Carousel Slider with Animate.css
+                .col-md-5.text-right
+                  /img[style="max-width: 200px;" data-animation="animated zoomInLeft" src="http://s20.postimg.org/eq8xvxeq5/globe_network.png"]
+          /.item.slide4
+            .row
+              .container
+                .col-md-7.text-left
+                  h3[data-animation="animated bounceInDown"]
+                    | We are creative
+                  h4[data-animation="animated bounceInUp"]
+                    | Get start your next awesome project
+                .col-md-5.text-right
+                  img[style="max-width: 200px;" data-animation="animated zoomInLeft" src="http://s20.postimg.org/9vf8xngel/internet_speed.png"]
+        a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
+          i.fa.fa-angle-left
+          span.sr-only
+            | Previous
+        a.right.carousel-control[href="#carousel-example-generic" role="button" data-slide="next"]
+          i.fa.fa-angle-right
+          span.sr-only
+            | Next
+
+/ javascript:
+/   $('ul.nav li.dropdown').hover(function() { 
+/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
+/     function() { 
+/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
+/     }); 
+/     $(function(){
+/   $("#addClass").click(function () {
+/             $('#qnimate').addClass('popup-box-on');
+/               });
+            
+/               $("#removeClass").click(function () {
+/             $('#qnimate').removeClass('popup-box-on');
+/               });
+/     })
+javascript:
+    function htmlbodyHeightUpdate(){
+    var height3 = $( window ).height()
+    var height1 = $('.nav').height()+50
+    height2 = $('.main').height()
+    if(height2 > height3){
+      $('html').height(Math.max(height1,height3,height2)+10);
+      $('body').height(Math.max(height1,height3,height2)+10);
+    }
+    else
+    {
+      $('html').height(Math.max(height1,height3,height2));
+      $('body').height(Math.max(height1,height3,height2));
+    }
+  }
+  $(document).ready(function () {
+    htmlbodyHeightUpdate()
+    $( window ).resize(function() {
+      htmlbodyHeightUpdate()
+    });
+    $( window ).scroll(function() {
+      height2 = $('.main').height()
+        htmlbodyHeightUpdate()
+    });
+  });
+
+  (function( $ ) {
+    //Function to animate slider captions 
+  function doAnimations( elems ) {
+    //Cache the animationend event in a variable
+    var animEndEv = 'webkitAnimationEnd animationend';
+    
+    elems.each(function () {
+      var $this = $(this),
+        $animationType = $this.data('animation');
+      $this.addClass($animationType).one(animEndEv, function () {
+        $this.removeClass($animationType);
+      });
+    });
+  }
+  
+  //Variables on page load 
+  var $myCarousel = $('#carousel-example-generic'),
+    $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
+    
+  //Initialize carousel 
+  $myCarousel.carousel();
+  
+  //Animate captions in first slide on page load 
+  doAnimations($firstAnimatingElems);
+  
+  //Pause carousel  
+  $myCarousel.carousel('pause');
+  
+  
+  //Other slides to be animated on carousel slide event 
+  $myCarousel.on('slide.bs.carousel', function (e) {
+    var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
+    doAnimations($animatingElems);
+  });  
+    $('#carousel-example-generic').carousel({
+        interval:3000,
+        pause: "false"
+    });
+  
+  })(jQuery); 
+
 .container-fluid[style="padding-right:0px;"]
   .col-sm-10.col-sm-offset-2.col-lg-10.col-lg-offset-2[style="padding-right:0px;"]
     ul.nav.nav-pills

@@ -1,0 +1,16 @@
+/* line 5, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/informations/admininformation.scss */
+section.layout-admininformation .container .row .list-group .active {
+  background-color: #1995dc;
+  border-color: #1995dc;
+  color: #ffffff;
+}
+/* line 13, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/informations/admininformation.scss */
+section.layout-admininformation .container .row .main-adminproduct .page-title .page-header.pull-left {
+  color: #1995dc;
+}
+/* line 17, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/informations/admininformation.scss */
+section.layout-admininformation .container .row .main-adminproduct .page-title .pull-right .btn-default {
+  background-color: #1995dc !important;
+  border-color: #1995dc;
+  color: #ffffff;
+}

@@ -20,7 +20,7 @@ section.layout-adminproduct{
 							color: #ffffff;}
 					}
 				.main-body{
-					// background-color: red;
+					margin-top: 110px;
 					.bodyad{						
 						.table-responsive
 							table.table{
@@ -39,15 +39,9 @@ section.layout-adminproduct{
 
 		}
 	}
-	@media (min-width:768px) and (max-width:1024px){
-		.container{
-			background-color: red;
-			.row{
-				.list-group{
-					display: none;
-				}
-			}
-
-		}
+	@media (min-width:320px) and (max-width:767px){
+		
 	}
+	@media (min-width:768px) and (max-width:1023px){
+	}	
 }
