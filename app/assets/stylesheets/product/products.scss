@@ -84,6 +84,18 @@ section.sections-product{
 	padding: 0px 0px;
 }
 
+.col-xs-6.col-md-4.col-lg-3 {
+  padding: 0px 0px 0px 5px;
+}
+
+.btn-success{
+	border-radius: 50px;
+	i.fa.fa-shopping-cart{
+		width:90px;
+		font-size: 25px;
+	}
+}
+
 .img-thumbnail {
   max-width: 100%;
   min-height: 210px;
@@ -96,20 +108,3 @@ section.sections-product{
   border: none;
   border-radius: none;
 }
-
-.btn-success{
-	border-radius: 50px;
-	i.fa.fa-shopping-cart{
-		width:90px;
-		font-size: 25px;
-	}
-}
-
-.btn:focus{
-		outline: 0;
-		outline-offset: 0;
-	}
-	.btn:active{
-		outline: 0;
-		outline-offset: 0;
-	}
