@@ -1,23 +1,64 @@
-//.container.well.text-center[style="width: 330px;background-color:rgba(0,0,0,0);color:#337ab7;margin:45px 0;border:none;"]
+.container.well.text-center[style="width: 330px;background-color:rgba(0,0,0,0);color:#337ab7;margin:45px 0;border:none;"]
   h2[style='margin-top:-5px;']
     | Log in
-  = form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:'form-group'}) do |f|
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:'form-horizontal',id:'signinForm'},wrapper: :horizontal_form) do |f|
     = devise_error_messages!
-    .field
-      = f.label :username
-      br
-      = f.text_field :username, autofocus: true,class:'form-control center-block',style:'width:150px;'
-      br
-    .field
-      = f.label :password
-      br
-      = f.password_field :password, autocomplete: "off",class:'form-control center-block', style:'width:150px;'
-      br
-    - if devise_mapping.rememberable?
-      .field
-    .actions[style="display: inline;"]
-      <br>
-      = f.submit "Đăng nhập", class:'btn btn-primary', style: 'margin-left:-1px;'
-      = link_to 'Đăng ký', new_user_registration_path, class: 'btn btn-success', style:'margin-left:10px;'
-      = link_to 'Home Page', products_path, class: 'btn btn-info pull-right'
+    = f.input :username,class:'form-control'
+    = f.input :password,class:'form-control'
+    = f.submit "Đăng nhập", class:'btn btn-primary', style: 'margin-left:-1px;'
+    = link_to 'Đăng ký', new_user_registration_path, class: 'btn btn-success', style:'margin-left:10px;'
+    = link_to 'Home Page', products_path, class: 'btn btn-info pull-right'
   = render 'devise/shared/omniauth'
+
+javascript:
+  $(document).ready(function(){
+    $('abbr').remove(); 
+    $('ul.nav li.dropdown').hover(function() { 
+      $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
+      function() { 
+      $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
+    });
+    //validate sign in Form
+    $('#signinForm').validate({
+      rules: {
+        "user[username]": {
+          required: true,
+          minlength:2
+        },
+        "user[password]": {
+          required: true,
+          minlength: 4
+        }
+      },
+      messages: {
+        "user[username]": {
+          required: 'Please enter a username',
+          minlength: 'Your username is too short'
+        },
+        "user[password]": {
+          required: 'Please enter a password',
+          minlength: 'Your password is too short'
+        }
+      },
+      errorElement: 'em',
+      errorPlacement: function(error, element){
+        error.addClass('help-block');
+        if(element.prop('type') === 'checkbox'){
+          error.insertAfter(element.parent('label'));
+        }
+        else{
+          error.insertAfter(element);
+        }
+      },
+      highlight: function(element, errorClass, validClass){
+        $(element).parents('.col-sm-9').addClass('has-error').removeClass('has-success');
+      },
+      unhighlight: function(element, errorClass, validClass){
+        $(element).parents('.col-sm-9').addClass('has-success').removeClass('has-error');
+      },
+      submitHandler: function(form) {
+        $('form').find(":submit").attr("disabled", true).attr("value","Submitting...");
+        form.submit();
+      }
+    });
+  });

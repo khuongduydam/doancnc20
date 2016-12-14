@@ -12,13 +12,15 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.add_order_items_from_cart(@cart)
-    @order.total_price = @cart.total_price
-    if @order.pay_type == 'Direct' && @order.save
+    @order.total_price = @cart.total_price.to_f
+    if @order.pay_type == 'Direct'
+      @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       flash[:success] = "Thank you for your order"
       redirect_to root_path
-    elsif @order.pay_type == 'Paypal' && @order.save
+    elsif @order.pay_type == 'Paypal'
+      @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       redirect_to @cart.paypal_url(products_url)

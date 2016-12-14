@@ -384,12 +384,94 @@ header.frontend
 
                 
 / .modal.fade#my-modal
+/ section.section_top
+/   .container
+/     .row
+/       .col-md-7.col-sm-12.col-xs-12.solo
+/         a.sologan(href="#")
+/           | Fruit are part of out nature
+/       .col-md-3.col-sm-6.col-xs-7.use
+/         .user
+/           - unless user_signed_in?  
+/             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path
+
+/           - else
+/             = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
+/         .user
+/           - unless user_signed_in?  
+/             = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe,'#another-modal','data-toggle'=>'modal'  
+/           - else
+/             .dropdown
+/               = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Account'.html_safe, '','data-toggle': 'dropdown', class: 'dropdown-toggle'
+/               ul.dropdown-menu[style="min-width:60px;"]
+/                 = link_to 'Profile', user_path(current_user)
+/                 br
+/                 = link_to 'Edit', edit_user_registration_path
+/       .col-md-2.col-sm-6.col-xs-5.cart
+/         = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success',style:'color:#fff'
+/         .cart-text[style="color:red;"] 
+/           = render 'layouts/cart_text'
+/ header.frontend
+/   .container
+/     nav.navbar.navbar-default.nav-pills
+/       .container-fluid
+/         .navbar-header
+/           button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+/             span.sr-only
+/               | Toggle navigation
+/             span.icon-bar
+/             span.icon-bar
+/             span.icon-bar
+/         #navbar.collapse.navbar-collapse.navbar-reponsive-collapse
+/           ul.nav.navbar-nav
+/             li
+/               - if current_page?root_path
+/                 = active_link_to "TRANG CHỦ ", root_path
+/               - else 
+/                 = link_to "TRANG CHỦ ", root_path
+/             li.dropdown
+/               a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
+/                 / -if current_page?(controller: 'categories', action: 'show')
+/                   .active
+/                 | SẢN PHẨM 
+/                 span.caret
+/                 / - else 
+/                 /   | SẢN PHẨM 
+/                 /   span.caret
+/               ul.dropdown-menu(aria-labelledby="sanpham")
+/                 = render partial: 'categories/index', locals: { categories: categories_list_head}
+/             li
+/               = active_link_to "HƯỚNG DẪN MUA HÀNG", shoppingguides_path
+/             li
+/               = active_link_to "THÔNG TIN HỮU ÍCH", newspapers_path
+/             li
+/               = active_link_to "LIÊN HỆ", new_contact_path
+/           .navbar-form.navbar-right
+/             = form_tag all_pro_products_path, :method => 'get', :id => "products_search" do
+/               p
+/                 = text_field_tag :search, params[:search]
+/                 = submit_tag "Search", :name => nil
+/                 / = render 'products'
+/     section.sections-lider
+/       #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
+/         .carousel-inner(role="listbox")
+/           .item.active
+/             = image_tag("slider1.png")
+/           .item
+/             = image_tag("slider2.png")        
+/           .item
+/             = image_tag("slider3.png")
+/           .item
+/             = image_tag("slider4.png")
+
+/ //.modal.fade#my-modal
 /   .modal-dialog.modal-content.modal-popout-bg[style="width:550px;height:350px;"]
 /     .modal-body
 /       .container-fluid[style="height:300px;border-style:ridge;margin:10px;border-radius:5px;background-color:#f9f9f9"]
 /         h4[style="color:#3d8d18;font-size:25px;"] Sign In 
 /         hr
 /         = form_for(:user,  url: new_user_session_path , html:{class:'form-horizontal',style:'font-size:15px;font-family:Lato, sans-serif;'}) do |f|
+/         = form_for(:user,  url: new_user_session_path , html:{class:'form-horizontal',id:'signinForm',style:'font-size:15px;font-family:Lato, sans-serif;'}) do |f|
 /           = devise_error_messages!
 /           .form-group
 /             = f.label :username, 'Username: ',class:'control-label col-sm-2'
@@ -412,7 +494,6 @@ header.frontend
 /             .col-xs-3.col-md-3
 /             .col-xs-3.col-md-3
 /               = link_to '<i class="fa fa-google" aria-hidden="true"></i> Login with Google'.html_safe,user_facebook_omniauth_authorize_path,class:'btn btn-danger btn-lg',style:'width:185px'
-
 / .modal.fade#another-modal
 /   .modal-dialog.modal-content.modal-popout-bg[style="width: 550px;height:650px;"]
 /     .modal-body
@@ -473,52 +554,11 @@ header.frontend
 /               <i class="fa fa-sign-in" aria-hidden="true"></i> Sign Up    
 
 / javascript:
-/   $('ul.nav li.dropdown').hover(function() { 
-/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
-/     function() { 
-/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
-/     }); 
-/     $(function(){
-/   $("#addClass").click(function () {
-/             $('#qnimate').addClass('popup-box-on');
-/               });
-            
-/               $("#removeClass").click(function () {
-/             $('#qnimate').removeClass('popup-box-on');
-/               });
-/     })
-javascript:
-  $(document).ready(function(){
-    success = $('#dropdown-category');
-    success.hide();
-    call = $('a#category');
-    call.on('click',function(){
-      success.animate({height:'toggle'},400);
-      return false;
-    });
-  });
-      function htmlbodyHeightUpdate(){
-    var height3 = $( window ).height()
-    var height1 = $('.nav').height()+50
-    height2 = $('.main').height()
-    if(height2 > height3){
-      $('html').height(Math.max(height1,height3,height2)+10);
-      $('body').height(Math.max(height1,height3,height2)+10);
-    }
-    else
-    {
-      $('html').height(Math.max(height1,height3,height2));
-      $('body').height(Math.max(height1,height3,height2));
-    }
-    
-  }
-  $(document).ready(function () {
-    htmlbodyHeightUpdate()
-    $( window ).resize(function() {
-      htmlbodyHeightUpdate()
-    });
-    $( window ).scroll(function() {
-      height2 = $('.main').height()
-        htmlbodyHeightUpdate()
-    });
-  });
+/   $(document).ready(function(){
+/     $('ul.nav li.dropdown').hover(function() { 
+/       $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
+/       function() { 
+/       $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
+/     });
+/   });
+

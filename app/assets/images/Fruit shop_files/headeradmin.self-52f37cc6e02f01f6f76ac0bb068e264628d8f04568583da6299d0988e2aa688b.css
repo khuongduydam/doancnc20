@@ -1,0 +1,40 @@
+/* line 1, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/headeradmin.scss */
+header.backend {
+  background-color: #1995dc !important;
+}
+/* line 5, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/headeradmin.scss */
+header.backend nav.navbar.navbar-success.nav-pills .container-fluid .navbar-header {
+  background-color: #1995dc !important;
+}
+/* line 7, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/headeradmin.scss */
+header.backend nav.navbar.navbar-success.nav-pills .container-fluid .navbar-header button.navbar-toggle.collapsed {
+  color: #ffffff;
+  background-color: #fff;
+}
+/* line 11, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/headeradmin.scss */
+header.backend nav.navbar.navbar-success.nav-pills .container-fluid .navbar-header .navbar-brand {
+  color: #ffffff;
+}
+/* line 17, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/headeradmin.scss */
+header.backend nav.navbar.navbar-success.nav-pills .container-fluid #navbar.collapse.navbar-collapse.navbar-reponsive-collapse ul.nav.navbar-nav li a {
+  color: #ffffff;
+  line-height: 30px;
+}
+/* line 21, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/headeradmin.scss */
+header.backend nav.navbar.navbar-success.nav-pills .container-fluid #navbar.collapse.navbar-collapse.navbar-reponsive-collapse ul.nav.navbar-nav li a:hover {
+  background-color: #a88c39;
+  line-height: 30px;
+}
+/* line 25, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/headeradmin.scss */
+header.backend nav.navbar.navbar-success.nav-pills .container-fluid #navbar.collapse.navbar-collapse.navbar-reponsive-collapse ul.nav.navbar-nav li a:focus {
+  background-color: #a88c39;
+  line-height: 30px;
+}
+/* line 29, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/headeradmin.scss */
+header.backend nav.navbar.navbar-success.nav-pills .container-fluid #navbar.collapse.navbar-collapse.navbar-reponsive-collapse ul.nav.navbar-nav li .active {
+  background-color: red;
+}
+/* line 36, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/header/headeradmin.scss */
+header.backend nav.navbar.navbar-success.nav-pills .container-fluid #navbar.collapse.navbar-collapse.navbar-reponsive-collapse .navbar-right a {
+  color: #ffffff;
+}
