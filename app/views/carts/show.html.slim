@@ -39,12 +39,22 @@ javascript:
       sum += parseFloat($(this).text())
       $('#cart-total-price').html(sum).prepend('$');
     });
-  });
+
+    $.ajax({
+        url: '/tests',
+        dataType:'script',
+        data: {price: value, total: $('#cart-total-price').text(), other: $('td#item-total-price').text()},
+        success: function(data){
+         alert('data');
+        }
+      });
+    });
   
   $('.btn-danger.btn-xs').on('click',function(){
     price = $(this).closest('.success').find('td#item-total-price').text();
     total = $('#cart-total-price').text();
     total = (parseFloat(total)-parseFloat(price)).toString();
     return $('#cart-total-price').text(total);
+
   });
   
