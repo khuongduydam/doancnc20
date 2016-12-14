@@ -28,8 +28,10 @@ en:
           attributes:
             email:
               blank: 'Email can not be empty'
+              taken: 'This email has been taken'
             username:
               blank: 'User can not be empty'
+              taken: 'This username has been taken'
             password:
               blank: 'Password can not be empty'
               too_short: 'Password is too short'
