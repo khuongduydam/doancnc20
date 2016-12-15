@@ -8,7 +8,7 @@ header.frontend
           span.icon-bar
           span.icon-bar
         a.navbar-brand 
-          = image_tag("logo.png", class:'logo')
+          = image_tag("logo.png", class:'logo center-block')
         .icon.text-center
           a href="#"
             i.fa.fa-user data-target="#myModal1" data-toggle="modal"
@@ -80,5 +80,5 @@ javascript:
   list = $('.list-cate').hide();
   cate = $('.navbar-nav>li:nth-child(2)');
   cate.on('click',function(e){
-    list.animate({height:'toggle'},400);
+    list.animate({height:'toggle'},300);
   });
