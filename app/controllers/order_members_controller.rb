@@ -1,6 +1,24 @@
 class OrderMembersController < ApplicationController
   before_action :find_order_member, only: :update
   
+  # daisy
+  def update_coin_total
+    # params[:a] 
+    # params[:gia_tien]
+
+    order_mem = OrderMember.find(params[:id]).total_price=params[:total_after]
+    order_mem.save
+    # kjdfsj
+    user = User.find(params[:id]).coin = params[:coin]
+    user.save
+
+    # respond_to do |format|
+    #   format.js
+    # end
+
+  end
+  # end daisy
+  
   def new
     if @cart.order_items.empty?
       redirect_to root_path
@@ -31,10 +49,15 @@ class OrderMembersController < ApplicationController
 
   def update
     @order_member.update(member_update)
+    user = User.find_by(username: @order_member.username)
     if @order_member.status == "Complete" && @order_member.save
+      o_coin = @order_member.total_price*0.005 + user.coin
+      user.update_attributes(coin: o_coin)
       flash[:success] = "Order is completed, ready to delivery"
       redirect_to admins_order_members_path
     elsif @order_member.status == "Uncomplete" && @order_member.save
+      o_coin = user.coin - @order_member.total_price*0.005
+      user.update_attributes(coin: o_coin)
       redirect_to admins_order_members_path
     else
       render :edit

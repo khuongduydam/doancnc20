@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
 
   VALID_TEXT_REGEX = /\w+/
   validates :name,  presence: true, uniqueness: {case_sensitive: false}, format: {with: VALID_TEXT_REGEX, message: "can only contain letters and numbers."}
-  validates_numericality_of :price,  presence: true
+  validates_numericality_of :price,  presence: true, greater_than: 0
   validates :origin, presence: true, length: {minimum: 3}, format: {with: VALID_TEXT_REGEX, message: "can only contain letters and numbers."}
   validates :description, presence: true, length: {minimum: 10}, format: {with: VALID_TEXT_REGEX, message: "can only contain letters and numbers."}
   validates_numericality_of :quantity, greater_than: 0, less_than: 1000, presence: true
@@ -29,7 +29,7 @@ class Product < ActiveRecord::Base
   private
 
   def titleize_name
-    self.name = name.upcase
+    self.name = name.mb_chars.titleize.to_s
   end
   
   def ensure_not_referenced_by_any_order_item

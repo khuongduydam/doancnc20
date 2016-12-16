@@ -40,7 +40,58 @@
               .pull-left
                 h4[style="color:red"] 
                   | Total: 
-                  =  @cart.total_price.to_i
-                  |  (VND)
+                  / #total
+                  span#total
+                    = number_to_currency(@cart.total_price)
+                  |  (
+                  = number_with_delimiter((@cart.total_price * 22700).round, delimiter: '.')
+                  |  vnd)
+                h3
+                  | You have : 
+                  #totalCoin
+                    = number_to_currency(current_user.coin)
+                  |  coin
               .pull-right
                 = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'
+                br
+                / = form_for order_item, remote: true do |f| 
+                  = f.number_field :coinUse, value: order_item.quantity.to_i,class:'form-control', style:'width:80px; display:inline',max: order_item.product.quantity 
+                / button :submit,class:'btn btn-success btn-xs', id:'usecoin'
+                input#coinUse[type="numeric" ,style="width: 50px;"]
+                button#usecoin.btn.btn-info.btn-sm
+                  | Use coin
+                / p#totalUseCoin
+                /   = @cart.total_price -
+javascript:
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 4,
+  });
+
+  $('button#usecoin').on('click',function(){
+    var total = Number(($('#total').text()).replace(/[^0-9\.]+/g,""));
+    var coinUse = $('#coinUse').val();
+    var totalCoin = Number(($('#totalCoin').text()).replace(/[^0-9\.]+/g,""));
+    
+    var coinAfterUse = totalCoin - coinUse;
+    var totalAfterSub = total - coinUse;
+
+    $('#coinUse').hide();
+    $('button#usecoin').hide();
+    $('#total').text(formatter.format(totalAfterSub));
+    $('#totalCoin').text(formatter.format(coinAfterUse));
+
+    
+   
+    $.ajax({
+        type: "POST",
+        url: 'order_members/update_coin_total',
+        dataType: "script",
+        data: {coin: coinAfterUse, total_after: totalAfterSub},
+        success: function(data_respon){
+          //$('#content').html(data_respon)
+        }
+    });
+
+  });

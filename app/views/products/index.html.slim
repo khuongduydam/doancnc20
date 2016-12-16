@@ -76,14 +76,17 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
             = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
           - else  
             = link_to image_tag('default.png'), product_path(product)
-          .col-xs-9
-            strong = product.name
-            h4 
+          .col-xs-10
+            strong 
+              = product.name
+              br
               = number_with_delimiter(product.price,delimiter: '.')
               |(vnd)/kg
-          .col-xs-3
-            = button_to_with_icon "<i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-info'
             hr
+            .col-xs-6.pull-left
+              = product.origin  
+            .col-xs-6.pull-right  
+              = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
 
     #premium-fruits.tab-pane.fade
 = link_to 'Log out', destroy_user_session_path,method: :delete,class:'btn btn-success'
@@ -91,7 +94,7 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
 javascript:
   function htmlbodyHeightUpdate(){
     var height3 = $( window ).height()
-    var height1 = $('.nav').height()+50
+    var height1 = $('.nav').height()+50   
     height2 = $('.main').height()
     if(height2 > height3){
       $('html').height(Math.max(height1,height3,height2)+10);

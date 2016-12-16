@@ -133,26 +133,26 @@ ActiveRecord::Schema.define(version: 20161214163227) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "username",               default: "", null: false
-    t.string   "first_name",             default: "", null: false
-    t.string   "last_name",              default: "", null: false
-    t.string   "address",                default: "", null: false
-    t.string   "phone",                  default: "", null: false
-    t.string   "sex",                    default: "", null: false
-    t.integer  "coin",                   default: 0
+    t.string   "email",                                          default: "",    null: false
+    t.string   "encrypted_password",                             default: "",    null: false
+    t.string   "username",                                       default: "",    null: false
+    t.string   "first_name",                                     default: "",    null: false
+    t.string   "last_name",                                      default: "",    null: false
+    t.string   "address",                                        default: "",    null: false
+    t.string   "phone",                                          default: "",    null: false
+    t.string   "sex",                                            default: "",    null: false
+    t.decimal  "coin",                   precision: 9, scale: 5, default: "0.0"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                  default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "role",                   default: 0
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
+    t.integer  "role",                                           default: 0
     t.string   "birth_day"
     t.string   "provider"
     t.string   "uid"

@@ -1,7 +1,7 @@
 class Admins::UsersController < AdminsController
   before_action :find_user, except: :index
   def index
-    @users = User.all.paginate(:per_page => 10, :page => params[:page])
+    @users = User.all.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
   end
 
   def show

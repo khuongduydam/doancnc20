@@ -8,7 +8,7 @@ class Newspaper < ApplicationRecord
 
   accepts_nested_attributes_for :pictures, :allow_destroy => true
 
-  before_save :upcase_firstcharac
+  before_save :titleize_firstcharac
 
   def self.search(search)
     if search
@@ -20,7 +20,7 @@ class Newspaper < ApplicationRecord
   end
 
   private
-  def upcase_firstcharac
-    self.title = title.upcase
+  def titleize_firstcharac
+    self.title = title.mb_chars.titleize.to_s
   end
 end

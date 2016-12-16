@@ -27,6 +27,14 @@ module ApplicationHelper
   end
 
   def devise_mapping
-   @devise_mapping ||= Devise.mappings[:user]
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+  
+  def hotProduct
+    OrderItem.all().group("product_id").sum('quantity').sort_by {|_key, value| value}.reverse.to_a.first(5)
+  end
+
+  def findProduct(p_ID)
+    Product.find(p_ID)
   end
 end

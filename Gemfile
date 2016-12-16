@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
+
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-# gem 'therubyracer'
+gem 'therubyracer'
 gem 'active_link_to', '~> 1.0', '>= 1.0.3'
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-facebook', '~> 4.0'
@@ -31,6 +32,12 @@ gem 'will_paginate', '3.1.0'
 gem 'ckeditor'
 gem 'carrierwave'
 gem "mini_magick"
+
+# jquery file upload
+gem "jquery-fileupload-rails"
+
+# validation jquery
+gem 'jquery-validation-rails'
 # active link to
 # nested
 gem "nested_form", "~> 0.3.2"
@@ -46,6 +53,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 
 
 group :development, :test do

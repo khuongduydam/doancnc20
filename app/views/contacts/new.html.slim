@@ -7,7 +7,7 @@ section.page-section-contact
             | Liên hệ
           p Cảm ơn quý khách đã ghé thăm chúng tôi, mọi thắc mắc xin liên hệ theo sau
 
-          = simple_form_for @contact do |f|
+          = simple_form_for @contact, id: 'form-contact' do |f|
             .form-group#Inputname
               = f.input :name, label: "Tên"
             .form-group#InputEmail
@@ -49,6 +49,17 @@ javascript:
     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
   }, function() {
     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+  });
+
+  $(document).ready(function () {
+    $("#new_contact").validate({
+      // debug: true,
+      rules: {
+        "contact[name]": {required: true, minlength: 2},
+        "contact[address]": {required: true, minlength: 3, maxlength: 255},
+        "contact[message]": {required: true, minlength: 20},
+      }
+    });
   });
 
 
