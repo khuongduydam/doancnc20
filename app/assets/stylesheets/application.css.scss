@@ -10,7 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_self
+
  *= require style
  *= require bootstrap.min
  *= require informations/information
@@ -28,6 +28,7 @@
  *= require informations/newspaper
  *= require product/detail
  *= require categories/showcategory
+ *= require_self
  */
  @import "font-awesome";
  .modal-popout-bg {
@@ -224,9 +225,11 @@
   padding-left: 10px;
 }
 
-.col-xs-12.col-sm-3{
-  width:15%;
-}
-.col-xs-12.col-sm-9{
-  width:85%;
+@media(max-width: 1366px){
+  .col-xs-12.col-sm-3{
+    width: 17%;
+  }
+  .col-xs-12.col-sm-9{
+    width: 83%;
+  }
 }
