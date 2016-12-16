@@ -21,7 +21,9 @@ section.section_top
                 br
                 = link_to 'Edit', edit_user_registration_path
       .col-md-2.col-sm-6.col-xs-5.cart
-        = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success',style:'color:#fff'  
+        = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success',style:'color:#fff'
+        .cart-text[style="color:red;"] 
+          = render 'layouts/cart_text'
 header.frontend
   .container
     nav.navbar.navbar-default.nav-pills

@@ -1,48 +1,37 @@
-/ .well.well-swl
-/    h4.title
-/      = link_to 'Sản Phẩm bán chạy',wishlists_path
-/   .sub_wish_list
-/     .row
-/       .col-sm-4.col-xs-12
-/          = image_tag('kiwivang.png', class:"img-responsive")
-/       .col-sm-8.col-xs-12
-/         p
-/           | Nho mỹ xanh
-/         h4
-/           | 370,000 D
-/     .row
-/       .col-sm-4.col-xs-12
+.well.well-swl
+  h4.title
+    | Sản Phẩm bán chạy
+  .sub_wish_list
+    - hotProduct.each do |p_id|
+      - p = findProduct(p_id[0])
+      .row
+        .col-sm-4.col-xs-12
+          - if p.pictures.present?
+            = link_to image_tag(p.pictures.first.image, class:"img-responsive"), product_path(p)
+          - else 
+            = link_to image_tag('default.png'), product_path(p)
+        .col-sm-8.col-xs-12
+          p
+            = p.name
+          h4
+            = number_to_currency p.price
 
-/         =image_tag('lemyxanh.png', class:"img-responsive")
-/       .col-sm-8.col-xs-12
-/         p
-/           | Lê mỹ xanh
-/         h4
-/           | 80,000 D
-/     .row
-/       .col-sm-4.col-xs-12
-/          = image_tag('camxoan.png', class:"img-responsive")
-/       .col-sm-8.col-xs-12
-/         p
-/           | Cam Xoan
-/         h4
-/           | 80,000 D
 - if current_user != nil && wishlists.present?
- .well
-   h4
-     = link_to "Sản Phẩm Yêu Thích", wishlists_path
-   .sub_wish_list
-     - wishlists.each do |wishlist|
-       .row
-         .col-sm-4.col-xs-12.col-img-swl
-           = image_tag(wishlist.product.pictures.first.image, class:"img-responsive")
-         .col-sm-8.col-xs-12.col-detail-swl
-           p
-             = wishlist.product.name
-           h4
-             = wishlist.product.price
-.well.videoWrapper
-  h4
+  .well
+    h4
+      = link_to "Sản Phẩm Yêu Thích", wishlists_path
+    .sub_wish_list
+      - wishlists.each do |wishlist|
+        .row
+          .col-sm-4.col-xs-12.col-img-swl
+            = image_tag(wishlist.product.pictures.first.image, class:"img-responsive")
+          .col-sm-8.col-xs-12.col-detail-swl
+            p
+              = wishlist.product.name
+            h4
+              = number_to_currency wishlist.product.price
+.well.well-song
+  h4.title
     | Video song
     iframe.iframe(src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen)
 #fb-root

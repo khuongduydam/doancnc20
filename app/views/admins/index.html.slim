@@ -1,9 +1,9 @@
 section.layout-admin
   .container
     .row
-      .col-md-3.list-group
+      .col-md-2.list-group
         = render 'left'
-      .col-md-9.main-admin
+      .col-md-10.main-admin
         .row
           / .navbar-form.navbar-right
           /   = form_tag admins_path, :method => 'get', :id => "products_search" do
@@ -26,3 +26,9 @@ section.layout-admin
             h3.us <i class="fa fa-handshake-o" aria-hidden="true"></i> CONTACTS
             #contact  
               = render 'admins/contact'
+            h3.us <i class="fa fa-handshake-o" aria-hidden="true"></i> ORDERS
+            #order  
+              = render 'admins/order'  
+            h3.us <i class="fa fa-handshake-o" aria-hidden="true"></i> ORDER MEMBERS
+            #order_member  
+              = render 'admins/order_member' 

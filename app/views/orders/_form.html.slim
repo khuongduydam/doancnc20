@@ -1,46 +1,46 @@
-.container
-  h3[style="color:blue;"] Please enter your details
+.container-fluid
   .row
-    .col-xs-4.col-md-4
+    .col-xs-3.col-md-3
+      h3[style="color:blue;"] Please enter your details
       = simple_form_for @order do |f|
         = f.input :name
         = f.input :address
         = f.input :email
         = f.input :phone
-        = f.select :pay_type, Order::PAYMENT_TYPES ,prompt: 'Choose a pay type'
-        br
-        br
-        = f.submit 'Submit',class:' btn btn-success'
-    .col-xs-8.col-md-8
+        = f.input :note
+        = f.select :pay_type, Order::PAYMENT_TYPES , prompt: 'Choose one'
+        = f.submit 'Submit',class:' btn btn-success pull-right btn-sm'
+    .col-xs-9.col-md-9
         - unless @cart.order_items.empty?
           .container-fluid
-            h1[style="color:blue"] Your Cart
+            h3.text-center[style="color:blue"] Your Cart
             .table-responsive
               table.table
                 thead
                   tr.danger
-                    th Ten Sp
-                    th So luong
-                    th Don gia
-                    th Thanh tien
+                    th.text-center.col-xs-4.col-md-4 Ten Sp
+                    th.text-center.col-xs-2.col-md-2 So luong
+                    th.text-center.col-xs-2.col-md-2 Don gia
+                    th.text-center.col-xs-2.col-md-2 Thanh tien(USD)
                 tbody
                   - @cart.order_items.each do |item|
                     tr.success
-                      td 
+                      td.text-center.col-xs-4.col-md-4 
                         = item.product.name
-                      td 
+                      td.text-center.col-xs-2.col-md-2 
                         = item.quantity
-                      td 
+                      td.text-center.col-xs-2.col-md-2 
                         = item.product.price
                         | 
-                      td 
+                      td.text-center.col-xs-2.col-md-2 
                         = item.total_price
-                        | 
-            h3
-              | Total: 
-              strong[style="color:red;"] 
-                = @cart.total_price
-                | 
-            p
-              .btn-group      
-                = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger'
+                        |
+              .pull-left
+                h4[style="color:red"] 
+                  | Total: 
+                  = number_to_currency @cart.total_price
+                  |  (
+                  = number_with_delimiter((@cart.total_price * 22700).round, delimiter: '.')
+                  |  vnd)
+              .pull-right
+                = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'

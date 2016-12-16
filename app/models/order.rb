@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
-  PAYMENT_TYPES = ['Paypal','Direct']
+  PAYMENT_TYPES = ['Paypal' ,'Direct']
   validates :name, :address, :email, :phone, presence: true
   validates :pay_type, inclusion: PAYMENT_TYPES
 

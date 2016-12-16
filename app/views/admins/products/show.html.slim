@@ -11,7 +11,7 @@ section.layout-admin
                 = image_tag @product.pictures.first.image,size: "400x400", class:"img-thumbnail"
               - else
                 - @product.pictures.each do |img|
-                = image_tag img.image, size: "200x200", class:'img-thumbnail'
+                  = image_tag img.image, size: "200x200", class:'img-thumbnail'
             - else 
               = image_tag('default.png', size: "300x300")
             end
@@ -22,8 +22,8 @@ section.layout-admin
                 br
               h4 
                 | Giá bán: 
-                = @product.price
-                |  vnd
+                = number_to_currency @product.price
+                |  USD
               p 
                 | Số lượng trong kho : 
                 = @product.quantity

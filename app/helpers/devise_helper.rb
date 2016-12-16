@@ -7,7 +7,7 @@ module DeviseHelper
   end
 
   def button_to_with_icon(text, path, classes)
-    form_tag path, :method => :post do
+    form_tag path, :method => :post,remote: true,class: 'cart-btn' do
       button_tag(classes) do
         raw text
       end

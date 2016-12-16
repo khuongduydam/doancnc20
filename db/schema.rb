@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130082713) do
+ActiveRecord::Schema.define(version: 20161209072553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,13 +71,30 @@ ActiveRecord::Schema.define(version: 20161130082713) do
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "cart_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "quantity",   default: 1
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "quantity",        default: 1
     t.integer  "order_id"
+    t.integer  "order_member_id"
     t.index ["cart_id"], name: "index_order_items_on_cart_id", using: :btree
     t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
     t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
+  end
+
+  create_table "order_members", force: :cascade do |t|
+    t.string   "username"
+    t.string   "fullname"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "pay_type"
+    t.integer  "user_id"
+    t.string   "status"
+    t.text     "note"
+    t.string   "email"
+    t.integer  "total_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_order_members_on_user_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
@@ -87,8 +104,10 @@ ActiveRecord::Schema.define(version: 20161130082713) do
     t.string   "email"
     t.string   "pay_type"
     t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "total_price"
+    t.text     "note"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -102,38 +121,38 @@ ActiveRecord::Schema.define(version: 20161130082713) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.integer  "price"
+    t.decimal  "price",       precision: 8, scale: 2
     t.string   "origin"
     t.string   "description"
     t.integer  "quantity"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["category_id", "created_at"], name: "index_products_on_category_id_and_created_at", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "username",               default: "", null: false
-    t.string   "first_name",             default: "", null: false
-    t.string   "last_name",              default: "", null: false
-    t.string   "address",                default: "", null: false
-    t.string   "phone",                  default: "", null: false
-    t.string   "sex",                    default: "", null: false
-    t.integer  "coin",                   default: 0
+    t.string   "email",                                          default: "",    null: false
+    t.string   "encrypted_password",                             default: "",    null: false
+    t.string   "username",                                       default: "",    null: false
+    t.string   "first_name",                                     default: "",    null: false
+    t.string   "last_name",                                      default: "",    null: false
+    t.string   "address",                                        default: "",    null: false
+    t.string   "phone",                                          default: "",    null: false
+    t.string   "sex",                                            default: "",    null: false
+    t.decimal  "coin",                   precision: 9, scale: 5, default: "0.0"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                                  default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "role",                   default: 0
+    t.datetime "created_at",                                                     null: false
+    t.datetime "updated_at",                                                     null: false
+    t.integer  "role",                                           default: 0
     t.string   "birth_day"
     t.string   "provider"
     t.string   "uid"
@@ -156,6 +175,7 @@ ActiveRecord::Schema.define(version: 20161130082713) do
   add_foreign_key "order_items", "carts"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "order_members", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "wish_lists", "products"
   add_foreign_key "wish_lists", "users"

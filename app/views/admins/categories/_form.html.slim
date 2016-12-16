@@ -1,18 +1,43 @@
-= simple_form_for [:admins, @category] do |f|
+= simple_form_for [:admins, @category], :html =>{:id => "form_categories"} do |f|
   / = render 'my_devise/registrations/form', locals: {f:f}
   / = render 'shared/error_messages', object: f.object
-  = f.input :name, class: 'form-control'
+  = f.input :name, class: 'form-control', id: 'name', required: true
   / = f.simple_fields_for :pictures do |picture|
   /   = image_tag picture.object.image
   /   = picture.input :image
   = f.label "Image"
-  - if @category.pictures.blank?
-    = f.simple_fields_for :pictures, @category.pictures.build do |picture|
-      = picture.file_field :image      
-  - else 
-    = f.simple_fields_for :pictures do |picture|
-      = image_tag picture.object.image_url, size: "400x400"
-      = picture.file_field :image
+  #img
+    - if params[:controller] == 'admins/categories' && (params[:action] == 'new' || params[:action] == 'create' )
+      = f.simple_fields_for :pictures, @category.pictures.build do |picture|
+        = picture.file_field :image      
+    - if params[:controller] == 'admins/categories' && (params[:action] == 'edit' || params[:action] == 'update' )
+      = f.simple_fields_for :pictures do |picture|
+        = image_tag picture.object.image_url, size: "400x400"
+        = picture.file_field :image
       
-  = f.submit yield(:btn_text)
+  = f.submit
   = link_to "Back", :back, class: "btn btn-default"
+javascript:
+  $(document).ready(function () {
+    $("#form_categories").validate({
+      rules: {
+        "category[name]": {required: true, minlength: 2, maxlength: 50}
+      }
+    });
+  });
+  $("#form_categories").submit(function(){
+    var path =  window.location.pathname.slice(-4);
+    if (path == "/new") {
+      var img = $("#category_pictures_attributes_0_image").val().length;
+      if (img==0) {
+        alert("Please choose one image!");
+      }
+      return false;
+    }
+    if (path == "edit") {
+      var countImg = $("#img").find("img").length;
+      if (countImg==0) {
+        alert("Please choose one image");
+      }
+    }
+  });

@@ -17,4 +17,11 @@ module ApplicationHelper
       @wishlists = WishList.where(user_id: current_user.id).first(3)
     end
   end
+  def hotProduct
+    OrderItem.all().group("product_id").sum('quantity').sort_by {|_key, value| value}.reverse.to_a.first(5)
+  end
+
+  def findProduct(p_ID)
+    Product.find(p_ID)
+  end
 end

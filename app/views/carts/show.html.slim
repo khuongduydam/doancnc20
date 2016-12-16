@@ -1,34 +1,48 @@
-- unless @cart.order_items.empty?
-  .container
+#shopping-cart
+  - unless @cart.order_items.empty?
+  .container-fluid
     h1 Your Cart
     .table-responsive
       table.table
         thead
           tr.danger
             th Ten Sp
-            th So luong
+            th So luong(kg)
             th Don gia
             th Thanh tien
         tbody
-          - @cart.order_items.each do |item|
-            tr.success
-              td 
-                = item.product.name
-              td 
-                = item.quantity
-              td 
-                = item.product.price
-                | 
-              td 
-                = item.total_price
-                | 
+          #order-items
+            = render @order_items
+         
     h3
       | Total: 
-      strong[style="color:red;"] 
-        = @cart.total_price
+      strong#cart-total-price[style="color:red;"] 
+        = number_to_currency @cart.total_price
         | 
     p
-      .btn-group      
+      .btn-group     
         = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger'
-        = link_to 'Checkout', new_order_path,class:'btn btn-primary'
-        = link_to 'Checkout by Paypal', @cart.paypal_url(products_url),class:'btn btn-success'
+        - if user_signed_in?
+          = link_to 'Checkout', new_order_member_path,class:'btn btn-primary'
+        - else  
+          = link_to 'Checkout', new_order_path,class:'btn btn-primary'
+
+javascript:
+  $('button#btn-update').on('click',function(){
+    price = $(this).closest(".success").find('td#item-price').text();
+    value = $(this).closest(".success").find('input#order_item_quantity').val();
+    total = $(this).closest(".success").find('td#item-total-price').text(price * value);
+    
+    sum = 0;
+    $('td#item-total-price').each(function(){
+      sum += parseFloat($(this).text())
+      $('#cart-total-price').html(sum).prepend('$');
+    });
+  });
+  
+  $('.btn-danger.btn-xs').on('click',function(){
+    price = $(this).closest('.success').find('td#item-total-price').text();
+    total = $('#cart-total-price').text();
+    total = (parseFloat(total)-parseFloat(price)).toString();
+    return $('#cart-total-price').text(total);
+  });

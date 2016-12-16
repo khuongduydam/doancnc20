@@ -1,0 +1,20 @@
+.container-fluid
+  h2 Thong tin don hang
+  .table-responsive
+    table.table
+      thead
+        tr.danger
+          th Ten khach hang
+          th Dia chi
+          th Email
+          th So dien thoai
+          th Phuong thuc thanh toan
+      tbody
+        tr.success
+          td = @order_members.username
+          td = @order_members.address
+          td = @order_members.email
+          td = @order_members.phone
+          td = @order_members.pay_type  
+
+= @order_members.order_members_items

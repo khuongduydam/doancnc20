@@ -18,8 +18,8 @@ section.sections-product
                 = @product.name
               h4 
                 | Giá bán: 
-                = @product.price
-                |  vnd
+                = number_to_currency @product.price
+                |  USD
               p 
                 | Số lượng trong kho : 
                 = @product.quantity
