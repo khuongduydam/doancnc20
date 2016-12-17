@@ -82,10 +82,11 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
               br
               = number_with_delimiter(product.price,delimiter: '.')
               |(vnd)/kg
-            hr
-            .col-xs-6.pull-left
+              br
               = product.origin  
-            .col-xs-6.pull-right  
+            hr
+            /.col-xs-6.pull-left
+            .col-xs-12
               = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
 
     #premium-fruits.tab-pane.fade
