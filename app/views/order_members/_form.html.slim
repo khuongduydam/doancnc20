@@ -10,6 +10,9 @@
         = f.input :email,input_html: {value: current_user.email}
         = f.input :phone,input_html: {value: current_user.phone}
         = f.input :note
+        = f.label "Use coin:" 
+        input#coinUse.form-control[type="numeric", name="order_member[coinUse]" ]
+        br
         = f.select :pay_type, Order::PAYMENT_TYPES , prompt: 'Choose one'
         = f.submit 'Submit',class:' btn btn-success pull-right btn-sm'
     .col-xs-9.col-md-9
@@ -47,8 +50,8 @@
                   = number_with_delimiter((@cart.total_price * 22700).round, delimiter: '.')
                   |  vnd)
                 h3
-                  | You have : 
-                  #totalCoin
+                  | Now you have : 
+                  span#totalCoin
                     = number_to_currency(current_user.coin)
                   |  coin
               .pull-right
@@ -57,41 +60,13 @@
                 / = form_for order_item, remote: true do |f| 
                   = f.number_field :coinUse, value: order_item.quantity.to_i,class:'form-control', style:'width:80px; display:inline',max: order_item.product.quantity 
                 / button :submit,class:'btn btn-success btn-xs', id:'usecoin'
-                input#coinUse[type="numeric" ,style="width: 50px;"]
-                button#usecoin.btn.btn-info.btn-sm
-                  | Use coin
-                / p#totalUseCoin
-                /   = @cart.total_price -
+                
 javascript:
-  var formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 4,
-  });
-
-  $('button#usecoin').on('click',function(){
-    var total = Number(($('#total').text()).replace(/[^0-9\.]+/g,""));
-    var coinUse = $('#coinUse').val();
+  $(document).ready(function () {
     var totalCoin = Number(($('#totalCoin').text()).replace(/[^0-9\.]+/g,""));
-    
-    var coinAfterUse = totalCoin - coinUse;
-    var totalAfterSub = total - coinUse;
-
-    $('#coinUse').hide();
-    $('button#usecoin').hide();
-    $('#total').text(formatter.format(totalAfterSub));
-    $('#totalCoin').text(formatter.format(coinAfterUse));
-
-    
-   
-    $.ajax({
-        type: "POST",
-        url: 'order_members/update_coin_total',
-        dataType: "script",
-        data: {coin: coinAfterUse, total_after: totalAfterSub},
-        success: function(data_respon){
-          //$('#content').html(data_respon)
+    $('#new_order_member').validate({
+      rules: {
+        "order_member[coinUse]": {number: true, min: 0, max: totalCoin } 
         }
     });
-
   });

@@ -1,11 +1,17 @@
 .table-responsive
-  table.table
+  table.table.pretty
     thead
       tr.info
-        th Name
-        th Price
-        th Quantity
-        th Origin
+        th 
+          = sortable "name"
+        th 
+          = sortable "price"
+        th 
+          = sortable "quantity"
+        th 
+          = sortable "origin"
+        th
+          = sortable "created_at" 
         th[style="width:300px;"] Property
     tbody
       - @products.each do |product|
@@ -14,8 +20,21 @@
           td = number_to_currency product.price
           td = product.quantity
           td = product.origin
+          td = product.created_at.strftime("%B %e, %Y")
           td 
             = link_to 'Detail', admins_product_path(product),class: 'btn btn-info'
             = link_to 'Edit', edit_admins_product_path(product), class: 'btn btn-warning',style: 'margin-left:20px;'
             = link_to 'Delete', admins_product_path(product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
   = will_paginate @products
+css:
+  .current {
+    padding-right: 12px;
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+  .asc {
+    background-image: url(images/up_arrow.png);
+  }
+  .desc {
+    background-image: url(./images/down_arrow.png);
+  }

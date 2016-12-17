@@ -15,9 +15,23 @@ section.layout-adminproduct
           .col-md-12.bodyad
             = form_tag admins_products_path, :method => 'get', :id => "products_search" do
               p
+                = hidden_field_tag :direction, params[:direction]
+                = hidden_field_tag :sort, params[:sort]
+              p
                 = text_field_tag :search, params[:search], placeholder: "Name, origin, ...."
                 = submit_tag "Search", :name => nil
         .row.main-body
-          .col-md-12.bodyad
-            = render 'admins/form/index_product'
+          .col-md-12.bodyad#products
+            = render "admins/form/index_product"
             = link_to "Back", :back, class: "btn btn-default"
+javascript:
+  $(function() {
+    $('#products th a').live("click", function() {
+      $.getScript(this.href);
+      return false;
+    });
+    $("#products_search input").keyup(function() {
+      $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+      return false;
+    });
+  });

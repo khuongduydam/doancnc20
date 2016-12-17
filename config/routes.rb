@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :carts
   resources :order_items
   resources :orders
-  resources :order_members
+  resources :order_members do 
+    member do
+      get 'update_coin_total'
+    end
+  end
+  
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
   namespace :admins do
