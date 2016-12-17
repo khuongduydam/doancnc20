@@ -1,0 +1,13 @@
+/* line 5, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/categories/showcategory.scss */
+section.sections-product .container .row .allproduct h3 {
+  color: red;
+}
+/* line 11, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/categories/showcategory.scss */
+section.sections-product .container .row .allproduct .row .img-pro .img-thumbnail img {
+  width: 150px;
+  height: 150px;
+}
+/* line 15, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/categories/showcategory.scss */
+section.sections-product .container .row .allproduct .row .img-pro .img-thumbnail h5, section.sections-product .container .row .allproduct .row .img-pro .img-thumbnail p, section.sections-product .container .row .allproduct .row .img-pro .img-thumbnail h4 {
+  text-align: center;
+}

@@ -16,9 +16,9 @@
          
     h3
       | Total: 
+      span[style="color:red;"] 
       strong#cart-total-price[style="color:red;"] 
-        = number_to_currency @cart.total_price
-        | 
+        = @cart.total_price.to_i
     p
       .btn-group     
         = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger'
@@ -28,21 +28,28 @@
           = link_to 'Checkout', new_order_path,class:'btn btn-primary'
 
 javascript:
-  $('button#btn-update').on('click',function(){
+  quantity = $('input#order_item_quantity');
+  cart_total = $('#cart-total-price');
+  quantity.on('change',function(){
     price = $(this).closest(".success").find('td#item-price').text();
-    value = $(this).closest(".success").find('input#order_item_quantity').val();
-    total = $(this).closest(".success").find('td#item-total-price').text(price * value);
-    
+    quantity = $(this).closest(".success").find('input#order_item_quantity').val();
+    total = $(this).closest(".success").find('td#item-total-price').text(price * quantity);
+    id = $(this).closest('.success').attr('id');     
     sum = 0;
-    $('td#item-total-price').each(function(){
-      sum += parseFloat($(this).text())
-      $('#cart-total-price').html(sum).prepend('$');
-    });
-  });
-  
+    $.each($('td#item-total-price'),function(){
+      sum += parseFloat($(this).text());
+      cart_total.text(sum);
+    });    
+    $.ajax({
+      url: '/order_items/',
+      dataType: 'script',
+      data: {quantity, quantity, id: id}
+    });  
+  });  
   $('.btn-danger.btn-xs').on('click',function(){
     price = $(this).closest('.success').find('td#item-total-price').text();
     total = $('#cart-total-price').text();
     total = (parseFloat(total)-parseFloat(price)).toString();
     return $('#cart-total-price').text(total);
   });
+  

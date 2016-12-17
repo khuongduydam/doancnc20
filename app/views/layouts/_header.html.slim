@@ -1,87 +1,85 @@
-section.section_top
-  .container
-    .row
-      .col-md-7.col-sm-12.col-xs-12.solo
-        a.sologan(href="#")
-          | Fruit are part of out nature
-      .col-md-3.col-sm-6.col-xs-7.use
-        .user
-          - unless user_signed_in?  
-            = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng nhập'.html_safe, new_user_session_path  
-          - else
-            = link_to '<i class="fa fa-lock" aria-hidden="true"></i><br>Đăng xuất'.html_safe, destroy_user_session_path, method: :delete, data: {confirm: 'Wanna logout now?'}  
-        .user
-          - unless user_signed_in?  
-            = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Đăng ký'.html_safe, new_user_registration_path  
-          - else
-            .dropdown
-              = link_to '<i class="fa fa-users" aria-hidden="true"></i><br>Account'.html_safe, '','data-toggle': 'dropdown', class: 'dropdown-toggle'
-              ul.dropdown-menu[style="min-width:60px;"]
-                = link_to 'Profile', user_path(current_user)
-                br
-                = link_to 'Edit', edit_user_registration_path
-      .col-md-2.col-sm-6.col-xs-5.cart
-        = link_to 'CART <i class="fa fa-shopping-cart" aria-hidden="true"></i>'.html_safe, cart_path(session[:cart_id]), class:'btn btn-success',style:'color:#fff'
-        .cart-text[style="color:red;"] 
-          = render 'layouts/cart_text'
 header.frontend
-  .container
-    nav.navbar.navbar-default.nav-pills
-      .container-fluid
-        .navbar-header
-          button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
-            span.sr-only
-              | Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-        #navbar.collapse.navbar-collapse.navbar-reponsive-collapse
-          ul.nav.navbar-nav
-            li
-              - if current_page?root_path
-                = active_link_to "TRANG CHỦ ", root_path
-              - else 
-                = link_to "TRANG CHỦ ", root_path
-            li.dropdown
-              a#sanphamm.dropdown-toggle(data-toggle="dropdown" href="product.html")
-                | SẢN PHẨM 
-                span.caret
-              ul.dropdown-menu(aria-labelledby="sanpham")
-                = render partial: 'categories/index', locals: { categories: categories_list_head}
-            li
-              = active_link_to "HƯỚNG DẪN MUA HÀNG", shoppingguide_shoppingguides_path
-            li
-              = active_link_to "THÔNG TIN HỮU ÍCH", newspapers_path
-            li
-              = active_link_to "LIÊN HỆ", new_contact_path
-          .navbar-form.navbar-right
-            td.top_search colspan="2" 
-              form.search_mini action="http://localhost:3000/" method="get" 
-                input#search_mini.float-left.txt-search name="s" placeholder=("Tìm kiếm sản phẩm") type="text" value="" /
-                input name="post_type" type="hidden" value="product" /
-                button#mini-search-submit.float-left type="submit" 
-                  i.fa.fa-search
-    section.search1
-      td.top_search colspan="2" 
-        form.search_mini action="http://localhost:3000/" method="get" 
-          input#search_mini.float-left.txt-search name="s" placeholder=("Tìm kiếm sản phẩm") type="text" value="" /
-          input name="post_type" type="hidden" value="product" /
-          button#mini-search-submit.float-left type="submit" 
-            i.fa.fa-search
-    section.sections-lider
-      #myCarousel.carousel.slide(data-ride="carousel" data-interval="2000")
-        .carousel-inner(role="listbox")
-          .item.active
-            = image_tag("slider1.png")
-          .item
-            = image_tag("slider2.png")     
-          .item
-            = image_tag("slider3.png")
-          .item
-            = image_tag("slider4.png")
+  nav.navbar.sidebar role="navigation" 
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle data-target="#bs-sidebar-navbar-collapse-1" data-toggle="collapse" type="button" 
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand 
+          = image_tag("logo.png", class:'logo center-block')
+        .icon.text-center
+          a href="#"
+            i.fa.fa-user data-target="#myModal1" data-toggle="modal"
+          #myModal1.modal.fade role="dialog" 
+            .modal-dialog.modal-lg
+              .modal-content
+                .modal-header
+                  i.close data-dismiss="modal"   &times;
+                  h4.modal-title Modal Header
+                .modal-body
+                  p This is a large modal.
+                .modal-footer
+                  button.btn.btn-default data-dismiss="modal" type="button"  Close
+          a href="#"         
+            i.fa.fa-search data-target="#myModal" data-toggle="modal"
+          #myModal.modal.fade role="dialog" 
+            .modal-dialog.modal-lg
+              .modal-content
+                .modal-header
+                  i.close data-dismiss="modal"  &times;
+                  h4.modal-title Search
+                .modal-body
+                  .header-nav-search-con
+                    .container-full
+                      form.global-search action="/search" 
+                        input.input placeholder=("Search by fruit name") type="text" value="" 
+                        input.global-button type="submit" value="Submit" 
+                        input#q name="q" type="hidden" value="" 
+                        input name="type" type="hidden" value="product" 
+                .modal-footer
+                  button.btn.btn-default data-dismiss="modal" type="button"  Close
+          //a href="#"
+            i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
+          = link_to '<i class="fa fa-shopping-cart"></i>'.html_safe, cart_path(@cart)  
+          #myModal2.modal.fade role="dialog" 
+            .modal-dialog.modal-lg
+              .modal-content
+                .modal-header
+                  i.close data-dismiss="modal"  &times;
+                  h4.modal-title Modal Header
+                .modal-body
+                  p This is a large modal.
+                .modal-footer
+                  button.btn.btn-default data-dismiss="modal" type="button"  Close
+      #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.text-center
+          li.active
+            a href="#" 
+              | OUR FRUITS
+          li
+            a
+              | CATEGORY
+            .list-cate.text-center[style="list-style-type: none;"]
+              a href="#"  Action
+              br
+              a href="#"  Another action
+              br
+              a href="#"  Something else here              
+          li
+            a href="#" 
+              | ORDER GUIDE
+          li
+            a href="#" 
+              | INFORMATIONS
+          li
+            a href="#" 
+              | CONTACTS
+              
 javascript:
-  $('ul.nav li.dropdown').hover(function() { 
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
-    function() { 
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
-    }); 
+  list = $('.list-cate').hide();
+  cate = $('.navbar-nav>li:nth-child(2)');
+  cate.on('click',function(e){
+    list.animate({height:'toggle'},300);
+  });

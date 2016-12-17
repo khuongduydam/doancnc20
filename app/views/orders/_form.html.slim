@@ -21,7 +21,7 @@
                     th.text-center.col-xs-4.col-md-4 Ten Sp
                     th.text-center.col-xs-2.col-md-2 So luong
                     th.text-center.col-xs-2.col-md-2 Don gia
-                    th.text-center.col-xs-2.col-md-2 Thanh tien(USD)
+                    th.text-center.col-xs-2.col-md-2 Thanh tien
                 tbody
                   - @cart.order_items.each do |item|
                     tr.success
@@ -30,17 +30,14 @@
                       td.text-center.col-xs-2.col-md-2 
                         = item.quantity
                       td.text-center.col-xs-2.col-md-2 
-                        = item.product.price
+                        = item.product.price.to_i
                         | 
                       td.text-center.col-xs-2.col-md-2 
-                        = item.total_price
+                        = item.total_price.to_i
                         |
               .pull-left
                 h4[style="color:red"] 
                   | Total: 
-                  = number_to_currency @cart.total_price
-                  |  (
-                  = number_with_delimiter((@cart.total_price * 22700).round, delimiter: '.')
-                  |  vnd)
+                  = @cart.total_price.to_i
               .pull-right
                 = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'

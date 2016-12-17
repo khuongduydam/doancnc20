@@ -1,18 +1,19 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :confirmable,:database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2],
          :authentication_keys => [:username]
   enum role: [:member, :admin]
 
   validates :username, presence: true, uniqueness: true
+  validates :password_confirmation, :phone, presence: true
   validates :phone, numericality: {only_integer: true}
   validates_length_of :phone, minimum: 10, maximum: 11, allow_blank: true
+  validates_length_of :password_confirmation, minimum: 6
   has_many :wish_lists, dependent: :destroy
-
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :order_members,dependent: :destroy
   
   def self.from_omniauth(auth)

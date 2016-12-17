@@ -1,55 +1,161 @@
-section.sections-product
-  .container
-    .row.img-reponsive
-      .col-md-9.detailproduct
-        h3.title-head
-          | Sản phẩm mới nhập
-        .row
-          - @product_news.each do |product|
-            .col-md-3.col-sm-4.col-xs-12.img-thum
-              .img-thumbnail
-                - if product.pictures.present?
-                  = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
-                - else 
-                  = link_to image_tag('default.png'), product_path(product)
-              .cont-pro
-                h5
-                  = product.name
-                p       
-                  | Số lượng còn : 
-                  = product.quantity
-                  |  kg
-                h4
-                  |  Giá : 
-                  = number_to_currency product.price 
-                  |  USD/kg
-                p
-                  = link_to "Detail", product_path(product)
-                  - if current_user != nil
-                    - flat = 0
-                    - if user.wish_lists.present?
-                      - user.wish_lists.each do |p_id|
-                        - if p_id.product_id == product.id
-                          - flat = 1
-                          - break
-                    - else
-                      - flat = 2
-                      |  | 
-                      = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
-                    - if flat == 0
-                      |  | 
-                      = link_to "Add to my wishlist", wishlists_path(product.id), method: :post
-                p
-                  = button_to_with_icon "Thêm vào giỏ <i class='fa fa-shopping-cart' aria-hidden='true'></i>", order_items_path(product_id: product), class: 'btn btn-success center-block adding'
-        h3.title-head
-          = link_to 'Tất cả sản phẩm', all_pro_products_path
-        .row
-          = render 'showpro_of_indexpro'
-        = will_paginate @products
-      .col-md-3.well-right
-        = render 'form/right'
-i.fa.fa-thumbs-up.fa-6        
+link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css"] 
+.container-fluid.hidden-xs[style="padding:0px;"]
+  #first-slider
+    #carousel-example-generic.carousel.slide.carousel-fade
+      ol.carousel-indicators
+        li.active[data-target="#carousel-example-generic" data-slide-to="0"]
+        li[data-target="#carousel-example-generic" data-slide-to="1"]
+        li[data-target="#carousel-example-generic" data-slide-to="2"]
+      .carousel-inner[role="listbox"]
+        .item.active.slide1
+          .row
+            .container
+              .col-md-3.text-right
+                /img[style="max-width: 200px;" data-animation="animated zoomInLeft" src="http://s20.postimg.org/pfmmo6qj1/window_domain.png"]
+              .col-md-9.text-left
+                h3[data-animation="animated bounceInDown"]
+                  | Add images, or even your logo!
+                h4[data-animation="animated bounceInUp"]
+                  | Easily use stunning effects
+        .item.slide2
+          .row
+            .container
+              .col-md-7.text-left
+                h3[data-animation="animated bounceInDown"]
+                  |  50 animation options A beautiful
+                h4[data-animation="animated bounceInUp"]
+                  | Create beautiful slideshows 
+              .col-md-5.text-right
+        .item.slide3
+          .row
+            .container
+              .col-md-7.text-left
+                h3[data-animation="animated bounceInDown"]
+                  | Simple Bootstrap Carousel
+                h4[data-animation="animated bounceInUp"]
+                  | Bootstrap Image Carousel Slider with Animate.css
+              .col-md-5.text-right
+      a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
+        i.fa.fa-angle-left
+        span.sr-only
+          | Previous
+      a.right.carousel-control[href="#carousel-example-generic" role="button" data-slide="next"]
+        i.fa.fa-angle-right
+        span.sr-only
+          | Next
+
+/ javascript:
+/   $('ul.nav li.dropdown').hover(function() { 
+/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
+/     function() { 
+/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
+/     }); 
+/     $(function(){
+/   $("#addClass").click(function () {
+/             $('#qnimate').addClass('popup-box-on');
+/               });
+            
+/               $("#removeClass").click(function () {
+/             $('#qnimate').removeClass('popup-box-on');
+/               });
+/     })
+
+
+.container-fluid[style="padding:0px;"]
+  ul.nav.nav-pills
+    li.active.col-xs-6
+      a[data-toggle='pill' href="#all-fruits"] All Fruits
+    li.col-xs-6
+      a[data-toggle='pill' href="#premium-fruits"] Premium Fruits
+  .tab-content
+    #all-fruits.tab-pane.fade.in.active
+      br
+      - @product_news.each do |product|
+        .col-xs-6.col-sm-4.col-md-3
+          - if product.pictures.present?
+            = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
+          - else  
+            = link_to image_tag('default.png'), product_path(product)
+          .col-xs-10
+            strong 
+              = product.name
+              br
+              = number_with_delimiter(product.price,delimiter: '.')
+              |(vnd)/kg
+              br
+              = product.origin  
+            hr
+            /.col-xs-6.pull-left
+            .col-xs-12
+              = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
+
+    #premium-fruits.tab-pane.fade
+= link_to 'Log out', destroy_user_session_path,method: :delete,class:'btn btn-success'
+
 javascript:
-  $('.adding').on('click',function(){
-    $(this).text('Added');
+  function htmlbodyHeightUpdate(){
+    var height3 = $( window ).height()
+    var height1 = $('.nav').height()+50   
+    height2 = $('.main').height()
+    if(height2 > height3){
+      $('html').height(Math.max(height1,height3,height2)+10);
+      $('body').height(Math.max(height1,height3,height2)+10);
+    }
+    else
+    {
+      $('html').height(Math.max(height1,height3,height2));
+      $('body').height(Math.max(height1,height3,height2));
+    }
+  }
+  (function( $ ) {
+  //Function to animate slider captions 
+  function doAnimations( elems ) {
+  //Cache the animationend event in a variable
+    var animEndEv = 'webkitAnimationEnd animationend';
+    
+    elems.each(function () {
+      var $this = $(this),
+        $animationType = $this.data('animation');
+      $this.addClass($animationType).one(animEndEv, function () {
+        $this.removeClass($animationType);
+      });
+    });
+  }
+
+  //Variables on page load 
+  var $myCarousel = $('#carousel-example-generic'),
+    $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
+    
+  //Initialize carousel 
+  $myCarousel.carousel();
+
+  //Animate captions in first slide on page load 
+  doAnimations($firstAnimatingElems);
+
+  //Pause carousel  
+  $myCarousel.carousel('pause');
+
+
+  //Other slides to be animated on carousel slide event 
+  $myCarousel.on('slide.bs.carousel', function (e) {
+    var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
+    doAnimations($animatingElems);
+  });  
+    $('#carousel-example-generic').carousel({
+        interval:3000,
+        pause: "false"
+    });
+
+  })(jQuery);
+   
+  $(document).ready(function () {
+    htmlbodyHeightUpdate()
+    $( window ).resize(function() {
+      htmlbodyHeightUpdate()
+    });
+    $( window ).scroll(function() {
+      height2 = $('.main').height()
+        htmlbodyHeightUpdate()
+    });
   });
+

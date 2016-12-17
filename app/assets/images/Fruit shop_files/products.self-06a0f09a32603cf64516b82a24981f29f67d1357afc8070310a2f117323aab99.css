@@ -1,0 +1,135 @@
+/* line 4, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+section.sections-product .container .img-reponsive .detailproduct {
+  margin-top: 30px;
+}
+/* line 6, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+section.sections-product .container .img-reponsive .detailproduct .title-head {
+  color: red;
+}
+/* line 8, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+section.sections-product .container .img-reponsive .detailproduct .img-thum img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  object-position: 25% 25%;
+}
+/* line 14, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+section.sections-product .container .img-reponsive .detailproduct .img-thum h5, section.sections-product .container .img-reponsive .detailproduct .img-thum p, section.sections-product .container .img-reponsive .detailproduct .img-thum h4 {
+  text-align: center;
+}
+@media (max-width: 540px) and (min-width: 320px) {
+  /* line 22, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum {
+    margin-left: 80px;
+  }
+  /* line 24, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum h5, section.sections-product .img-thum p, section.sections-product .img-thum h4 {
+    margin-left: -130px;
+  }
+  /* line 27, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum .addcart {
+    margin-left: 20px;
+  }
+  /* line 30, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
+@media (max-width: 767px) and (min-width: 540px) {
+  /* line 39, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum {
+    margin-left: 250px;
+  }
+  /* line 41, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum h5, section.sections-product .img-thum p, section.sections-product .img-thum h4 {
+    margin-left: -480px;
+  }
+  /* line 44, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum .addcart {
+    margin-left: 20px;
+  }
+  /* line 47, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* line 58, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum img {
+    width: 180px;
+    height: 180px;
+  }
+  /* line 62, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum h5, section.sections-product .img-thum p, section.sections-product .img-thum h4 {
+    text-align: center;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* line 69, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+  section.sections-product .img-thum img {
+    width: 130px !important;
+    height: 150px;
+  }
+}
+
+/* line 90, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+.nav.nav-pills li {
+  background: #fefaf1;
+  padding: 0px 0px;
+  margin-left: 0px;
+}
+/* line 94, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+.nav.nav-pills li a {
+  text-align: center;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+/* line 102, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+.nav.nav-pills li.active a {
+  background: #d93441;
+}
+
+/* line 108, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+.col-xs-12, .col-sm-6, .col-md-3 {
+  padding: 0px 0px;
+}
+/* line 109, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+.col-xs-12 :first-child, .col-sm-6 :first-child, .col-md-3 :first-child {
+  padding-left: 0px;
+}
+/* line 112, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+.col-xs-12 h4, .col-sm-6 h4, .col-md-3 h4 {
+  color: #d93441;
+}
+
+/* line 118, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+.img-thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  min-height: 210px;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  border: none;
+  border-radius: none;
+}
+
+/* line 132, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+.btn-success {
+  border-radius: 50px;
+}
+/* line 134, /home/ryudo617/Desktop/fruit-shop/app/assets/stylesheets/product/products.scss */
+.btn-success i.fa.fa-shopping-cart {
+  width: 90px;
+  font-size: 25px;
+}

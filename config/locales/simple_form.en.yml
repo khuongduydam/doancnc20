@@ -6,7 +6,7 @@ en:
 
     required:
         text: 'required'
-        mark: '*' 
+        mark: '' 
 
     # placeholders:
     #     user:

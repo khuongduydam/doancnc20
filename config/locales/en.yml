@@ -21,3 +21,30 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: 'Email can not be empty'
+              taken: 'This email has been taken'
+            username:
+              blank: 'User can not be empty'
+              taken: 'This username has been taken'
+            password:
+              blank: 'Password can not be empty'
+              too_short: 'Password is too short'
+              confirmation: 'Password does not matched'
+              invalid: 'Wrong password'    
+            password_confirmation:
+              blank: 'Password can not be empty'
+              too_short: 'Password is too short'
+              confirmation: 'Password does not matched'
+              invalid: 'Wrong password'  
+            phone:
+              blank: 'Phone number can not be empty'
+              too_short: 'Phone number is too short'
+              too_long: 'Phone number is too long'
+
+        
