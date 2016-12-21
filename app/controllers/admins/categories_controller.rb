@@ -1,6 +1,11 @@
 class Admins::CategoriesController < AdminsController
   def index
     @categories = Category.all.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    # render json: @categories
+    respond_to do |format|
+      format.html
+      format.json{render json: {data: @categories}}
+    end
   end
 
   def new

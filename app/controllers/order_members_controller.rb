@@ -29,11 +29,10 @@ class OrderMembersController < ApplicationController
     @order_member = OrderMember.new(member_params)
     @order_member.add_order_items_from_cart(@cart)
     @order_member.total_price = @cart.total_price
-    # coin = params[:order_member][:coinUse]
-    # coinToI = coin.to_f
-    # coinToVND = coinToI * 22700
-    # @order_member.total_price -= coinToVND
-    # ssjdgjs
+    coin = params[:order_member][:coinUse]
+    coinToI = coin.to_f
+    coinToVND = coinToI * 22700
+    @order_member.total_price -= coinToVND
     if @order_member.pay_type == 'Direct' && @order_member.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
@@ -55,7 +54,10 @@ class OrderMembersController < ApplicationController
     user = User.find_by(username: @order_member.username)
     if @order_member.status == "Complete" && @order_member.save
       o_coin = @order_member.total_price*0.005 + user.coin
-      user.update_attributes(coin: o_coin)
+      u = user.update_attributes(coin: o_coin)
+      p "*"*50
+      p user.errors.messages
+      p "*"*50
       flash[:success] = "Order is completed, ready to delivery"
       redirect_to admins_order_members_path
     elsif @order_member.status == "Uncomplete" && @order_member.save

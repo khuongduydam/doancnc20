@@ -33,11 +33,15 @@ header.frontend
                 .modal-body
                   .header-nav-search-con
                     .container-full
-                      form.global-search action="/search" 
-                        input.input placeholder=("Search by fruit name") type="text" value="" 
-                        input.global-button type="submit" value="Submit" 
-                        input#q name="q" type="hidden" value="" 
-                        input name="type" type="hidden" value="product" 
+                      / form.global-search action="/search" 
+                      /   input.input placeholder=("Search by fruit name") type="text" value="" 
+                      /   input.global-button type="submit" value="Submit" 
+                      /   input#q name="q" type="hidden" value="" 
+                      /   input name="type" type="hidden" value="product" 
+                      = form_tag products_path, :method => 'get', :id => "products_search" do
+                        p
+                          = text_field_tag :search, params[:search], placeholder: "Search by fruit name"
+                          = submit_tag "Search", :name => nil
                 .modal-footer
                   button.btn.btn-default data-dismiss="modal" type="button"  Close
           //a href="#"
@@ -62,11 +66,14 @@ header.frontend
             a
               | CATEGORY
             .list-cate.text-center[style="list-style-type: none;"]
-              a href="#"  Action
-              br
-              a href="#"  Another action
-              br
-              a href="#"  Something else here              
+              - categories_list_head.each do |category|
+                = link_to category.name, category_path(category.id)
+                br
+              / a href="#"  Action
+              / br
+              / a href="#"  Another action
+              / br
+              / a href="#"  Something else here              
           li
             a href="#" 
               | ORDER GUIDE

@@ -19,3 +19,19 @@ section.layout-admincategory
         .row.main-body
           .col-md-12.bodyad
             = render 'admins/form/index_category'
+javascript:
+ $('#search').keyup(function(){
+   val = $(this).val();
+   $.ajax({
+     type:'get',
+     url: '/admins/categories',
+     dataType:'json',
+     data: {search: val},
+     success: function(data){
+       $('tbody').empty();
+       $.each(data.data,function(key,value){
+         $('tbody').append("<tr class='danger'><td>"+value.name+"</td><td><a href='/admins/categories/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/categories/"+value.id+"/edit' class='btn btn-warning' style='margin-left:20px;'>Edit</a><a data-confirm='Are you sure? All products of this category will be delete.' data-method='delete' href='/admins/categories/"+value.id+"' class='btn btn-danger' style='margin-left:20px;'>Delete</a></td></tr>")
+       })
+     }
+   });
+ })

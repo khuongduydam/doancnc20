@@ -121,13 +121,13 @@ ActiveRecord::Schema.define(version: 20161214163227) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.integer  "price"
+    t.decimal  "price",       precision: 8, scale: 2
     t.string   "origin"
     t.string   "description"
     t.integer  "quantity"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["category_id", "created_at"], name: "index_products_on_category_id_and_created_at", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
@@ -176,5 +176,12 @@ ActiveRecord::Schema.define(version: 20161214163227) do
     t.index ["user_id"], name: "index_wish_lists_on_user_id", using: :btree
   end
 
+  add_foreign_key "comments", "users"
+  add_foreign_key "order_items", "carts"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
+  add_foreign_key "order_members", "users"
+  add_foreign_key "products", "categories"
+  add_foreign_key "wish_lists", "products"
   add_foreign_key "wish_lists", "users"
 end

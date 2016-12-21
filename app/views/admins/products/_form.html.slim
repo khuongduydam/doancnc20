@@ -5,7 +5,7 @@
     = f.input :name
     br
   .field 
-    = f.input :price, label: "* Price ()"
+    = f.input :price, label: "* Price (VND)"
     br
   .field 
     = f.input :origin
@@ -62,7 +62,7 @@ javascript:
     $("#form_product").validate({
       rules: {
         "product[name]": {required: true, minlength: 2, maxlength: 100},
-        "product[price]": {required: true, number: true},
+        "product[price]": {required: true, number: true, min: 5000, max: 1000000},
         "product[origin]": {required: true, minlength: 3, maxlength: 255},
         "product[quantity]": {required: true, digits: true, min: 1, max: 1000},
         "product[description]": {required: true, minlength: 10, maxlength: 255},

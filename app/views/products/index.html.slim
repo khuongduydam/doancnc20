@@ -70,7 +70,7 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
   .tab-content
     #all-fruits.tab-pane.fade.in.active
       br
-      - @product_news.each do |product|
+      - @products.each do |product|
         .col-xs-6.col-sm-4.col-md-3
           - if product.pictures.present?
             = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
@@ -90,6 +90,28 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
               = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
 
     #premium-fruits.tab-pane.fade
+      br
+      - hotProduct.each do |product_id|
+        - product = findProduct(product_id[0])
+        .col-xs-6.col-sm-4.col-md-3
+          - if product.pictures.present?
+            = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
+          - else  
+            = link_to image_tag('default.png'), product_path(product)
+          .col-xs-10
+            strong 
+              = product.name
+              br
+              = number_with_delimiter(product.price,delimiter: '.')
+              |(vnd)/kg
+              br
+              = product.origin  
+            hr
+            /.col-xs-6.pull-left
+            .col-xs-12
+              = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
+
+    
 = link_to 'Log out', destroy_user_session_path,method: :delete,class:'btn btn-success'
 
 javascript:
