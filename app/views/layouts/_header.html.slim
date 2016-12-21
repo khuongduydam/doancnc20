@@ -1,4 +1,4 @@
-header.frontend
+header.frontend.hidemobile
   nav.navbar.sidebar role="navigation" 
     .container-fluid
       /! Brand and toggle get grouped for better mobile display
@@ -76,9 +76,8 @@ header.frontend
               | ORDER GUIDE
               span.pull-right.hidden-xs.showopacity.i.fa.fa-truck aria-hidden="true"  style="font-size:16px;" 
           li
-            a href="#" 
-              | INFORMATIONS
-              span.pull-right.hidden-xs.showopacity.i.fa.fa-envira aria-hidden="true"  style="font-size:16px;" 
+            = active_link_to "INFORMATIONS", newspapers_path
+            span.pull-right.hidden-xs.showopacity.i.fa.fa-envira aria-hidden="true"  style="font-size:16px;" 
           li
             a href="#" 
               | CONTACTS
