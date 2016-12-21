@@ -3,16 +3,17 @@
   / = render 'shared/error_messages', object: f.object
   .field 
     = f.input :name
-    br
+    
   .field 
     = f.input :price, label: "* Price ()"
-    br
+  .field
+    = f.input :price_discount  
   .field 
     = f.input :origin
-    br
+    
   .field
     = f.input :category_id,:collection => categories,:label_method => :name,:value_method => :id,:label => "Category" ,:include_blank => false
-    br
+    
   .field 
     / = f.label :description
     / - if @product.errors.messages[:description].present?
@@ -20,17 +21,17 @@
     / i
     /   = @product.errors.messages[:description][0]
     = f.input :description, as: :text
-    br
+    
   .field 
     - if params[:controller] == 'admins/products' && (params[:action] == 'new' || params[:action] == 'create' )
         = f.input :quantity, label: "Quantity (kg)",min: 1
     - if params[:controller] == 'admins/products' && (params[:action] == 'edit' || params[:action] == 'update' )
       = f.input :quantity, label: "Now have quantity (kg)", readonly: true
       = f.label "Add Quantity (kg)"
-      br
+      
       input.form-control#addQuan[type="text" name="product[addQuantity]"]
     
-    br 
+     
   .field#img
     = f.label "Image"
     / = f.simple_fields_for :pictures do |picture|
@@ -47,13 +48,13 @@
           = image_tag picture.object.image_url
           = picture.check_box :_destroy 
           = picture.label "Remove"
-          br
+          
           = picture.label "Chance"
           = picture.file_field :image
-      br
+      
       = f.label "Add new image"
       = f.file_field :image, multiple: true, name: "product[image][]"
-    br
+    
   .actions
     = f.submit 
     = link_to "Back", :back, class: "btn btn-default"

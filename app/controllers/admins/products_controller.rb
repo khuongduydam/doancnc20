@@ -63,6 +63,6 @@ class Admins::ProductsController < AdminsController
     addQuanToI = addQuan.to_i
     quanToI += addQuanToI
     params[:product][:quantity] = quanToI
-    params.require(:product).permit(:name, :price, :origin, :category_id, :description, :quantity ,pictures_attributes: [:id, :image, :_destroy])
+    params.require(:product).permit(:name, :price, :origin, :category_id, :description, :quantity ,:price_discount,pictures_attributes: [:id, :image, :_destroy])
   end
 end

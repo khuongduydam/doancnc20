@@ -60,20 +60,28 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
           - else  
             = link_to image_tag('default.png'), product_path(product)
           .col-xs-10
-            strong 
+            span
               = product.name
-              br
-              = number_with_delimiter(product.price,delimiter: '.')
-              |(vnd)/kg
-              br
+              | (
               = product.origin  
-            hr
+              | )
+            br  
+              - if product.price_discount.present? 
+                span              
+                  = number_with_delimiter(product.price_discount,delimiter: '.')
+                  |(vnd)
+                br
+                span.discount
+                  = number_with_delimiter(product.price,delimiter: '.')
+                  |(vnd)
+                span.percent
+                  |  -
+                  = ((1- (product.price_discount.to_f / product.price)) * 100).round
+                  | %
             /.col-xs-6.pull-left
             .col-xs-12
               = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
 
-    #premium-fruits.tab-pane.fade
-= link_to 'Log out', destroy_user_session_path,method: :delete,class:'btn btn-success'
 
 javascript:
   function htmlbodyHeightUpdate(){
@@ -147,5 +155,22 @@ javascript:
       total_items = parseInt(total_items) + 1
       $('.cart-text').text(total_items);
     });
-  });
+    $('.btn.btn-info').hide()
+    $('.col-xs-6.col-sm-4.col-md-3').hover(function(){
+      img = $(this).closest('div').find('.img-thumbnail')
+      icon = $(this).closest('div').find('.btn.btn-info')
+      icon.click(function(){
+        $(this).attr('disabled',true).text('Adding....').delay(1000).queue(function(){
+          $(this).text('Added').delay(1000).dequeue().queue(function(){
+            $(this).removeAttr('disabled').text('Add to cart').dequeue() 
+          });
+        });
+      });  
+      img.css('opacity','0.5')
+      icon.fadeIn('slow')
+      },function(){
+        img.css('opacity','1');
+        icon.fadeOut('slow');
+    });
+  });  
 
