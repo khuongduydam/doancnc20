@@ -1,15 +1,23 @@
-tr.success id="#{order_item.id}"
-  td 
-    = order_item.product.name
-  td
+tr.col-xs-4 id="#{order_item.id}"
+  td.col-xs-6
+    = image_tag(order_item.product.pictures.first.image,class:'img-cart',style:'width:50%')
+    br
     = form_for order_item, remote: true do |f| 
-      = f.number_field :quantity, value: order_item.quantity.to_i,class:'form-control', style:'width:80px; display:inline',min:1,max: order_item.product.quantity 
-      = f.button :submit,class:'btn btn-success btn-xs', id:'btn-update','data-toggle'=>'popover','data-content'=>'please press this button to update','placement'=>'bottom' do
-        <i class="fa fa-arrow-up" aria-hidden="true"></i> 
+      button.fa.fa-minus
+      = f.text_field :quantity, value: order_item.quantity.to_i,class:'form-control text-center', style:'width:80px; display:inline;padding:6px 0px',min:1,max: order_item.product.quantity
+      button.fa.fa-plus
+      = f.button :submit,class:'btn btn-success btn-xs','type'=>'hidden' do
+        <i class="fa fa-plus" aria-hidden="true"></i> 
         
-      = link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe,order_item,data:{confirm:'Are you sure?'},method: :delete,remote: true,class:'btn btn-danger btn-xs'
-  td[id="item-price"] 
-    =  order_item.product.price.to_i
-  td[id="item-total-price"] 
-    =  order_item.total_price.to_i
+    = link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe,order_item,method: :delete,remote: true,class:'btn btn-danger btn-xs'
+  td.col-xs-6[id="item-price"] 
+    h4.col-xs-12[style="margin-left:20px;color:#69353d"] = order_item.product.name
+    h3.col-xs-12
+      .col-xs-6#price[style="font-size:20px;color:red;width:100%;top:10px;"]  
+        = number_with_delimiter(order_item.product.price.to_i,delimiter: '.')
+        | (vnd)/kg
+    h3.col-xs-12
+      .col-xs-6#total-price  
+        = order_item.total_price.to_i 
+    h3.col-xs-12[style="margin-top:0px;"] Free delivery  
 

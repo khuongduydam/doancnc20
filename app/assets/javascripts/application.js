@@ -18,3 +18,5 @@
 //= require bootstrap.min
 //= require ckeditor/init
 //= require jquery_nested_form
+//= require jquery.validate
+//= require jquery.validate.additional-methods

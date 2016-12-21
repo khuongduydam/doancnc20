@@ -3,19 +3,19 @@
     | Create a new account
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-group'}) do |f|
     .row
-      .col-xs-4.col-md-4
+      .col-xs-4
         = f.input :username, autofocus: true,class: 'form-control'
         = f.input :email, class: 'form-control'
         = f.input :password, autocomplete: "off",class: 'form-control'
         = f.input :password_confirmation, autocomplete: "off",class:'form-control'
-      .col-xs-5.col-md-5
+      .col-xs-4
         = f.input :address, class:'form-control'
         = f.input :first_name, class:'form-control'
         = f.input :last_name, class:'form-control'
         = f.input :phone, class:'form-control'
-        = f.submit "Sign up", class:'btn btn-primary center-block', style:'width: 300px;'
+        = f.submit "Sign up", class:'btn btn-primary center-block'
         br
-        = link_to 'Home Page', products_path, class: 'btn btn-success center-block', style: 'width:300px;'
-      .col-xs-3.col-md-3
+        = link_to 'Home Page', products_path, class: 'btn btn-success'
+      .col-xs-4
         = f.input :sex, as: :select, collection: [['Male'],['Female']],include_blank: 'Choose one'
-        = f.input :birth_day, class:' form-control'
+        = f.input :birth_day, as: :string, input_html: {type: :date}

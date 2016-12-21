@@ -1,4 +1,4 @@
-= simple_form_for [:admins, @product], :html => { :multipart => true } do |f|
+= simple_form_for [:admins, @product], :html => { :multipart => true, :id => "form_product" } do |f|
   / = render 'my_devise/registrations/form', locals: {f:f}
   / = render 'shared/error_messages', object: f.object
   .field 
@@ -14,37 +14,88 @@
     = f.input :category_id,:collection => categories,:label_method => :name,:value_method => :id,:label => "Category" ,:include_blank => false
     br
   .field 
-    = f.label :description
-    - if @product.errors.messages[:description].present?
-    |  
-    i
-      = @product.errors.messages[:description][0]
-    = f.text_area :description, class: 'form-control'
+    / = f.label :description
+    / - if @product.errors.messages[:description].present?
+    / |  
+    / i
+    /   = @product.errors.messages[:description][0]
+    = f.input :description, as: :text
     br
   .field 
-    = f.input :quantity, label: "Quantity (kg)",min: 1
+    - if params[:controller] == 'admins/products' && (params[:action] == 'new' || params[:action] == 'create' )
+        = f.input :quantity, label: "Quantity (kg)",min: 1
+    - if params[:controller] == 'admins/products' && (params[:action] == 'edit' || params[:action] == 'update' )
+      = f.input :quantity, label: "Now have quantity (kg)", readonly: true
+      = f.label "Add Quantity (kg)"
+      br
+      input.form-control#addQuan[type="text" name="product[addQuantity]"]
+    
     br 
-  .field
+  .field#img
     = f.label "Image"
     / = f.simple_fields_for :pictures do |picture|
     /   = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
 
     /- if @product.pictures.blank?
     - if params[:controller] == 'admins/products' && (params[:action] == 'new' || params[:action] == 'create' )
-      = f.simple_fields_for :pictures, @product.pictures.build do |picture|
-        = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
+        = f.simple_fields_for :pictures, @product.pictures.build do |picture|
+          = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
     - if params[:controller] == 'admins/products' && (params[:action] == 'edit' || params[:action] == 'update' )
+
       = f.simple_fields_for :pictures do |picture|
-        = image_tag picture.object.image_url
-        = picture.check_box :_destroy 
-        = picture.label "Remove"
-        br
-        = picture.label "Chance"
-        = picture.file_field :image
+        .img_pic
+          = image_tag picture.object.image_url
+          = picture.check_box :_destroy 
+          = picture.label "Remove"
+          br
+          = picture.label "Chance"
+          = picture.file_field :image
       br
       = f.label "Add new image"
-      = f.file_field :image
+      = f.file_field :image, multiple: true, name: "product[image][]"
     br
   .actions
     = f.submit 
     = link_to "Back", :back, class: "btn btn-default"
+javascript:
+  $(document).ready(function () {
+    $("#form_product").validate({
+      rules: {
+        "product[name]": {required: true, minlength: 2, maxlength: 100},
+        "product[price]": {required: true, number: true},
+        "product[origin]": {required: true, minlength: 3, maxlength: 255},
+        "product[quantity]": {required: true, digits: true, min: 1, max: 1000},
+        "product[description]": {required: true, minlength: 10, maxlength: 255},
+        "product[addQuantity]": {digits: true, min: 1, max: 1000}
+      }
+    });
+
+  });
+  $("#form_product").submit(function(){
+    var path =  window.location.pathname.slice(-4);
+    if (path == "/new") {
+      var img = $("#product_pictures_attributes_0_image").val().length;
+      if (img==0) {
+        alert("Please choose at least one image!");
+        return false;
+      }
+    }
+    if (path == "edit") {
+      var countImg = $("#img").find("img").length;
+      var countAddImg = $("#product_image").val().length;
+      if ((countImg==0) && (countAddImg == 0)) {
+        alert("Please choose at least one image");
+        return false;
+      }
+      var quan = parseInt($("#product_quantity").val());
+      var adQuan = parseInt($("#addQuan").val());
+      if ((quan+adQuan) > 1000) {
+        alert("Quantity and add quantity must less than or equal to 1000.")
+        return false;
+      }
+    }
+  });
+
+  $('.img_pic input:checkbox').change(function(){ 
+    $(this).closest(".img_pic").hide();
+  });
