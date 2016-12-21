@@ -52,7 +52,7 @@ class Admins::ProductsController < AdminsController
   def destroy
     Product.find(params[:id]).destroy
     flash[:success] = "Product deleted"
-    redirect_to admin_products_path
+    redirect_to admins_products_path
   end
 
   private

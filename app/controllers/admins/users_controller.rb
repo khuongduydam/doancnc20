@@ -15,7 +15,7 @@ class Admins::UsersController < AdminsController
       flash[:notice] = "Update success"
       redirect_to @user
     else
-      flash.now[:error] = "Something wrong"
+      p @user.errors.messages
       render 'edit'
     end
   end
@@ -32,7 +32,6 @@ class Admins::UsersController < AdminsController
 
   def params_user
     params.require(:user).permit(:username, :first_name,:last_name, 
-                                 :email, :password,:password_confirmation,
-                                 :address, :phone, :sex, :birth_day)
+                                 :email,:address, :phone, :sex, :birth_day)
   end
 end

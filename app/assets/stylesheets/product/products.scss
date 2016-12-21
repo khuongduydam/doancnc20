@@ -138,6 +138,10 @@ section.sections-product{
 	.col-xs-6.col-sm-4.col-md-3{
 		padding-left: 0px;
 		width:25%;
+		.img-thumbnail{
+			max-width: 500px!important;
+			max-height: 500px!important;
+		}
 	}
 	hr {
     border: 0;
@@ -176,6 +180,10 @@ section.sections-product{
 	.col-xs-6.col-sm-4.col-md-3{
 		padding-left: 0px;
 		width:25%;
+		.img-thumbnail{
+			max-width: 300px!important;
+			max-height: 300px!important;
+		}
 	}
 	hr {
     border: 0;
@@ -230,6 +238,10 @@ section.sections-product{
 	.col-xs-6.col-sm-4.col-md-3{
 		padding-left: 0px;
 		width:25%;
+		.img-thumbnail{
+			max-width: 240px!important;
+			max-height: 240px!important;
+		}
 	}
 	hr {
     border: 0;
@@ -275,6 +287,10 @@ section.sections-product{
 	}
 	.col-xs-6.col-sm-4.col-md-3{
 		padding-left: 0px;
+		.img-thumbnail{
+			max-width: 240px!important;
+			max-height: 240px!important;
+		}
 	}
 	hr {
     border: 0;
@@ -327,12 +343,26 @@ section.sections-product{
 			left: 160px !important;
 		}
 	}
+	.col-xs-6.col-sm-4.col-md-3{
+		padding-left: 0px;
+		.img-thumbnail{
+			max-width: 190px!important;
+			max-height: 190px!important;
+		}
+	}
 }
 @media screen and(width:768px){
 	.icon.text-center{
 		margin-top: 205px;
 		.cart-text{
 			left: 155px !important;
+		}
+	}
+	.col-xs-6.col-sm-4.col-md-3{
+		padding-left: 0px;
+		.img-thumbnail{
+			max-width: 190px!important;
+			max-height: 190px!important;
 		}
 	}
 }
@@ -344,6 +374,13 @@ section.sections-product{
 			width: 8% !important;
 		}
 	}
+	.col-xs-6.col-sm-4.col-md-3{
+		padding-left: 0px;
+		.img-thumbnail{
+			max-width: 190px!important;
+			max-height: 190px!important;
+		}
+	}
 }
 @media screen and(width:600px){
 	.icon.text-center{
@@ -353,6 +390,13 @@ section.sections-product{
 			width: 8% !important;
 		}
 	}
+	.col-xs-6.col-sm-4.col-md-3{
+		padding-left: 0px;
+		.img-thumbnail{
+			max-width: 255px!important;
+			max-height: 255px!important;
+		}
+	}
 }
 @media screen and(width:568px){
 	.icon.text-center{
@@ -360,6 +404,13 @@ section.sections-product{
 		.cart-text{
 			left: 140px !important;
 			width: 9% !important;
+		}
+	}
+	.col-xs-6.col-sm-4.col-md-3{
+		padding-left: 0px;
+		.img-thumbnail{
+			max-width: 250px!important;
+			max-height: 250px!important;
 		}
 	}
 }

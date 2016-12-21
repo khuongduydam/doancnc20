@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :tests
   resources :carts
   resources :order_items
   resources :orders
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
   resources :admins,:newspapers,only: [:index, :show]
   resources :categories, only: :show
   devise_for :users, path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},
-             :controllers => { :omniauth_callbacks => "callbacks" }
+             :controllers => { :omniauth_callbacks => "callbacks"}
   resources :users, only: :show
   #########jane
   resources :products, only: [:index, :show] do
