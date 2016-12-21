@@ -5,7 +5,7 @@ class Contact < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('LOWER(name) LIKE ? or LOWER(message) LIKE ?',"%#{search.downcase}%","%#{search.downcase}%")
+      where('LOWER(name) ILIKE ? or LOWER(address) ILIKE ? or LOWER(message) ILIKE ?',"%#{search}%","%#{search}%","%#{search}%")
     else
       # scoped
       all

@@ -1,6 +1,11 @@
 class Admins::NewspapersController < AdminsController
   def index
     @newspapers = Newspaper.order(created_at: :desc).all.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    # render json: @newspapers
+    respond_to do |format|
+      format.html
+      format.json {render json: {data: @newspapers}}
+    end
   end
 
   def new

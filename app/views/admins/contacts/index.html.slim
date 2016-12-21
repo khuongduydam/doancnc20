@@ -1,9 +1,9 @@
 section.layout-admincategory
   .container
     .row
-      .col-md-3.list-group
+      .col-md-2.list-group
         = render 'admins/left'
-      .col-md-9.main-adminproduct
+      .col-md-10.main-adminproduct
         .page-title
           h1.page-header.pull-left
             | <i class="fa fa-handshake-o" aria-hidden="true"></i> CONTACTS 
@@ -11,9 +11,24 @@ section.layout-admincategory
           .col-md-12.bodyad
             = form_tag admins_contacts_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: "Name, message"
-                = submit_tag "Search", :name => nil
+                = text_field_tag :search, params[:search], placeholder: "Search by name, message, address", class: 'form-control', style: 'width: 50%;'
+                / = submit_tag "Search", :name => nil
         .row.main-body
           .col-md-12.bodyad
             = render 'admins/form/index_contact'
-    
+javascript:
+ $('#search').keyup(function(){
+   val = $(this).val();
+   $.ajax({
+     type:'get',
+     url: '/admins/contacts',
+     dataType:'json',
+     data: {search: val},
+     success: function(data){
+       $('tbody').empty();
+       $.each(data.data,function(key,value){
+         $('tbody').append("<tr class='danger'><td>"+value.name+"</td><td>"+value.address+"</td><td>"+value.message.substr(0, 200)+"</td><td>"+value.created_at+"</td><td><a href='/admins/contacts/"+value.id+"' class='btn btn-info'>Detail</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/contacts/"+value.id+"' class='btn btn-danger' style='margin-left:20px;'>Delete</a></td></tr>")
+       })
+     }
+   });
+ })    

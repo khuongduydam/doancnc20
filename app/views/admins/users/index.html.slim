@@ -1,9 +1,9 @@
 section.layout-adminuser
   .container
     .row
-      .col-md-3.list-group
+      .col-md-2.list-group
         = render 'admins/left'
-      .col-md-9.main-adminproduct
+      .col-md-10.main-adminproduct
         .page-title
           h1.page-header.pull-left
             | <i class="fa fa-file" aria-hidden="true"></i> USERS          
@@ -11,8 +11,25 @@ section.layout-adminuser
           .col-md-12.bodyad
             = form_tag admins_users_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: "Username, firt name, ...."
-                = submit_tag "Search", :name => nil
+                = text_field_tag :search, params[:search], placeholder: "Search by username, firt name, ....", class: 'form-control', style: 'width: 50%;'
+                / = submit_tag "Search", :name => nil
         .row.main-body
           .col-md-12.bodyad
             = render 'admins/user'
+javascript:
+ $('#search').keyup(function(){
+   val = $(this).val();
+   $.ajax({
+     type:'get',
+     url: '/admins/users',
+     dataType:'json',
+     data: {search: val},
+     success: function(data){
+       $('tbody').empty();
+       $.each(data.data,function(key,value){
+         $('tbody').append("<tr class='danger'><td>"+value.id+"</td><td>"+value.username+"</td><td>"+value.email+"</td><td>"+value.first_name+"</td><td>"+value.last_name+"</td><td>"+value.coin+"</td><td><a href='/admins/users/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/users/"+value.id+"/edit' class='btn btn-warning' style='margin-left:20px;'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/users/"+value.id+"' class='btn btn-danger' style='margin-left:20px;'>Delete</a></td></tr>")
+       })
+     }
+   });
+ })
+

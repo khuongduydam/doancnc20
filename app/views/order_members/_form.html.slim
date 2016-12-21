@@ -52,7 +52,7 @@
                 h3
                   | Now you have : 
                   span#totalCoin
-                    = number_to_currency(current_user.coin)
+                    = current_user.coin
                   |  coin
               .pull-right
                 = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'

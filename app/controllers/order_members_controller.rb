@@ -52,13 +52,18 @@ class OrderMembersController < ApplicationController
   def update
     @order_member.update(member_update)
     user = User.find_by(username: @order_member.username)
+    p 'not update'
     if @order_member.status == "Complete" && @order_member.save
+      p 'update'
       o_coin = @order_member.total_price*0.005 + user.coin
-      u = user.update_attributes(coin: o_coin)
+      user.update_attributes(coin: o_coin)
       p "*"*50
       p user.errors.messages
       p "*"*50
+
+      user.update_attributes(coin: o_coin)
       flash[:success] = "Order is completed, ready to delivery"
+      p 'update success coind'
       redirect_to admins_order_members_path
     elsif @order_member.status == "Uncomplete" && @order_member.save
       o_coin = user.coin - @order_member.total_price*0.005

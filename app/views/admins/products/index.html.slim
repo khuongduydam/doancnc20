@@ -1,10 +1,10 @@
 section.layout-adminproduct
   .container
     .row
-      .col-md-3.list-group
+      .col-md-2.list-group
         = render 'admins/left'
         
-      .col-md-9.main-adminproduct
+      .col-md-10.main-adminproduct
         .page-title
           h1.page-header.pull-left
             | <i class="fa fa-tachometer" aria-hidden="true"></i> PRODUCT
@@ -15,8 +15,8 @@ section.layout-adminproduct
           .col-md-12.bodyad
             = form_tag admins_products_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: "Name, origin, ...."
-                = submit_tag "Search", :name => nil
+                = text_field_tag :search, params[:search], placeholder: "Search by name, origin, ....", class: 'form-control', style: 'width: 50%;'
+                / = submit_tag "Search", :name => nil
         .row.main-body
           .col-md-12.bodyad
             = render "admins/form/index_product"

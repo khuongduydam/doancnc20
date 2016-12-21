@@ -1,6 +1,10 @@
 class Admins::ContactsController < AdminsController
   def index
     @contacts = Contact.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    respond_to do |format|
+      format.html
+      format.json {render json: {data: @contacts}}
+    end
   end
   def show
     @contact = Contact.find(params[:id])

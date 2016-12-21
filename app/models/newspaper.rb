@@ -12,7 +12,7 @@ class Newspaper < ApplicationRecord
 
   def self.search(search)
     if search
-      where('LOWER(title) LIKE ?',"%#{search.downcase}%")
+      where('LOWER(title) ILIKE ? or LOWER(content) ILIKE ?',"%#{search}%","%#{search}%")
     else
       # scoped
       all

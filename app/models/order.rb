@@ -10,4 +10,12 @@ class Order < ApplicationRecord
       item.cart_id = nil
     end
   end
+  def self.search(search)
+    if search
+      where('LOWER(name) ILIKE ? or LOWER(address) ILIKE ? or LOWER(phone) ILIKE ? or LOWER(email) ILIKE ? or LOWER(status) ILIKE ? or LOWER(pay_type) ILIKE ?',"%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%","%#{search}%")
+    else
+      # scoped
+      all
+    end
+  end
 end

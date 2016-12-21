@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where("LOWER(name) ILIKE ? or LOWER(origin) ILIKE ? or price::text ILIKE ?","%#{search.downcase}%","%#{search.downcase}%","%#{search}%")
+      where('LOWER(name) ILIKE ? or LOWER(origin) ILIKE ?',"#{search}%","#{search}%")
     else
       # scoped
       all

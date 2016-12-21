@@ -1,7 +1,7 @@
 class Admins::ProductsController < AdminsController
   helper_method :sort_column, :sort_direction
   def index
-    @products = Product.all.order(sort_column+ " " +sort_direction).search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    @products = Product.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 10, :page => params[:page])
     respond_to do |format|
       format.html
       format.json{render json: {data: @products}}
@@ -65,11 +65,5 @@ class Admins::ProductsController < AdminsController
     quanToI += addQuanToI
     params[:product][:quantity] = quanToI
     params.require(:product).permit(:name, :price, :origin, :category_id, :description, :quantity ,pictures_attributes: [:id, :image, :_destroy])
-  end
-  def sort_column
-    params[:sort] || "name" 
-  end
-  def sort_direction
-    params[:direction] || "asc" 
   end
 end

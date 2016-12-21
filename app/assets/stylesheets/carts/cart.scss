@@ -1,0 +1,305 @@
+@media screen and(min-width:1235px)and(max-width: 1280px) {
+  .edit_order_item{
+    button.fa.fa-minus,button.fa.fa-plus{
+      width: 35px;
+      height: 34px;
+    }
+    .form-control{
+      width: 35px !important;
+      border-radius: 0px !important;
+
+    }
+  }
+
+  .table-responsive{
+    .col-xs-4{
+      //border: 1px solid silver;
+      position: relative;
+      left: 0px;
+      .fa.fa-minus{
+        margin-left: 55px;
+      }
+      .col-xs-6{
+        width: 57%;
+        border-top: none;
+        padding:0px;
+        .img-cart{
+          width: 190px!important;
+          height: 190px!important;
+          margin-top: 20px;
+        }
+        .edit_order_item{
+          padding-bottom: 40px;
+          width: 100%;
+          margin-left: 0px;
+        }
+        .btn.btn-danger.btn-xs{
+          position: relative;
+          left: 16px;
+          border-radius: 0px;
+          width: 35px;
+          height: 34px;
+          top: -78px;
+          margin-top: 4px;
+          margin-left: 4px;
+          .fa.fa-trash-o{
+            font-size: 18px;
+            margin-top: 5px;
+          }
+        }
+      }
+      .col-xs-6#item-price{
+        border-top:none;
+        position: relative;
+        left: 0px;
+        h4{
+          width: 150%;
+          margin:30px 0px !important;
+          position: relative;
+          left: -172px;
+          top: -30px;
+          font-size: 20px;
+        }
+        h3{
+          font-size: 16px;
+          position: relative;
+          left: 0px;
+          top:-30px;
+          width: 100%;
+        }
+      }
+      padding: 0px;
+      .img-cart{
+        width: 100%!important;
+      }
+    }
+  }
+  .btn-group{
+    .btn.btn-primary{
+      width: 170px;
+      margin-left: 2px;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media screen and(min-width:2560px) {
+  .col-xs-4{
+    width: 25% !important;
+    .col-xs-6{
+      border-top: 1px solid #fff;
+      .img-cart{
+        width:100% !important;
+        margin-top: 50px;
+      }
+      .edit_order_item{
+        margin: -15px 0px 0px 90px;
+        #order_item_quantity{
+          width: 50px !important;
+          border-radius: 0px;
+          height: 50px;
+        }
+        .fa.fa-minus, .fa.fa-plus{
+          width: 50px;
+          height: 50px;
+        }
+      }
+      .btn.btn-danger.btn-xs{
+        margin-top: -72px;
+        margin-left: 40px;
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+      }
+    }
+    .col-xs-6#item-price{
+      h4{
+        margin-left: -220px !important;
+        font-size: 25px;
+      }
+    }
+  }
+  .btn-group{
+    .btn.btn-primary{
+      width: 360px;
+      margin-left: 2px;
+      margin-top: 10px;
+      font-size:25px;
+    }
+  }
+  .nav.navbar-nav.text-center{
+    h4{
+      font-size: 38px;
+    }
+  }
+}
+
+@media screen and(min-width:1600px)and(max-width: 2459px) {
+  .col-xs-4{
+    width: 25% !important;
+    .col-xs-6{
+      border-top: 0px solid #fff;
+      .img-cart{
+        width:110% !important;
+        margin-top: 40px;
+      }
+      .edit_order_item{
+        margin-left: 50px;
+        width: 72%;
+        #order_item_quantity{
+          width: 30px !important;
+          border-radius: 0px;
+          height: 30px;
+        }
+        .fa.fa-minus,.fa.fa-plus{
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .btn.btn-danger.btn-xs{
+        margin-top: -52px;
+        margin-left: 20px;
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+      }
+    }
+    .col-xs-6#item-price{
+      margin-top: 50px;
+      h4{
+        margin-left: -140px !important;
+      }
+      h3{
+        margin-top: 3   0px;
+      }
+    }
+  }
+  .btn-group{
+    .btn.btn-primary{
+      width: 170px;
+      margin-left: 2px;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media screen and(min-width:768px)and(max-width: 1023px) {
+  .col-xs-4{
+    width: 50% !important;
+    .col-xs-6{
+      border-top: 0px solid #fff;
+      .img-cart{
+        width: 150px!important;
+        height: 150px!important;
+        margin-top: 40px;
+      }
+      .edit_order_item{
+        margin-left: 50px;
+        width: 80%;
+        #order_item_quantity{
+          width: 30px !important;
+          border-radius: 0px;
+          height: 30px;
+        }
+        .fa.fa-minus,.fa.fa-plus{
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .btn.btn-danger.btn-xs{
+        margin-top: -52px;
+        margin-left: 20px;
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+      }
+    }
+    .col-xs-6#item-price{
+      margin-top: 50px;
+      padding: 0px;
+      h4{
+        margin-left: -140px !important;
+        width: 150%!important;
+      }
+      h3:first-of-type{
+        margin-top: 30px;
+        #price{
+          font-size: 15px!important;
+          top:20px!important;
+          left:-10px!important;
+        }
+      }
+      h3:last-of-type{
+        font-size: 15px!important;
+        left:-10px !important;
+      }
+    }
+  }
+  .btn-group{
+    .btn.btn-primary{
+      width: 170px;
+      margin-left: 2px;
+      margin-top: 10px;
+    }
+  }
+}
+@media screen and(width:1024px) {
+  .col-xs-4{
+    width: 50% !important;
+    .col-xs-6{
+      border-top: 0px solid #fff;
+      .img-cart{
+        margin-top: 40px;
+        width:200px!important;
+        height: 200px!important;
+      }
+      .edit_order_item{
+        margin-left: 85px;
+        width: 80%;
+        #order_item_quantity{
+          width: 30px !important;
+          border-radius: 0px;
+          height: 30px;
+        }
+        .fa.fa-minus,.fa.fa-plus{
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .btn.btn-danger.btn-xs{
+        margin-top: -52px;
+        margin-left: 55px;
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+      }
+    }
+    .col-xs-6#item-price{
+      margin-top: 50px;
+      h4{
+        margin-left: -160px !important;
+        width: 150%!important;
+      }
+      h3:first-of-type{
+        margin-top: 30px;
+        #price{
+          font-size: 17px!important;
+          top:20px!important;
+          left:-10px!important;
+        }
+      }
+      h3:last-of-type{
+        font-size: 15px!important;
+        left:-10px !important;
+      }
+    }
+  } 
+  .btn-group{
+    .btn.btn-primary{
+      width: 170px;
+      margin-left: 2px;
+      margin-top: 10px;
+    }
+  }
+
+}

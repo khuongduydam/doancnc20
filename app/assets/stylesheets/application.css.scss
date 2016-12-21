@@ -28,6 +28,7 @@
  *= require informations/newspaper
  *= require product/detail
  *= require categories/showcategory
+ *= require carts/cart
  *= require_self
  */
  @import "font-awesome";
@@ -69,7 +70,7 @@
   background-image: none;
 }
 #first-slider .carousel .item {
-  min-height: 450px; 
+  min-height: 420px; 
   height: 100%;
   width:100%;
 }

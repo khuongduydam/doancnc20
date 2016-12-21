@@ -1,9 +1,9 @@
 section.layout-admincategory
   .container
     .row
-      .col-md-3.list-group
+      .col-md-2.list-group
         = render 'admins/left'
-      .col-md-9.main-adminproduct
+      .col-md-10.main-adminproduct
         .page-title
           h1.page-header.pull-left
             | <i class="fa fa-folder-open" aria-hidden="true"></i> CATEGORIES 
@@ -14,8 +14,8 @@ section.layout-admincategory
           .col-md-12.bodyad
             = form_tag admins_categories_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: "Name"
-                = submit_tag "Search", :name => nil
+                = text_field_tag :search, params[:search], placeholder: "Search by name", class: 'form-control', style: 'width: 50%;'
+                / = submit_tag "Search", :name => nil
         .row.main-body
           .col-md-12.bodyad
             = render 'admins/form/index_category'
