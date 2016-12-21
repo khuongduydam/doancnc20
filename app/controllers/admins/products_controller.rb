@@ -1,6 +1,10 @@
 class Admins::ProductsController < AdminsController
   def index
-     @products = Product.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    @products = Product.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    respond_to do |format|
+      format.html
+      format.json{render json: {data: @products}}
+    end
   end 
   
   def new

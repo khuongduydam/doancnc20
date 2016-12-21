@@ -44,23 +44,6 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
         span.sr-only
           | Next
 
-/ javascript:
-/   $('ul.nav li.dropdown').hover(function() { 
-/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500); }, 
-/     function() { 
-/     $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500); 
-/     }); 
-/     $(function(){
-/   $("#addClass").click(function () {
-/             $('#qnimate').addClass('popup-box-on');
-/               });
-            
-/               $("#removeClass").click(function () {
-/             $('#qnimate').removeClass('popup-box-on');
-/               });
-/     })
-
-
 .container-fluid[style="padding:0px;"]
   ul.nav.nav-pills
     li.active.col-xs-6
@@ -156,6 +139,13 @@ javascript:
     $( window ).scroll(function() {
       height2 = $('.main').height()
         htmlbodyHeightUpdate()
+    });
+
+    add_cart = $('.btn-info').closest('.cart-btn');
+    total_items = $('.cart-text').text();
+    add_cart.on('click',function(){
+      total_items = parseInt(total_items) + 1
+      $('.cart-text').text(total_items);
     });
   });
 

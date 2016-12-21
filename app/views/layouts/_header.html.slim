@@ -42,7 +42,8 @@ header.frontend
                   button.btn.btn-default data-dismiss="modal" type="button"  Close
           //a href="#"
             i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
-          = link_to '<i class="fa fa-shopping-cart"></i>'.html_safe, cart_path(@cart)  
+          = link_to '<i class="fa fa-shopping-cart"></i>'.html_safe, cart_path(@cart)
+          = render 'layouts/cart_text'
           #myModal2.modal.fade role="dialog" 
             .modal-dialog.modal-lg
               .modal-content
@@ -56,9 +57,13 @@ header.frontend
       #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.text-center
           li.active
-            a href="#" 
+            /a href="#" 
               | OUR FRUITS
+            = link_to 'OUR FRUITS', products_path   
           li
+            //a href="#"
+              | CATEGORY
+            / = link_to 'CATEGORY', '#'  
             a
               | CATEGORY
             .list-cate.text-center[style="list-style-type: none;"]
@@ -76,10 +81,20 @@ header.frontend
           li
             a href="#" 
               | CONTACTS
-              
+          h4[style="padding-top:50px;margin-top:160px;"]
+            | Total: 
+            strong#cart-total-price
+              = @cart.total_price.to_i
+            span 
+              | (vnd)
+          .btn-group[style="margin-top:-20px;"]     
+            - if user_signed_in?
+              = link_to 'Checkout', new_order_member_path,class:'btn btn-primary'
+            - else  
+              = link_to 'Checkout', new_order_path,class:'btn btn-primary'     
 javascript:
-  list = $('.list-cate').hide();
+ list = $('.list-cate').hide();
   cate = $('.navbar-nav>li:nth-child(2)');
-  cate.on('click',function(e){
+  cate.on('click',function(){
     list.animate({height:'toggle'},300);
   });

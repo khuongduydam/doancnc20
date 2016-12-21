@@ -1,42 +1,47 @@
 #shopping-cart
   - unless @cart.order_items.empty?
-  .container-fluid
-    h1 Your Cart
-    .table-responsive
-      table.table
-        thead
-          tr.danger
-            th Ten Sp
-            th So luong(kg)
-            th Don gia
-            th Thanh tien
-        tbody
-          #order-items
-            = render @order_items
-         
-    h3
+  .container-fluid[style="padding:20px 0px 0px 0px;"]
+    /h3
       | Total: 
       span[style="color:red;"] 
       strong#cart-total-price[style="color:red;"] 
         = @cart.total_price.to_i
-    p
-      .btn-group     
-        = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger'
-        - if user_signed_in?
-          = link_to 'Checkout', new_order_member_path,class:'btn btn-primary'
-        - else  
-          = link_to 'Checkout', new_order_path,class:'btn btn-primary'
+    .table-responsive
+      table.table
+        /thead
+          tr.danger
+            th.col-xs-3 Ten Sp
+            th.col-xs-3 So luong(kg)
+            th.col-xs-3 Don gia
+            th.col-xs-3 Thanh tien
+        tbody
+          #order-items
+            = render @order_items
+         
+    
 
 javascript:
   quantity = $('input#order_item_quantity');
   cart_total = $('#cart-total-price');
+  button = $('tr').find('.btn-danger');
+  total_items = $('.cart-text').text();
+  $('td#item-price>h3>.col-xs-6#total-price').hide();
+  button.on('click',function(){
+    total_items -= 1;
+    $('.cart-text').text(total_items);
+    if(total_items === 0){
+      //$('.btn-group .btn-danger')[0].click();
+      $('.col-xs-12.col-sm-9')  .html('<div class="container">Cart is empty, please come back market to buy something</div>')
+    }
+  });
+
   quantity.on('change',function(){
-    price = $(this).closest(".success").find('td#item-price').text();
-    quantity = $(this).closest(".success").find('input#order_item_quantity').val();
-    total = $(this).closest(".success").find('td#item-total-price').text(price * quantity);
-    id = $(this).closest('.success').attr('id');     
+    price = $(this).closest('tr').find('td#item-price>h3>.col-xs-6#price').text().match(/\d+/)[0]*1000;
+    quantity = $(this).closest("tr").find('input#order_item_quantity').val();
+    total = $(this).closest('tr').find('td#item-price>h3>.col-xs-6#total-price').text(price*quantity);
+    id = $(this).closest('tr').attr('id');     
     sum = 0;
-    $.each($('td#item-total-price'),function(){
+    $.each($('td#item-price>h3>.col-xs-6#total-price'),function(){
       sum += parseFloat($(this).text());
       cart_total.text(sum);
     });    
@@ -44,12 +49,21 @@ javascript:
       url: '/order_items/',
       dataType: 'script',
       data: {quantity, quantity, id: id}
-    });  
+    });
   });  
   $('.btn-danger.btn-xs').on('click',function(){
-    price = $(this).closest('.success').find('td#item-total-price').text();
+    price = $(this).closest('tr').find('td#item-price>h3>.col-xs-6#total-price').text();
+    console.log('price')
+    console.log(price)
     total = $('#cart-total-price').text();
-    total = (parseFloat(total)-parseFloat(price)).toString();
+    console.log('total')
+    console.log(total)
+    total = (parseFloat(total)-parseFloat(price));
+    console.log('total rest')
+    console.log(total)
+    console.log('*******************')
     return $('#cart-total-price').text(total);
   });
+
+  $('.btn.btn-success.btn-xs').hide()
   
