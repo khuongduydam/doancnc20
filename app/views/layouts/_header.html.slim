@@ -19,9 +19,12 @@ header.frontend.hidemobile
             i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
           = link_to '<i class="fa fa-cart-plus fa-2"></i>'.html_safe, cart_path(@cart),style:"font-size:20px;"
           //= render 'layouts/cart_text'
-          
       #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.text-center
+          li
+            = link_to 'haha', "#",class:'user-info'
+            = link_to 'hoho', "#",class:'user-info'
+            = link_to 'hihi', "#",class:'user-info'
           li.active
             /a href="#" 
               | OUR FRUITS
@@ -42,7 +45,8 @@ header.frontend.hidemobile
             = link_to 'INFORMATIONS', newspapers_path
           li
             = link_to 'CONTACTS', contacts_path
-      = render 'layouts/flash_messages'            
+      = render 'layouts/flash_messages'
+      = link_to 'Log out', destroy_user_session_path, method: :delete, class:'btn btn-danger'            
 javascript:
   list = $('.list-cate').hide();
   cate = $('.navbar-nav>li:nth-child(2)');

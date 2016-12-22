@@ -11,7 +11,6 @@ header.frontend{
         font-size: 20px;
         color:red;
         padding: 0px;
-        margin-top: 270px;
       }
 			.navbar-header{
         .icon.text-center{
@@ -94,8 +93,16 @@ header.frontend{
 			#bs-sidebar-navbar-collapse-1.collapse.navbar-collapse{
 				ul.nav.navbar-nav{
 					li{
+            height: 50px;
             background-color: #aad367;
             width:100%;
+            .user-info{
+              display: inline;
+              margin-left: 10px;
+              min-height: 50px;
+              top:15px;
+              padding-left: 0px;
+            }
 						a{
 							font-size: 18px;
 							color: #fff;
@@ -272,3 +279,4 @@ section {
 	}
 }
 }
+
