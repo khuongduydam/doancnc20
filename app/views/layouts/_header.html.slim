@@ -40,8 +40,6 @@ header.frontend.hidemobile
                         input name="type" type="hidden" value="product" 
                 .modal-footer
                   button.btn.btn-default data-dismiss="modal" type="button"  Close
-          //a href="#"
-            i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
           = link_to '<i class="fa fa-shopping-cart"></i>'.html_safe, cart_path(@cart)
           = render 'layouts/cart_text'
           #myModal2.modal.fade role="dialog" 
@@ -61,9 +59,6 @@ header.frontend.hidemobile
               | OUR FRUITS
             = link_to 'OUR FRUITS', products_path   
           li
-            //a href="#"
-              | CATEGORY
-            / = link_to 'CATEGORY', '#'  
             a
               | CATEGORY
             .list-cate.text-center[style="list-style-type: none;"]
@@ -76,11 +71,9 @@ header.frontend.hidemobile
             a href="#" 
               | ORDER GUIDE
           li
-            a href="#" 
-              | INFORMATIONS
+            = link_to 'INFORMATIONS', newspapers_path
           li
-            a href="#" 
-              | CONTACTS
+            = link_to 'CONTACTS', contacts_path
           h4[style="padding-top:50px;margin-top:160px;"]
             | Total: 
             strong#cart-total-price

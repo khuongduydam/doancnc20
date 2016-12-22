@@ -43,7 +43,6 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
         i.fa.fa-angle-right
         span.sr-only
           | Next
-
 .container-fluid[style="padding:0px;"]
   ul.nav.nav-pills
     li.active.col-xs-6
@@ -54,22 +53,24 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
     #all-fruits.tab-pane.fade.in.active
       br
       - @product_news.each do |product|
-        .col-xs-6.col-sm-4.col-md-3
+        .col-xs-6.col-sm-4.col-md-3.img2
           - if product.pictures.present?
             = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
           - else  
             = link_to image_tag('default.png'), product_path(product)
-          .col-xs-10
-            strong 
-              = product.name
-              br
+          .col-xs-10.info
+            span.name  
+              = product.name 
+            br
+            span.price
               = number_with_delimiter(product.price,delimiter: '.')
               |(vnd)/kg
-              br
-              = product.origin  
+            br
+            span.origin
+              = product.origin
             hr
             /.col-xs-6.pull-left
-            .col-xs-12
+            .col-xs-12.cart
               = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
 
     #premium-fruits.tab-pane.fade
