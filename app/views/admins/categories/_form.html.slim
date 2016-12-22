@@ -1,10 +1,5 @@
 = simple_form_for [:admins, @category], :html =>{:id => "form_categories"} do |f|
-  / = render 'my_devise/registrations/form', locals: {f:f}
-  / = render 'shared/error_messages', object: f.object
   = f.input :name, class: 'form-control', id: 'name', required: true
-  / = f.simple_fields_for :pictures do |picture|
-  /   = image_tag picture.object.image
-  /   = picture.input :image
   = f.label "Image"
   #img
     - if params[:controller] == 'admins/categories' && (params[:action] == 'new' || params[:action] == 'create' )
@@ -24,6 +19,10 @@ javascript:
         "category[name]": {required: true, minlength: 2, maxlength: 50}
       }
     });
+    submitHandler: function(form){
+      $('form').find(':submit');
+      form.submit();
+    }
   });
   $("#form_categories").submit(function(){
     var path =  window.location.pathname.slice(-4);

@@ -1,7 +1,7 @@
-section.sections-product
+section.sections-newpapers
   .container
     .row
-      .col-md-9.newspp
+      .col-md-10.newspp
         - @newspapers.each do |newspaper|
           .row
             .col-md-4.img
@@ -12,9 +12,8 @@ section.sections-product
                   = link_to image_tag('newspaper.png', class: 'img-thumbnail'), newspaper_path(newspaper)
             .col-md-8.link
               h3
-                = link_to newspaper.title, newspaper_path(newspaper)
+                = link_to newspaper.title, newspaper_path(newspaper), class:"title"
               p 
                 = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
         = will_paginate @newspapers
-      .col-md-3.well-right
-        = render 'form/right'
+

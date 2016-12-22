@@ -1,0 +1,30 @@
+.sections-newpapers{
+	margin-top: 30px;
+	.container{
+		.row{
+			.newspp{
+				.row{
+					.img{
+						.img-thumbnail{
+							margin-bottom: 15px;
+						}
+
+					}
+					.link{
+						h3{
+							.title{
+								color: #000000;
+								text-decoration: none;
+								text-transform: uppercase;
+								cursor: pointer;
+							}
+							.title:hover{
+								color: red;
+							}
+						}
+					 }
+					}
+				}
+			}
+		}
+	}
