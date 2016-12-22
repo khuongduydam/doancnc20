@@ -53,15 +53,8 @@ javascript:
   });  
   $('.btn-danger.btn-xs').on('click',function(){
     price = $(this).closest('tr').find('td#item-price>h3>.col-xs-6#total-price').text();
-    console.log('price')
-    console.log(price)
     total = $('#cart-total-price').text();
-    console.log('total')
-    console.log(total)
     total = (parseFloat(total)-parseFloat(price));
-    console.log('total rest')
-    console.log(total)
-    console.log('*******************')
     return $('#cart-total-price').text(total);
   });
 

@@ -11,7 +11,7 @@ class Category < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('LOWER(name) LIKE ?',"%#{search.downcase}%")
+      joins('LEFT JOIN products on categories.id = products.category_id').where('LOWER(categories.name) LIKE ?',"%#{search.downcase}%").select("categories.name AS name_cat, products.category_id, count(products.category_id ) as sl").group('products.category_id , categories.name')
     else
       # scoped
       all

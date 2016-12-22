@@ -19,41 +19,62 @@ section.sections-product{
 			}
 		}
 	}
-
-@media (min-width: 320px) and (max-width: 479px) {
+}
+@media only screen and(min-width: 320px) and (max-width: 479px) {
 	.img-thumbnail{
 		margin-left: 15%;
 	}
 }
-@media (min-width: 480px) and (max-width:567px){
+@media only screen and(min-width: 480px) and (max-width:567px){
 	// .img-thumbnail{
 	// 	margin-left: 30%;
 	// }
 }
-@media (min-width: 568px) and (max-width:599px){
+@media only screen and(min-width: 568px) and (max-width:599px){
 	// .img-thumbnail{
 	// 	margin-left: 35%;
 	// }
 }
-@media (min-width: 600px) and (max-width:767px){
+@media only screen and(min-width: 600px) and (max-width:767px){
 	
 }
-@media (min-width: 768px) and (max-width:799px){
+@media only screen and(min-width: 768px) and (max-width:799px){
 	
 }
-@media (min-width: 800px) and (max-width:992px){
+@media only screen and(min-width: 800px) and (max-width:992px){
 	
 }
-@media (min-width: 993px) and (max-width:1023px){
+@media only screen and(min-width: 993px) and (max-width:1023px){
 	
 }
-@media (min-width: 1024px) and (max-width:1280px){
+@media only screen and(min-width: 1024px) and (max-width:1234px){
+}
+@media only screen and(min-width:1235px) and (max-width: 1279px) {
+	
+	#all-fruits.tab-pane.fade.in.active .col-xs-10 {
+    width: 60%!important;
+    padding: 0px;
+    font-family: Ubuntu;
+    margin-left: 40px;
+    .btn.btn-info{
+			margin: -350px 0px 0px 10px !important;
+	    width: 60%!important;
+	    outline: none;
+	    outline-color: #FFF;
+	    outline-offset: 0px;
+	    outline-style: none;
+	    outline-width: 0px;
+		}
+		.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+	    outline: 0px!important;	
+	    outline-offset: -2px;
+		}
+	}
+}
+@media only screen and(min-width:1281px) and (max-width: 2560px) {
 		
 }
-@media (min-width:1281px) and (max-width: 2560px) {
-		
-}
-}
+
 
 .nav.nav-pills{
 	li{
@@ -366,7 +387,9 @@ section.sections-product{
 		}
 	}
 }
-@media screen and(width:1024px){
+@media only screen 
+and(min-width:1024px)
+and(max-width: 1366px){
 	.icon.text-center{
 		margin-top: 205px;
 		.cart-text{
@@ -379,6 +402,16 @@ section.sections-product{
 		.img-thumbnail{
 			max-width: 190px!important;
 			max-height: 190px!important;
+		}
+	}
+	#all-fruits.tab-pane.fade.in.active{
+		.col-xs-10{
+			span:nth-of-type(2){
+				color:red;
+			}
+			span.discount{
+				text-decoration: line-through;
+			}
 		}
 	}
 }

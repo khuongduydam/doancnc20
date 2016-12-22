@@ -21,6 +21,6 @@ class Newspaper < ApplicationRecord
 
   private
   def titleize_firstcharac
-    self.title = title.mb_chars.titleize.to_s
+    self.title = title.mb_chars.upcase.to_s
   end
 end

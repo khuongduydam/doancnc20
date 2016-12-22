@@ -14,16 +14,6 @@ header.frontend
         .icon.text-center
           a href="#"
             i.fa.fa-user data-target="#myModal1" data-toggle="modal"
-          #myModal1.modal.fade role="dialog" 
-            .modal-dialog.modal-lg
-              .modal-content
-                .modal-header
-                  i.close data-dismiss="modal"   &times;
-                  h4.modal-title Modal Header
-                .modal-body
-                  p This is a large modal.
-                .modal-footer
-                  button.btn.btn-default data-dismiss="modal" type="button"  Close
           a href="#"         
             i.fa.fa-search data-target="#myModal" data-toggle="modal"
           #myModal.modal.fade role="dialog" 
@@ -50,16 +40,7 @@ header.frontend
             i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
           = link_to '<i class="fa fa-shopping-cart"></i>'.html_safe, cart_path(@cart)
           = render 'layouts/cart_text'
-          #myModal2.modal.fade role="dialog" 
-            .modal-dialog.modal-lg
-              .modal-content
-                .modal-header
-                  i.close data-dismiss="modal"  &times;
-                  h4.modal-title Modal Header
-                .modal-body
-                  p This is a large modal.
-                .modal-footer
-                  button.btn.btn-default data-dismiss="modal" type="button"  Close
+          
       #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.text-center
           li.active
@@ -101,8 +82,13 @@ header.frontend
             - else  
               = link_to 'Checkout', new_order_path,class:'btn btn-primary'     
 javascript:
- list = $('.list-cate').hide();
+  list = $('.list-cate').hide();
   cate = $('.navbar-nav>li:nth-child(2)');
   cate.on('click',function(){
     list.animate({height:'toggle'},300);
+  });
+
+  $('.search').hide();
+  $('.fa.fa-search').on('click',function(){
+   $('.search').fadeToggle('slow');
   });
