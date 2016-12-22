@@ -155,13 +155,15 @@ javascript:
       total_items = parseInt(total_items) + 1
       $('.cart-text').text(total_items);
     });
-    $('.btn.btn-info').hide()
+    $('.btn.btn-info').hide();
     $('.col-xs-6.col-sm-4.col-md-3').hover(function(){
       img = $(this).closest('div').find('.img-thumbnail')
       icon = $(this).closest('div').find('.btn.btn-info')
       icon.click(function(){
-        $(this).attr('disabled',true).text('Adding....').delay(1000).queue(function(){
+        $(this).css('opacity','0.5').text('Adding....').delay(300).queue(function(){
+          $(this).attr('disabled',true);
           $(this).text('Added').delay(1000).dequeue().queue(function(){
+            $(this).css('opacity','1')
             $(this).removeAttr('disabled').text('Add to cart').dequeue() 
           });
         });
@@ -172,5 +174,4 @@ javascript:
         img.css('opacity','1');
         icon.fadeOut('slow');
     });
-  });  
-
+  });
