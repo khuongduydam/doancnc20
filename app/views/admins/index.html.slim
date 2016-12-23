@@ -1,16 +1,9 @@
 section.layout-admin
   .container
     .row
-      .col-md-2.list-group
-        = render 'left'
-      .col-md-10.main-admin
+      .main-admin
         .row
-          / .navbar-form.navbar-right
-          /   = form_tag admins_path, :method => 'get', :id => "products_search" do
-          /     p
-          /       = text_field_tag :search, params[:search], placeholder: "Username, firt name, title ...."
-          /       = submit_tag "Search", :name => nil
-          .col-md-12.main-body
+          .main-body
             h3.us <i class="fa fa-folder-open" aria-hidden="true"></i> CATEGORIES              
             #categories
               = render 'admins/category'

@@ -1,25 +1,17 @@
-section.sections-product
-  .container
-    .row
-      .col-md-3.list-group
-        = render 'admins/left'
-      .col-md-9.detailpr
-        form.update-cate
-          .row
-            .col-md-5
-              = image_tag @category.pictures.first.image, size: "400x400", class:'img-thumbnail'
-            .col-md-7
-              .detail
-                h3.Title_product 
-                  = @category.name
-
-                .about_product
-                  p 
-                    | Have 
-                    = @category.products.size
-                    |  products
-                .btn-lg.right
-                  = link_to "Products of this category", pro_of_cate_admins_category_path(@category), class: 'btn btn-info'
-                  = link_to "Edit", edit_admins_category_path(@category), class: 'btn btn-warning',style: 'margin-left:20px;'
-                  = link_to "Delete", admins_category_path(@category),method: :delete, data: {confirm: "All products of this category will be destroy. You sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+section.modify-category
+  .row
+    .detailpr
+      form.update-cate
+        h3.Title_product 
+          = @category.name
+        = image_tag @category.pictures.first.image, size: "200x200", class:'img-circle'
+        .about_product
+          p 
+            | Have 
+            = @category.products.size
+            |  products
+          .btn-lg.right
+            = link_to "Products of this category", pro_of_cate_admins_category_path(@category), class: 'btn btn-success'
+            = link_to "Edit", edit_admins_category_path(@category), class: 'btn btn-success',style: 'margin-left:20px;'
+            = link_to "Delete", admins_category_path(@category),method: :delete, data: {confirm: "All products of this category will be destroy. You sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
 
