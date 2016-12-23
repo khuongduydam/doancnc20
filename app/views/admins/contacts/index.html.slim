@@ -1,19 +1,19 @@
 section.layout-admincategory
   .container
     .row
-      .col-md-2.list-group
+      .col-md-2[style="background:red"]
         = render 'admins/left'
-      .col-md-10.main-adminproduct
+      .col-md-10[style="background:blue"]
         .page-title
           h1.page-header.pull-left
             | <i class="fa fa-handshake-o" aria-hidden="true"></i> CONTACTS 
-        .row.main-body
+        .main-body
           .col-md-12.bodyad
             = form_tag admins_contacts_path, :method => 'get', :id => "products_search" do
               p
                 = text_field_tag :search, params[:search], placeholder: "Search by name, message, address", class: 'form-control', style: 'width: 50%;'
                 / = submit_tag "Search", :name => nil
-        .row.main-body
+        .main-body
           .col-md-12.bodyad
             = render 'admins/form/index_contact'
 javascript:
@@ -31,4 +31,6 @@ javascript:
        })
      }
    });
- })    
+  }) 
+css:
+  html, body, section, .container, .row,.col-md-2,.col-md-10  {height: 100%;}

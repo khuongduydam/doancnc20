@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show] do
     resources :comments, module: :products 
     collection do
+      get "search_filter"
       get "all_pro"
     end
   end

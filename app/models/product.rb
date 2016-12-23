@@ -26,6 +26,32 @@ class Product < ActiveRecord::Base
       all
     end
   end
+  
+  def self.search_filter(search, category, minValue, maxValue)
+    if search.present? || category.present? || minValue.present? || maxValue.present?
+      p "*"*80 
+      p "VAO MODEL"
+      p "*"*80 
+      product = all
+
+      product = where("LOWER(name) ILIKE ? or LOWER(origin) ILIKE ?","#{search}%","#{search}%") if search.present?
+      product = product.where("category_id = ?", category) if category.present?
+      if minValue.present? && maxValue.present?
+        product = product.where("? <= price", minValue)
+        product = product.where("price <= ?", maxValue)
+      else
+        product = product.where("price <= ?", minValue) if minValue.present?
+        product = product.where("price >= ?", maxValue) if maxValue.present?
+      end
+
+      p "*"*80 
+      p product
+      p "*"*80 
+      return product
+    else
+      all
+    end
+  end
 
   private
 

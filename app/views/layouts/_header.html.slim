@@ -1,5 +1,3 @@
-
-
 header.frontend
   nav.navbar.sidebar role="navigation" 
     .container-fluid
@@ -32,10 +30,19 @@ header.frontend
                       /   input name="type" type="hidden" value="product" 
                       = form_tag products_path, :method => 'get', :id => "products_search" do
                         p
-                          = text_field_tag :search, params[:search], placeholder: "Search by fruit name"
-                          = submit_tag "Search", :name => nil
+                          = text_field_tag :search, params[:search], placeholder: "Search by fruit name, origin"
+                          p
+                            | Category 
+                            = select_tag :category, options_from_collection_for_select(categories_list_head, "id", "name",""), include_blank: true
+                          p
+                            | Price 
+                            = text_field_tag :minValue, params[:minValue], style: "width:50px"
+                            |  - 
+                            = text_field_tag :maxValue, params[:maxValue], style: "width:50px"
+                          p
+                            = submit_tag "Search", :name => nil, style: "float: right"
                 .modal-footer
-                  button.btn.btn-default data-dismiss="modal" type="button"  Close
+                  / button.btn.btn-default data-dismiss="modal" type="button"  Close
           //a href="#"
             i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
           = link_to '<i class="fa fa-shopping-cart"></i>'.html_safe, cart_path(@cart)
@@ -55,8 +62,9 @@ header.frontend
               | CATEGORY
             .list-cate.text-center[style="list-style-type: none;"]
               - categories_list_head.each do |category|
-                = link_to category.name, category_path(category.id)
-                br
+                - if category.products.size!=0
+                  p 
+                    = link_to category.name, category_path(category.id)
               / a href="#"  Action
               / br
               / a href="#"  Another action

@@ -31,13 +31,14 @@ javascript:
       var img = $("#category_pictures_attributes_0_image").val().length;
       if (img==0) {
         alert("Please choose one image!");
+        return false;
       }
-      return false;
     }
     if (path == "edit") {
       var countImg = $("#img").find("img").length;
       if (countImg==0) {
         alert("Please choose one image");
+        return false;
       }
     }
   });
