@@ -1,19 +1,15 @@
-section.layout-admincategory
-  .container
-    .row
-      .col-md-3.list-group
-        = render 'admins/left'
-      .col-md-9.main-adminproduct
-        .page-title
-          h1.page-header.pull-left
-            | <i class="fa fa-handshake-o" aria-hidden="true"></i> CONTACTS 
-        .row.main-body
-          .col-md-12.bodyad
-            = form_tag admins_contacts_path, :method => 'get', :id => "products_search" do
-              p
-                = text_field_tag :search, params[:search], placeholder: "Name, message"
-                = submit_tag "Search", :name => nil
-        .row.main-body
-          .col-md-12.bodyad
-            = render 'admins/form/index_contact'
-    
+section.modify-category
+  .main-adminproduct
+    .update-cate
+      h2.page-header.pull-left
+        | <i class="fa fa-handshake-o" aria-hidden="true"></i> CONTACTS 
+    .row.main-body
+      .col-md-11.bodyad
+        = form_tag admins_contacts_path, :method => 'get', :id => "products_search" do
+          p
+            = text_field_tag :search, params[:search], placeholder: "Name, message"
+            = submit_tag "Search", :name => nil
+    .row.main-body
+      .col-md-11.bodyad
+        = render 'admins/form/index_contact'
+  

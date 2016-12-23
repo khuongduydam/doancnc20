@@ -62,10 +62,9 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
             span.name
               = product.name
               span.origin
-                | (
+                br
                 = product.origin  
-                | )
-            br  
+            br   
             - if product.price_discount.present? 
               span.price              
                 = number_with_delimiter(product.price_discount,delimiter: '.')
@@ -78,6 +77,12 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
                 |  -
                 = ((1- (product.price_discount.to_f / product.price)) * 100).round
                 | %
+              = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
+            - else
+              span.price              
+                = number_with_delimiter(product.price,delimiter: '.')
+                |(vnd)
+              br
               = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
 
 

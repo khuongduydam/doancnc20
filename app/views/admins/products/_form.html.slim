@@ -56,8 +56,8 @@
       = f.file_field :image, multiple: true, name: "product[image][]"
     
   .actions
-    = f.submit 
-    = link_to "Back", :back, class: "btn btn-default"
+    = f.submit
+    = link_to "Back", :back, class: "btn btn-success"
 javascript:
   $(document).ready(function () {
     $("#form_product").validate({

@@ -1,5 +1,6 @@
 = simple_form_for [:admins, @category], :html =>{:id => "form_categories"} do |f|
-  = f.input :name, class: 'form-control', id: 'name', required: true
+  .field
+    = f.input :name, id: 'name', required: true
   = f.label "Image"
   #img
     - if params[:controller] == 'admins/categories' && (params[:action] == 'new' || params[:action] == 'create' )
@@ -7,11 +8,11 @@
         = picture.file_field :image      
     - if params[:controller] == 'admins/categories' && (params[:action] == 'edit' || params[:action] == 'update' )
       = f.simple_fields_for :pictures do |picture|
-        = image_tag picture.object.image_url, size: "400x400"
-        = picture.file_field :image
+        = image_tag picture.object.image_url, size: "200x200", class:'img-circle'
+        = picture.file_field :image 
       
-  = f.submit
-  = link_to "Back", :back, class: "btn btn-default"
+  = f.submit  id: 'sub-mit'
+  = link_to "Back", :back, class: "btn btn-success"
 javascript:
   $(document).ready(function () {
     $("#form_categories").validate({

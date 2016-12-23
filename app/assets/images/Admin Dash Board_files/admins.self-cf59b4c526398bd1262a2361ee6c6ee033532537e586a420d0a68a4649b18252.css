@@ -9404,12 +9404,12 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
   margin-top: 4px;
 }
 
-@media (min-width: 768px) {
-  /* line 27, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/admins.scss */
+@media (min-width: 768px)
+{
   .navbar-toggle {
-    display: none;
-  }
+    display: block;
 }
+
 /* line 27, /Users/Vinova/Desktop/vinova_fruit-shop/app/assets/stylesheets/admins.scss */
 .navbar-nav {
   margin: 7.5px -15px;

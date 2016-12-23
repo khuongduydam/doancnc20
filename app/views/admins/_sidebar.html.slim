@@ -1,0 +1,34 @@
+.side-menu
+  nav.navbar.navbar-default role="navigation" 
+    .side-menu-container
+      ul.nav.navbar-nav
+        li
+          = active_link_to "HOME", admins_path, label:'top'
+        li
+          = active_link_to "CATEGORY ", admins_categories_path, label:'top'
+        li
+          = active_link_to "PRODUCT ", admins_products_path, label:'top'
+        li
+          = active_link_to "NEWSPAPERS", admins_newspapers_path, label:'top'
+        li
+          = active_link_to "USER", admins_users_path, label:'top'
+        li
+          = active_link_to "CONTACT", admins_contacts_path, label:'top'
+        li
+          = active_link_to "ORDER", admins_orders_path, label:'top'
+        li
+          = active_link_to "ORDER MEMBER", admins_order_members_path, label:'top'  
+javascript:
+  $(function () {
+      $('.navbar-toggle-sidebar').click(function () {
+        $('.navbar-nav').toggleClass('slide-in');
+        $('.side-body').toggleClass('body-slide-in');
+        $('#search').removeClass('in').addClass('collapse').slideUp(200);
+      });
+
+      $('#search-trigger').click(function () {
+        $('.navbar-nav').removeClass('slide-in');
+        $('.side-body').removeClass('body-slide-in');
+        $('.search-input').focus();
+      });
+    });
