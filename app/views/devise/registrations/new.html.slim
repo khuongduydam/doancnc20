@@ -1,22 +1,24 @@
 .col-xs-12.col-md-12.create-account[style="padding:0px"]
-  .banner[style="font-family: 'Tangerine', serif;margin-left:6%;"]
+  .banner[style="font-family: 'Tangerine', serif;margin-left:5%;"]
     h1 Create An Account
   hr[style="border:1px solid red"]   
   .container.center-block[style="width:800px;"]
-    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-horizontal pull-left'},wrapper: :horizontal_form) do |f|
-      .col-xs-6.col-md-6.left
-        = f.input :username, autofocus: true,class: 'form-control'
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-horizontal'},wrapper: :horizontal_form) do |f|
+      .form-group
+        = f.input :first_name,class: 'form-control'
+      .form-group
+        = f.input :last_name,class: 'form-control'
+      .form-group
+        = f.input :username,class: 'form-control'
+      .form-group  
         = f.input :email, class: 'form-control'
+      .form-group  
         = f.input :password, autocomplete: "off",class: 'form-control'
+      .form-group  
         = f.input :password_confirmation, autocomplete: "off",class:'form-control'
-        = f.input :sex, as: :select, collection: [['Male'],['Female']],include_blank: 'Choose one'
-      .col-xs-6.col-md-6.right  
-        = f.input :address, class:'form-control'
-        = f.input :first_name, class:'form-control'
-        = f.input :last_name, class:'form-control'
+      .form-group  
         = f.input :phone,class:'form-control'
-        = f.input :birth_day, as: :string, input_html: {type: :date}
-      = f.submit "Sign up", class:'btn btn-primary center-block'
+      = f.submit "Sign up", class:'btn btn-primary'
   
 javascript:
   $(document).ready(function(){
@@ -41,6 +43,14 @@ javascript:
         "user[phone]":{
           required: true,
           rangelength: [10,11]
+        },
+        "user[first_name]":{
+          required: true,
+          minlength: 5
+        },
+        "user[last_name]":{
+          required: true,
+          minlength: 5
         }
       },
       messages: {
@@ -62,14 +72,29 @@ javascript:
         },
         "user[phone]":{
           required: 'Please enter a phone number',
-          rangelength: 'Phone number is too short or too long'
+          rangelength: 'Phone number is not exist'
+        },
+        "user[first_name]":{
+          required: 'Please enter your first name',
+          minlength: 'Your firts name is too short'
+        },
+        "user[last_name]":{
+          required: 'Please enter your last name',
+          minlength: 'Your last name is too short'
         } 
       },
       highlight: function(element){
-        $('input#user_username').parent('.col-xs-9').addClass('has-error');
+        $(element).closest('.form-group').addClass('has-error');
+      },
+      unhighlight: function(element){
+        $(element).closest('.form-group').removeClass('has-error');
+      },
+      submitHandler: function(form) {
+        $('form').find(":submit").attr("disabled", true).attr("value","Submitting...");
+        form.submit();
       },
       errorClass: 'help-block',
-      errorPlacement: function(error, element){
+      errorPlacement: function(error, element) {
         error.insertAfter(element);
       }
     });

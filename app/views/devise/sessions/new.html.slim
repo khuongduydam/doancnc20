@@ -14,8 +14,10 @@
     br  
     = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:'form-horizontal',id:'signinForm'},wrapper: :horizontal_form) do |f|
       = devise_error_messages!
-      = f.input :username,label_html:{style:'font-weight:100;color:black'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family: arial,serif;'}
-      = f.input :password,label_html:{style:'font-weight:100;color:black'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family:Ubuntu,serif;'}
+      .form-group
+        = f.input :username,label_html:{style:'font-weight:100;color:black'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family: arial,serif;'}
+      .form-group  
+        = f.input :password,label_html:{style:'font-weight:100;color:black'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family:Ubuntu,serif;'}
       = f.submit "Đăng nhập", class:'btn btn-primary',style:'width: 80%;border-radius: 15px;background: #aad367;border-color: #aad367;margin-left:35%;'
       |
       .forgot-password[style="margin:-9% 0 0 141%;width:100%"]
@@ -51,25 +53,19 @@ javascript:
           minlength: 'Your password is too short'
         }
       },
-      errorElement: 'em',
-      errorPlacement: function(error, element){
-        error.addClass('help-block');
-        if(element.prop('type') === 'checkbox'){
-          error.insertAfter(element.parent('label'));
-        }
-        else{
-          error.insertAfter(element);
-        }
+      highlight: function(element){
+        $(element).closest('.form-group').addClass('has-error');
       },
-      highlight: function(element, errorClass, validClass){
-        $(element).parents('.col-sm-9').addClass('has-error').removeClass('has-success');
-      },
-      unhighlight: function(element, errorClass, validClass){
-        $(element).parents('.col-sm-9').addClass('has-success').removeClass('has-error');
+      unhighlight: function(element){
+        $(element).closest('.form-group').removeClass('has-error');
       },
       submitHandler: function(form) {
         $('form').find(":submit").attr("disabled", true).attr("value","Submitting...");
         form.submit();
-      }
+      },
+      errorClass :'help-block',
+      errorPlacement: function(error, element){
+        error.insertAfter(element);
+      },
     });
   });

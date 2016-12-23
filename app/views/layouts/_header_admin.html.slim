@@ -10,14 +10,11 @@ header.backend
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        a.navbar-brand href="#" 
-          | Administrator
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.navbar-right
-          li
-            a href="localhost:3000" target="_blank"  Visit Site
-          li.dropdown
-            a href="#"  Logout
+          .btn-group
+              = link_to 'Visit Site', root_path, class:'btn btn-success btn-sm',style:'font-size:15px'
+              = link_to 'Logout', destroy_user_session_path, method: :delete,data:{confirm: 'Are you sure?'},class:'btn btn-danger btn-sm',style:'font-size:15px'
 javascript:
   $(function () {
       $('.navbar-toggle-sidebar').click(function () {

@@ -1,14 +1,20 @@
 #new_user{
-  margin: 1% 0 0 -10%;
+  margin: 1% 0 0 -7%;
   text-align: left;
-  width: 123%;
+  width: 100%;
   label{
     text-align: left;
-    font-weight: 100;
-    width: 50%;
+    font-weight: 700;
+    width: 70%;
     abbr{
       display: none;
     }
+  }
+  label.col-sm-3{
+    width: 15%;
+  }
+  .col-sm-9{
+    width:40%;
   }
   input,select{
     border-radius: 0;
@@ -17,11 +23,12 @@
     text-align: left;
   }
   .btn.btn-primary{
-    margin-left: 15px;
+    outline: none;
+    margin: 0 0 0 14%;
     border-radius: 15px;
     width: 20%;
-    margin-top: 45%;
-    background-color: #aad367;
-    border-color: #aad367
+    background-color: #93b82e;
+    border-color: #93b82e;
+    border-radius: 15px;
   }
 }

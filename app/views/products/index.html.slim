@@ -110,9 +110,6 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
             .col-xs-12
               = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
 
-    
-= link_to 'Log out', destroy_user_session_path,method: :delete,class:'btn btn-success'
-
 javascript:
   function htmlbodyHeightUpdate(){
     var height3 = $( window ).height()

@@ -1,3 +1,103 @@
+/ header.frontend.hidemobile
+/   nav.navbar.sidebar role="navigation" 
+/     .container-fluid
+/       .navbar-header
+/         button.navbar-toggle data-target="#bs-sidebar-navbar-collapse-1" data-toggle="collapse" type="button" 
+/           span.sr-only Toggle navigation
+/           span.icon-bar
+/           span.icon-bar
+/           span.icon-bar
+/         a.navbar-brand 
+/           = image_tag("logo.png", class:'logo center-block')
+/         .icon.text-center
+/           / a href="#"
+/           /   i.fa.fa-user-o.fa-2
+/           = link_to '<i class="fa fa-user-o fa-2"></i>'.html_safe, new_user_session_path,style:"font-size:20px;"
+/           a href="#"
+/             i.fa.fa-search data-target="#myModal" data-toggle="modal"
+/           #myModal.modal.fade role="dialog" 
+/             .modal-dialog.modal-lg
+/               .modal-content
+/                 .modal-header
+/                   i.close[data-dismiss="modal"] &times;
+/                   h4.modal-title Search
+/                 .modal-body
+/                   .header-nav-search-con
+/                     .container-full
+/                       / form.global-search action="/search" 
+/                       /   input.input placeholder=("Search by fruit name") type="text" value="" 
+/                       /   input.global-button type="submit" value="Submit" 
+/                       /   input#q name="q" type="hidden" value="" 
+/                       /   input name="type" type="hidden" value="product" 
+/                       = form_tag products_path, :method => 'get', :id => "products_search" do
+/                         p
+/                           = text_field_tag :search, params[:search], placeholder: "Search by fruit name, origin"
+/                           p
+/                             | Category 
+/                             = select_tag :category, options_from_collection_for_select(categories_list_head, "id", "name",""), include_blank: true
+/                           p
+/                             | Price 
+/                             = text_field_tag :minValue, params[:minValue], style: "width:50px"
+/                             |  - 
+/                             = text_field_tag :maxValue, params[:maxValue], style: "width:50px"
+/                           p
+/                             = submit_tag "Search", :name => nil, style: "float: right"
+/                 .modal-footer
+/                   / button.btn.btn-default data-dismiss="modal" type="button"  Close
+/           //a href="#"
+/             i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
+/           = link_to '<i class="fa fa-cart-plus fa-2"></i>'.html_safe, cart_path(@cart),style:"font-size:20px;"
+/           //= render 'layouts/cart_text'
+/       #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
+/         ul.nav.navbar-nav.text-center
+/           li.active
+/             /a href="#" 
+/               | OUR FRUITS
+/             = link_to 'OUR FRUITS', products_path   
+/           liCATEGORY
+
+/             a
+/               | CATEGORY
+/             .list-cate.text-center[style="list-style-type: none;"]
+/               - categories_list_head.each do |category|
+/                 - if category.products.size!=0
+/                   p 
+/                     = link_to category.name, category_path(category.id)
+/           li
+/             a href="#" 
+/               | ORDER GUIDE
+/           li
+/             = link_to 'INFORMATIONS', newspapers_path
+/           li
+/ / <<<<<<< HEAD
+/ /             = link_to 'CONTACTS', contacts_path
+/ /       = render 'layouts/flash_messages'
+/ /       = link_to 'Log out', destroy_user_session_path, method: :delete, class:'btn btn-danger'            
+
+/             = link_to "CONTACTS", new_contact_path
+/           h4[style="padding-top:50px;margin-top:160px;"]
+/             | Total: 
+/             strong#cart-total-price
+/               = @cart.total_price.to_i
+/             span 
+/               | (vnd)
+/           .btn-group[style="margin-top:-20px;"]     
+/             - if user_signed_in?
+/               = link_to 'Checkout', new_order_member_path,class:'btn btn-primary'
+/             - else  
+/               = link_to 'Checkout', new_order_path,class:'btn btn-primary'     
+/ javascript:
+/   list = $('.list-cate').hide();
+/   cate = $('.navbar-nav>li:nth-child(2)');
+/   cate.on('click',function(){
+/     list.animate({height:'toggle'},300);
+/   });
+
+/   $('.search').hide();
+/   $('.fa.fa-search').on('click',function(){
+/    $('.search').fadeToggle('slow');
+/   });
+
 header.frontend.hidemobile
   nav.navbar.sidebar role="navigation" 
     .container-fluid
@@ -14,39 +114,7 @@ header.frontend.hidemobile
           /   i.fa.fa-user-o.fa-2
           = link_to '<i class="fa fa-user-o fa-2"></i>'.html_safe, new_user_session_path,style:"font-size:20px;"
           a href="#"         
-/ <<<<<<< HEAD
-/             i.fa.fa-search.fa-2[style="font-size:20px;"]
-
-            i.fa.fa-search data-target="#myModal" data-toggle="modal"
-          #myModal.modal.fade role="dialog" 
-            .modal-dialog.modal-lg
-              .modal-content
-                .modal-header
-                  i.close data-dismiss="modal"  &times;
-                  h4.modal-title Search
-                .modal-body
-                  .header-nav-search-con
-                    .container-full
-                      / form.global-search action="/search" 
-                      /   input.input placeholder=("Search by fruit name") type="text" value="" 
-                      /   input.global-button type="submit" value="Submit" 
-                      /   input#q name="q" type="hidden" value="" 
-                      /   input name="type" type="hidden" value="product" 
-                      = form_tag products_path, :method => 'get', :id => "products_search" do
-                        p
-                          = text_field_tag :search, params[:search], placeholder: "Search by fruit name, origin"
-                          p
-                            | Category 
-                            = select_tag :category, options_from_collection_for_select(categories_list_head, "id", "name",""), include_blank: true
-                          p
-                            | Price 
-                            = text_field_tag :minValue, params[:minValue], style: "width:50px"
-                            |  - 
-                            = text_field_tag :maxValue, params[:maxValue], style: "width:50px"
-                          p
-                            = submit_tag "Search", :name => nil, style: "float: right"
-                .modal-footer
-                  / button.btn.btn-default data-dismiss="modal" type="button"  Close
+            i.fa.fa-search.fa-2[style="font-size:20px;"]
           //a href="#"
             i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
           = link_to '<i class="fa fa-cart-plus fa-2"></i>'.html_safe, cart_path(@cart),style:"font-size:20px;"
@@ -58,43 +126,23 @@ header.frontend.hidemobile
               | OUR FRUITS
             = link_to 'OUR FRUITS', products_path   
           li
-            a
+            a href="#" 
               | CATEGORY
             .list-cate.text-center[style="list-style-type: none;"]
               - categories_list_head.each do |category|
                 - if category.products.size!=0
                   p 
-                    = link_to category.name, category_path(category.id)
-              / a href="#"  Action
-              / br
-              / a href="#"  Another action
-              / br
-              / a href="#"  Something else here              
+                    = link_to category.name, category_path(category.id)             
           li
             a href="#" 
               | ORDER GUIDE
           li
             = link_to 'INFORMATIONS', newspapers_path
           li
-/ <<<<<<< HEAD
-/             = link_to 'CONTACTS', contacts_path
-/       = render 'layouts/flash_messages'
-/       = link_to 'Log out', destroy_user_session_path, method: :delete, class:'btn btn-danger'            
-
-            = link_to "CONTACTS", new_contact_path
-          h4[style="padding-top:50px;margin-top:160px;"]
-            | Total: 
-            strong#cart-total-price
-              = @cart.total_price.to_i
-            span 
-              | (vnd)
-          .btn-group[style="margin-top:-20px;"]     
-            - if user_signed_in?
-              = link_to 'Checkout', new_order_member_path,class:'btn btn-primary'
-            - else  
-              = link_to 'Checkout', new_order_path,class:'btn btn-primary'     
+            = link_to 'CONTACTS', contacts_path
+      = render 'layouts/flash_messages'
 javascript:
-  list = $('.list-cate').hide();
+  //list = $('.list-cate').hide();
   cate = $('.navbar-nav>li:nth-child(2)');
   cate.on('click',function(){
     list.animate({height:'toggle'},300);
@@ -103,4 +151,4 @@ javascript:
   $('.search').hide();
   $('.fa.fa-search').on('click',function(){
    $('.search').fadeToggle('slow');
-  });
+  });  
