@@ -1,0 +1,21 @@
+<script type="text/javascript">
+  $('#search').keyup(function(){
+     val = $(this).val();
+     $.ajax({
+       type:'get',
+       url: '/admins/categories',
+       dataType:'json',
+       data: {search: val},
+       success: function(data){
+         $('tbody').empty();
+         //console.log(data)
+         $.each(data.data,function(key,value){
+           //console.log(key)
+           //console.log(value)
+           // console.log(data[1])
+           $('tbody').append("<tr class='danger'><td>"+value.name_cat+"</td><td>"+value.sl+"</td><td><a href='/admins/categories/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/categories/"+value.id+"/edit' class='btn btn-warning' style='margin-left:20px;'>Edit</a><a data-confirm='Are you sure? All products of this category will be delete.' data-method='delete' href='/admins/categories/"+value.id+"' class='btn btn-danger' style='margin-left:20px;'>Delete</a></td></tr>")
+         })
+       }
+     });
+   })
+</script>

@@ -1,11 +1,12 @@
 = simple_form_for [:admins, @product], :html => { :multipart => true, :id => "form_product" } do |f|
   / = render 'my_devise/registrations/form', locals: {f:f}
   / = render 'shared/error_messages', object: f.object
-  .field 
+  .field
     = f.input :name
     
   .field 
-    = f.input :price, label: "* Price ()"
+    = f.input :price, label: "* Price (VND)"
+    br
   .field
     = f.input :price_discount  
   .field 
@@ -24,7 +25,7 @@
     
   .field 
     - if params[:controller] == 'admins/products' && (params[:action] == 'new' || params[:action] == 'create' )
-        = f.input :quantity, label: "Quantity (kg)",min: 1
+      = f.input :quantity, label: "Quantity (kg)",min: 1
     - if params[:controller] == 'admins/products' && (params[:action] == 'edit' || params[:action] == 'update' )
       = f.input :quantity, label: "Now have quantity (kg)", readonly: true
       = f.label "Add Quantity (kg)"
@@ -63,11 +64,12 @@ javascript:
     $("#form_product").validate({
       rules: {
         "product[name]": {required: true, minlength: 2, maxlength: 100},
-        "product[price]": {required: true, number: true},
+        "product[price]": {required: true, number: true, min: 5000, max: 1000000},
+        "product[price_discount]": {number: true, min: 5000, max: (parseInt($("#product_price").val()))},
         "product[origin]": {required: true, minlength: 3, maxlength: 255},
         "product[quantity]": {required: true, digits: true, min: 1, max: 1000},
         "product[description]": {required: true, minlength: 10, maxlength: 255},
-        "product[addQuantity]": {digits: true, min: 1, max: 1000}
+        "product[addQuantity]": {digits: true, min: 1, max: (1000-parseInt($("#product_quantity").val())) }
       }
     });
 

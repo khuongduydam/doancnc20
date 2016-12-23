@@ -1,48 +1,3 @@
-link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css"] 
-.container-fluid.hidden-xs
-  #first-slider
-    #carousel-example-generic.carousel.slide.carousel-fade
-      ol.carousel-indicators
-        li.active[data-target="#carousel-example-generic" data-slide-to="0"]
-        li[data-target="#carousel-example-generic" data-slide-to="1"]
-        li[data-target="#carousel-example-generic" data-slide-to="2"]
-      .carousel-inner[role="listbox"]
-        .item.active.slide1
-          .row
-            .container
-              .col-md-3.text-right
-                /img[style="max-width: 200px;" data-animation="animated zoomInLeft" src="http://s20.postimg.org/pfmmo6qj1/window_domain.png"]
-              .col-md-9.text-left
-                h3[data-animation="animated bounceInDown"]
-                  | Add images, or even your logo!
-                h4[data-animation="animated bounceInUp"]
-                  | Easily use stunning effects
-        .item.slide2
-          .row
-            .container
-              .col-md-7.text-left
-                h3[data-animation="animated bounceInDown"]
-                  |  50 animation options A beautiful
-                h4[data-animation="animated bounceInUp"]
-                  | Create beautiful slideshows 
-              .col-md-5.text-right
-        .item.slide3
-          .row
-            .container
-              .col-md-7.text-left
-                h3[data-animation="animated bounceInDown"]
-                  | Simple Bootstrap Carousel
-                h4[data-animation="animated bounceInUp"]
-                  | Bootstrap Image Carousel Slider with Animate.css
-              .col-md-5.text-right
-      a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
-        i.fa.fa-angle-left
-        span.sr-only
-          | Previous
-      a.right.carousel-control[href="#carousel-example-generic" role="button" data-slide="next"]
-        i.fa.fa-angle-right
-        span.sr-only
-          | Next
 .container-fluid[style="padding:0px;"]
   ul.nav.nav-pills
     li.active.col-xs-6
@@ -52,41 +7,33 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
   .tab-content
     #all-fruits.tab-pane.fade.in.active
       br
-/ <<<<<<< HEAD
-/       - @product_news.each do |product|
-/         .col-xs-6.col-sm-4.col-md-3.img2
-
       - @products.each do |product|
         .col-xs-6.col-sm-4.col-md-3
           - if product.pictures.present?
             = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
           - else  
             = link_to image_tag('default.png'), product_path(product)
-          .col-xs-10.info
-            span.name
+          .col-xs-10
+            span
               = product.name
-              span.origin
+              | (
+              = product.origin  
+              | )
+            br  
+              - if product.price_discount.present? 
+                span              
+                  = number_with_delimiter(product.price_discount,delimiter: '.')
+                  |(vnd)
                 br
-                = product.origin  
-            br   
-            - if product.price_discount.present? 
-              span.price              
-                = number_with_delimiter(product.price_discount,delimiter: '.')
-                |(vnd)
-              br
-              span.discount
-                = number_with_delimiter(product.price,delimiter: '.')
-                |(vnd)
-              span.percent
-                |  -
-                = ((1- (product.price_discount.to_f / product.price)) * 100).round
-                | %
-              = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
-            - else
-              span.price              
-                = number_with_delimiter(product.price,delimiter: '.')
-                |(vnd)
-              br
+                span.discount
+                  = number_with_delimiter(product.price,delimiter: '.')
+                  |(vnd)
+                span.percent
+                  |  -
+                  = ((1- (product.price_discount.to_f / product.price)) * 100).round
+                  | %
+            /.col-xs-6.pull-left
+            .col-xs-12
               = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
     #premium-fruits.tab-pane.fade
       br

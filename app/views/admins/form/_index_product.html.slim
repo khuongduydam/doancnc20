@@ -1,19 +1,21 @@
 .table-responsive
-  table.table
+  table.table.pretty#products
     thead
       tr.info
-        th Name
-        th Price
-        th Quantity
-        th Origin
+        th name
+        th price
+        th quantity
+        th origin
+        th created_at
         th[style="width:300px;"] Property
     tbody
       - @products.each do |product|
         tr.danger
           td = product.name
-          td =  product.price
+          td = product.price
           td = product.quantity
           td = product.origin
+          td = product.created_at.strftime("%B %e, %Y")
           td 
             = link_to 'Detail', admins_product_path(product),class: 'btn btn-info'
             = link_to 'Edit', edit_admins_product_path(product), class: 'btn btn-warning',style: 'margin-left:20px;'

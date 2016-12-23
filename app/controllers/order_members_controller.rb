@@ -3,14 +3,12 @@ class OrderMembersController < ApplicationController
   
   # daisy
   def update_coin_total
-    # params[:a] 
-    # params[:gia_tien]
-
     order_mem = OrderMember.find(params[:id]).total_price=params[:total_after]
     order_mem.save
     # kjdfsj
-    user = User.find(params[:id]).coin = params[:coin]
+    user = User.find(current_user.id).coin = params[:coin]
     user.save
+    
 
     # respond_to do |format|
     #   format.js
@@ -18,7 +16,7 @@ class OrderMembersController < ApplicationController
 
   end
   # end daisy
-  
+   
   def new
     if @cart.order_items.empty?
       redirect_to root_path
@@ -31,6 +29,10 @@ class OrderMembersController < ApplicationController
     @order_member = OrderMember.new(member_params)
     @order_member.add_order_items_from_cart(@cart)
     @order_member.total_price = @cart.total_price
+    coin = params[:order_member][:coinUse]
+    coinToI = coin.to_f
+    coinToVND = coinToI * 22700
+    @order_member.total_price -= coinToVND
     if @order_member.pay_type == 'Direct' && @order_member.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
@@ -54,10 +56,12 @@ class OrderMembersController < ApplicationController
     if @order_member.status == "Complete" && @order_member.save
       p 'update'
       o_coin = @order_member.total_price*0.005 + user.coin
-      p 'update coin'
-      p user.errors.messages
       user.update_attributes(coin: o_coin)
+      p "*"*50
       p user.errors.messages
+      p "*"*50
+
+      user.update_attributes(coin: o_coin)
       flash[:success] = "Order is completed, ready to delivery"
       p 'update success coind'
       redirect_to admins_order_members_path

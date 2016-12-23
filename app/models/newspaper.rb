@@ -12,7 +12,7 @@ class Newspaper < ApplicationRecord
 
   def self.search(search)
     if search
-      where('LOWER(title) LIKE ?',"%#{search.downcase}%")
+      where('LOWER(title) ILIKE ? or LOWER(content) ILIKE ?',"%#{search}%","%#{search}%")
     else
       # scoped
       all
@@ -21,6 +21,6 @@ class Newspaper < ApplicationRecord
 
   private
   def titleize_firstcharac
-    self.title = title.mb_chars.titleize.to_s
+    self.title = title.mb_chars.upcase.to_s
   end
 end

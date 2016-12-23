@@ -1,6 +1,14 @@
 class Admins::OrdersController < AdminsController
   before_action :find_order, only: [:show, :destroy, :edit]
 
+  def index
+    @orders = Order.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+    respond_to do |format|
+      format.html
+      format.json {render json: {data: @orders}}
+    end
+  end
+
   def show
   end
 

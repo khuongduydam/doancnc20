@@ -27,7 +27,7 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
-      where('LOWER(username) LIKE ? or LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ?',"%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
+      where('LOWER(username) ILIKE ? or LOWER(email) ILIKE ? or LOWER(first_name) ILIKE ? or LOWER(last_name) ILIKE ?',"%#{search}%","%#{search}%","%#{search}%","%#{search}%")
     else
       # scoped
       all

@@ -9,11 +9,11 @@ class Product < ActiveRecord::Base
 
   VALID_TEXT_REGEX = /\w+/
   validates :name,  presence: true, uniqueness: {case_sensitive: false}, format: {with: VALID_TEXT_REGEX, message: "can only contain letters and numbers."}
-  validates_numericality_of :price,  presence: true, greater_than: 0
+  validates_numericality_of :price,  presence: true, greater_than: 4999, less_than: 1000001
   validates_numericality_of :price_discount, allow_blank: true, less_than: :price
   validates :origin, presence: true, length: {minimum: 3}, format: {with: VALID_TEXT_REGEX, message: "can only contain letters and numbers."}
   validates :description, presence: true, length: {minimum: 10}, format: {with: VALID_TEXT_REGEX, message: "can only contain letters and numbers."}
-  validates_numericality_of :quantity, greater_than: 0, less_than: 1000, presence: true
+  validates_numericality_of :quantity, greater_than: 0, less_than: 1001, presence: true
   
   before_destroy :ensure_not_referenced_by_any_order_item
   before_save :titleize_name
@@ -23,6 +23,32 @@ class Product < ActiveRecord::Base
       where('LOWER(name) ILIKE ? or LOWER(origin) ILIKE ?',"#{search}%","#{search}%")
     else
       # scoped
+      all
+    end
+  end
+  
+  def self.search_filter(search, category, minValue, maxValue)
+    if search.present? || category.present? || minValue.present? || maxValue.present?
+      p "*"*80 
+      p "VAO MODEL"
+      p "*"*80 
+      product = all
+
+      product = where("LOWER(name) ILIKE ? or LOWER(origin) ILIKE ?","#{search}%","#{search}%") if search.present?
+      product = product.where("category_id = ?", category) if category.present?
+      if minValue.present? && maxValue.present?
+        product = product.where("? <= price", minValue)
+        product = product.where("price <= ?", maxValue)
+      else
+        product = product.where("price <= ?", minValue) if minValue.present?
+        product = product.where("price >= ?", maxValue) if maxValue.present?
+      end
+
+      p "*"*80 
+      p product
+      p "*"*80 
+      return product
+    else
       all
     end
   end

@@ -2,6 +2,10 @@ class Admins::UsersController < AdminsController
   before_action :find_user, except: :index
   def index
     @users = User.all.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    respond_to do |format|
+      format.html
+      format.json {render json: {data: @users}}
+    end
   end
 
   def show

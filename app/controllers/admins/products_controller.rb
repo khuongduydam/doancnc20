@@ -1,4 +1,5 @@
 class Admins::ProductsController < AdminsController
+  helper_method :sort_column, :sort_direction
   def index
     @products = Product.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 10, :page => params[:page])
     respond_to do |format|
@@ -6,7 +7,7 @@ class Admins::ProductsController < AdminsController
       format.json{render json: {data: @products}}
     end
   end 
-  
+
   def new
     @product = Product.new
   end

@@ -8,9 +8,27 @@ section.layout-adminproduct
         .row.main-body
           .col-md-12.bodyad
             = form_tag admins_order_members_path, :method => 'get', :id => "order_members_search" do
-                = text_field_tag :search, params[:search], placeholder: "Search", class:'form-control',style:'width:200px;'
-                = submit_tag "Search",type:'hidden'
+              p
+                = text_field_tag :search, params[:search], class: 'form-control', style: 'width: 50%;', placeholder: "Search by username, fullname,phone,...."
+                / = submit_tag "Search"
             br
         .row.main-body
           .col-md-12.bodyad
             = render 'admins/form/index_member'
+javascript:
+ $('#search').keyup(function(){
+   val = $(this).val();
+   $.ajax({
+     type:'get',
+     url: '/admins/order_members',
+     dataType:'json',
+     data: {search: val},
+     success: function(data){
+       $('tbody').empty();
+       $.each(data.data,function(key,value){
+         $('tbody').append("<tr class='danger'><td class='text-center'>"+value.username+"</td><td class='text-center'>"+value.fullname+"</td><td class='text-center'>"+value.address+"</td><td class='text-center'>"+value.phone+"</td><td class='text-center'>"+value.email+"</td><td class='text-center' style='color:red;'>"+value.status+"</td><td class='text-center' style='color:red;'>"+value.pay_type+"</td><td class='text-center' style='color:red;'>"+value.total_price+"</td><td class='text-center btn-group'><a href='/admins/order_members/"+value.id+"' class='btn btn-info btn-xs'>Detail</a><a href='/admins/order_members/"+value.id+"/edit' class='btn btn-warning btn-xs'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/order_members/"+value.id+"' class='btn btn-danger btn-xs'>Delete</a></td></tr>")
+       })
+     }
+   });
+ })
+

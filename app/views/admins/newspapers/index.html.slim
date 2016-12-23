@@ -1,7 +1,12 @@
 section.layout-admininformation
   .container
     .row
-      .main-adminproduct
+/ <<<<<<< HEAD
+/       .main-adminproduct
+
+      .col-md-2.list-group
+        = render 'admins/left'
+      .col-md-10.main-adminproduct
         .page-title
           h1.page-header.pull-left
             | <i class="fa fa-file" aria-hidden="true"></i> NEWSPAPERS
@@ -12,9 +17,26 @@ section.layout-admininformation
           .col-md-12.bodyad
             = form_tag admins_newspapers_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: "Title, ...."
-                = submit_tag "Search", :name => nil
+                = text_field_tag :search, params[:search], placeholder: "Search by title, content", class: 'form-control', style: 'width: 50%;'
+                / = submit_tag "Search", :name => nil
         .row.main-body
           .col-md-12.bodyad
             = render 'admins/form/index_newspaper'
             = link_to "Back", :back, class: "btn btn-default"
+javascript:
+ $('#search').keyup(function(){
+   val = $(this).val();
+   $.ajax({
+     type:'get',
+     url: '/admins/newspapers',
+     dataType:'json',
+     data: {search: val},
+     success: function(data){
+       $('tbody').empty();
+       $.each(data.data,function(key,value){
+         $('tbody').append("<tr class='danger'><td>"+value.title+"</td><td>"+value.content.substr(0, 200)+"</td><td>"+value.created_at+"</td><td><a href='/admins/newspapers/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/newspapers/"+value.id+"/edit' class='btn btn-warning' style='margin-left:20px;'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/newspapers/"+value.id+"' class='btn btn-danger' style='margin-left:20px;'>Delete</a></td></tr>")
+       })
+     }
+   });
+ })
+
