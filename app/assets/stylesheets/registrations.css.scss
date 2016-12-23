@@ -1,0 +1,27 @@
+#new_user{
+  margin: 1% 0 0 -10%;
+  text-align: left;
+  width: 123%;
+  label{
+    text-align: left;
+    font-weight: 100;
+    width: 50%;
+    abbr{
+      display: none;
+    }
+  }
+  input,select{
+    border-radius: 0;
+  }
+  .user_username{
+    text-align: left;
+  }
+  .btn.btn-primary{
+    margin-left: 15px;
+    border-radius: 15px;
+    width: 20%;
+    margin-top: 45%;
+    background-color: #aad367;
+    border-color: #aad367
+  }
+}

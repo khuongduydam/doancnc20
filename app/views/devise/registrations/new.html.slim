@@ -1,21 +1,76 @@
-.container.center-block.well[style="width:800px;"]
-  h2.text-center
-    | Create a new account
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-group'}) do |f|
-    .row
-      .col-xs-4
+.col-xs-12.col-md-12.create-account[style="padding:0px"]
+  .banner[style="font-family: 'Tangerine', serif;margin-left:6%;"]
+    h1 Create An Account
+  hr[style="border:1px solid red"]   
+  .container.center-block[style="width:800px;"]
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-horizontal pull-left'},wrapper: :horizontal_form) do |f|
+      .col-xs-6.col-md-6.left
         = f.input :username, autofocus: true,class: 'form-control'
         = f.input :email, class: 'form-control'
         = f.input :password, autocomplete: "off",class: 'form-control'
         = f.input :password_confirmation, autocomplete: "off",class:'form-control'
-      .col-xs-4
+        = f.input :sex, as: :select, collection: [['Male'],['Female']],include_blank: 'Choose one'
+      .col-xs-6.col-md-6.right  
         = f.input :address, class:'form-control'
         = f.input :first_name, class:'form-control'
         = f.input :last_name, class:'form-control'
-        = f.input :phone, class:'form-control'
-        = f.submit "Sign up", class:'btn btn-primary center-block'
-        br
-        = link_to 'Home Page', products_path, class: 'btn btn-success'
-      .col-xs-4
-        = f.input :sex, as: :select, collection: [['Male'],['Female']],include_blank: 'Choose one'
+        = f.input :phone,class:'form-control'
         = f.input :birth_day, as: :string, input_html: {type: :date}
+      = f.submit "Sign up", class:'btn btn-primary center-block'
+  
+javascript:
+  $(document).ready(function(){
+    $('form#new_user').validate({
+      rules: {
+        "user[username]": {
+          required: true,
+          minlength:2
+        },
+        "user[password]": {
+          required: true,
+          minlength: 4
+        },
+        "user[password_confirmation]":{
+          required: true,
+          minlength: 4
+        },
+        "user[email]":{
+          required: true,
+          email: true
+        },
+        "user[phone]":{
+          required: true,
+          rangelength: [10,11]
+        }
+      },
+      messages: {
+        "user[username]": {
+          required: 'Please enter a username',
+          minlength: 'Your username is too short'
+        },
+        "user[password]": {
+          required: 'Please enter a password',
+          minlength: 'Your password is too short'
+        },
+        "user[email]":{
+          required: 'Please enter a email',
+          email: 'Email is not valid'
+        },
+        "user[password_confirmation]": {
+          required: 'Please enter a password',
+          minlength: 'Your password is too short'
+        },
+        "user[phone]":{
+          required: 'Please enter a phone number',
+          rangelength: 'Phone number is too short or too long'
+        } 
+      },
+      highlight: function(element){
+        $('input#user_username').parent('.col-xs-9').addClass('has-error');
+      },
+      errorClass: 'help-block',
+      errorPlacement: function(error, element){
+        error.insertAfter(element);
+      }
+    });
+  });
