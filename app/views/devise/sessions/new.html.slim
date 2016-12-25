@@ -14,15 +14,15 @@
     br  
     = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:'form-horizontal',id:'signinForm'},wrapper: :horizontal_form) do |f|
       = devise_error_messages!
-      .form-group
+      .form-group[style="margin-left:-1px"]
         = f.input :username,label_html:{style:'font-weight:100;color:black'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family: arial,serif;'}
-      .form-group  
+      .form-group[style="margin-left:-1px"]  
         = f.input :password,label_html:{style:'font-weight:100;color:black'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family:Ubuntu,serif;'}
       = f.submit "Đăng nhập", class:'btn btn-primary',style:'width: 80%;border-radius: 15px;background: #aad367;border-color: #aad367;margin-left:35%;'
       |
-      .forgot-password[style="margin:-9% 0 0 141%;width:100%"]
+      .forgot-password[style="margin:-9% 0 0 150%;width:100%"]
         = render 'devise/shared/forgot_password'
-    /= render 'devise/shared/omniauth'
+    = render 'devise/shared/omniauth'
 javascript:
   $(document).ready(function(){
     $('abbr').remove(); 

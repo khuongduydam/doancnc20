@@ -53,8 +53,8 @@
 		#all-fruits.tab-pane.fade.in.active{
 			.img2{
 				.img-thumbnail {
-				  min-width: 200px;
-				  min-height: 200px;
+				  width: 210px;
+				  height: 210px;
 				  padding: 4px;
 				  line-height: 1.42857143;
 				  background-color: #fff;
@@ -76,19 +76,22 @@
 					.price{
 						color: red;
 					}
-					.origin{
-					}
 					.discount{
 						text-decoration: line-through;
 					}
-					.cart-btn{
-						.btn-info{
-							border-radius: 15px;
-							margin-top: -170%;
-					    margin-left: 0px
-						}
-					}
 				}
+			}
+		}
+	}
+	img.img-thumbnail{
+		width: 200px;
+		height:200px;	
+	}
+	.info{
+		.cart-btn{
+			.btn.btn-info{
+				display: inline-block;
+				margin: -114% 0 0 -9%;
 			}
 		}
 	}

@@ -1,8 +1,27 @@
-nav.navbar.navbar-default.navbar-static-top {
+nav.navbar.navbar-default{
   background: none;
   border-color: #FFF;
+  margin-bottom: 0px;
+  ul.nav.navbar-nav{
+    background-color: #f0ad4e;
+  }
 }
 
-nav.navbar.navbar-default{
-  margin-bottom: 0px;
+a.list-group-item.active {
+  background-color: #f0ad4e;
+  border-color: #fff;
+  border-radius: 0;
+}
+
+a.list-group-item{
+  border-color: #fff;
+  border-radius: 0px; 
+}
+
+.list-group-item {
+  border-radius: 0px!important;
+}
+
+.list-group-item.active{
+  border-color: #fff!important;
 }

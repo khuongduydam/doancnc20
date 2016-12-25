@@ -1,11 +1,42 @@
 - if current_page?admins_path
-  = link_to '<i class="fa fa-home" aria-hidden="true"></i>  DASHBOARD'.html_safe, admins_path , lable: 'left', class: 'list-group-item active'
+  .side-menu
+    nav.navbar.navbar-default role="navigation" 
+      .side-menu-container
+        ul.nav.navbar-nav
+          li
+            = link_to "HOME", admins_path, label:'left',class:'list-group-item active'
 - else
-  = link_to '<i class="fa fa-home" aria-hidden="true"></i>  DASHBOARD'.html_safe, admins_path , lable: 'left', class: 'list-group-item'
-= active_link_to '<i class="fa fa-folder-open" aria-hidden="true"></i>  CATEGORIES'.html_safe, admins_categories_path, class: 'list-group-item'
-= active_link_to '<i class="fa fa-tachometer" aria-hidden="true"></i>  PRODUCT'.html_safe, admins_products_path, class: 'list-group-item '
-= active_link_to '<i class="fa fa-file" aria-hidden="true"></i>  NEWSPAPERS'.html_safe, admins_newspapers_path, class: 'list-group-item '
-= active_link_to '<i class="fa fa-user" aria-hidden="true"></i>  USERS'.html_safe, admins_users_path, class: 'list-group-item '
-= active_link_to '<i class="fa fa-handshake-o" aria-hidden="true"></i>  CONTACTS'.html_safe, admins_contacts_path, class: 'list-group-item '
-= active_link_to '<i class="fa fa-handshake-o" aria-hidden="true"></i>  ORDERS'.html_safe, admins_orders_path, class: 'list-group-item '
-= active_link_to '<i class="fa fa-handshake-o" aria-hidden="true"></i>  ORDER MEMBERS'.html_safe, admins_order_members_path, class: 'list-group-item '
+  .side-menu
+    nav.navbar.navbar-default role="navigation" 
+      .side-menu-container
+        ul.nav.navbar-nav
+          li
+            = link_to "HOME", admins_path, label:'left',class:'list-group-item'
+          li
+            = active_link_to "CATEGORY ", admins_categories_path, label:'left',class:'list-group-item'
+          li
+            = active_link_to "PRODUCT ", admins_products_path, label:'left',class:'list-group-item'
+          li
+            = active_link_to "NEWSPAPERS", admins_newspapers_path, label:'left',class:'list-group-item'
+          li
+            = active_link_to "USER", admins_users_path, label:'left',class:'list-group-item'
+          li
+            = active_link_to "CONTACT", admins_contacts_path, label:'left',class:'list-group-item'
+          li
+            = active_link_to "ORDER", admins_orders_path, label:'left',class:'list-group-item'
+          li
+            = active_link_to "ORDER MEMBER", admins_order_members_path, label:'left',class:'list-group-item'  
+javascript:
+  $(function () {
+    $('.navbar-toggle-sidebar').click(function () {
+      $('.navbar-nav').toggleClass('slide-in');
+      $('.side-body').toggleClass('body-slide-in');
+      $('#search').removeClass('in').addClass('collapse').slideUp(200);
+    });
+
+    $('#search-trigger').click(function () {
+      $('.navbar-nav').removeClass('slide-in');
+      $('.side-body').removeClass('body-slide-in');
+      $('.search-input').focus();
+    });
+  });

@@ -52,29 +52,26 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
   .tab-content
     #all-fruits.tab-pane.fade.in.active
       br
-/ <<<<<<< HEAD
-/       - @product_news.each do |product|
-/         .col-xs-6.col-sm-4.col-md-3.img2
-
-      - @products.each do |product|
-        .col-xs-6.col-sm-4.col-md-3
+      - @product_news.each do |product|
+        .col-xs-6.col-sm-4.col-md-3[style="min-width:250px;height:270px;"]
           - if product.pictures.present?
-            = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
+            = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product),style:'width:210px!important; height:210px!important;'
           - else  
-            = link_to image_tag('default.png'), product_path(product)
+            = link_to image_tag('default.png'), product_path(product),style:'width:210px; height:210px;'
           .col-xs-10.info
             span.name
               = product.name
+              | (
               span.origin
-                br
                 = product.origin  
+              |)  
             br   
             - if product.price_discount.present? 
-              span.price              
+              span.price[style="color:red;"]              
                 = number_with_delimiter(product.price_discount,delimiter: '.')
                 |(vnd)
               br
-              span.discount
+              span.discount[style="text-decoration:line-through;"]
                 = number_with_delimiter(product.price,delimiter: '.')
                 |(vnd)
               span.percent

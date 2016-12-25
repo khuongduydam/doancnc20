@@ -11,10 +11,9 @@ header.backend
           span.icon-bar
           span.icon-bar
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
-        ul.nav.navbar-nav.navbar-right
-          .btn-group
-              = link_to 'Visit Site', root_path, class:'btn btn-success btn-sm',style:'font-size:15px'
-              = link_to 'Logout', destroy_user_session_path, method: :delete,data:{confirm: 'Are you sure?'},class:'btn btn-danger btn-sm',style:'font-size:15px'
+        .btn-group
+          = link_to 'Visit Site', root_path, class:'btn btn-success btn-sm',style:'font-size:15px;border-radius: 0'
+          = link_to 'Logout', destroy_user_session_path, method: :delete,data:{confirm: 'Are you sure?'},class:'btn btn-danger btn-sm',style:'font-size:15px;border-radius: 0'
 javascript:
   $(function () {
       $('.navbar-toggle-sidebar').click(function () {

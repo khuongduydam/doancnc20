@@ -179,12 +179,5 @@ ActiveRecord::Schema.define(version: 20161223025309) do
     t.index ["user_id"], name: "index_wish_lists_on_user_id", using: :btree
   end
 
-  add_foreign_key "comments", "users"
-  add_foreign_key "order_items", "carts"
-  add_foreign_key "order_items", "orders"
-  add_foreign_key "order_items", "products"
-  add_foreign_key "order_members", "users"
-  add_foreign_key "products", "categories"
-  add_foreign_key "wish_lists", "products"
   add_foreign_key "wish_lists", "users"
 end

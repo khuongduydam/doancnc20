@@ -4,9 +4,9 @@
   hr[style="border:1px solid red"]   
   .container.center-block[style="width:800px;"]
     = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:'form-horizontal'},wrapper: :horizontal_form) do |f|
-      .form-group
-        = f.input :first_name,class: 'form-control'
-      .form-group
+      //.form-group
+        = f.input :first_name,label:'Full Name',class: 'form-control'
+      //.form-group
         = f.input :last_name,class: 'form-control'
       .form-group
         = f.input :username,class: 'form-control'

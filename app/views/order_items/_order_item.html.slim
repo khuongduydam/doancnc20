@@ -1,21 +1,17 @@
-tr.col-xs-4 id="#{order_item.id}"
-  td.col-xs-6
+tr id="#{order_item.id}"
+  td.col-xs-3.col-md-3
     = image_tag(order_item.product.pictures.first.image,class:'img-cart',style:'width:50%')
-    br
-    = form_for order_item, remote: true do |f| 
-      button.fa.fa-minus
-      = f.text_field :quantity, value: order_item.quantity.to_i,class:'form-control text-center', style:'width:80px; display:inline;padding:6px 0px',min:1,max: order_item.product.quantity
-      button.fa.fa-plus
-      = f.button :submit,class:'btn btn-success btn-xs','type'=>'hidden' do
-        <i class="fa fa-plus" aria-hidden="true"></i> 
-        
-    = link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe,order_item,method: :delete,remote: true,class:'btn btn-danger btn-xs'
-  td.col-xs-6[id="item-price"] 
-    h4.col-xs-12[style="margin-left:20px;color:#69353d"] = order_item.product.name
-    h3.col-xs-12
-      .col-xs-6#price[style="font-size:20px;color:red;width:100%;top:10px;"]  
-        = number_with_delimiter(order_item.product.price.to_i,delimiter: '.')
-        | (vnd)/kg
-    h3.col-xs-12
-      .col-xs-6#total-price  
-        = order_item.total_price.to_i 
+  td.col-xs-3.col-md-3
+    .name[style="margin-top:20%"]
+      = order_item.product.name
+  td.col-xs-3.col-md-3
+    = simple_form_for order_item do |f|
+      = f.input :quantity,as: :string,label_html:{style:'display:none'},input_html:{style:'margin-top:20%;padding:0px;text-align:center'}
+    .icon[style="margin:-18% 0 0 23%"]
+      | x
+    .price[style="color:red;margin:-8% 0 0 32%"] 
+      = order_item.product.price  
+  td.col-xs-3.col-md-3 
+    .total_price[style="margin-top:22%"]
+      = order_item.total_price
+    = link_to '&times'.html_safe,order_item,method: :delete,remote: true,class:'btn btn-danger btn-sm',style:'margin:-20% 0 0 50%;'

@@ -1,31 +1,22 @@
 #shopping-cart
   - unless @cart.order_items.empty?
-  .container-fluid[style="padding:20px 0px 0px 0px;"]
-    /h3
-      | Total: 
-      span[style="color:red;"] 
-      strong#cart-total-price[style="color:red;"] 
-        = @cart.total_price.to_i
-    .table-responsive
-      table.table
-        /thead
-          tr.danger
-            th.col-xs-3 Ten Sp
-            th.col-xs-3 So luong(kg)
-            th.col-xs-3 Don gia
-            th.col-xs-3 Thanh tien
-        tbody
-          #order-items
-            = render @order_items
+    .container-fluid
+      .table-responsive
+        table.table
+          tbody
+            #order-items
+              = render @order_items
          
     
 
 javascript:
   quantity = $('input#order_item_quantity');
-  cart_total = $('#cart-total-price');
+  cart_total = $('.total-money');
   button = $('tr').find('.btn-danger');
   total_items = $('.cart-text').text();
-  $('td#item-price>h3>.col-xs-6#total-price').hide();
+  if (('tr').length === 0){
+    $('tbody').append('<h1>Your cart is empty now, please buy something</h1>')
+  }
   button.on('click',function(){
     total_items -= 1;
     $('.cart-text').text(total_items);

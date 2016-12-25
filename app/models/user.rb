@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :confirmable,:database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2],
+         :omniauthable, :omniauth_providers => [:facebook],
          :authentication_keys => [:username]
   enum role: [:member, :admin]
 
