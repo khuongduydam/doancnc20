@@ -1,0 +1,33 @@
+section.layout-admincontact{
+  .container{
+    .row{
+      .list-group{
+        .active{
+          background-color: #1995dc;
+          border-color: #1995dc;
+          color: #ffffff;
+        }
+      }
+      .main-adminproduct{
+        .main-body{
+          .bodyad{
+            padding: 0;
+          }
+        }
+        margin-top: -13%;
+        .page-title{
+          .page-header.pull-left{
+            color: #1995dc;
+            border-bottom: none;
+          }
+          .pull-right{
+            .btn-default{
+              background-color: #1995dc!important;
+              border-color:#1995dc;
+              color: #ffffff;}
+          }
+        }
+      }
+    }
+  }
+}

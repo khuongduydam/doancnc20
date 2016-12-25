@@ -1,0 +1,19 @@
+@media screen and(width:1024px) {
+  .sidebar{
+    margin-top: -186px!important;
+  }
+  .content{
+    .layout-adminproduct{
+      margin-left: 25%;
+    }
+  }
+}
+
+@media screen and(width:1366px) {
+ .sidebar{
+    margin-top: -223px;
+ } 
+ .btn-group{
+    margin-left: 3%;
+ }
+}

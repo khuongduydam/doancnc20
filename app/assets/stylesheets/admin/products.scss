@@ -1,3 +1,23 @@
 // Place all the styles related to the admin/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.content{
+  label{
+    abbr{
+      display: none;
+    }
+  }
+  .modify-category{
+    width:100%;
+    margin: -18% 0 0 20%;
+  }
+}
+
+.layout-adminproduct{
+  margin-top: -15%;
+  .page-title{
+    h1.page-header.pull-left{
+      border-bottom: none;
+    }
+  }
+}

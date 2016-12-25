@@ -50,7 +50,9 @@ header.frontend.hidemobile
           //a href="#"
             i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
           = link_to '<i class="fa fa-cart-plus fa-2"></i>'.html_safe, cart_path(@cart),style:"font-size:20px;"
-          //= render 'layouts/cart_text'
+          |
+          .cart-text[style="position: relative;top: -257%;left: 79%;width: 10%;height: 37%;background: rgba(255, 0, 0, 0.83);border-radius: 15px;color: #fff"]
+            = render 'layouts/cart_text'
       #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.text-center
           li.active
@@ -76,7 +78,7 @@ header.frontend.hidemobile
         i.fa.fa-money[style="font-size:30px;margin-top:10%"]
           |  = 
         .total-money[style="margin:-17% 0 0 33%; font-size:2em;color:red"]
-          = number_with_delimiter(@cart.total_price, delimiter:'.')
+          = @cart.total_price
         = link_to 'Checkout',new_order_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
       = render 'layouts/flash_messages'
       - if user_signed_in?
