@@ -1,21 +1,21 @@
 section.sections-shoppingguide
-  .container
-    .row
-      .col-md-9.menutab
+  .container[style="width:100%"]
+    .row[style="margin-top:5%"]
+      .col-md-12.menutab
         ul.nav.nav-tabs
           li.active
-            a[data-toggle="tab" href="#menu"]
+            a[data-toggle="tab" href="#menu" style="border-radius:0"]
               | Phương thức đặt hàng
           li
-            a[href="#menu1" data-toggle="tab"]
+            a[href="#menu1" data-toggle="tab" style="border-radius:0"]
               | Phương thức giao hàng
           li
-            a[href="#menu2" data-toggle="tab"]
+            a[href="#menu2" data-toggle="tab" style="border-radius:0"]
               | Phí vận chuyển
           li
-            a[href="#menu3" data-toggle="tab"]
+            a[href="#menu3" data-toggle="tab" style="border-radius:0"]
               | Phương thức thanh toán
-        .well
+        .well[style="border-radius:0;padding-top:0;padding-bottom:10px;"]
           .tab-content
             #menu.tab-pane.fade.in.active
               p
@@ -97,44 +97,6 @@ section.sections-shoppingguide
                   span.phone
                     | hotline 0976001983 
                   | (sms viber zalo) hoặc fanpage 
-      .col-md-3.well-right
+      //.col-md-3.well-right
         = render 'form/right'
-                    
-      / .col-md-3.well-right
-      /   .well.well-swl
-      /     h4.title
-      /       | Sản Phẩm bán chạy
-      /     .sub_wish_list
-      /       .row
-      /         .col-sm-4.col-xs-12.col-img-swl
-      /           = image_tag('kiwivang.png')
-      /         .col-sm-8.col-xs-12.col-detail-swl
-      /           p
-      /             | Nho mỹ xanh
-      /           h4
-      /             | 370,000 D
-      /       .row
-      /         .col-sm-4.col-xs-12.col-img-swl
-      /           = image_tag('lemyxanh.png') 
-      /         .col-sm-8.col-xs-12.col-detail-swl
-      /           p
-      /             | Lê mỹ xanh
-      /           h4
-      /             | 80,000 D
-      /       .row
-      /         .col-sm-4.col-xs-12.col-img-swl
-      /           = image_tag('camxoan.png')
-      /         .col-sm-8.col-xs-12.col-detail-swl
-      /           p
-      /             | Cam Xoan
-      /           h4
-      /             | 80,000 D
-      /   .well.well-song
-      /     h4.title
-      /       | Video song
-      /     iframe.iframe-song(src="https://www.youtube.com/embed/GvxwyR88FoA" frameborder="0" allowfullscreen)
-      /   .well.well-face
-      /     h4.title
-      /       | Kết nối facebook
-      /     iframe.iframe[src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FFresh-Fruits-152473451889977%2F%3Fskip_nax_wizard%3Dtrue&tabs=292&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"  style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"]
-
+  

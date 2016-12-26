@@ -14,15 +14,6 @@ javascript:
   cart_total = $('.total-money');
   button = $('tr').find('.btn-danger');
   total_items = $('.cart-text').text();
-  //button.on('click',function(){
-    //total_items -= 1;
-    //$('.cart-text').text(total_items);
-    //if(total_items === 0){
-      //$('.btn-group .btn-danger')[0].click();
-      //$('.col-xs-12.col-sm-9')  .html('<div class="container">Cart is empty, please come back market to buy something</div>')
-    //}
-  //});
-
   quantity.on('change',function(){
     price = $(this).closest('tr').find('.price').text().match(/\d+/)[0]*1000;
     number = parseFloat($(this).closest('tr').find('input#order_item_quantity').val())

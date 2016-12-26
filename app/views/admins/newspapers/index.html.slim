@@ -1,11 +1,7 @@
 section.layout-admininformation
   .container
-    .row
-/ <<<<<<< HEAD
-/       .main-adminproduct
-
+    .row[style="width:100%;margin-top:-13%"]
       .col-md-2.list-group
-        //= render 'admins/left'
       .col-md-10.main-adminproduct
         .page-title
           h1.page-header.pull-left
@@ -18,9 +14,8 @@ section.layout-admininformation
             = form_tag admins_newspapers_path, :method => 'get', :id => "products_search" do
               p
                 = text_field_tag :search, params[:search], placeholder: "Search by title, content", class: 'form-control', style: 'width: 50%;'
-                / = submit_tag "Search", :name => nil
         .row.main-body
-          .col-md-12.bodyad
+          .col-md-12.bodyad[style="padding-right:0px;width:108%"]
             = render 'admins/form/index_newspaper'
             = link_to "Back", :back, class: "btn btn-default"
 javascript:

@@ -9,7 +9,7 @@
     = f.simple_fields_for :pictures do |picture|
       = image_tag picture.object.image_url
       = picture.file_field :image
-  
+  br
   = f.label :content
   - if @newspaper.errors.messages[:content].present?
     |  
@@ -17,15 +17,15 @@
       = @newspaper.errors.messages[:content][0]
   = f.cktext_area :content
   br
-  = f.submit
-  = link_to "Back", :back, class: "btn btn-default" 
+  .btn-group
+    = f.submit 'Create',class:'btn btn-success'
+    = link_to "Back", :back, class: "btn btn-warning" 
 javascript:
   $(document).ready(function () {
     $("#form_newspaper").validate({
       rules: {
         "newspaper[title]": {required: true, minlength: 10, maxlength: 255},
         "newspaper[content]": {required: true, minlength: 500}, 
-        // "newspaper[pictures_attributes][0][image]": {requie}
       }
     });
   });

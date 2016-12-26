@@ -1,25 +1,25 @@
 section.page-section-contact
-  .container
+  .container[style="width:100%"]
     .row
       .col-md-8
-        .well
+        .well.left
           h2
-            | Liên hệ
-          p Cảm ơn quý khách đã ghé thăm chúng tôi, mọi thắc mắc xin liên hệ theo sau
+            | Contact
+          p Thank you for visiting us. Please contact us as below
 
           = simple_form_for @contact, id: 'form-contact' do |f|
             .form-group#Inputname
-              = f.input :name, label: "Tên"
+              = f.input :name, label: "Name"
             .form-group#InputEmail
-              = f.input :address, label: "Địa chỉ"
+              = f.input :address, label: "Address"
             .form-group#InputMessange
-              = f.input :message, label: "Tin nhắn"
-            = f.submit "Gửi"
+              = f.input :message, label: "Messages"
+            = f.submit "Send",class:'btn btn-default'
       .col-md-4
-        .well
+        .well.right
           a[href="#"]
           h2
-            | Fresh Fruit
+            | Lazy Fruit
           div
             p
               | 139 AN DƯƠNG VƯƠNG - P.8 - Q.5 - TP.HCM
@@ -42,7 +42,7 @@ section.page-section-contact
             p
               | hoacomay@gmail.com
     .map
-      iframe.google-map[src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62717.96635840485!2d106.623847!3d10.744278!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752dd6a83baa45%3A0x9435595b072ab1bf!2zMjAwIEFuIETGsMahbmcgVsawxqFuZywgcGjGsOG7nW5nIDExLCBRdeG6rW4gNiwgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2sus!4v1479115634358" width="600" height="450" frameborder="0" style="border:0" allowfullscreen]
+      iframe.google-map[src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d62717.96635840485!2d106.623847!3d10.744278!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752dd6a83baa45%3A0x9435595b072ab1bf!2zMjAwIEFuIETGsMahbmcgVsawxqFuZywgcGjGsOG7nW5nIDExLCBRdeG6rW4gNiwgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2sus!4v1479115634358" width="600" height="450" frameborder="0" style="border:0;width:100%" allowfullscreen]
 
 javascript:
   $('ul.nav li.dropdown').hover(function() {
