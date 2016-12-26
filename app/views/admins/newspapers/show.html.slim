@@ -1,7 +1,9 @@
-section.sections-product
+section.layout-admincategory
   .container
     .row
-      .main-adminproduct
+      .col-md-2.list-group
+        //= render 'admins/sidebar'
+      .col-md-10.main-adminproduct[style="margin-top:-13%;"]
         h1 
             = @newspaper.title
         br 

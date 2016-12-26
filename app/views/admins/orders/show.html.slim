@@ -1,25 +1,30 @@
-.container
-  .table-responsive
-    table.table
-      thead
-        tr.danger
-          th.text-left.col-md-2 Ten San Pham
-          th.text-left.col-md-2 So luong(kg)
-          th.text-left.col-md-1 Gia
-          th.text-left.col-md-1 Thanh tien
-          th.text-center.col-md-4 Ghi chu
-      tbody
-        - @order.order_items.map do |item|
-          tr.info
-            td.text-left.col-md-2 = item.product.name
-            td.text-left.col-md-2 = item.quantity
-            td.text-left.col-md-1 =  (item.product.price
-            td.text-left.col-md-1 =  (item.total_price 
-            td.text-left.col-md-4
-  h4[style="color:red"] 
-    | Tong cong: 
-    =  (@order.total_price 
-    | (VND)
-.text-center  
-  = link_to 'Back',:back, class:'btn btn-default'            
+section.layout-admincategory
+  .container
+    .row
+      .col-md-2.list-group
+        //= render 'admins/sidebar'
+      .col-md-10.main-adminproduct[style="margin-top:-13%;"]
+        .table-responsive
+          table.table
+            thead
+              tr.danger
+                th.text-left.col-md-2 Tên sản phẩm
+                th.text-left.col-md-2 Số lượng(kg)
+                th.text-left.col-md-1 Giá
+                th.text-left.col-md-1 Thành tiền
+                th.text-center.col-md-4 Ghi chú
+            tbody
+              - @order.order_items.map do |item|
+                tr.info
+                  td.text-left.col-md-2 = item.product.name
+                  td.text-left.col-md-2 = item.quantity
+                  td.text-left.col-md-1 = item.product.price
+                  td.text-left.col-md-1 = item.total_price 
+                  td.text-left.col-md-4
+        h4[style="color:red"] 
+          | Tổng : 
+          =  @order.total_price 
+          | (VND)
+      .text-center  
+        = link_to 'Back',:back, class:'btn btn-default'            
 

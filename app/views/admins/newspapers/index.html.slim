@@ -1,8 +1,9 @@
-section.layout-admininformation
+section.layout-admincategory
   .container
-    .row[style="width:100%;margin-top:-13%"]
+    .row
       .col-md-2.list-group
-      .col-md-10.main-adminproduct
+        //= render 'admins/sidebar'
+      .col-md-10.main-adminproduct[style="margin-top:-13%;"]
         .page-title
           h1.page-header.pull-left
             | <i class="fa fa-file" aria-hidden="true"></i> NEWSPAPERS

@@ -1,2 +1,8 @@
-#order_member.tab-pane.fade.in.active
-  = render 'admins/form/index_member'
+section.layout-admincategory
+  .container
+    .row
+      .col-md-2.list-group
+        //= render 'admins/sidebar'
+      .col-md-10.main-adminproduct[style="margin-top:-13%;"]
+	        //= render 'admins/sidebar'	      
+	  = render 'admins/form/index_member'

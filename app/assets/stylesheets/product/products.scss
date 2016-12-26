@@ -117,10 +117,13 @@
 		}
 	}
 	.body{
-		width: 88%;
+		width: 88%;	
 		padding: 0px;
 		.tab-content{
 			#all-fruits.tab-pane.fade.in.active{
+				.product-grid{
+					width: 16.6666%;
+				}
 				.img2{
 					width: 20%;
 					.img-thumbnail{

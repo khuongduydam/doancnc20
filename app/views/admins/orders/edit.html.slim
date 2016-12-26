@@ -1,7 +1,9 @@
-section.layout-adminproduct
+section.layout-admincategory
   .container
     .row
-      .main-adminproduct
+      .col-md-2.list-group
+        //= render 'admins/sidebar'
+      .col-md-10.main-adminproduct[style="margin-top:-13%;"]
         = simple_form_for @order do |f|
           = f.select :status, options_for_select(["Uncomplete","Complete"]), {},class:'form-control',style:'width:150px;'
           br

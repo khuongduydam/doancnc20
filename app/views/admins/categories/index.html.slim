@@ -1,24 +1,3 @@
-/ begin=
-/ <<<<<<< HEAD
-/ section.modify-category
-/   .main-adminproduct
-/     .update-cate
-/       h2.page-header.pull-left
-/         | <i class="fa fa-folder-open" aria-hidden="true"></i> CATEGORIES 
-/       .pull-right
-/         .btn-group.btn-success
-/           = link_to 'NEW CATEGORIES', new_admins_category_path, class: 'btn btn-success'
-/     .row.main-body
-/       .col-md-11.bodyad
-/         = form_tag admins_categories_path, :method => 'get', :id => "products_search" do
-/           p
-/             = text_field_tag :search, params[:search], placeholder: "Name"
-/             = submit_tag "Search", :name => nil
-/     .row.main-body
-/       .col-md-11.bodyad
-/         = render 'admins/form/index_category'
-/ =======
-/ =end
 section.layout-admincategory
   .container
     .row

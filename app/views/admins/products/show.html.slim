@@ -1,37 +1,38 @@
 section.modify-category[style="width:100%"]
-  .main-adminproduct
-    .update-cate
-      h2.Title_product 
-        = @product.name
-      - if @product.pictures.present?
-        - if @product.pictures.size == 1
-          = image_tag @product.pictures.first.image,size: "200x200", class:"img-circle"
-        - else
-          - @product.pictures.each do |img|
-            = image_tag img.image, size: "200x200", class:'img-circle'
-      - else 
-        = image_tag('default.png', size: "200x200")
-            end
-      h4 
-        | Giá bán: 
-        =  @product.price
-        |  
-      p 
-        | Số lượng trong kho : 
-        = @product.quantity
-        |  kg
-      .about_product
+  .row
+    .detailpr
+      .update-cate
+        h2.Title_product 
+          = @product.name
+        - if @product.pictures.present?
+          - if @product.pictures.size == 1
+            = image_tag @product.pictures.first.image,size: "200x200", class:"img-circle"
+          - else
+            - @product.pictures.each do |img|
+              = image_tag img.image, size: "200x200", class:'img-circle'
+        - else 
+          = image_tag('default.png', size: "200x200")
+              end
+        h4 
+          | Giá bán: 
+          =  @product.price
+          |  
         p 
-          | Xuất xứ: 
-          = @product.origin
-      .about_product
-        p 
-          | Mô tả : 
-          = @product.description
-          / = @product.category.name
-      br
-      .btn-lg.right
-        = link_to "Edit", edit_admins_product_path(@product), class: 'btn btn-success'
-        = link_to "Delete", admins_product_path(@product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
-        = link_to "Back", :back, class: "btn btn-success", style: 'margin-left:20px;'
+          | Số lượng trong kho : 
+          = @product.quantity
+          |  kg
+        .about_product
+          p 
+            | Xuất xứ: 
+            = @product.origin
+        .about_product
+          p 
+            | Mô tả : 
+            = @product.description
+            / = @product.category.name
+        br
+        .btn-lg.right
+          = link_to "Edit", edit_admins_product_path(@product), class: 'btn btn-success'
+          = link_to "Delete", admins_product_path(@product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+          = link_to "Back", :back, class: "btn btn-success", style: 'margin-left:20px;'
 

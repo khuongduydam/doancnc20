@@ -53,7 +53,7 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
     #all-fruits.tab-pane.fade.in.active
       br
       - @product_news.each do |product|
-        .col-xs-6.col-sm-4.col-md-3[style="min-width:250px;height:270px;"]
+        .col-xs-6.col-sm-4.col-md-3.product-grid[style="min-width:250px;height:270px;"]
           - if product.pictures.present?
             = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product),style:'width:210px!important; height:210px!important;'
           - else  
@@ -89,7 +89,7 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
       br
       - hotProduct.each do |product_id|
         - product = findProduct(product_id[0])
-        .col-xs-6.col-sm-4.col-md-3
+        .col-xs-6.col-sm-4.col-md-3.product-hot[style="width:16.6666%!important"]
           - if product.pictures.present?
             = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
           - else  
@@ -179,7 +179,7 @@ javascript:
       total_items = parseInt(total_items) + 1
       $('.cart-text').text(total_items);
     });
-    $('.btn.btn-info').hide();
+    //$('.btn.btn-info').hide();
     $('.col-xs-6.col-sm-4.col-md-3').hover(function(){
       img = $(this).closest('div').find('.img-thumbnail')
       icon = $(this).closest('div').find('.btn.btn-info')
