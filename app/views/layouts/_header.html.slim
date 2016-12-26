@@ -69,9 +69,9 @@ header.frontend.hidemobile
             a href="#" 
               | ORDER GUIDE
           li
-            = link_to 'INFORMATIONS', newspapers_path
+            = link_to 'INFORMATIONS', shoppingguides_path
           li
-            = link_to 'CONTACTS', contacts_path
+            = link_to 'CONTACTS', new_contact_path
       - if current_page?cart_path(@cart)      
         i.fa.fa-money[style="font-size:30px;margin-top:10%"]
           |  = 
