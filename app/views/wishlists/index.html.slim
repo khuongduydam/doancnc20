@@ -2,31 +2,37 @@ section.sections-product
   .container
     .row
       .col-md-9
-        h3.header
-          | My wishlist
+        .banner[style="font-family: 'Tangerine', serif;padding-left:50px;"]
+          h1 My wishlist
+        hr[style="border:1px solid red"] 
         .row
-          - @wishlistss.each do |wishlist|
-            .col-md-3.col-sm-6.col-xs-12
-              .img-thumbnail
-                = link_to image_tag(wishlist.product.pictures.first.image, class:"img-responsive"), product_path(wishlist.product)
-              h5
-                = wishlist.product.name
-              p 
-                | Số lượng còn : 
-                = wishlist.product.quantity
-                |  kg
-              h4
-                |  Gía : 
-                =  wishlist.product.price 
-                |  /kg
-              p
-                = link_to "Detail", product_path(wishlist.product)
-              p
-                = link_to "Destroy", wishlist_path(wishlist), method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-default'
-              p
-                a.btn.btn-success(href="#")
-                  | Thêm vào giỏ 
-                  i.fa.fa-shopping-cart(aria-hidden="true")
-        = will_paginate @wishlistss
-      .col-md-3.well-right
-        = render 'form/right'
+          - if @wishlistss.present?
+            - @wishlistss.each do |wishlist|
+              .col-md-3.col-sm-6.col-xs-12
+                .img-thumbnail
+                  = link_to image_tag(wishlist.product.pictures.first.image, class:"img-responsive"), product_path(wishlist.product)
+                h5
+                  = wishlist.product.name
+                p 
+                  | Số lượng còn : 
+                  = wishlist.product.quantity
+                  |  kg
+                h4
+                  |  Gía : 
+                  =  wishlist.product.price 
+                  |  /kg
+                p
+                  = link_to "Detail", product_path(wishlist.product)
+                p Lorem ipsum...class_selector
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+                  = link_to "Destroy", wishlist_path(wishlist), method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-default'
+                p
+                  a.btn.btn-success(href="#")
+                    | Thêm vào giỏ 
+                    i.fa.fa-shopping-cart(aria-hidden="true")
+            = will_paginate @wishlistss
+          - else 
+            h3 You don't have any products in wishlist
+
+      / .col-md-3.well-right
+        / = render 'form/right'

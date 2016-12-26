@@ -45,8 +45,8 @@ header.frontend.hidemobile
           / a href="#"
           /   i.fa.fa-user-o.fa-2
           = link_to '<i class="fa fa-user-o fa-2"></i>'.html_safe, new_user_session_path,style:"font-size:20px;"
-          a href="#"         
-            i.fa.fa-search.fa-2[style="font-size:20px;"]
+          = link_to '<i class="fa fa-search fa-2"></i>'.html_safe, new_search_path, style:"font-size:20px;"
+
           //a href="#"
             i.fa.fa-shopping-cart data-target="#myModal" data-toggle="modal"
           = link_to '<i class="fa fa-cart-plus fa-2"></i>'.html_safe, cart_path(@cart),style:"font-size:20px;"
@@ -61,17 +61,19 @@ header.frontend.hidemobile
             a href="#" 
               | CATEGORY
             .list-cate.text-center[style="list-style-type: none;"]
-              - Category.all.each do |category|
+              - categories_list_head.each do |category|
                 - if category.products.size!=0
                   p 
                     = link_to category.name, category_path(category.id)             
           li
-            a href="#" 
-              | ORDER GUIDE
+            = link_to "ORDER GUIDE", shoppingguides_path
           li
             = link_to 'INFORMATIONS', newspapers_path
           li
-            = link_to 'CONTACTS', contacts_path
+            = link_to 'CONTACTS', new_contact_path
+          - if current_user.present?
+            li
+              = link_to 'MY WHISHLIST', wishlists_path
       - if current_page?cart_path(@cart)      
         i.fa.fa-money[style="font-size:30px;margin-top:10%"]
           |  = 

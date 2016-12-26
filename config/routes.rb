@@ -36,4 +36,6 @@ Rails.application.routes.draw do
   resources :wishlists, only: [:index, :create, :destroy]
   resources :shoppingguides, only: :index 
   resources :contacts, only: [:new, :create]
+  resources :searchs, only: [:new]
+
 end
