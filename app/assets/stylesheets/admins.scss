@@ -18,9 +18,13 @@
  *= require admin/admin
  *= require admin/adminproofcate
  *= require admin/modifycategory 
- *= require bootstrap.min
  *= require admin/formcategory
  *= require admin/index
+ *= require admin/products
+ *= require admin/contact
+ *= require admin/order
+ *= require admin/order_member
+ *= require bootstrap.min
  *= require_self
  */
 @import "font-awesome";

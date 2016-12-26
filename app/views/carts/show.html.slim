@@ -14,40 +14,29 @@ javascript:
   cart_total = $('.total-money');
   button = $('tr').find('.btn-danger');
   total_items = $('.cart-text').text();
-  if (('tr').length === 0){
-    $('tbody').append('<h1>Your cart is empty now, please buy something</h1>')
-  }
-  button.on('click',function(){
-    total_items -= 1;
-    $('.cart-text').text(total_items);
-    if(total_items === 0){
-      //$('.btn-group .btn-danger')[0].click();
-      $('.col-xs-12.col-sm-9')  .html('<div class="container">Cart is empty, please come back market to buy something</div>')
-    }
-  });
-
   quantity.on('change',function(){
-    price = $(this).closest('tr').find('td#item-price>h3>.col-xs-6#price').text().match(/\d+/)[0]*1000;
-    quantity = $(this).closest("tr").find('input#order_item_quantity').val();
-    total = $(this).closest('tr').find('td#item-price>h3>.col-xs-6#total-price').text(price*quantity);
-    id = $(this).closest('tr').attr('id');     
+    price = $(this).closest('tr').find('.price').text().match(/\d+/)[0]*1000;
+    number = parseFloat($(this).closest('tr').find('input#order_item_quantity').val())
+    total = $(this).closest('tr').find('.total_price').text(price * number)
+    total = total.text().match(/\d+/)[0]*1000;
+    id = $(this).closest('tr').attr('id');
     sum = 0;
-    $.each($('td#item-price>h3>.col-xs-6#total-price'),function(){
+    $.each($('.total_price'),function(){
       sum += parseFloat($(this).text());
-      cart_total.text(sum);
-    });    
+      $('.total-money').text(sum);
+      console.log($('.total-money').text())
+    });
     $.ajax({
       url: '/order_items/',
-      dataType: 'script',
-      data: {quantity, quantity, id: id}
-    });
+      dataType:'script',
+      data: {quantity: number, id: id}
+    });     
   });  
   $('.btn-danger.btn-xs').on('click',function(){
-    price = $(this).closest('tr').find('td#item-price>h3>.col-xs-6#total-price').text();
-    total = $('#cart-total-price').text();
+    price = $(this).closest('tr').find('.price').text();
+    total = $('.total-money').text();
     total = (parseFloat(total)-parseFloat(price));
-    return $('#cart-total-price').text(total);
+    return $('.total-money').text(total);
   });
 
-  $('.btn.btn-success.btn-xs').hide()
   

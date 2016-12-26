@@ -1,12 +1,9 @@
-section.layout-admininformation
+section.layout-admincategory
   .container
     .row
-/ <<<<<<< HEAD
-/       .main-adminproduct
-
       .col-md-2.list-group
-        //= render 'admins/left'
-      .col-md-10.main-adminproduct
+        //= render 'admins/sidebar'
+      .col-md-10.main-adminproduct[style="margin-top:-13%;"]
         .page-title
           h1.page-header.pull-left
             | <i class="fa fa-file" aria-hidden="true"></i> NEWSPAPERS
@@ -18,9 +15,8 @@ section.layout-admininformation
             = form_tag admins_newspapers_path, :method => 'get', :id => "products_search" do
               p
                 = text_field_tag :search, params[:search], placeholder: "Search by title, content", class: 'form-control', style: 'width: 50%;'
-                / = submit_tag "Search", :name => nil
         .row.main-body
-          .col-md-12.bodyad
+          .col-md-12.bodyad[style="padding-right:0px;width:108%"]
             = render 'admins/form/index_newspaper'
             = link_to "Back", :back, class: "btn btn-default"
 javascript:

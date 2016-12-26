@@ -7,7 +7,7 @@
 				.nav-tabs {
 					li.active {
 						a {
-							font-size: 14px;
+							font-size: 18px;
 							color:green  !important;
 							background-color: #c2c723!important;
 							}
@@ -15,7 +15,7 @@
 					li {
 						a {
 							color:green;
-							font-size: 14px;
+							font-size: 18px;
 							&:hover {
 								color:green;
 								font-size: 14px;
@@ -25,9 +25,6 @@
 					}
 				}
 			}
-		.well-right{
-			margin-top: 70px;
-		}
 		}
 	}
 	@media (max-width: 540px) and (min-width: 320px){

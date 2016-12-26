@@ -17,22 +17,18 @@
 /                 = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
 /         = will_paginate @newspapers
 section.sections-newpapers
-  .col-xs-12.col-md-12.login[style="padding:0px"]
-    .banner[style="font-family: 'Tangerine', serif;padding-left:50px;"]
-      h1 Informations
-    hr[style="border:1px solid red"] 
-  .container[style='width: 100%']
-    .row
-      .col-md-10.newspp
+  .container[style="width:100%"]
+    .row[style="width:100%"]
+      .col-md-10.newspp[style="width:100%"]
         - @newspapers.each do |newspaper|
           .row
-            .col-md-4.img
+            .col-md-3.img
               .img-thumbnail
                 - if newspaper.pictures.present?
                   = link_to image_tag(newspaper.pictures.first.image, class:"img-responsive"), newspaper_path(newspaper)
                 - else 
                   = link_to image_tag('newspaper.png', class: 'img-thumbnail'), newspaper_path(newspaper)
-            .col-md-8.link
+            .col-md-9.link
               h3
                 = link_to newspaper.title, newspaper_path(newspaper), class:"title"
               p 

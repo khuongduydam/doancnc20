@@ -18,10 +18,10 @@
               table.table
                 thead
                   tr.danger
-                    th.text-center.col-xs-4.col-md-4 Ten Sp
-                    th.text-center.col-xs-2.col-md-2 So luong
-                    th.text-center.col-xs-2.col-md-2 Don gia
-                    th.text-center.col-xs-2.col-md-2 Thanh tien
+                    th.text-center.col-xs-4.col-md-4 Product
+                    th.text-center.col-xs-2.col-md-2 Quantity
+                    th.text-center.col-xs-2.col-md-2 Price
+                    th.text-center.col-xs-2.col-md-2 Money
                 tbody
                   - @cart.order_items.each do |item|
                     tr.success
@@ -30,14 +30,14 @@
                       td.text-center.col-xs-2.col-md-2 
                         = item.quantity
                       td.text-center.col-xs-2.col-md-2 
-                        = item.product.price.to_i
+                        = number_with_delimiter(item.product.price.to_i,delimiter:'.')
                         | 
                       td.text-center.col-xs-2.col-md-2 
-                        = item.total_price.to_i
+                        = number_with_delimiter(item.total_price.to_i,delimiter:'.')
                         |
               .pull-left
                 h4[style="color:red"] 
                   | Total: 
-                  = @cart.total_price.to_i
+                  = number_with_delimiter(@cart.total_price.to_i,delimiter:'.')
               .pull-right
                 = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'

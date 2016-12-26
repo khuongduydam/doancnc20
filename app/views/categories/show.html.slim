@@ -1,68 +1,29 @@
-/ section.sections-product
-/   .container
-/     .img-reponsive
-/       .col-md-9.allproduct
-/         h3.header
-/           = @category.name
-/         .row
-/           - @products.each do |product|
-/             .col-md-3.col-sm-6.col-xs-12.img-pro
-/               .img-thumbnail
-/                 - if product.pictures.present?
-/                   = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
-/                 - else 
-/                   = link_to image_tag('default.png'), product_path(product)
-/               h5
-/                 = product.name
-/               p 
-/                 | Số lượng còn : 
-/                 = product.quantity
-/                 |  kg
-/               h4
-/                 |  Gía : 
-/                 = product.price 
-/                 |  /kg
-/               p
-/                 - if current_user != nil
-/                   = link_to "Add to my wish list", wishlists_path(product.id), method: :post
-/               p
-/                 a.btn.btn-success(href="#")
-/                   | Thêm vào giỏ 
-/                   i.fa.fa-shopping-cart(aria-hidden="true")          
-/         = will_paginate @products
-/       .col-md-3.well-right
-/         = render 'form/right'
 section.sections-product
-  .container
+  .container[style='width:100%']
     .img-reponsive
-      .col-md-9.detailproduct
-        h3.title-head
+      .col-md-12.detailproduct
+        h3.title-head[style="font-weight:200"]
           = @category.name
-        .row
+        .row[style="width:100%;font-weight:200"]
           - @products.each do |product|
-            .col-md-3.col-sm-4.col-xs-12.img-thum
+            .col-md-3.col-sm-4.col-xs-12.img-thum[style="width:230px;height:300px;margin-top:5%"]
               .img-thumbnail
                 - if product.pictures.present?
-                  = link_to image_tag(product.pictures.first.image, class:"img-responsive"), product_path(product)
+                  = link_to image_tag(product.pictures.first.image, class:"img-responsive", style:'height:180.5px'), product_path(product)
                 - else 
                   = link_to image_tag('default.png'), product_path(product)
-              h5
+              h5.name[style="font-size:20px;font-weight:200"]
                 = product.name
-              p 
-                | Số lượng còn : 
-                = product.quantity
-                |  kg
-              h4
+              h4.discount[style="color:red;font-weight:200"]
                 |  Gía : 
-                =  product.price 
+                =  product.price_discount 
                 |  /kg
+              h4.price[style="text-decoration:line-through;font-weight:200"]
+                = product.price
+                | /kg  
               p
                 - if current_user != nil
                   = link_to "Add to my wish list", wishlists_path(product.id), method: :post
               p
-                a.btn.btn-success(href="#")
-                  | Thêm vào giỏ 
-                  i.fa.fa-shopping-cart(aria-hidden="true")          
+                = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info',style:"margin-top:-135%"            
         = will_paginate @products
-      .col-md-3.well-right
-        = render 'form/right'

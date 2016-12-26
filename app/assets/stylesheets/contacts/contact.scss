@@ -4,4 +4,27 @@ section.page-section-contact{
 		width: 95%;
 		height: 500px;
 	}
+  .container{
+    width: 100%;
+    .well.left{
+      margin-top: -7%;
+      border-radius: 0;
+      label{
+        font-family: 'Ubuntu';
+        abbr{
+          display: none;
+        }
+      }
+      input,textarea{
+        border-radius: 0;
+      }
+    }
+    .well.right{
+      margin-top: -15%;
+      height: 410px;
+      padding-top: 0;
+      padding-left: 30px;
+      border-radius: 0;
+    }
+  }
 }
