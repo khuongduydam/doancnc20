@@ -25,5 +25,5 @@ section.sections-product
                 - if current_user != nil
                   = link_to "Add to my wish list", wishlists_path(product.id), method: :post
               p
-                = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info',style:"margin-top:-165%"            
+                = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info',style:"margin-top:-135%"            
         = will_paginate @products

@@ -1,8 +1,6 @@
 section.layout-admincategory
-  .container
-    .row
+  .container[style="width:100%"]
+    .row[style="width:100%;"]
       .col-md-2.list-group
-        //= render 'admins/sidebar'
-      .col-md-10.main-adminproduct[style="margin-top:-13%;"]
-	        //= render 'admins/sidebar'	      
-	  = render 'admins/form/index_member'
+      .col-md-10.main-adminproduct[style="margin-left:-18%;width:100%"]
+    	  = render 'admins/form/index_member'

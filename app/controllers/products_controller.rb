@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @product_news = Product.order(created_at: :desc)
-    @products = Product.all.search_filter(params[:search],params[:category],params[:minValue],params[:maxValue])
+    @products = Product.search_filter(params[:search],params[:category],params[:minValue],params[:maxValue])
   end
   
   def show

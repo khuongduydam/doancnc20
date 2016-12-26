@@ -1,4 +1,4 @@
-.table-responsive
+.table-responsive[style="width:105%"]
   table.table
     thead
       tr.info
@@ -27,5 +27,5 @@
               = link_to 'Detail', admins_order_member_path(member),class: 'btn btn-info btn-xs'
               = link_to 'Edit', edit_admins_order_member_path(member),class: 'btn btn-primary btn-xs'
               = link_to 'Delete', admins_order_member_path(member),method: :delete, data: {confirm: "All products of this member will be delete. Are you sure?"}, class: 'btn btn-danger btn-xs'
-= will_paginate @orders
+= will_paginate @order_members
 

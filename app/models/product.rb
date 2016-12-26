@@ -43,7 +43,6 @@ class Product < ActiveRecord::Base
         product = product.where("price <= ?", minValue) if minValue.present?
         product = product.where("price >= ?", maxValue) if maxValue.present?
       end
-
       p "*"*80 
       p product
       p "*"*80 
