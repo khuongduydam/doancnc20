@@ -16,11 +16,6 @@
     = f.input :category_id,:collection => categories,:label_method => :name,:value_method => :id,:label => "Category" ,:include_blank => false
     
   .field 
-    / = f.label :description
-    / - if @product.errors.messages[:description].present?
-    / |  
-    / i
-    /   = @product.errors.messages[:description][0]
     = f.input :description, as: :text
     
   .field 
@@ -35,10 +30,6 @@
      
   .field#img
     = f.label "Image"
-    / = f.simple_fields_for :pictures do |picture|
-    /   = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
-
-    /- if @product.pictures.blank?
     - if params[:controller] == 'admins/products' && (params[:action] == 'new' || params[:action] == 'create' )
         = f.simple_fields_for :pictures, @product.pictures.build do |picture|
           = picture.file_field :image, :multiple => true, name: "product[pictures_attributes][][image]"
@@ -63,13 +54,13 @@ javascript:
   $(document).ready(function () {
     $("#form_product").validate({
       rules: {
-        "product[name]": {required: true, minlength: 2, maxlength: 100},
-        "product[price]": {required: true, number: true, min: 5000, max: 1000000},
-        "product[price_discount]": {number: true, min: 5000, max: (parseInt($("#product_price").val()))},
-        "product[origin]": {required: true, minlength: 3, maxlength: 255},
-        "product[quantity]": {required: true, digits: true, min: 1, max: 1000},
-        "product[description]": {required: true, minlength: 10, maxlength: 255},
-        "product[addQuantity]": {digits: true, min: 1, max: (1000-parseInt($("#product_quantity").val())) }
+        "product[name]": {required: true, minlength: 2},
+        "product[price]": {required: true, number: true, min: 0},
+        "product[price_discount]": {required: true, number: true}
+        "product[origin]": {required: true, minlength: 3},
+        "product[quantity]": {required: true, digits: true, min: 1},
+        "product[description]": {required: true, minlength: 10},
+        "product[addQuantity]": {digits: true, min: 1, max: (1000-parseInt($("#product_quantity").val()))}
       }
     });
 
