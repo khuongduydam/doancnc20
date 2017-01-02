@@ -1,19 +1,18 @@
 .banner[style="font-family: 'Tangerine', serif;padding-left:50px;"]
   h1 Search
-hr[style="border:1px solid red"] 
-span[style="padding-left:100px;"] 
+hr[style="border:1px solid red"]
+.container 
   = form_tag products_path, :method => 'get', :id => "products_search" do
-    p
-      p
-        | Search 
-        = text_field_tag :search, params[:search], placeholder: "Search by fruit name, origin"
-      p
-        | Category 
-        = select_tag :category, options_from_collection_for_select(categories_list_head, "id", "name",""), include_blank: true
-      p
-        | Price 
-        = text_field_tag :minValue, params[:minValue], style: "width:50px"
-        |  - 
-        = text_field_tag :maxValue, params[:maxValue], style: "width:50px"
-      p
-        = submit_tag "Search", :name => nil
+    = label_tag :search 
+    = text_field_tag :search, params[:search], placeholder: "Search by fruit name, origin",class:'form-control',style:'width:33%;border-radius:0'
+    br
+    = label_tag :category  
+    = select_tag :category, options_from_collection_for_select(categories_list_head, "id", "name",""), include_blank: true,prompt:'Choose one...',class:'form-control',style:'width:33%;border-radius:0'
+    br
+    = label_tag :price, 'Price:'  
+    = text_field_tag :minValue, params[:minValue], style: "width:150px;margin-left:30px;",placeholder:'From'
+    |  - 
+    = text_field_tag :maxValue, params[:maxValue], style: "width:150px",placeholder:'To'
+    br
+    br
+    = submit_tag "Search", :name => nil,class:'btn btn-success',style:'border-radius:0;width:15%'

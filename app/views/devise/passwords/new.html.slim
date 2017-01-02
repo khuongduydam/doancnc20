@@ -1,13 +1,10 @@
-.container.center-block.well[style="width: 350px;"]
-  h2
-    | Forgot your password?
-  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-group' }) do |f|
+h2[style="font-family:Tangerine,serif;margin-left:5%;font-size:50px"]
+  | Forgot your password?
+hr[style="border:1px solid red"]
+.container-fluid[style="width:80%"]  
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), input_html: { method: :post, class: 'form-horizontal' }) do |f|
     = devise_error_messages!
-    .field
-      = f.label :email
-      br
-      = f.email_field :email, autofocus: true,class:'form-control'
-      br
-    .actions
-      = f.submit "Send me reset password instructions",class:'btn btn-primary'
-  = render "devise/shared/links"
+    .form-group
+      = f.input :email, autofocus: true,class:'form-control',input_html:{style:'width:50%'}
+    .btn-group
+      = f.submit "Reset Password",class:'btn btn-success'

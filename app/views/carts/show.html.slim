@@ -32,7 +32,7 @@ javascript:
       data: {quantity: number, id: id}
     });     
   });  
-  $('.btn-danger.btn-xs').on('click',function(){
+  $('.btn-danger.btn-xs').one('click',function(){
     price = $(this).closest('tr').find('.price').text();
     total = $('.total-money').text();
     total = (parseFloat(total)-parseFloat(price));

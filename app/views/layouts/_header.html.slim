@@ -50,7 +50,10 @@ header.frontend.hidemobile
           |  = 
         .total-money[style="margin:-17% 0 0 33%; font-size:2em;color:red"]
           = @cart.total_price
-        = link_to 'Checkout',new_order_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
+        - if user_signed_in?  
+          = link_to 'Checkout',new_order_member_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
+        - else
+          = link_to 'Checkout',new_order_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
       = render 'layouts/flash_messages'
       - if user_signed_in?
         = link_to 'Log out',destroy_user_session_path, method: :delete, class:'btn btn-danger',style:'width:100%;border-radius:0px;'

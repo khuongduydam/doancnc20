@@ -2,11 +2,12 @@ section.sections-product
   .container[style='width:100%']
     .img-reponsive
       .col-md-12.detailproduct
-        h3.title-head[style="font-weight:200"]
+        h3.title-head[style="font-weight:200;font-family:'Tangerine', serif;font-size:50px;"]
           = @category.name
+        hr[style="border:1px solid red"] 
         .row[style="width:100%;font-weight:200"]
           - @products.each do |product|
-            .col-md-3.col-sm-4.col-xs-12.img-thum[style="width:230px;height:300px;margin-top:5%"]
+            .col-md-3.col-sm-4.col-xs-6.img-thum[style="width:230px;height:300px;margin-top:5%"]
               .img-thumbnail
                 - if product.pictures.present?
                   = link_to image_tag(product.pictures.first.image, class:"img-responsive", style:'height:180.5px'), product_path(product)
@@ -25,5 +26,28 @@ section.sections-product
                 - if current_user != nil
                   = link_to "Add to my wish list", wishlists_path(product.id), method: :post
               p
+              - unless user_signed_in?
                 = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info',style:"margin-top:-135%"            
+              - else
+                = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info',style:"margin-top:-165%"            
         = will_paginate @products
+javascript:
+  $('.btn.btn-info').hide()
+  $('.col-xs-6.col-sm-4.col-md-3').hover(function(){
+    img = $(this).closest('div').find('.img-thumbnail')
+    icon = $(this).closest('div').find('.btn.btn-info')
+    icon.click(function(){
+      $(this).css('opacity','0.5').text('Adding....').delay(300).queue(function(){
+        $(this).attr('disabled',true);
+        $(this).text('Added').delay(1000).dequeue().queue(function(){
+          $(this).css('opacity','1')
+          $(this).removeAttr('disabled').text('Add to cart').dequeue() 
+        });
+      });
+    });  
+    //img.css('opacity','0.5')
+    icon.fadeIn('slow')
+    },function(){
+      img.css('opacity','1');
+      icon.fadeOut('slow');
+  });

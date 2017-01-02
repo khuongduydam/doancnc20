@@ -93,23 +93,21 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
       br
       - hotProduct.each do |product_id|
         - product = findProduct(product_id[0])
-        .col-xs-6.col-sm-4.col-md-3.product-hot[style="width:16.6666%!important"]
+        .col-xs-6.col-sm-4.col-md-3.product-hot[style="height:300px"]
           - if product.pictures.present?
             = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)
           - else  
             = link_to image_tag('default.png'), product_path(product)
           .col-xs-10
-            strong 
+            strong.name[style="font-weight:300!important"] 
               = product.name
               br
-              = number_with_delimiter(product.price,delimiter: '.')
-              |(vnd)/kg
-              br
+              .price_discount[style="color:red"]
+                = number_with_delimiter(product.price_discount,delimiter: '.')
+                |(vnd)/kg
               = product.origin  
-            hr
-            /.col-xs-6.pull-left
             .col-xs-12
-              = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
+              = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info',style:"margin:-143% 0 0 -23%"
 
 javascript:
   function htmlbodyHeightUpdate(){
@@ -127,9 +125,7 @@ javascript:
     }
   }
   (function( $ ) {
-  //Function to animate slider captions 
   function doAnimations( elems ) {
-  //Cache the animationend event in a variable
     var animEndEv = 'webkitAnimationEnd animationend';
     
     elems.each(function () {
@@ -176,14 +172,7 @@ javascript:
       height2 = $('.main').height()
         htmlbodyHeightUpdate()
     });
-
-    add_cart = $('.btn-info').closest('.cart-btn');
-    total_items = $('.cart-text').text();
-    add_cart.on('click',function(){
-      total_items = parseInt(total_items) + 1
-      $('.cart-text').text(total_items);
-    });
-    //$('.btn.btn-info').hide();
+    $('.btn.btn-info').hide()
     $('.col-xs-6.col-sm-4.col-md-3').hover(function(){
       img = $(this).closest('div').find('.img-thumbnail')
       icon = $(this).closest('div').find('.btn.btn-info')

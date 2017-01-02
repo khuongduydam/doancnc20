@@ -1,6 +1,6 @@
-section.sections-product
+section.sections-product[style="font-family:Arial"]
   .row.detailproduct
-    .col-md-3.col-sm-12
+    .col-md-6.col-sm-12
       - if @product.pictures.present?
         - if @product.pictures.size == 1
           = image_tag @product.pictures.first.image,size: "100x100", class:"img-responsive"
@@ -9,14 +9,14 @@ section.sections-product
           = image_tag img.image, size: "200x200", class:'img-responsive'
       - else 
         = image_tag('default.png', size: "400x400")
-    .col-md-9.col-sm-12
+    .col-md-6.col-sm-12
       .detail
         h3.Title_product[style="color: #46AA48!important; font-size:50;"]
           = @product.name
-        h4 
+        h4.price_discount[style="color:red"] 
           | Giá bán: 
-          =  @product.price
-          |  
+          =  number_with_delimiter(@product.price_discount,delimiter:'.')
+          | (vnd)
         p 
           | Số lượng trong kho : 
           = @product.quantity
@@ -25,10 +25,6 @@ section.sections-product
           p 
             | Xuất xứ: 
             = @product.origin
-        | Số lượng : 
-        .quantity.buttons_added
-          = @product.quantity
-          | Kg    
         .about_product
           p 
             | Mô tả : 
