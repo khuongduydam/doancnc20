@@ -77,7 +77,7 @@ class OrderMembersController < ApplicationController
   private
 
   def member_params
-    params.require(:order_member).permit(:username,:fullname, :address, :phone, :email, :pay_type, :note, :pay_type)
+    params.require(:order_member).permit(:username,:fullname, :address, :phone, :email, :pay_type, :note)
   end
 
   def find_order_member

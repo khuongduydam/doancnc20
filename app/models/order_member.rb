@@ -2,7 +2,7 @@ class OrderMember < ApplicationRecord
   belongs_to :user, optional: true
   has_many :order_items, dependent: :destroy
   PAYMENT_TYPES = ['Paypal' ,'Direct']
-  validates :username,:fullname, :address, :email, :phone, presence: true
+  validates :username, :email, :phone, presence: true
   validates :pay_type, inclusion: PAYMENT_TYPES
 
   def add_order_items_from_cart(cart)

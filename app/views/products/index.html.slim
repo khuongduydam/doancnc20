@@ -87,9 +87,6 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
                   = number_with_delimiter(product.price,delimiter: '.')
                   |(vnd)
                 br
-                - unless user_signed_in?
-                  = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
-                - else
                   = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info',style:'margin: -89% 0 0 -9%'  
                 
     #premium-fruits.tab-pane.fade
