@@ -12,7 +12,7 @@
       - @products.each do |product|
         tr.danger
           td = product.name
-          td = product.price
+          td = product.price_discount
           td = product.quantity
           td = product.origin
           td = product.created_at.strftime("%B %e, %Y")
