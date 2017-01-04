@@ -12,7 +12,7 @@ module FruitShop
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     I18n.enforce_available_locales = true
-    #config.i18n.default_locale = :vi
+    config.i18n.default_locale = :en
   end
 end
 

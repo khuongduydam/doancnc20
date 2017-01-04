@@ -22,8 +22,8 @@
           td.text-center[style="color:red;"] =  order.total_price
           td.text-center
             .btn-group
-              = link_to 'Detail', admins_order_path(order),class: 'btn btn-info btn-xs'
-              = link_to 'Edit', edit_admins_order_path(order),class: 'btn btn-primary btn-xs'
-              = link_to 'Delete', admins_order_path(order),method: :delete, data: {confirm: "All products of this order will be delete. Are you sure?"}, class: 'btn btn-danger btn-xs'
+              = link_to 'Detail', admins_order_path(params[:locale],order),class: 'btn btn-info btn-xs'
+              = link_to 'Edit', edit_admins_order_path(params[:locale],order),class: 'btn btn-primary btn-xs'
+              = link_to 'Delete', admins_order_path(params[:locale],order),method: :delete, data: {confirm: "All products of this order will be delete. Are you sure?"}, class: 'btn btn-danger btn-xs'
 = will_paginate @orders
 
