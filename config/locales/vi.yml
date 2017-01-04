@@ -46,3 +46,6 @@ vi:
   to: 'Đến'
   create_account: 'Tạo tài khoản'
   password_confirmation: 'Lặp lại mật khẩu'
+  detail: 'Chi tiết'
+  edit: 'Sửa'
+  delete: 'Xóa'

@@ -66,6 +66,9 @@ en:
   from: 'From'
   create_account: 'Create An Account'
   to: 'To'
+  detail: 'Details'
+  edit: 'Edit'
+  delete: 'Delete'
   activerecord:
     errors:
       models:

@@ -26,11 +26,7 @@ class Admins::UsersController < AdminsController
   private
 
   def find_user
-    begin
-      @user = User.try(:find,params[:id])
-    rescue ActiveRecord::RecordNotFound => e
-      redirect_to admins_path, :alert => 'User not found'
-    end
+    @user = User.find(params[:id])
   end
 
   def params_user

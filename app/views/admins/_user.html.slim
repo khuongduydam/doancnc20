@@ -20,7 +20,7 @@
             td = user.last_name
             td = user.coin
             td[style="width:230px;"]
-              = link_to 'Detail', admins_user_path(user),class: 'btn btn-info'
-              = link_to 'Edit', edit_admins_user_path(user), class: 'btn btn-warning',style:'position:relative;right: -15px;'
-              = link_to 'Delete', admins_user_path(user),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style:'position:relative;right: -30px;'
+              = link_to I18n.t('detail'), admins_user_path(params[:locale], user),class: 'btn btn-info'
+              = link_to I18n.t('edit'), edit_admins_user_path(params[:locale],user), class: 'btn btn-warning',style:'position:relative;right: -15px;'
+              = link_to I18n.t('delete'), admins_user_path(params[:locale],user),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style:'position:relative;right: -30px;'
     = will_paginate @users

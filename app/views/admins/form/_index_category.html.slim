@@ -11,7 +11,6 @@
           td = category.name
           td 
             = category.products.size
-            / = image_tag category.pictures.first.image, size: "90x90"
           td 
             = link_to 'Detail', admins_category_path(category),class: 'btn btn-info',style: 'margin-left:20px;'
             = link_to 'Edit', edit_admins_category_path(category), class: 'btn btn-warning',style: 'margin-left:20px;'
