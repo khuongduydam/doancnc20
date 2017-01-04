@@ -1,27 +1,27 @@
 .container-fluid
   .row
     .col-xs-3.col-md-3
-      h3[style="color:blue;"] Please enter your details
+      h3[style="color:blue;"]  = t('enter_order_detail')
       = simple_form_for @order do |f|
-        = f.input :name
-        = f.input :address
+        = f.input :name,label: t('name'),label_html:{style:'font-family:Arial'}
+        = f.input :address, label: t('address'),label_html:{style:'font-family:Arial'}
         = f.input :email
-        = f.input :phone
-        = f.input :note
-        = f.select :pay_type, Order::PAYMENT_TYPES , prompt: 'Choose one'
-        = f.submit 'Submit',class:' btn btn-success pull-right btn-sm'
+        = f.input :phone,label: t('phone'),label_html:{style:'font-family:Arial'}
+        = f.input :note, label: t('note'),label_html:{style:'font-family:Arial'}
+        = f.select :pay_type, Order::PAYMENT_TYPES , prompt: t('choose_one')
+        = f.submit t('submit'),class:' btn btn-success pull-right btn-sm'
     .col-xs-9.col-md-9
         - unless @cart.order_items.empty?
           .container-fluid
-            h3.text-center[style="color:blue"] Your Cart
+            h3.text-center[style="color:blue;font-family:Arial"] = t('your_cart')
             .table-responsive
-              table.table
+              table.table[style="font-family:Arial"]
                 thead
                   tr.danger
-                    th.text-center.col-xs-4.col-md-4 Product
-                    th.text-center.col-xs-2.col-md-2 Quantity
-                    th.text-center.col-xs-2.col-md-2 Price
-                    th.text-center.col-xs-2.col-md-2 Money
+                    th.text-center.col-xs-4.col-md-4[style="padding-bottom:7px"] = t('product')
+                    th.text-center.col-xs-2.col-md-2 = t('quantity')
+                    th.text-center.col-xs-2.col-md-2 = t('price')
+                    th.text-center.col-xs-2.col-md-2 = t('into_money')
                 tbody
                   - @cart.order_items.each do |item|
                     tr.success
@@ -30,7 +30,7 @@
                       td.text-center.col-xs-2.col-md-2 
                         = item.quantity
                       td.text-center.col-xs-2.col-md-2 
-                        = number_with_delimiter(item.product.price.to_i,delimiter:'.')
+                        = number_with_delimiter(item.product.price_discount.to_i,delimiter:'.')
                         | 
                       td.text-center.col-xs-2.col-md-2 
                         = number_with_delimiter(item.total_price.to_i,delimiter:'.')
@@ -40,4 +40,4 @@
                   | Total: 
                   = number_with_delimiter(@cart.total_price.to_i,delimiter:'.')
               .pull-right
-                = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'
+                = link_to t('empty_cart'),@cart, method: :delete, data: {confirm: t('confirm')},class:'btn btn-danger btn-sm',style:'font-family:Arial'

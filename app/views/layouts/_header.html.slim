@@ -26,10 +26,10 @@ header.frontend.hidemobile
           li.active
             /a href="#" 
               | OUR FRUITS
-            = link_to 'OUR FRUITS', products_path   
+            = link_to I18n.t('our_fruits'), products_path   
           li
             a href="#" 
-              | CATEGORY
+              = t('category')
           li[style="height:100%"]  
             .list-cate.text-center[style="list-style-type: none;"]
               - categories_list_head.each do |category|
@@ -37,26 +37,28 @@ header.frontend.hidemobile
                   p 
                 = link_to category.name, category_path(category.id)             
           li
-            = link_to "ORDER GUIDE", shoppingguides_path
+            = link_to I18n.t('order_guide'), shoppingguides_path
           li
-            = link_to 'INFORMATIONS', newspapers_path
+            = link_to I18n.t('information'), newspapers_path
           li
-            = link_to 'CONTACTS', new_contact_path
+            = link_to I18n.t('contacts'), new_contact_path
           - if current_user.present?
             li
-              = link_to 'MY WHISHLIST', wishlists_path
+              = link_to I18n.t('wishlists'), wishlists_path
       - if current_page?cart_path(@cart)      
         i.fa.fa-money[style="font-size:30px;margin-top:10%"]
           |  = 
         .total-money[style="margin:-17% 0 0 33%; font-size:2em;color:red"]
           = @cart.total_price
         - if user_signed_in?  
-          = link_to 'Checkout',new_order_member_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
+          = link_to t('checkout'),new_order_member_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
         - else
-          = link_to 'Checkout',new_order_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
+          = link_to t('checkout'),new_order_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
       = render 'layouts/flash_messages'
       - if user_signed_in?
         = link_to 'Log out',destroy_user_session_path, method: :delete, class:'btn btn-danger',style:'width:100%;border-radius:0px;'
+      = link_to_unless_current 'Eng',locale: "en"
+      = link_to_unless_current 'Vn',locale: "vi"  
 javascript:
   list = $('.list-cate').hide();
   cate = $('.navbar-nav>li:nth-child(2)');

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   layout :layout_devise
   include CurrentCart
   before_action :set_cart, only: [:create, :index, :show, :new]
-
+  before_action :set_locale
   def after_sign_in_path_for(resource)
     if current_user.admin?
       admins_path
@@ -30,4 +30,7 @@ class ApplicationController < ActionController::Base
     devise_controller? ? 'user_layout' : 'application'
   end
 
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 end

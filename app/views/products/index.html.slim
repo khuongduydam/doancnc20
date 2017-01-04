@@ -45,15 +45,15 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
           | Next
 .container-fluid[style="padding:0px;"]
   ul.nav.nav-pills
-    li.active.col-xs-6
-      a[data-toggle='pill' href="#all-fruits"] All Fruits
-    li.col-xs-6
-      a[data-toggle='pill' href="#premium-fruits"] Premium Fruits
+    li.active.col-xs-6[style="font-family:Arial"]
+      a[data-toggle='pill' href="#all-fruits"] = t('all_fruits')
+    li.col-xs-6[style="font-family:Arial"]
+      a[data-toggle='pill' href="#premium-fruits"] = t('premium_fruits')
   .tab-content
-    #all-fruits.tab-pane.fade.in.active
+    #all-fruits.tab-pane.fade.in.active 
       br
       - if @products.blank?
-        h3 Don't have product with this condition search
+        h3 = t "search"
       - else
         - @products.each do |product|
           .col-xs-6.col-sm-4.col-md-3[style="min-width:250px;height:270px;"]
@@ -72,22 +72,28 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
               - if product.price_discount.present? 
                 span.price[style="color:red;"]              
                   = number_with_delimiter(product.price_discount,delimiter: '.')
-                  |(vnd)
+                  | (
+                  = t "money"
+                  | )
                 br
                 span.discount[style="text-decoration:line-through;"]
                   = number_with_delimiter(product.price,delimiter: '.')
-                  |(vnd)
+                  | (
+                  = t "money"
+                  | )
                 span.percent
                   |  -
                   = ((1- (product.price_discount.to_f / product.price)) * 100).round
                   | %
-                = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info'
+                = button_to_with_icon I18n.t('button'), order_items_path(product_id: product), class: 'btn btn-info'
               - else
                 span.price              
                   = number_with_delimiter(product.price,delimiter: '.')
-                  |(vnd)
+                  | (
+                  = t "money"
+                  | )
                 br
-                  = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info',style:'margin: -89% 0 0 -9%'  
+                  = button_to_with_icon I18n.t('button'), order_items_path(product_id: product), class: 'btn btn-info',style:'margin: -89% 0 0 -9%'  
                 
     #premium-fruits.tab-pane.fade
       br
@@ -104,10 +110,12 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
               br
               .price_discount[style="color:red"]
                 = number_with_delimiter(product.price_discount,delimiter: '.')
-                |(vnd)/kg
+                | (
+                = t "money"
+                | )/kg
               = product.origin  
             .col-xs-12
-              = button_to_with_icon "Add to cart", order_items_path(product_id: product), class: 'btn btn-info',style:"margin:-143% 0 0 -23%"
+              = button_to_with_icon I18n.t('button'), order_items_path(product_id: product), class: 'btn btn-info',style:"margin:-143% 0 0 -23%"
 
 javascript:
   function htmlbodyHeightUpdate(){

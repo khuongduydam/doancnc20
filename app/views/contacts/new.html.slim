@@ -3,18 +3,17 @@ section.page-section-contact
     .row
       .col-md-8
         .well.left
-          h2
-            | Contact
-          p Thank you for visiting us. Please contact us as below
+          h2[style="font-family:Arial"] = t('contacts')
+          p[style="font-family:Arial"] = t('thank')
 
           = simple_form_for @contact, id: 'form-contact' do |f|
             .form-group#Inputname
-              = f.input :name, label: "Name"
+              = f.input :name, label: t('name'),label_html:{style:'font-family:Arial'}
             .form-group#InputEmail
-              = f.input :address, label: "Address"
+              = f.input :address, label: t('address'),label_html:{style:'font-family:Arial'}
             .form-group#InputMessange
-              = f.input :message, label: "Messages"
-            = f.submit "Send",class:'btn btn-default'
+              = f.input :message, label: t('messages'),label_html:{style:'font-family:Arial'}
+            = f.submit t('submit'),class:'btn btn-default'
       .col-md-4
         .well.right
           a[href="#"]

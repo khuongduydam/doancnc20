@@ -15,22 +15,34 @@ javascript:
   button = $('tr').find('.btn-danger');
   total_items = $('.cart-text').text();
   quantity.on('change',function(){
-    price = $(this).closest('tr').find('.price').text().match(/\d+/)[0]*1000;
+    price = $(this).closest('tr').find('.price').text();
     number = parseFloat($(this).closest('tr').find('input#order_item_quantity').val())
     total = $(this).closest('tr').find('.total_price').text(price * number)
-    total = total.text().match(/\d+/)[0]*1000;
+    total = total.text();
     id = $(this).closest('tr').attr('id');
+    input = $(this).closest('tr').find('input#order_item_quantity')
+    place = $(this).closest('tr').find('.order_item_quantity')
     sum = 0;
     $.each($('.total_price'),function(){
       sum += parseFloat($(this).text());
       $('.total-money').text(sum);
-      console.log($('.total-money').text())
     });
     $.ajax({
       url: '/order_items/',
       dataType:'script',
       data: {quantity: number, id: id}
-    });     
+    });
+    if(parseInt(input.val()) < 0){
+      input.css('border-color','red')
+      place.prepend('<span class="errors">Number not allow</span>')
+      $(this).css('margin-top','10%')
+      $('span.errors').css({'position':'relative','top':'100px','color':'red'})
+    }
+    else{
+      input.css('border-color','#ccc')
+      $(this).closest('tr').find('span.errors').remove()
+      $(this).css('margin-top','20%')
+    }     
   });  
   $('.btn-danger.btn-xs').one('click',function(){
     price = $(this).closest('tr').find('.price').text();
