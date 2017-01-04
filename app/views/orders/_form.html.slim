@@ -41,3 +41,42 @@
                   = number_with_delimiter(@cart.total_price.to_i,delimiter:'.')
               .pull-right
                 = link_to t('empty_cart'),@cart, method: :delete, data: {confirm: t('confirm')},class:'btn btn-danger btn-sm',style:'font-family:Arial'
+javascript:
+  $('#new_order').validate({
+    rules:{
+      "order[name]":{
+        required: true
+      },
+      "order[address]":{
+        required: true
+      },
+      "order[email]":{
+        required: true
+      },
+      "order[phone]":{
+        required: true,
+        rangelength: [10,11]
+      },
+      "order[pay_type]":{
+        required: true
+      },
+    },
+    messages:{
+      "order[name]":{
+        required: 'PLease enter a name'
+      },
+      "order[address]":{
+        required: 'PLease enter a address'
+      },
+      "order[email]":{
+        required: 'PLease enter a email'
+      },
+      "order[phone]":{
+        required: 'PLease enter a phone',
+        rangelength: 'Phone number is not exist'
+      },
+      "order[pay_type]":{
+        required: 'PLease choose a pay type'
+      },
+    }
+  })

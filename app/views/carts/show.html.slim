@@ -37,11 +37,17 @@ javascript:
       place.prepend('<span class="errors">Number not allow</span>')
       $(this).css('margin-top','10%')
       $('span.errors').css({'position':'relative','top':'100px','color':'red'})
+      $('a.btn.btn-info').attr('disabled','disabled')
+      $('a.btn.btn-info').click(function(event){
+        event.preventDefault();
+      })
     }
     else{
       input.css('border-color','#ccc')
       $(this).closest('tr').find('span.errors').remove()
       $(this).css('margin-top','20%')
+      $('a.btn.btn-info').attr('disabled',false)
+      $('a.btn.btn-info').off('click');
     }     
   });  
   $('.btn-danger.btn-xs').one('click',function(){
