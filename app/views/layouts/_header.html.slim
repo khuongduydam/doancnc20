@@ -19,12 +19,10 @@ header.frontend.hidemobile
       #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.text-center
           li.active
-            /a href="#" 
-              | OUR FRUITS
-            = link_to I18n.t('our_fruits'), products_path   
+            = link_to I18n.t('layouts.header.our_fruits'), products_path   
           li
             a href="#" 
-              = t('category')
+              = t('layouts.header.category')
           li[style="height:100%"]  
             .list-cate.text-center[style="list-style-type: none;"]
               - categories_list_head.each do |category|
@@ -32,23 +30,23 @@ header.frontend.hidemobile
                   p 
                 = link_to category.name, category_path(category.id)             
           li
-            = link_to I18n.t('order_guide'), shoppingguides_path
+            = link_to I18n.t('layouts.header.order_guide'), shoppingguides_path
           li
-            = link_to I18n.t('information'), newspapers_path
+            = link_to I18n.t('layouts.header.information'), newspapers_path
           li
-            = link_to I18n.t('contacts'), new_contact_path
+            = link_to I18n.t('layouts.header.contacts'), new_contact_path
           - if current_user.present?
             li
-              = link_to I18n.t('wishlists'), wishlists_path
+              = link_to I18n.t('layouts.header.wishlists'), wishlists_path
       - if current_page?cart_path(@cart)      
         i.fa.fa-money[style="font-size:30px;margin-top:10%"]
           |  = 
         .total-money[style="margin:-17% 0 0 33%; font-size:2em;color:red"]
           = @cart.total_price
         - if user_signed_in?  
-          = link_to t('checkout'),new_order_member_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
+          = link_to t('layouts.header.checkout'),new_order_member_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
         - else
-          = link_to t('checkout'),new_order_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
+          = link_to t('layouts.header.checkout'),new_order_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
       = render 'layouts/flash_messages'
       - if user_signed_in?
         = link_to 'Log out',destroy_user_session_path, method: :delete, class:'btn btn-danger',style:'width:100%;border-radius:0px;'

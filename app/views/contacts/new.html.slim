@@ -3,17 +3,17 @@ section.page-section-contact
     .row
       .col-md-8
         .well.left
-          h2[style="font-family:Arial"] = t('contacts')
-          p[style="font-family:Arial"] = t('thank')
+          h2[style="font-family:Arial"] = t('contacts.new.contacts')
+          p[style="font-family:Arial"] = t('contacts.new.thank')
 
           = simple_form_for @contact, id: 'form-contact' do |f|
             .form-group#Inputname
-              = f.input :name, label: t('name'),label_html:{style:'font-family:Arial'}
+              = f.input :name, label: t('application.name'),label_html:{style:'font-family:Arial'}
             .form-group#InputEmail
-              = f.input :address, label: t('address'),label_html:{style:'font-family:Arial'}
+              = f.input :address, label: t('application.address'),label_html:{style:'font-family:Arial'}
             .form-group#InputMessange
-              = f.input :message, label: t('messages'),label_html:{style:'font-family:Arial'}
-            = f.submit t('submit'),class:'btn btn-default'
+              = f.input :message, label: t('contacts.new.messages'),label_html:{style:'font-family:Arial'}
+            = f.submit t('application.submit'),class:'btn btn-default'
       .col-md-4
         .well.right
           a[href="#"]

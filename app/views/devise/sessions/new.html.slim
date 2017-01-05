@@ -1,24 +1,24 @@
 .col-xs-12.col-md-12.login[style="padding:0px"]
   .banner[style="font-family: 'Arial', serif;padding-left:50px;"]
-    h1 = t('title')
+    h1 = t('layouts.user_layout.title')
   hr[style="border:1px solid red"] 
   .container.text-center[style="width: 330px;background-color:rgba(0,0,0,0);color:#337ab7;margin:45px 0;border:none;padding-left:50px"]
     .create.text-left[style="width:200%;font-family:'Arial',serif;color: black"]
-      h3 = t('new_customers')
-      p = t('notice_customer')
-      = link_to t('account_create'),new_user_registration_path,class:'btn btn-primary',style:'width: 30%;border-radius: 15px;background: #aad367;border-color: #aad367;'
+      h3 = t('layouts.user_layout.new_customers')
+      p = t('layouts.user_layout.notice_customer')
+      = link_to t('layouts.user_layout.account_create'),new_user_registration_path,class:'btn btn-primary',style:'width: 30%;border-radius: 15px;background: #aad367;border-color: #aad367;'
     br  
     .registered.text-left[style="width:300%;font-family:'Arial',serif;color: black"]
-      h3 = t('register_customer')
-      p = t('notice_register')
+      h3 = t('layouts.user_layout.register_customer')
+      p = t('layouts.user_layout.notice_register')
     br  
     = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html:{class:'form-horizontal',id:'signinForm'},wrapper: :horizontal_form) do |f|
       = devise_error_messages!
       .form-group[style="margin-left:-1px"]
-        = f.input :username,label:t('username'),label_html:{style:'font-weight:100;color:black;font-family:Arial'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family: arial,serif;'}
+        = f.input :username,label:t('layouts.user_layout.username'),label_html:{style:'font-weight:100;color:black;font-family:Arial'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family: arial,serif;'}
       .form-group[style="margin-left:-1px"]  
-        = f.input :password,label:t('password'),label_html:{style:'font-weight:100;color:black;padding-right:0;font-family:Arial'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family:Arial,serif;'}
-      = f.submit I18n.t('login'), class:'btn btn-primary',style:'width: 80%;border-radius: 15px;background: #aad367;border-color: #aad367;margin-left:35%;;font-family: arial'
+        = f.input :password,label:t('layouts.user_layout.password'),label_html:{style:'font-weight:100;color:black;padding-right:0;font-family:Arial'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family:Arial,serif;'}
+      = f.submit I18n.t('layouts.user_layout.login'), class:'btn btn-primary',style:'width: 80%;border-radius: 15px;background: #aad367;border-color: #aad367;margin-left:35%;;font-family: arial'
       |
       .forgot-password[style="margin:-9% 0 0 150%;width:100%"]
         = render 'devise/shared/forgot_password'
