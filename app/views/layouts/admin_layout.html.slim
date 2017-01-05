@@ -12,7 +12,9 @@ html
       = render 'layouts/header_admin'
     .row.main-container[style="margin:12% 0 0 0;"]
       .col-md-2.sidebar[style="position:fixed;margin-top:-213px;padding:0;z-index:1"]
-        = render 'admins/sidebar'                  
+        = render 'admins/sidebar'
+        = link_to_unless_current 'Eng',locale: "en"
+        = link_to_unless_current 'Vn',locale: "vi"                  
       .col-md-10.content
         = yield
 javascript:
