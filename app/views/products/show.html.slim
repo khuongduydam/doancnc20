@@ -40,10 +40,10 @@ section.sections-product[style="font-family:Arial"]
                 - break
           - else
             - flat = 2
-            = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post, class: 'btn btn-default'
+            = link_to "Add to my wishlist", wishlists_path(params[:locale],@product.id), method: :post, class: 'btn btn-default'
           - if flat == 0
-            = link_to "Add to my wishlist", wishlists_path(@product.id), method: :post, class: 'btn btn-default'
+            = link_to "Add to my wishlist", wishlists_path(params[:locale],@product.id), method: :post, class: 'btn btn-default'
         h3  
           / button.btn.btn-success.btn-lg.right type="button"  
-          = button_to_with_icon 'Mua ngay', order_items_path(product_id: @product),class:'btn btn-success btn-lg right'
+          = button_to_with_icon 'Mua ngay', order_items_path(params[:locale],product_id: @product),class:'btn btn-success btn-lg right'
 

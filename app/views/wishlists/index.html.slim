@@ -1,9 +1,9 @@
-section.sections-product
+section.sections-product[style="font-family: Arial"]
   .container
     .row
       .col-md-9
-        .banner[style="font-family: 'Tangerine', serif;padding-left:50px;"]
-          h1 My wishlist
+        .banner[style="padding-left:50px;"]
+          h1 = t('wishlists.title')
         hr[style="border:1px solid red"] 
         .row
           - if @wishlistss.present?
@@ -11,28 +11,21 @@ section.sections-product
               .col-md-3.col-sm-6.col-xs-12
                 .img-thumbnail
                   = link_to image_tag(wishlist.product.pictures.first.image, class:"img-responsive"), product_path(wishlist.product)
-                h5
-                  = wishlist.product.name
-                p 
-                  | Số lượng còn : 
+                h4 = wishlist.product.name
+                h5  
+                  = t('application.quantity')
+                  | : 
                   = wishlist.product.quantity
-                  |  kg
-                h4
-                  |  Gía : 
-                  =  wishlist.product.price 
-                  |  /kg
-                p
-                  = link_to "Detail", product_path(wishlist.product)
-                p Lorem ipsum...class_selector
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
-                  = link_to "Destroy", wishlist_path(wishlist), method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-default'
-                p
-                  a.btn.btn-success(href="#")
-                    | Thêm vào giỏ 
-                    i.fa.fa-shopping-cart(aria-hidden="true")
+                h5 
+                  = t('application.price')
+                  | : 
+                  =  wishlist.product.price_discount 
+                h5 
+                  = link_to I18n.t('wishlists.detail'), product_path(wishlist.product)
+                h5  
+                  = link_to I18n.t('application.destroy'), wishlist_path(wishlist), method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-default'
+                h5
+                  = button_to_with_icon I18n.t('products.index.button'), order_items_path(product_id: wishlist.product), class: 'btn btn-info'
             = will_paginate @wishlistss
           - else 
-            h3 You don't have any products in wishlist
-
-      / .col-md-3.well-right
-        / = render 'form/right'
+            h4[style="padding-left:50px;"] = t('wishlists.wishlist_empty')

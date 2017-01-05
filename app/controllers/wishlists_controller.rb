@@ -3,6 +3,7 @@ class WishlistsController < ApplicationController
   
   def index
     @wishlistss = WishList.where(user_id: current_user.id).order(created_at: :desc).paginate(:per_page => 10, :page => params[:page])
+    @products = Product.all
   end
 
   def create

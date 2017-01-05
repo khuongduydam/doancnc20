@@ -1,32 +1,32 @@
-.container-fluid
+.container-fluid[style='font-family:Arial']
   .row
     .col-xs-3.col-md-3
-      h3[style="color:blue;"] Please enter your details
+      h3[style="color:blue;"] = t('order.new.enter_order_detail')
       = simple_form_for @order_member do |f|
-        = f.input :user_id,as: :hidden, input_html: {value: current_user.id,readonly: true}
-        = f.input :username,input_html: {value: current_user.username,readonly: true}
-        = f.input :fullname,input_html: {value: current_user.first_name + " " + current_user.last_name,readonly: true} 
-        = f.input :address,input_html: {value: current_user.address,readonly: true}
+        = f.input :user_id,as: :hidden,input_html: {value: current_user.id,readonly: true}
+        = f.input :username, label: t('layouts.user_layout.username'),input_html: {value: current_user.username,readonly: true}
+        = f.input :fullname, label: t('layouts.user_layout.fullname'),input_html: {value: current_user.first_name + " " + current_user.last_name,readonly: true} 
+        = f.input :address, label: t('application.address'),input_html: {value: current_user.address,readonly: true}
         = f.input :email,input_html: {value: current_user.email,readonly: true}
-        = f.input :phone,input_html: {value: current_user.phone,readonly: true}
-        = f.input :note
-        = f.label "Use coin:" 
+        = f.input :phone, label: t('application.phone'),input_html: {value: current_user.phone,readonly: true}
+        = f.input :note,label: t('application.note')
+        = t('order.new.gift_code')
         input#coinUse.form-control[type="numeric", name="order_member[coinUse]" ]
         br
-        = f.select :pay_type, Order::PAYMENT_TYPES , prompt: 'Choose one'
-        = f.submit 'Submit',class:' btn btn-success pull-right btn-sm'
+        = f.select :pay_type, Order::PAYMENT_TYPES , prompt: t('application.choose_one')
+        = f.submit I18n.t('application.submit'),class:' btn btn-success pull-right btn-sm'
     .col-xs-9.col-md-9
         - unless @cart.order_items.empty?
           .container-fluid
-            h3.text-center[style="color:blue"] Your Cart
+            h3.text-center[style="color:blue"] = t('order.new.your_cart')
             .table-responsive
               table.table
                 thead
                   tr.danger
-                    th.text-center.col-xs-4.col-md-4 Ten Sp
-                    th.text-center.col-xs-2.col-md-2 So luong(kg)
-                    th.text-center.col-xs-2.col-md-2 Don gia
-                    th.text-center.col-xs-2.col-md-2 Thanh tien
+                    th.text-center.col-xs-4.col-md-4[style="padding-bottom:7px"] = t('application.product')
+                    th.text-center.col-xs-2.col-md-2 = t('application.quantity')
+                    th.text-center.col-xs-2.col-md-2 = t('application.price')
+                    th.text-center.col-xs-2.col-md-2 = t('order.new.into_money')
                 tbody
                   - @cart.order_items.each do |item|
                     tr.success
@@ -47,13 +47,8 @@
                   span#total
                   = number_with_delimiter(@cart.total_price, delimiter: '.')
                   |  (vnd)
-                h3
-                  | Now you have : 
-                  span#totalCoin
-                    = current_user.coin
-                  |  coin
               .pull-right
-                = link_to 'Empty Cart',@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'
+                = link_to I18n.t('order.new.empty_cart'),@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'
                 br
                 
 javascript:

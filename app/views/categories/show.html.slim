@@ -30,12 +30,12 @@ section.sections-product
                 | /kg  
               p
                 - if current_user != nil
-                  = link_to t('button_wishlist'), wishlists_path(product.id), method: :post
+                  = link_to t('products.index.button_wishlist'), wishlists_path(params[:locale],product.id), method: :post
               p
               - unless user_signed_in?
-                = button_to_with_icon t('button'), order_items_path(product_id: product), class: 'btn btn-info',style:"margin-top:-135%"            
+                = button_to_with_icon I18n.t('products.index.button'), order_items_path(params[:locale],product_id: product), class: 'btn btn-info',style:"margin-top:-135%"            
               - else
-                = button_to_with_icon t('button'), order_items_path(product_id: product), class: 'btn btn-info',style:"margin-top:-165%"            
+                = button_to_with_icon I18n.t('products.index.button'), order_items_path(params[:locale],product_id: product), class: 'btn btn-info',style:"margin-top:-165%"            
         = will_paginate @products
 javascript:
   $('.btn.btn-info').hide()

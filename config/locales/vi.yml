@@ -6,7 +6,7 @@ vi:
       money: 'vnd'
       search: 'k tìm thấy sản phẩm'
       button: 'Thêm vào giỏ hàng'
-  button_wishlist: 'Thêm vào mục ưa thích'
+      button_wishlist: 'Thêm vào mục ưa thích'
 
   layouts:
     header:
@@ -30,32 +30,43 @@ vi:
       login: 'Đăng nhập'
       facebook_login: 'Đăng nhập bằng Facebook'
       forgot_password: 'Lấy lại mật khẩu'
-  enter_order_detail: 'Thông tin cá nhân'
+      fullname: 'Họ&tên'
+      create_account: 'Tạo tài khoản'
+
   application:
     choose_one: 'Xin chọn'
     submit: 'Gửi'
     name: 'Tên'
     address: 'Địa chỉ'
     phone: 'Điện thoại'
-    note: 'Chú thích'
+    note: 'Ghi chú'
     product: 'Sản phẩm'
-    quantity: 'Số lượng'
+    quantity: 'Số lượng(kg)'
     price: 'Gía tiền'
     confirm: 'Bạn chắc chắn muốn xóa?'
-  your_cart: 'Giỏ hàng'
-  into_money: 'Thành tiền'
-  empty_cart: 'Xóa giỏ hàng'
+    destroy: 'Xóa'
+  order:
+    new:  
+      enter_order_detail: 'Thông tin cá nhân'
+      your_cart: 'Giỏ hàng'
+      into_money: 'Thành tiền'
+      empty_cart: 'Xóa giỏ hàng'
+      gift_code: 'Mã giảm giá'
+      
   contacts:
     new:
       title: 'Liên hệ'
       thank: 'Cám ơn bạn, xin hãy để lại thông tin liên lạc bên dưới'
       messages: 'Lời nhắn'
+
+  wishlists:
+    title: 'Danh sách sản phẩm ưa thích'   
+    detail: 'Chi tiết'
+    wishlist_empty: 'Danh sách ưa thích của bạn rỗng'
   placeholder: 'Tìm theo tên sản phẩm, xuất sứ'
   find: 'Lọc tìm sản phẩm'
   from: 'Từ'
   to: 'Đến'
-  create_account: 'Tạo tài khoản'
   password_confirmation: 'Lặp lại mật khẩu'
-  detail: 'Chi tiết'
   edit: 'Sửa'
   delete: 'Xóa'

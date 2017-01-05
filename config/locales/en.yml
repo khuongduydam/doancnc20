@@ -51,7 +51,9 @@ en:
       login: 'Login'
       facebook_login: 'Sign in with Facebook'
       forgot_password: 'Forgot Password'
-  enter_order_detail: 'Please enter your details'
+      fullname: 'Fullname'
+      create_account: 'Create An Account'
+
   application:
     choose_one: 'Choose one'
     submit: 'Submit'
@@ -60,23 +62,32 @@ en:
     phone: 'Phone'
     note: 'Note'
     product: 'Product'
-    quantity: 'Quantity'
+    quantity: 'Quantity(kg)'
     price: 'Price'
     confirm: 'Are you sure?'
-  your_cart: 'Your Cart'
-  into_money: 'Money'
-  empty_cart: 'Empty Cart'
+    destroy: 'Destroy'
+  order:
+    new:  
+      enter_order_detail: 'Please enter your details'
+      your_cart: 'Your Cart'
+      into_money: 'Money'
+      empty_cart: 'Empty Cart'
+      gift_code: 'Gift Code'
+
   contacts:
     new:
       title: 'Contacts'
       thank: 'Thank you for visiting us. Please contact us as below'
       messages: 'Messages'
+
+  wishlists:
+    title: 'My Wishlists'    
+    detail: 'Details'
+    wishlist_empty: 'You do not have any product in your wishlists'
   placeholder: 'Search by fruit name, origin'
   find: 'Search'
   from: 'From'
-  create_account: 'Create An Account'
   to: 'To'
-  detail: 'Details'
   edit: 'Edit'
   delete: 'Delete'
   activerecord:
