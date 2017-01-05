@@ -4,25 +4,46 @@ section.layout-admin
       .main-admin
         .row[style="margin:0px;"]
           .main-body
-            h3.us <i class="fa fa-folder-open" aria-hidden="true"></i> CATEGORIES              
+            h3.us 
+              i.fa.fa-folder-open
+              | 
+              = t('layouts.admins.index.categories')              
             #categories
               = render 'admins/category'
-            h3.us <i class="fa fa-tachometer" aria-hidden="true"></i> PRODUCTS
+            h3.us 
+              i.fa.fa-tachometer
+              |
+              = t('layouts.admins.index.products')              
             #products
               = render 'admins/product'
-            h3.us <i class="fa fa-file" aria-hidden="true"></i> NEWSPAPERS
+            h3.us 
+              i.fa.fa-file
+              |
+              = t('layouts.admins.index.newspaper')              
             #infos
               = render 'admins/newspaper'
-            h3.us <i class="fa fa-user" aria-hidden="true"></i> USERS
+            h3.us 
+              i.fa.fa-user
+              |
+              = t('layouts.admins.index.users')              
             #users
               = render 'admins/user'
-            h3.us <i class="fa fa-handshake-o" aria-hidden="true"></i> CONTACTS
+            h3.us
+              i.fa.fa-handshake-o
+              |
+              = t('layouts.admins.index.contacts')              
             #contact  
               = render 'admins/contact'
-            h3.us <i class="fa fa-handshake-o" aria-hidden="true"></i> ORDERS
+            h3.us
+              i.fa.fa-handshake-o
+              |
+              = t('layouts.admins.index.orders')              
             #order  
               = render 'admins/order'  
-            h3.us <i class="fa fa-handshake-o" aria-hidden="true"></i> ORDER MEMBERS
+            h3.us 
+              i.fa.fa-handshake-o
+              |
+              = t('layouts.admins.index.order_members')              
             #order_member  
               = render 'admins/order_member'
                  

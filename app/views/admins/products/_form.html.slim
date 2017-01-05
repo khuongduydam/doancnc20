@@ -1,6 +1,4 @@
-= simple_form_for [:admins, @product], :html => { :multipart => true, :id => "form_product" } do |f|
-  / = render 'my_devise/registrations/form', locals: {f:f}
-  / = render 'shared/error_messages', object: f.object
+= simple_form_for [:admins, @product], :html => { :multipart => true, :id => "form_product" },url: admins_product_path(@product,locale: params[:locale]),method: :put do |f|
   .field
     = f.input :name
     

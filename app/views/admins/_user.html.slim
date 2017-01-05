@@ -3,13 +3,13 @@
     table.table
       thead
         tr.info
-          th Id
-          th Username
+          th = t('layouts.admins.index.id')
+          th = t('layouts.user_layout.username')
           th Email
-          th First Name
-          th Last Name
+          th = t('layouts.admins.index.first_name')
+          th = t('layouts.admins.index.last_name')
           th Coin
-          th Property
+          th = t('layouts.admins.index.property')
       tbody
         - @users.each do |user|
           tr.danger
@@ -20,7 +20,7 @@
             td = user.last_name
             td = user.coin
             td[style="width:230px;"]
-              = link_to I18n.t('detail'), admins_user_path(params[:locale], user),class: 'btn btn-info'
-              = link_to I18n.t('edit'), edit_admins_user_path(params[:locale],user), class: 'btn btn-warning',style:'position:relative;right: -15px;'
-              = link_to I18n.t('delete'), admins_user_path(params[:locale],user),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style:'position:relative;right: -30px;'
+              = link_to I18n.t('layouts.admins.index.detail'), admins_user_path(params[:locale], user),class: 'btn btn-info'
+              = link_to I18n.t('layouts.admins.index.edit'), edit_admins_user_path(params[:locale],user), class: 'btn btn-warning',style:'position:relative;right: -15px;'
+              = link_to I18n.t('layouts.admins.index.delete'), admins_user_path(params[:locale],user),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style:'position:relative;right: -30px;'
     = will_paginate @users

@@ -1,4 +1,4 @@
-= simple_form_for [:admins, @category], :html =>{:id => "form_categories"} do |f|
+= simple_form_for [:admins,@category], :html =>{:id => "form_categories"}, url: admins_category_path(@category,locale: params[:locale]),method: :put do |f|
   .field
     = f.input :name, id: 'name', required: true
   = f.label "Image"

@@ -25,7 +25,7 @@ class Admins::OrderMembersController < AdminsController
     if params[:id].present?
       @order_member = OrderMember.find(params[:id])
     else
-      flash.now[:error] = "Order is noit valid"
+      flash.now[:error] = "Order is not valid"
     end
   end
 end

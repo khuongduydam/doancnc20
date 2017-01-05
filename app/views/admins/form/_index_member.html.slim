@@ -2,15 +2,15 @@
   table.table
     thead
       tr.info
-        th.text-center User
-        th.text-center Ho&ten
-        th.text-center Địa chỉ
-        th.text-center Điện thoại
+        th.text-center = t('application.name')
+        th.text-center = t('layouts.user_layout.fullname')
+        th.text-center = t('application.address')
+        th.text-center = t('application.phone')
         th.text-center Email
-        th.text-center Status
-        th.text-center Pay Type
-        th.text-center Total Buy
-        th.text-center.col-md-2 Property
+        th.text-center = t('layouts.admins.index.status')
+        th.text-center = t('layouts.admins.index.pay_type')
+        th.text-center = t('layouts.admins.index.total_buy')
+        th.text-center.col-md-2 = t('layouts.admins.index.property')
     tbody
       - @order_members.each do |member|
         tr.danger
@@ -24,8 +24,8 @@
           td.text-center[style="color:red;"] =  member.total_price
           td.text-center
             .btn-group
-              = link_to 'Detail', admins_order_member_path(params[:locale],member),class: 'btn btn-info btn-xs'
-              = link_to 'Edit', edit_admins_order_member_path(params[:locale],member),class: 'btn btn-primary btn-xs'
-              = link_to 'Delete', admins_order_member_path(params[:locale],member),method: :delete, data: {confirm: "All products of this member will be delete. Are you sure?"}, class: 'btn btn-danger btn-xs'
+              = link_to I18n.t('layouts.admins.index.detail'), admins_order_member_path(params[:locale],member),class: 'btn btn-info btn-xs'
+              = link_to I18n.t('layouts.admins.index.edit'), edit_admins_order_member_path(params[:locale],member),class: 'btn btn-primary btn-xs'
+              = link_to I18n.t('layouts.admins.index.delete'), admins_order_member_path(params[:locale],member),method: :delete, data: {confirm: "All products of this member will be delete. Are you sure?"}, class: 'btn btn-danger btn-xs'
 = will_paginate @order_members
 

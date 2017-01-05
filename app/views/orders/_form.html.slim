@@ -1,27 +1,27 @@
 .container-fluid
   .row
     .col-xs-3.col-md-3
-      h3[style="color:blue;"]  = t('enter_order_detail')
+      h3[style="color:blue;"]  = t('order.new.enter_order_detail')
       = simple_form_for @order do |f|
-        = f.input :name,label: t('name'),label_html:{style:'font-family:Arial'}
-        = f.input :address, label: t('address'),label_html:{style:'font-family:Arial'}
+        = f.input :name,label: t('application.name'),label_html:{style:'font-family:Arial'}
+        = f.input :address, label: t('application.address'),label_html:{style:'font-family:Arial'}
         = f.input :email
-        = f.input :phone,label: t('phone'),label_html:{style:'font-family:Arial'}
-        = f.input :note, label: t('note'),label_html:{style:'font-family:Arial'}
-        = f.select :pay_type, Order::PAYMENT_TYPES , prompt: t('choose_one')
-        = f.submit t('submit'),class:' btn btn-success pull-right btn-sm'
+        = f.input :phone,label: t('application.phone'),label_html:{style:'font-family:Arial'}
+        = f.input :note, label: t('application.note'),label_html:{style:'font-family:Arial'}
+        = f.select :pay_type, Order::PAYMENT_TYPES , prompt: t('application.choose_one')
+        = f.submit t('application.submit'),class:' btn btn-success pull-right btn-sm'
     .col-xs-9.col-md-9
         - unless @cart.order_items.empty?
           .container-fluid
-            h3.text-center[style="color:blue;font-family:Arial"] = t('your_cart')
+            h3.text-center[style="color:blue;font-family:Arial"] = t('order.new.your_cart')
             .table-responsive
               table.table[style="font-family:Arial"]
                 thead
                   tr.danger
-                    th.text-center.col-xs-4.col-md-4[style="padding-bottom:7px"] = t('product')
-                    th.text-center.col-xs-2.col-md-2 = t('quantity')
-                    th.text-center.col-xs-2.col-md-2 = t('price')
-                    th.text-center.col-xs-2.col-md-2 = t('into_money')
+                    th.text-center.col-xs-4.col-md-4[style="padding-bottom:7px"] = t('application.product')
+                    th.text-center.col-xs-2.col-md-2 = t('application.quantity')
+                    th.text-center.col-xs-2.col-md-2 = t('application.price')
+                    th.text-center.col-xs-2.col-md-2 = t('order.new.into_money')
                 tbody
                   - @cart.order_items.each do |item|
                     tr.success

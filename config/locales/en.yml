@@ -53,7 +53,49 @@ en:
       forgot_password: 'Forgot Password'
       fullname: 'Fullname'
       create_account: 'Create An Account'
-
+    admins:
+      index:
+        detail: 'Detail'
+        edit: 'Edit'
+        delete: 'Delete'
+        back: 'Back'
+        products_of_category: 'Products of Category'
+        property: 'Property'
+        title: 'Title'
+        content: 'Content'
+        first_name: 'First Name'  
+        last_name: 'Last Name'
+        status: 'Status'
+        pay_type: 'Pay Type'
+        total_buy: 'Total Buy'
+        categories: 'CATEGORIES'
+        newspaper: 'NEWSPAPERS'
+        users: 'USERS'
+        contacts: 'CONTACTS'
+        orders: 'ORDERS'
+        order_members: 'ORDER MEMBERS'
+        id: 'ID'
+        new_category: 'NEW CATEGORIES'
+        new_product: 'NEW PRODUCTS'
+        new_newspaper: 'NEW NEWSPAPERS'
+        search_category: 'Search by name'
+        search_product: 'Search by name, origin'
+        search_newspaper: 'Search by title, content'
+        search_user: 'Search by username, first name'
+        search_contact: 'Search by name, message, address'
+        search_order: 'Search by name, address, phone'
+        search_order_member: 'Search by username, fullname,phone'
+    admin_layout:
+      admins:
+        sidebar:
+          home: 'HOME'
+          category: 'CATEGORY'
+          product: 'PRODUCT'
+          newspaper: 'NEWSPAPERS'
+          user: 'USERS'
+          contact: 'CONTACTS'
+          order: 'ORDERS'
+          order_member: 'ORDER MEMBERS'    
   application:
     choose_one: 'Choose one'
     submit: 'Submit'
@@ -66,6 +108,9 @@ en:
     price: 'Price'
     confirm: 'Are you sure?'
     destroy: 'Destroy'
+    origin: 'origin'
+    created_at: 'created_at'
+    description: 'Description'
   order:
     new:  
       enter_order_detail: 'Please enter your details'
@@ -88,8 +133,6 @@ en:
   find: 'Search'
   from: 'From'
   to: 'To'
-  edit: 'Edit'
-  delete: 'Delete'
   activerecord:
     errors:
       models:

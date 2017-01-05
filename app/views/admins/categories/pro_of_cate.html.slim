@@ -29,6 +29,6 @@ section.modify-category
                 - product.pictures.each do |img|
                  = image_tag img.image, size: "200x200", class:'img-circle'
               td 
-                = link_to "edit", edit_admins_product_path(product), class: 'btn btn-success'
+                = link_to "edit", edit_admins_product_path(params[:locale],product), class: 'btn btn-success'
                 |  | 
-                = link_to "delete", admins_product_path(product), method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-danger'
+                = link_to "delete", admins_product_path(params[:locale],product), method: :delete, data: {confirm: "You sure?"}, class: 'btn btn-danger'

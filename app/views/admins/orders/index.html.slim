@@ -4,17 +4,18 @@ section.layout-adminproduct[style="margin-left:22%"]
       .main-adminproduct
         .page-title
           h1.page-header.pull-left
-            | <i class="fa fa-tachometer" aria-hidden="true"></i> ORDER
+            i.fa.fa-tachometer
+            |
+            = t('layouts.admins.index.orders')
         .row.main-body
           .col-md-12.bodyad
             = form_tag admins_orders_path, :method => 'get', :id => "orders_search" do
-                = text_field_tag :search, params[:search], placeholder: "Search by name, address, phone,....", class: 'form-control', style: 'width: 50%;'
-                / = submit_tag "Search",type:'hidden'
+                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_order'), class: 'form-control', style: 'width: 50%;'
             br
         .row.main-body
           .col-md-12.bodyad
             = render 'admins/form/index_order'
-            = link_to "Back", :back, class: "btn btn-default"
+            = link_to I18n.t('layouts.admins.index.back'), :back, class: "btn btn-default"
 javascript:
  $('#search').keyup(function(){
    val = $(this).val();

@@ -5,12 +5,14 @@ section.layout-adminuser
       .col-md-10.main-adminproduct
         .page-title
           h1.page-header.pull-left
-            | <i class="fa fa-file" aria-hidden="true"></i> USERS          
+            i.fa.fa-file
+            |
+            = t('layouts.admins.index.users')
         .row.main-body
           .col-md-12.bodyad
             = form_tag admins_users_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: "Search by username, firt name, ....", class: 'form-control', style: 'width: 50%;'
+                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_user'), class: 'form-control', style: 'width: 50%;'
         .row.main-body
           .col-md-12.bodyad
             = render 'admins/user'

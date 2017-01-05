@@ -2,14 +2,14 @@
   table.table
     thead
       tr.info
-        th.text-center Name
-        th.text-center.col-md-2 Address
-        th.text-center Phone
+        th.text-center = t('application.name')
+        th.text-center.col-md-2 = t('application.address')
+        th.text-center = t('application.phone')
         th.text-center Email
-        th.text-center Status
-        th.text-center Pay Type
-        th.text-center Total Buy
-        th.text-center.col-md-2 Property
+        th.text-center = t('layouts.admins.index.status')
+        th.text-center = t('layouts.admins.index.pay_type')
+        th.text-center = t('layouts.admins.index.total_buy')
+        th.text-center.col-md-2 = t('layouts.admins.index.property')
     tbody
       - @orders.each do |order|
         tr.danger
@@ -22,8 +22,8 @@
           td.text-center[style="color:red;"] =  order.total_price
           td.text-center
             .btn-group
-              = link_to 'Detail', admins_order_path(params[:locale],order),class: 'btn btn-info btn-xs'
-              = link_to 'Edit', edit_admins_order_path(params[:locale],order),class: 'btn btn-primary btn-xs'
-              = link_to 'Delete', admins_order_path(params[:locale],order),method: :delete, data: {confirm: "All products of this order will be delete. Are you sure?"}, class: 'btn btn-danger btn-xs'
+              = link_to I18n.t('layouts.admins.index.detail'), admins_order_path(params[:locale],order),class: 'btn btn-info btn-xs'
+              = link_to I18n.t('layouts.admins.index.edit'), edit_admins_order_path(params[:locale],order),class: 'btn btn-primary btn-xs'
+              = link_to I18n.t('layouts.admins.index.delete'), admins_order_path(params[:locale],order),method: :delete, data: {confirm: "All products of this order will be delete. Are you sure?"}, class: 'btn btn-danger btn-xs'
 = will_paginate @orders
 

@@ -4,42 +4,42 @@
       .side-menu-container
         ul.nav.navbar-nav
           li
-            = active_link_to "HOME", admins_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.home'), admins_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "CATEGORY ", admins_categories_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.category'), admins_categories_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "PRODUCT ", admins_products_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.product'), admins_products_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "NEWSPAPERS", admins_newspapers_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.newspaper'), admins_newspapers_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "USER", admins_users_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.user'), admins_users_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "CONTACT", admins_contacts_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.contact'), admins_contacts_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "ORDER", admins_orders_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.order'), admins_orders_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "ORDER MEMBER", admins_order_members_path, label:'left',class:'list-group-item'  
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.order_member'), admins_order_members_path, label:'left',class:'list-group-item'  
 - else 
   .side-menu
     nav.navbar.navbar-default role="navigation" 
       .side-menu-container
         ul.nav.navbar-nav  
           li
-            = link_to "HOME", admins_path, label:'left',class:'list-group-item'         
+            = link_to I18n.t('layouts.admin_layout.sidebar.home'), admins_path, label:'left',class:'list-group-item'         
           li
-            = active_link_to "CATEGORY ", admins_categories_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.category'), admins_categories_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "PRODUCT ", admins_products_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.product'), admins_products_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "NEWSPAPERS", admins_newspapers_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.newspaper'), admins_newspapers_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "USER", admins_users_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.user'), admins_users_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "CONTACT", admins_contacts_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.contact'), admins_contacts_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "ORDER", admins_orders_path, label:'left',class:'list-group-item'
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.order'), admins_orders_path, label:'left',class:'list-group-item'
           li
-            = active_link_to "ORDER MEMBER", admins_order_members_path, label:'left',class:'list-group-item'  
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.order_member'), admins_order_members_path, label:'left',class:'list-group-item'  
 javascript:
   $(function () {
     $('.navbar-toggle-sidebar').click(function () {

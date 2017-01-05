@@ -4,7 +4,7 @@ section.layout-admincategory
       .col-md-2.list-group
         //= render 'admins/sidebar'
       .col-md-10.main-adminproduct[style="margin-top:-13%;"]
-        = simple_form_for @order do |f|
+        = simple_form_for @order, url: order_path(@order, locale: params[:locale]),method: :put do |f|
           = f.select :status, options_for_select(["Uncomplete","Complete"]), {},class:'form-control',style:'width:150px;'
           br
           = f.submit 'Submit', class:'btn btn-success'

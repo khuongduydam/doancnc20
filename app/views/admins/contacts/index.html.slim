@@ -5,13 +5,14 @@ section.layout-admincontact
       .col-md-10.main-adminproduct
         .page-title
           h1.page-header.pull-left
-            | <i class="fa fa-handshake-o" aria-hidden="true"></i> CONTACTS 
+            i.fa.fa-handshake-o
+            | 
+            = t('layouts.header.contacts') 
         .main-body
           .col-md-12.bodyad
             = form_tag admins_contacts_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: "Search by name, message, address", class: 'form-control', style: 'width: 50%;'
-                / = submit_tag "Search", :name => nil
+                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_contact'), class: 'form-control', style: 'width: 50%;'
         .main-body
           .col-md-12.bodyad
             = render 'admins/form/index_contact'

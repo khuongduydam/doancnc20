@@ -2,11 +2,11 @@
   table.table
     thead
       tr.info
-        th Name
-        th Address
-        th Message
-        th Time
-        th[style="width:300px;"] Property
+        th = t('application.name')
+        th = t('application.address')
+        th = t('contacts.new.message')
+        th = t('application.created_at')
+        th[style="width:300px;"] = t('layouts.admins.index.property')
     tbody
       - @contacts.each do |contact|
         tr.danger
@@ -15,8 +15,7 @@
           td = truncate(contact.message, length: 30)
           td 
             = contact.created_at  
-            / = distance_of_time_in_words(Time.now, contact.created_at)
           td 
-            = link_to 'Detail', admins_contact_path(params[:locale],contact),class: 'btn btn-info'
-            = link_to 'Delete', admins_contact_path(params[:locale],contact),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+            = link_to I18n.t('layouts.admins.index.detail'), admins_contact_path(params[:locale],contact),class: 'btn btn-info'
+            = link_to I18n.t('layouts.admins.index.delete'), admins_contact_path(params[:locale],contact),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
   = will_paginate @contacts

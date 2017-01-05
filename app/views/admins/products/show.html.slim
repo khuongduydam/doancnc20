@@ -14,25 +14,28 @@ section.modify-category[style="width:100%"]
           = image_tag('default.png', size: "200x200")
               end
         h4 
-          | Giá bán: 
+          = t('application.price')
+          | :  
           =  @product.price
           |  
         p 
-          | Số lượng trong kho : 
+          = t('application.quantity')
+          | : 
           = @product.quantity
-          |  kg
+          | (kg)
         .about_product
           p 
-            | Xuất xứ: 
+            = t('application.origin')
+            | : 
             = @product.origin
         .about_product
           p 
-            | Mô tả : 
+            = t('application.description')
+            | : 
             = @product.description
-            / = @product.category.name
         br
         .btn-lg.right
-          = link_to "Edit", edit_admins_product_path(@product), class: 'btn btn-success'
-          = link_to "Delete", admins_product_path(@product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
-          = link_to "Back", :back, class: "btn btn-success", style: 'margin-left:20px;'
+          = link_to I18n.t('layouts.admins.index.detail'), edit_admins_product_path(params[:locale],@product), class: 'btn btn-success'
+          = link_to I18n.t('layouts.admins.index.delete'), admins_product_path(params[:locale],@product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+          = link_to I18n.t('layouts.admins.index.back'), :back, class: "btn btn-default", style: 'margin-left:20px;'
 
