@@ -7,7 +7,7 @@ hr[style="border:1px solid red"]
     = text_field_tag :search, params[:search], placeholder: t('placeholder'),class:'form-control',style:'width:33%;border-radius:0;font-family:Arial'
     br
     = label_tag :category,t('category'),style:'font-family:Arial'
-    = select_tag :category, options_from_collection_for_select(categories_list_head, "id", "name",""), include_blank: true,prompt:t('choose_one'),class:'form-control',style:'width:33%;border-radius:0;font-family:Arial'
+    = select_tag :category, options_for_select(categories_list_head.map{|cate| [cate.name, cate.id]}),prompt:t('choose_one'),class:'form-control',style:'width:33%;border-radius:0;font-family:Arial'
     br
     = label_tag :price, t('price')
     = text_field_tag :minValue, params[:minValue], style: "width:150px;margin-left:30px;",placeholder:t('from')

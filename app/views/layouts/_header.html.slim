@@ -27,8 +27,7 @@ header.frontend.hidemobile
             .list-cate.text-center[style="list-style-type: none;"]
               - categories_list_head.each do |category|
                 - if category.products.size!=0
-                  p 
-                = link_to category.name, category_path(category.id)             
+                  p = link_to category.name, category_path(category.id)             
           li
             = link_to I18n.t('layouts.header.order_guide'), shoppingguides_path
           li

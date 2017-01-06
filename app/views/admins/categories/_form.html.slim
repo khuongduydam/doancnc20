@@ -1,4 +1,4 @@
-= simple_form_for [:admins,@category], :html =>{:id => "form_categories"}, url: admins_category_path(@category,locale: params[:locale]),method: :put do |f|
+= simple_form_for [:admins,@category], :html =>{:id => "form_categories"} do |f|
   .field
     = f.input :name, id: 'name', required: true
   = f.label "Image"
@@ -12,7 +12,7 @@
         = picture.file_field :image 
       
   = f.submit  id: 'sub-mit'
-  = link_to "Back", :back, class: "btn btn-success"
+  = link_to I18n.t('layouts.admins.index.back'), :back, class: "btn btn-success"
 javascript:
   $(document).ready(function () {
     $("#form_categories").validate({

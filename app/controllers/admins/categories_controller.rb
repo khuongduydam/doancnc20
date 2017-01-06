@@ -14,14 +14,11 @@ class Admins::CategoriesController < AdminsController
 
   def create
     @category = Category.new(category_params)
-
     if params[:category][:pictures_attributes].present?
       if @category.save
         redirect_to admins_categories_path
       else
-        # flash[:error] = @category.errors.full_messages
         render 'new'
-        # puts @category.errors.full_messages
       end
     else
       flash[:error]="Please choose image!" 

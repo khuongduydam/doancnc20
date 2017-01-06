@@ -5,4 +5,47 @@ section.modify-category
       .update-cate
       	h2
           |Modify Category
-        = render 'form'
+        = simple_form_for [:admins,@category], :html =>{:id => "form_categories"}, url: admins_category_path(@category,locale: params[:locale]),method: :put do |f|
+          .field
+            = f.input :name, id: 'name', required: true
+          = f.label "Image"
+          #img
+            - if params[:controller] == 'admins/categories' && (params[:action] == 'new' || params[:action] == 'create' )
+              = f.simple_fields_for :pictures, @category.pictures.build do |picture|
+                = picture.file_field :image      
+            - if params[:controller] == 'admins/categories' && (params[:action] == 'edit' || params[:action] == 'update' )
+              = f.simple_fields_for :pictures do |picture|
+                = image_tag picture.object.image_url, size: "200x200", class:'img-circle'
+                = picture.file_field :image 
+              
+          = f.submit  id: 'sub-mit'
+          = link_to I18n.t('layouts.admins.index.back'), :back, class: "btn btn-success"
+javascript:
+  $(document).ready(function () {
+    $("#form_categories").validate({
+      rules: {
+        "category[name]": {required: true, minlength: 2, maxlength: 50}
+      }
+    });
+    submitHandler: function(form){
+      $('form').find(':submit');
+      form.submit();
+    }
+  });
+  $("#form_categories").submit(function(){
+    var path =  window.location.pathname.slice(-4);
+    if (path == "/new") {
+      var img = $("#category_pictures_attributes_0_image").val().length;
+      if (img==0) {
+        alert("Please choose one image!");
+        return false;
+      }
+    }
+    if (path == "edit") {
+      var countImg = $("#img").find("img").length;
+      if (countImg==0) {
+        alert("Please choose one image");
+        return false;
+      }
+    }
+  });
