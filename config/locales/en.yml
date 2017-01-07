@@ -106,11 +106,13 @@ en:
     product: 'Product'
     quantity: 'Quantity(kg)'
     price: 'Price'
+    price_discount: 'Price Discount'
     confirm: 'Are you sure?'
     destroy: 'Destroy'
     origin: 'origin'
     created_at: 'created_at'
     description: 'Description'
+    image: 'Ảnh'
   order:
     new:  
       enter_order_detail: 'Please enter your details'

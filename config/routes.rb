@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   scope ":locale", locale: /en|vi/ do
     namespace :admins do
+      get 'gift_codes' => 'gift_codes#index'
+      post 'gift_codes' => 'gift_codes#create'
       resources :contacts, only: [:index, :show, :destroy]
       resources :newspapers, :products, :orders, :order_members, :users
       resources :categories do

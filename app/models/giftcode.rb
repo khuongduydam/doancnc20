@@ -1,0 +1,2 @@
+class Giftcode < ApplicationRecord
+end

@@ -11,8 +11,6 @@
         = f.input :phone, label: t('application.phone'),input_html: {value: current_user.phone,readonly: true}
         = f.input :note,label: t('application.note')
         = t('order.new.gift_code')
-        input#coinUse.form-control[type="numeric", name="order_member[coinUse]" ]
-        br
         = f.select :pay_type, Order::PAYMENT_TYPES , prompt: t('application.choose_one')
         = f.submit I18n.t('application.submit'),class:' btn btn-success pull-right btn-sm'
     .col-xs-9.col-md-9
@@ -43,7 +41,6 @@
               .pull-left
                 h4[style="color:red"] 
                   | Total: 
-                  / #total
                   span#total
                   = number_with_delimiter(@cart.total_price, delimiter: '.')
                   |  (vnd)
@@ -51,12 +48,3 @@
                 = link_to I18n.t('order.new.empty_cart'),@cart, method: :delete, data: {confirm: 'Are you sure?'},class:'btn btn-danger btn-sm'
                 br
                 
-javascript:
-  $(document).ready(function () {
-    var totalCoin = Number(($('#totalCoin').text()).replace(/[^0-9\.]+/g,""));
-    $('#new_order_member').validate({
-      rules: {
-        "order_member[coinUse]": {number: true, min: 0, max: totalCoin } 
-        }
-    });
-  });

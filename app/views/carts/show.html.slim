@@ -7,6 +7,7 @@
             #order-items
               = render @order_items
          
+input#gift-code.form-control.center-block[style="width:50%;border-radius:0"]
     
 
 javascript:
@@ -32,7 +33,7 @@ javascript:
       dataType:'script',
       data: {quantity: number, id: id}
     });
-    if(parseInt(input.val()) < 0){
+    if(parseInt(input.val()) <= 0){
       input.css('border-color','red')
       place.prepend('<span class="errors">Number not allow</span>')
       $(this).css('margin-top','10%')
@@ -55,6 +56,15 @@ javascript:
     total = $('.total-money').text();
     total = (parseFloat(total)-parseFloat(price));
     return $('.total-money').text(total);
+  });
+  $('input#gift-code').on('change',function(){
+    $.ajax({
+      type: "GET",
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      url: '/#{params[:locale]}/carts/#{params[:id]}/',
+      dataType: 'script',
+      data: {data: $('input#gift-code').val()}
+    });
   });
 
   

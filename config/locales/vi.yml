@@ -86,11 +86,13 @@ vi:
     product: 'Sản phẩm'
     quantity: 'Số lượng(kg)'
     price: 'Gía tiền'
+    price_discount: 'Gía giảm'
     confirm: 'Bạn chắc chắn muốn xóa?'
     destroy: 'Xóa'
     origin: 'Xuất sứ'
     created_at: 'Ngày tạo'
     description: 'Mô tả'
+    image: 'Image'
   order:
     new:  
       enter_order_detail: 'Thông tin cá nhân'

@@ -17,13 +17,28 @@ javascript:
   $(document).ready(function () {
     $("#form_categories").validate({
       rules: {
-        "category[name]": {required: true, minlength: 2, maxlength: 50}
+        "category[name]": {required: true, minlength: 2, maxlength: 50},
+        "category[pictures_attributes][0][image]": {required: true, accept: true}
+      },
+      messages:{
+        "category[name]": {required: "Please enter a category name", minlength: "Name is too short", maxlength: "Name is too long"},
+        "category[pictures_attributes][0][image]": {required: "Please choose an image", accept: "Must be an image"}
+      },
+      highlight: function(element){
+        $(element).closest('.form-group').addClass('has-error');
+      },
+      unhighlight: function(element){
+        $(element).closest('.form-group').removeClass('has-error');
+      },
+      submitHandler: function(form) {
+        $('form').find(":submit").attr("disabled", true).attr("value","Submitting...");
+        form.submit();
+      },
+      errorClass :'help-block',
+      errorPlacement: function(error, element){
+        error.insertAfter(element);
       }
     });
-    submitHandler: function(form){
-      $('form').find(':submit');
-      form.submit();
-    }
   });
   $("#form_categories").submit(function(){
     var path =  window.location.pathname.slice(-4);

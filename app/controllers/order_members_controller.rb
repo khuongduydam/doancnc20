@@ -1,21 +1,5 @@
 class OrderMembersController < ApplicationController
   before_action :find_order_member, only: :update
-  
-  # daisy
-  def update_coin_total
-    order_mem = OrderMember.find(params[:id]).total_price=params[:total_after]
-    order_mem.save
-    # kjdfsj
-    user = User.find(current_user.id).coin = params[:coin]
-    user.save
-    
-
-    # respond_to do |format|
-    #   format.js
-    # end
-
-  end
-  # end daisy
    
   def new
     if @cart.order_items.empty?
@@ -28,11 +12,7 @@ class OrderMembersController < ApplicationController
   def create
     @order_member = OrderMember.new(member_params)
     @order_member.add_order_items_from_cart(@cart)
-    @order_member.total_price = @cart.total_price
-    coin = params[:order_member][:coinUse]
-    coinToI = coin.to_f
-    coinToVND = coinToI * 22700
-    @order_member.total_price -= coinToVND
+    @order_member.total_price = @cart.total_price 
     if @order_member.pay_type == 'Direct' && @order_member.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
@@ -43,8 +23,7 @@ class OrderMembersController < ApplicationController
       session[:cart_id] = nil
       redirect_to @cart.paypal_url(products_url)    
     else
-      flash.now[:error] = "Sorry, something wrong here. Try again!!!"
-      p @order_member.errors.messages
+      flash.now[:error] = "Your order is not complete"
       render :new
     end
   end
@@ -52,22 +31,10 @@ class OrderMembersController < ApplicationController
   def update
     @order_member.update(member_update)
     user = User.find_by(username: @order_member.username)
-    p 'not update'
     if @order_member.status == "Complete" && @order_member.save
-      p 'update'
-      o_coin = @order_member.total_price*0.005 + user.coin
-      user.update_attributes(coin: o_coin)
-      p "*"*50
-      p user.errors.messages
-      p "*"*50
-
-      user.update_attributes(coin: o_coin)
       flash[:success] = "Order is completed, ready to delivery"
-      p 'update success coind'
       redirect_to admins_order_members_path
     elsif @order_member.status == "Uncomplete" && @order_member.save
-      o_coin = user.coin - @order_member.total_price*0.005
-      user.update_attributes(coin: o_coin)
       redirect_to admins_order_members_path
     else
       render :edit

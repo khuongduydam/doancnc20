@@ -19,6 +19,8 @@
             = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.order'), admins_orders_path, label:'left',class:'list-group-item'
           li
             = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.order_member'), admins_order_members_path, label:'left',class:'list-group-item'  
+          li
+            = active_link_to 'Gift Code', admins_gift_codes_path, label: 'left',class:'list-group-item'  
 - else 
   .side-menu
     nav.navbar.navbar-default role="navigation" 
@@ -39,7 +41,9 @@
           li
             = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.order'), admins_orders_path, label:'left',class:'list-group-item'
           li
-            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.order_member'), admins_order_members_path, label:'left',class:'list-group-item'  
+            = active_link_to I18n.t('layouts.admin_layout.admins.sidebar.order_member'), admins_order_members_path, label:'left',class:'list-group-item'
+          li
+            = active_link_to 'Gift Code', admins_gift_codes_path, label: 'left',class:'list-group-item'      
 javascript:
   $(function () {
     $('.navbar-toggle-sidebar').click(function () {
