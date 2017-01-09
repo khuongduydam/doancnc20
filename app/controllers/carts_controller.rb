@@ -7,13 +7,6 @@ class CartsController < ApplicationController
     if @order_items.size == 0
       redirect_to root_path
     end
-    @gift_code = Giftcode.find_by(gift_code: params[:data])
-    # if @gift_code.present?
-    #   if @gift_code.gift_code.size == 50
-    #     @cart.total_price *= 1.1
-    #   end
-    # end
-    # p @cart.total_price
   end
 
   def destroy

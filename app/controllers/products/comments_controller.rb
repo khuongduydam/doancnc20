@@ -4,6 +4,6 @@ class Products::CommentsController < CommentsController
   private
   
   def set_commentable
-    @commentable = Product.find(params[:product_id])
+    @product = Product.find_by(id: params[:product_id])
   end
 end

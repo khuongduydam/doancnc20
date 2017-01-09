@@ -12,39 +12,61 @@ class OrderMembersController < ApplicationController
   def create
     @order_member = OrderMember.new(member_params)
     @order_member.add_order_items_from_cart(@cart)
-    @order_member.total_price = @cart.total_price 
-    if @order_member.pay_type == 'Direct' && @order_member.save
+    gift_code = Giftcode.find_by(gift_code: params[:order_member][:gift_code])    
+    unless gift_code.present?
+      @order_member.total_price = @cart.total_price
+    else
+      case gift_code.gift_code.size 
+        when 50
+          @order_member.total_price = @cart.total_price(1.1)
+        when 51
+          @order_member.total_price = @cart.total_price(1.2)  
+        when 52
+          @order_member.total_price = @cart.total_price(1.3)
+        when 53
+          @order_member.total_price = @cart.total_price(1.4)
+        when 54
+          @order_member.total_price = @cart.total_price(1.5)
+        when 55
+          @order_member.total_price = @cart.total_price(1.6)        
+        else
+          @order_member.total_price = @cart.total_price
+      end
+      gift_code.destroy
+    end
+    unless @order_member.save   
+      flash[:error] = "Your order is not complete"
+      render :new
+    end
+    if @order_member.pay_type == 'Direct'
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       flash[:success] = "Thank you for your OrderMember"
       redirect_to root_path
-    elsif @order_member.pay_type == 'Paypal' && @order_member.save
+    elsif @order_member.pay_type == 'Paypal'
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       redirect_to @cart.paypal_url(products_url)    
-    else
-      flash.now[:error] = "Your order is not complete"
-      render :new
     end
   end
 
   def update
-    @order_member.update(member_update)
-    user = User.find_by(username: @order_member.username)
-    if @order_member.status == "Complete" && @order_member.save
+    unless @order_member.update(member_update)
+      flash[:error] = "Update failed"
+      render :edit 
+    end
+    if @order_member.status == "Complete"
       flash[:success] = "Order is completed, ready to delivery"
       redirect_to admins_order_members_path
-    elsif @order_member.status == "Uncomplete" && @order_member.save
+    elsif @order_member.status == "Uncomplete"
       redirect_to admins_order_members_path
-    else
-      render :edit
     end
   end
 
   private
 
   def member_params
-    params.require(:order_member).permit(:username,:fullname, :address, :phone, :email, :pay_type, :note)
+    params.require(:order_member).permit(:username,:fullname, :address, :phone, :email, :pay_type, :note, :gift_code, :user_id)
   end
 
   def find_order_member

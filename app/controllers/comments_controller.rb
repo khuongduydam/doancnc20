@@ -1,10 +1,9 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   def create
-    @comment = @commentable.comments.new comment_params
+    @comment = @product.comments.new comment_params
     @comment.user = current_user
-    @comment.save
-    redirect_to @commentable
+    redirect_to @product if @comment.save
   end
 
   def destroy

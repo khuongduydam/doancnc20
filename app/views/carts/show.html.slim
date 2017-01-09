@@ -7,7 +7,6 @@
             #order-items
               = render @order_items
          
-input#gift-code.form-control.center-block[style="width:50%;border-radius:0"]
     
 
 javascript:
@@ -57,14 +56,6 @@ javascript:
     total = (parseFloat(total)-parseFloat(price));
     return $('.total-money').text(total);
   });
-  $('input#gift-code').on('change',function(){
-    $.ajax({
-      type: "GET",
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-      url: '/#{params[:locale]}/carts/#{params[:id]}/',
-      dataType: 'script',
-      data: {data: $('input#gift-code').val()}
-    });
-  });
+  
 
   

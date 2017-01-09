@@ -11,8 +11,12 @@ class Cart < ApplicationRecord
     current_item
   end
 
-  def total_price
-    order_items.to_a.sum{|item| item.total_price}
+  def total_price(number=1)
+    if number != 1
+      order_items.to_a.sum{|item| item.total_price / number}
+    else
+      order_items.to_a.sum{|item| item.total_price}
+    end
   end
 
   def paypal_url(return_url)
@@ -27,7 +31,6 @@ class Cart < ApplicationRecord
       values.merge!({
         "amount_#{index+1}" => ((item.product.price.to_f) / 22700).round ,
         "item_name_#{index+1}" => item.product.name,
-        "item_number_#{index+1}" => item.id,
         "quantity_#{index+1}" => item.quantity
         })
     end
