@@ -1,7 +1,7 @@
 class Admins::ProductsController < AdminsController
   helper_method :sort_column, :sort_direction
   def index
-    @products = Product.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 10, :page => params[:page])
+    @products = Product.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 5, :page => params[:page])
     respond_to do |format|
       format.html
       format.json{render json: {data: @products}}
@@ -11,12 +11,15 @@ class Admins::ProductsController < AdminsController
   def new
     @product = Product.new
   end
+
   def create
     @product = Product.new(product_params)
     if params[:product][:pictures_attributes].present?
       if @product.save
+        flash[:success] = 'Add product success'
         redirect_to admins_products_path
       else
+        flash.now[:error] = 'Can not add product'
         render 'new'
       end
     else
@@ -32,7 +35,7 @@ class Admins::ProductsController < AdminsController
   def update
     @product = Product.find(params[:id])
     if params[:product][:pictures_attributes].blank? && params[:product][:image].blank?
-      flash[:error] = "Please choice image!"
+      flash[:error] = "Please choose image!"
       render 'edit'
     else
       if @product.update_attributes(product_params)
@@ -41,8 +44,10 @@ class Admins::ProductsController < AdminsController
             @product.pictures << Picture.create(image: img)  
           end
         end
+        flash[:success] = 'Update product success'
         redirect_to admins_products_path
       else
+        flash.now[:error] = 'Can not update product'
         render 'edit'
       end
     end

@@ -15,11 +15,10 @@ class Admins::NewspapersController < AdminsController
   def create
     @newspaper = Newspaper.new(newspaper_params)
     if @newspaper.save
+      flash[:success] = 'Add newspaper success'
       redirect_to admins_newspapers_path
     else
-      p "*"*50
-      p @newspaper.errors.messages[:content]
-      p "*"*50
+      flash.now[:error] = 'Can not add newspaper'
       render 'new'
     end
   end
@@ -31,8 +30,10 @@ class Admins::NewspapersController < AdminsController
   def update
     @newspaper = Newspaper.find(params[:id])
     if @newspaper.update_attributes(newspaper_params)
+      flash[:success] = 'Update newspaper success'
       redirect_to admins_newspapers_path
     else
+      flash.now[:error] = 'Can not update newspaper'
       render 'edit'
     end
   end

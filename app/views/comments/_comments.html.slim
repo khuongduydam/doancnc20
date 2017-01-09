@@ -1,11 +1,12 @@
 - @product.comments.each do |comment|
-  .well[style="width:400px;"] 
+  .well[style="width:40%;margin-left:10%;border-radius:0;background:transparent"] 
     = comment.content
-    br
-    strong 
-      |  posted by 
-      = comment.user.email
-      = comment.created_at.strftime(" - %d %m %Y %H:%S:%M")
+    |  (
+    strong[style="font-weight:500"] 
+      = comment.user.username
+      | )
+      br
+      = comment.created_at.strftime("%d %m %Y")
     br
     - if (comment.user == current_user) || current_user.admin?
       = link_to 'Delete', comment_path(comment), method: :delete,data: {confirm:'wanna delete?'}

@@ -9,9 +9,7 @@ class ContactsController < ApplicationController
       flash[:success] = "Message sended"
       redirect_to root_path
     else
-      p "*"*50
-      p @contact.errors.messages
-      p "*"*50
+      flash.now[:error] = "Can not send messages"
       render 'new'
     end
   end

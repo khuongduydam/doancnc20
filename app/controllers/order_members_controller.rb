@@ -37,29 +37,30 @@ class OrderMembersController < ApplicationController
     unless @order_member.save   
       flash[:error] = "Your order is not complete"
       render :new
-    end
-    if @order_member.pay_type == 'Direct'
+    else
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      flash[:success] = "Thank you for your OrderMember"
-      redirect_to root_path
-    elsif @order_member.pay_type == 'Paypal'
-      Cart.destroy(session[:cart_id])
-      session[:cart_id] = nil
-      redirect_to @cart.paypal_url(products_url)    
+      if @order_member.pay_type == 'Direct'
+        flash[:success] = "Thank you for your OrderMember"
+        redirect_to root_path
+      else
+        redirect_to @cart.paypal_url(products_url)    
+      end
     end
   end
 
   def update
     unless @order_member.update(member_update)
-      flash[:error] = "Update failed"
+      flash[:error] = "Order can not be updated"
       render :edit 
-    end
-    if @order_member.status == "Complete"
-      flash[:success] = "Order is completed, ready to delivery"
-      redirect_to admins_order_members_path
-    elsif @order_member.status == "Uncomplete"
-      redirect_to admins_order_members_path
+    else
+      if @order_member.status == "Complete"
+        @order_member.save!
+        flash[:success] = "Order is completed, ready to delivery"
+        redirect_to admins_order_members_path
+      else 
+        redirect_to admins_order_members_path
+      end
     end
   end
 

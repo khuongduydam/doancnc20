@@ -13,21 +13,19 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.add_order_items_from_cart(@cart)
     @order.total_price = @cart.total_price.to_f
-    if @order.pay_type == 'Direct'
-      @order.save
-      Cart.destroy(session[:cart_id])
-      session[:cart_id] = nil
-      flash[:success] = "Thank you for your order"
-      redirect_to root_path
-    elsif @order.pay_type == 'Paypal'
-      @order.save
-      Cart.destroy(session[:cart_id])
-      session[:cart_id] = nil
-      redirect_to @cart.paypal_url(products_url)
-    else
-      flash.now[:error] = "Sorry, something wrong here. Try again!!!"
+    unless @order.save
+      flash.now[:error] = "Can not create order, please try again"
       render :new
-    end
+    else
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      if @order.pay_type == 'Direct'
+        flash[:success] = "Thank you for your order"
+        redirect_to root_path
+      else
+        redirect_to @cart.paypal_url(products_url)
+      end
+    end 
   end
   
   def edit
@@ -35,14 +33,17 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order.update(order_update)
-    if @order.status == "Complete" && @order.save
-      flash[:success] = "Order is completed, ready to delivery"
-      redirect_to admins_orders_path
-    elsif @order.status == "Uncomplete" && @order.save
-      redirect_to admins_orders_path
-    else
+    unless @order.update(order_update)
+      flash[:error] = 'Order can not be updated'
       render :edit
+    else
+      if @order.status == "Complete"
+        @order.save
+        flash[:success] = "Order is completed, ready to delivery"
+        redirect_to admins_orders_path
+      else
+        redirect_to admins_orders_path
+      end
     end
   end
 

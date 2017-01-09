@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :category
   has_many :pictures, as: :imageable, dependent: :destroy
   has_many :wish_lists, dependent: :destroy
-  has_many :comments, -> order{ order 'created_at asc'}, as: :commentable, dependent: :destroy
+  has_many :comments, -> order{ order 'created_at desc'}, as: :commentable, dependent: :destroy
   has_many :order_items, dependent: :destroy
   
   accepts_nested_attributes_for :pictures, :allow_destroy => true

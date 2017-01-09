@@ -19,13 +19,13 @@ class OrderItemsController < ApplicationController
     @order_item = @cart.add_product(product.id)
     respond_to do |format|
       if @order_item.save
-        format.html {redirect_to root_path}
-        format.js
         product.quantity -= @order_item.quantity
         product.save
+        format.html {redirect_to root_path}
+        format.js
       else
+        flash.now[:error] = "Add product failed"
         format.html {render 'new'}
-        flash.now[:error] = "Oops, something wrong. Try again!!!"
       end
     end
   end
@@ -39,15 +39,18 @@ class OrderItemsController < ApplicationController
   def update
     @cart = Cart.find(session[:cart_id])
     @order_item = @cart.order_items.find(params[:id])
-    @order_item.update(order_item_params)
-    if @order_item.save
-      product = Product.find_by(id: @order_item.product_id)
-      product.quantity -= @order_item.quantity - 1
-      product.save
-      @order_items = @cart.order_items
+    unless @order_item.update(order_item_params)
+      flash.now[:error] = 'Update quantity failed'
+    else
+      if @order_item.save
+        product = Product.find_by(id: @order_item.product_id)
+        product.quantity -= @order_item.quantity - 1
+        product.save
+        @order_items = @cart.order_items
+      else
+        flash.now[:error] = 'Update quantity failed'
+      end
     end
-    #ajax update cart
-
   end
 
   def destroy

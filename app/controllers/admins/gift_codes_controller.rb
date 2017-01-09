@@ -3,6 +3,10 @@ class Admins::GiftCodesController < ApplicationController
     render layout: 'layouts/admin_layout'
   end
   def create
-    @gift_code = Giftcode.create!(gift_code: params[:code])
+    begin
+      @gift_code = Giftcode.create!(gift_code: params[:code])
+    rescue
+      flash.now[:error] = 'Can not create more gift code'
+    end
   end
 end

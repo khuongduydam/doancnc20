@@ -3,7 +3,13 @@ class CommentsController < ApplicationController
   def create
     @comment = @product.comments.new comment_params
     @comment.user = current_user
-    redirect_to @product if @comment.save
+    if @comment.save
+      flash[:success] = 'Add comment success'
+      redirect_to @product 
+    else
+      flash.now[:error] = 'Can not add comments'
+      redirect_to @product
+    end
   end
 
   def destroy

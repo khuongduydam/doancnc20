@@ -1,5 +1,5 @@
-section.sections-product[style="font-family:Arial"]
-  .row.detailproduct
+section.sections-product[style="font-family:Arial;"]
+  .row.detailproduct[style="width:100%"]
     .col-md-6.col-sm-12
       - if @product.pictures.present?
         - if @product.pictures.size == 1
@@ -43,7 +43,7 @@ section.sections-product[style="font-family:Arial"]
           - if flat == 0
             = link_to "Add to my wishlist", wishlists_path(params[:locale],@product.id), method: :post, class: 'btn btn-default'
         h3  
-          = button_to_with_icon 'Mua ngay', order_items_path(params[:locale],product_id: @product),class:'btn btn-success btn-lg right'
+          = button_to_with_icon 'Add to cart', order_items_path(params[:locale],product_id: @product),class:'btn btn-success btn-lg right',style: 'border-radius:0'
 
 = render 'comments/form'
 = render 'comments/comments'

@@ -1,7 +1,6 @@
 class Admins::CategoriesController < AdminsController
   def index
     @categories = Category.all.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
-    # render json: @categories
     respond_to do |format|
       format.html
       format.json{render json: {data: @categories}}
@@ -16,8 +15,10 @@ class Admins::CategoriesController < AdminsController
     @category = Category.new(category_params)
     if params[:category][:pictures_attributes].present?
       if @category.save
+        flash[:success] = 'Add category success'
         redirect_to admins_categories_path
       else
+        flash.now[:error] = 'Can not add category'
         render 'new'
       end
     else
@@ -33,8 +34,10 @@ class Admins::CategoriesController < AdminsController
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes(category_params)
+      flash[:success] = 'Add category success'
       redirect_to admins_categories_path
     else
+      flash.now[:error] = 'Can not update category'
       render 'edit'
     end
   end
