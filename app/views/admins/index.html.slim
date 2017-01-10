@@ -46,9 +46,90 @@
               = t('layouts.admins.index.order_members')              
             #order_member  
               = render 'admins/order_member'
-.container[style="width:100%;margin:-11% 0 0 29%"]
+.container[style="width:100%;margin:-17% 0 0 22%"]
+  h1 Admin Dashboard 
   .row[style="width:100%"]
     .col-xs-6.col-md-6
       .product[style="height:200px;width:80%;background:#76bded"]
-        i.fa.fa-shopping-basket[style="font-size:100px;float:right;opacity:0.2"]
+        i.fa.fa-shopping-basket[style="font-size:150px;float:left;opacity:0.2;position:absolute;bottom:0"]
+        .orders[style="float:right;color:#fff; margin-right:8px"] 
+          h3
+            - if Order.all.size == 0
+              | 0 normal order
+            - else
+              = Order.all.size > 1 ? "#{Order.all.size} normal orders" : "1 normal order"
+          h3
+            - if OrderMember.all.size == 0
+              | 0 member order
+            - else  
+              = OrderMember.all.size > 1  ? "#{OrderMember.all.size} member orders" : "1 member order"
+          h3 
+            - if @complete_orders == 0
+              | 0 success order
+            - else
+              = @complete_orders > 1 ? "#{@complete_orders} success orders" : "1 success order"
+          h3
+            - if @uncomplete_orders == 0
+              | 0 pending order
+            - else
+              = @uncomplete_orders > 1 ? "#{@uncomplete_orders} pending orders" : "1 pending order"
     .col-xs-6.col-md-6
+      .category[style="height:200px;width:80%;background:#32e591;margin-left:-10%"]
+        i.fa.fa-users[style="font-size:150px;float:right;opacity:0.2;position:absolute;bottom:0"]     
+        .users.text-right[style="float:right;color:#fff; margin-right:8px;"] 
+          h3
+            = User.all.size > 1 ? "#{User.all.size} users registered" : "1 user registered"
+          h3
+            = current_user.username
+            |  is online   
+          h3
+            | Last login: 
+            = current_user.last_sign_in_at.strftime('%m/%Y')
+          h3
+            | Last login ip: 
+            = current_user.last_sign_in_ip
+  .row[style="width:100%;margin-top:5%"]
+    .col-xs-6.col-md-6
+      .newspaper[style="height:200px;width:80%;background:#95ef77"]
+        i.fa.fa-newspaper-o[style="font-size:150px;float:left;opacity:0.2;position:absolute;bottom:0"]
+        .info[style="float:right;color:#fff; margin-right:8px"] 
+          h3
+            - if Newspaper.all.size == 0
+              | 0 newspaper
+            - else  
+              = Newspaper.all.size > 1 ? "#{Newspaper.all.size} newspapers" : "1 newspaper"
+          h3
+            - if Contact.all.size == 0
+              | 0 contact
+            - else  
+              = Contact.all.size > 1 ? "#{Contact.all.size} contacts" : "1 contact"
+          h3
+            - if Category.all.size == 0
+              | 0 category
+            - else
+              = Category.all.size > 1 ? "#{Category.all.size} categories" : "1 category"
+          h3
+            - if Product.all.size == 0
+              | 0 product
+            - else
+              = Product.all.size > 1 ? "#{Product.all.size} products" : "1 product"      
+    .col-xs-6.col-md-6
+      .product[style="height:200px;width:80%;background:#edc650;margin-left:-10%"]
+        i.fa.fa-money[style="font-size:150px;float:right;opacity:0.2;position:absolute;bottom:0"]
+        .money[style="float:right;color:#fff; margin-right:8px;"] 
+          h3
+            - if Order.all.size == 0 && OrderMember.all.size == 0
+              | 0 vnd in this month
+            - else
+              | Normal Orders
+              br 
+              br
+              = @total
+              | (vnd)
+              br
+              br
+              | Member Orders
+              br
+              br
+              = @total_member
+              | (vnd)

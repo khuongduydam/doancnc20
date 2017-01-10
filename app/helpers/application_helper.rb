@@ -31,7 +31,7 @@ module ApplicationHelper
   end
   
   def hotProduct
-    OrderItem.all().group("product_id").sum('quantity').sort_by {|_key, value| value}.reverse.to_a.first(5)
+    OrderItem.group("product_id").sum('quantity').map{|key, value| key}.reverse.first(8)
   end
 
   def findProduct(p_ID)

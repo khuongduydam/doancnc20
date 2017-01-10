@@ -98,7 +98,7 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
     #premium-fruits.tab-pane.fade
       br
       - hotProduct.each do |product_id|
-        - product = findProduct(product_id[0])
+        - product = findProduct(product_id)
         .col-xs-6.col-sm-4.col-md-3.product-hot[style="height:300px"]
           - if product.pictures.present?
             = link_to image_tag(product.pictures.first.image, class:"img-thumbnail"), product_path(product)

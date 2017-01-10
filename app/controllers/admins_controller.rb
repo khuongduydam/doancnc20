@@ -10,7 +10,25 @@
     @categories = Category.all.search(params[:search]).paginate(:per_page => 1, :page => params[:page])
     @contacts = Contact.all.order(created_at: :desc).search(params[:search]).paginate(:per_page => 1, :page => params[:page])
     @orders = Order.all.order(created_at: :desc).paginate(:per_page => 1, :page => params[:page])
+    if @orders.size != 0
+      if (Order.last.created_at - Order.first.created_at)/1.month <= 1
+        @total = Order.all.map{|item| item.total_price}.inject(0,&:+)
+      end
+    else
+      flash.now[:error] = "There is no Order in this month"
+      @total = 0
+    end
     @order_members = OrderMember.all.order(created_at: :desc).paginate(:per_page => 1, :page => params[:page])
+    if @order_members.size != 0
+      if(Time.now - OrderMember.last.created_at)/1.month <= 1
+        @total_member = OrderMember.all.map{|item| item.total_price}.inject(0,&:+)
+      end
+    else
+      flash.now[:error] = "There is no Order Member is this month"
+      @total_member = 0
+    end
+    @complete_orders = Order.where(status: 'Complete').size + OrderMember.where(status: 'Complete').size
+    @uncomplete_orders = Order.where(status: 'Uncomplete').size + OrderMember.where(status: 'Uncomplete').size
   end
 
   def admin_only

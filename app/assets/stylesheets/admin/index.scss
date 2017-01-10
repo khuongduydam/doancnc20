@@ -25,3 +25,31 @@ a.list-group-item{
 .list-group-item.active{
   border-color: #fff!important;
 }
+
+.container{
+  h1{
+    font-family: inherit;
+    font-weight: 100;
+  }
+  .product{
+    .orders, .money{
+      h3{
+        font-size: 20px;
+      }
+    }
+  }
+  .category{
+    .users{
+      h3{
+        font-size: 20px;
+      }
+    }
+  }
+  .newspaper{
+    .info{
+      h3{
+        font-size: 20px;
+      }
+    }
+  }
+}
