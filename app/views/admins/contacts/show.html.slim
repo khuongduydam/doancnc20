@@ -11,11 +11,10 @@ section.modify-category
       p 
         | Tin nhắn : 
         = @contact.message
-        |  kg
       .about_product
         p 
           | Thời gian nhắn : 
           = @contact.created_at
       .btn-lg.right
         = link_to "Back", :back, class: "btn btn-default"
-        = link_to "Delete", admins_contact_path(@contact),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+        = link_to "Delete", admins_contact_path(@contact,locale: params[:locale]),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'

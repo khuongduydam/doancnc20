@@ -1,15 +1,16 @@
 = simple_form_for [:admins,@category], :html =>{:id => "form_categories"} do |f|
-  .field
+  .form-group
     = f.input :name, id: 'name', required: true
-  = f.label "Image"
-  #img
-    - if params[:controller] == 'admins/categories' && (params[:action] == 'new' || params[:action] == 'create' )
-      = f.simple_fields_for :pictures, @category.pictures.build do |picture|
-        = picture.file_field :image      
-    - if params[:controller] == 'admins/categories' && (params[:action] == 'edit' || params[:action] == 'update' )
-      = f.simple_fields_for :pictures do |picture|
-        = image_tag picture.object.image_url, size: "200x200", class:'img-circle'
-        = picture.file_field :image 
+  .form-group  
+    = f.label "Image"
+    #img
+      - if params[:controller] == 'admins/categories' && (params[:action] == 'new' || params[:action] == 'create' )
+        = f.simple_fields_for :pictures, @category.pictures.build do |picture|
+          = picture.file_field :image      
+      - if params[:controller] == 'admins/categories' && (params[:action] == 'edit' || params[:action] == 'update' )
+        = f.simple_fields_for :pictures do |picture|
+          = image_tag picture.object.image_url, size: "200x200", class:'img-circle'
+          = picture.file_field :image 
       
   = f.submit  id: 'sub-mit'
   = link_to I18n.t('layouts.admins.index.back'), :back, class: "btn btn-success"

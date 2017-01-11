@@ -5,6 +5,7 @@ section.layout-admincategory
       .col-md-10.main-adminproduct[style="margin-top:-13%;"]
         h1 
             = @newspaper.title
+        = image_tag(@newspaper.pictures.last.image)    
         br 
         = raw @newspaper.content
         br

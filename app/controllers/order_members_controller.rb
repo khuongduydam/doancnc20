@@ -17,17 +17,17 @@ class OrderMembersController < ApplicationController
       @order_member.total_price = @cart.total_price
     else
       case gift_code.gift_code.size 
-        when 50
+        when 20
           @order_member.total_price = @cart.total_price(1.1)
-        when 51
+        when 21
           @order_member.total_price = @cart.total_price(1.2)  
-        when 52
+        when 22
           @order_member.total_price = @cart.total_price(1.3)
-        when 53
+        when 23
           @order_member.total_price = @cart.total_price(1.4)
-        when 54
+        when 24
           @order_member.total_price = @cart.total_price(1.5)
-        when 55
+        when 22
           @order_member.total_price = @cart.total_price(1.6)        
         else
           @order_member.total_price = @cart.total_price

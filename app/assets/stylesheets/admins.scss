@@ -23,10 +23,14 @@
  *= require admin/products
  *= require admin/contact
  *= require admin/order
+ *= require admin/orders/show
  *= require admin/order_member
  *= require admin/sidebar
  *= require admin/categories
  *= require admin/newspapers
+ *= require admin/newspapers/new
+ *= require admin/categories/new
+ *= require admin/gift_codes
  *= require bootstrap.min
  *= require_self
  */

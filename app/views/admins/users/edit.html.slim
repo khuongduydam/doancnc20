@@ -7,40 +7,103 @@
           = form_for @user, url: admins_user_path, html: { method: :put , class:'form-group'} do |f|
             = user_error_messages!
             .row
-              .col-xs-4.col-md-4  
-                = f.label :username
-                = f.text_field :username, autofocus: true, class: 'form-control'
-                br   
-                = f.label :password
-                i
-                = f.password_field :password, autocomplete: "off", class:'form-control'
-                br
-                = f.label :password_confirmation
-                = f.password_field :password_confirmation, autocomplete: "off",class: 'form-control'
-                br
-                = f.label :email
-                = f.email_field :email, class: 'form-control'
+              .col-xs-4.col-md-4 
+                .form-group 
+                  = f.label :username
+                  = f.text_field :username, autofocus: true, class: 'form-control'
+                .form-group   
+                  = f.label :password
+                  i
+                  = f.password_field :password, autocomplete: "off", class:'form-control', id: 'password'
+                .form-group
+                  = f.label :password_confirmation
+                  = f.password_field :password_confirmation, autocomplete: "off",class: 'form-control'
+                .form-group
+                  = f.label :email
+                  = f.email_field :email, class: 'form-control'
               .col-xs-5.col-md-5
-                = f.label :address
-                = f.text_field :address, class:'form-control'
-                br
-                = f.label :first_name
-                = f.text_field :first_name, class:'form-control'
-                br
-                = f.label :last_name
-                = f.text_field :last_name, class:'form-control'
-                br
-                = f.label :phone
-                = f.number_field :phone, class:'form-control'
+                .form-group
+                  = f.label :address
+                  = f.text_field :address, class:'form-control'
+                .form-group
+                  = f.label :first_name
+                  = f.text_field :first_name, class:'form-control'
+                .form-group
+                  = f.label :last_name
+                  = f.text_field :last_name, class:'form-control'
+                .form-group
+                  = f.label :phone
+                  = f.number_field :phone, class:'form-control'
               .col-xs-3.col-md-3
                 = f.label :sex
                 = f.select :sex, options_for_select(['Male','Female']), {},class:'form-control'
-                br
                 = f.label :birth_day
                 = f.date_field :birth_day,class:'form-control'
-                br  
-                br  
-                = f.submit "Update",class:'btn btn-success actions',style:'position: relative; top:3px;width: 170px;'
                 br
                 br
-                = link_to 'Back', :back, class:'btn btn-default' ,style:'width:170px;'
+                = f.submit "Update",class:'btn btn-success actions',style:'position: relative; top:13px;width: 170px;'
+javascript:
+  $('.form-group').validate({
+    rules:{
+      'user[username]':{
+        required: true,
+        rangelength: [2,10]
+      },
+      'user[password]':{
+        required: true,
+        rangelength: [2,10]
+      },
+      'user[password_confirmation]':{
+        required: true,
+        rangelength: [2,10],
+        equalTo: '#password' 
+      },
+      'user[email]':{
+        required: true,
+        email: true
+      },
+      'user[phone]':{
+        required: true,
+        number: true,
+        rangelength: [10,11]
+      }
+    },
+    messages:{
+      'user[username]':{
+      required: 'Please enter a username',
+      rangelength: 'Username must be between 2 & 10 characters'
+      },
+      'user[password]':{
+        required: 'Please enter password',
+        rangelength: 'Password must be between 2 & 10 characters'
+      },
+      'user[password_confirmation]':{
+        required: 'Please enter password confirm',
+        rangelength: 'Password must be between 2 & 10 characters',
+        equalTo: 'Password confirm do not match' 
+      },
+      'user[email]':{
+        required: 'Please enter an email',
+        email: 'This is not right email address'
+      },
+      'user[phone]':{
+        required: 'Please enter phone number',
+        number: 'Just allow number only',
+        rangelength: 'Number must be between 10 & 11 numbers'
+      }  
+    },
+    highlight: function(element){
+      $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element){
+      $(element).closest('.form-group').removeClass('has-error');
+    },
+    submitHandler: function(form) {
+      $('form').find(":submit").attr("disabled", true).attr("value","Submitting...");
+      form.submit();
+    },
+    errorClass :'help-block',
+    errorPlacement: function(error, element){
+      error.insertAfter(element);
+    }
+  })

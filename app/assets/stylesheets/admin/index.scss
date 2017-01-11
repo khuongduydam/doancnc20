@@ -133,3 +133,49 @@ a.list-group-item{
     }
   }
 }
+
+@media screen and (min-width: 2560px) {
+  .content{
+    .container{
+      h1{
+        font-size: 100px;
+      }
+      width: 100%;
+      margin: -13% 0 0 22%;
+      .row.first{
+        .order, .category{
+          height: 400px;
+          i.fa.fa-shopping-basket, i.fa.fa-users, {
+            font-size: 300px;
+          }
+          .orders, .users{
+            h3{
+              font-size: 40px;
+              margin-top: 13%;
+            }
+          }
+        }
+      }
+      .row.second{
+        .newspaper, .product{
+          height: 400px;
+          i.fa.fa-newspaper-o, i.fa.fa-money{
+            font-size: 300px;
+          }
+          .info, .money{
+            h3{
+              font-size: 40px;
+              margin-top: 13%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .btn-group{
+    margin-left: 21%;
+    a.btn.btn-success.btn-sm, a.btn.btn-danger.btn-sm{
+      font-size: 35px!important;
+    }
+  }
+}

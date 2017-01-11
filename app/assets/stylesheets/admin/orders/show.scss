@@ -1,0 +1,14 @@
+section.layout-adminorder{
+  .container.show{
+    margin: 2% 0 0 3%!important;
+    .row{
+      width: 100%;
+      .main-adminorder{
+        margin-top:-13%;
+        .table-responsive{
+          width: 120%!important;
+        }
+      }
+    }
+  }
+}

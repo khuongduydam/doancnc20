@@ -6,7 +6,59 @@ section.layout-admincategory
       .col-md-10.main-adminproduct[style="margin-top:-13%;"]
         h2
           | Chỉnh sửa thông tin hữu ích
-        = render 'form'
+        = simple_form_for [:admins, @newspaper], :html => { :id => "form_newspaper" } ,url: admins_newspaper_path(@newspaper, locale: params[:locale]), method: :put do |f|
+          .form-group
+            = f.input :title
+          br
+          .form-group
+            = f.label "Avatar image"
+            - if @newspaper.pictures.blank?
+              = f.simple_fields_for :pictures, @newspaper.pictures.build do |picture|
+                = picture.file_field :image
+            - else 
+              = f.simple_fields_for :pictures do |picture|
+                = image_tag picture.object.image_url
+                = picture.file_field :image
+          br
+          .form-group
+            = f.label :content
+            - if @newspaper.errors.messages[:content].present?
+              |  
+              i[style="color:red"]
+                = @newspaper.errors.messages[:content][0]
+          .form-group      
+            = f.cktext_area :content
+          br
+          .btn-group
+            = f.submit 'Create',class:'btn btn-success'
+            = link_to "Back", :back, class: "btn btn-warning" 
+javascript:
+  $(document).ready(function () {
+    $("#form_newspaper").validate({
+      rules: {
+        "newspaper[title]": {required: true, minlength: 10, maxlength: 255},
+        "newspaper[pictures_attributes][0][image]": {required: true, accept: true}, 
+      },
+      messages:{
+        "newspaper[title]": {required: 'Please enter a title', minlength: 'Title is at least 10 characters', maxlength: 'Title is too long, max is 255 characters'},
+        "newspaper[pictures_attributes][0][image]": {required: 'Please choose an image', accept: 'This file is not allow'}, 
+      },
+      highlight: function(element){
+        $(element).closest('.form-group').addClass('has-error');
+      },
+      unhighlight: function(element){
+        $(element).closest('.form-group').removeClass('has-error');
+      },
+      submitHandler: function(form) {
+        $('form').find(":submit").attr("disabled", true).attr("value","Submitting...");
+        form.submit();
+      },
+      errorClass :'help-block',
+      errorPlacement: function(error, element){
+        error.insertAfter(element);
+      }
+    });
+  });
 
 
             

@@ -1,41 +1,42 @@
 section.modify-category[style="width:100%"]
   .row
-    .detailpr
-      .update-cate
-        h2.Title_product 
-          = @product.name
-        - if @product.pictures.present?
-          - if @product.pictures.size == 1
-            = image_tag @product.pictures.first.image,size: "200x200", class:"img-circle"
-          - else
-            - @product.pictures.each do |img|
-              = image_tag img.image, size: "200x200", class:'img-circle'
-        - else 
-          = image_tag('default.png', size: "200x200")
-              end
-        h4 
-          = t('application.price')
-          | :  
-          =  @product.price
-          |  
+    .col-xs-6
+      .detailpr
+        .update-cate
+          h2.Title_product 
+            = @product.name
+          - if @product.pictures.present?
+            - if @product.pictures.size == 1
+              = image_tag @product.pictures.first.image,size: "200x200", class:"img-circle"
+            - else
+              - @product.pictures.each do |img|
+                = image_tag img.image, size: "200x200", class:'img-circle'
+          - else 
+            = image_tag('default.png', size: "200x200")
+                end
+    .col-xs-6[style="margin-top:2%"]            
+      h4 
+        = t('application.price')
+        | :  
+        =  @product.price
+        |  
+      p 
+        = t('application.quantity')
+        | : 
+        = @product.quantity
+        | (kg)
+      .about_product
         p 
-          = t('application.quantity')
+          = t('application.origin')
           | : 
-          = @product.quantity
-          | (kg)
-        .about_product
-          p 
-            = t('application.origin')
-            | : 
-            = @product.origin
-        .about_product
-          p 
-            = t('application.description')
-            | : 
-            = @product.description
-        br
-        .btn-lg.right
-          = link_to I18n.t('layouts.admins.index.detail'), edit_admins_product_path(params[:locale],@product), class: 'btn btn-success'
-          = link_to I18n.t('layouts.admins.index.delete'), admins_product_path(params[:locale],@product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
-          = link_to I18n.t('layouts.admins.index.back'), :back, class: "btn btn-default", style: 'margin-left:20px;'
+          = @product.origin
+      .about_product
+        p 
+          = t('application.description')
+          | : 
+          = @product.description
+      br
+      .btn-lg.right
+        = link_to I18n.t('layouts.admins.index.edit'), edit_admins_product_path(params[:locale],@product), class: 'btn btn-success'
+        = link_to I18n.t('layouts.admins.index.delete'), admins_product_path(params[:locale],@product),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
 
