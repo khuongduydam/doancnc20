@@ -1,6 +1,6 @@
-section.layout-adminproduct[style="margin-left:22%"]
+section.layout-adminorder
   .container
-    .row[style="width:100%"]
+    .row
       .main-adminproduct
         .page-title
           h1.page-header.pull-left
@@ -10,10 +10,8 @@ section.layout-adminproduct[style="margin-left:22%"]
         .row.main-body
           .col-md-12.bodyad
             = form_tag admins_orders_path, :method => 'get', :id => "orders_search" do
-                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_order'), class: 'form-control', style: 'width: 50%;'
+                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_order'), class: 'form-control search'
             br
-        .row.main-body
-          .col-md-12.bodyad
             = render 'admins/form/index_order'
 javascript:
  $('#search').keyup(function(){

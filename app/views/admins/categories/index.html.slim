@@ -2,21 +2,19 @@ section.layout-admincategory
   .container
     .row
       .col-md-2.list-group
-      .col-md-10.main-adminproduct[style="margin-top:-13%;"]
+      .col-md-10.main-adminproduct
         .page-title
-          h1.page-header.pull-left[style="border-bottom:0px;"]
+          h1.page-header.pull-left
             i.fa.fa-folder-open
             |
             = t('layouts.admins.index.categories')
           .pull-right
             .btn-group.btn-success
-              = link_to I18n.t('layouts.admins.index.new_category'), new_admins_category_path, class: 'btn btn-default', style:'float: right;'
+              = link_to I18n.t('layouts.admins.index.new_category'), new_admins_category_path, class: 'btn btn-default'
         .row.main-body
           .col-md-12.bodyad
             = form_tag admins_categories_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_category'), class: 'form-control', style: 'width: 50%;'
-        .row.main-body
-          .col-md-12.bodyad
+                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_category'), class: 'form-control search'
             = render 'admins/form/index_category'
 = render "louis"

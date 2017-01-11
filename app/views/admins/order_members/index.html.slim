@@ -1,6 +1,6 @@
-section.layout-adminproduct[style="width:100%"]
+section.layout-adminmember
   .container
-    .row[style="width:100%"]
+    .row
       .main-adminproduct
         .page-title
           h1.page-header.pull-left
@@ -10,8 +10,8 @@ section.layout-adminproduct[style="width:100%"]
         .row.main-body
           .col-md-12.bodyad
             = form_tag admins_order_members_path, :method => 'get', :id => "order_members_search" do
-              p
-                = text_field_tag :search, params[:search], class: 'form-control', style: 'width: 50%;', placeholder: t('layouts.admins.index.search_order_member')
+              p 
+                = text_field_tag :search, params[:search], class: 'form-control search', placeholder: t('layouts.admins.index.search_order_member')
             br
         .row.main-body
           .col-md-12.bodyad
@@ -27,7 +27,7 @@ javascript:
      success: function(data){
        $('tbody').empty();
        $.each(data.data,function(key,value){
-         $('tbody').append("<tr class='danger'><td class='text-center'>"+value.username+"</td><td class='text-center'>"+value.fullname+"</td><td class='text-center'>"+value.address+"</td><td class='text-center'>"+value.phone+"</td><td class='text-center'>"+value.email+"</td><td class='text-center' style='color:red;'>"+value.status+"</td><td class='text-center' style='color:red;'>"+value.pay_type+"</td><td class='text-center' style='color:red;'>"+value.total_price+"</td><td class='text-center btn-group'><a style='margin-left: 30px;' href='/admins/order_members/"+value.id+"' class='btn btn-info btn-xs'>Detail</a><a href='/admins/order_members/"+value.id+"/edit' class='btn btn-primary btn-xs'>Edit</a><a data-confirm='Are you sure?' data-method='delete' style='margin-right:28.5px;' href='/admins/order_members/"+value.id+"' class='btn btn-danger btn-xs'>Delete</a></td></tr>")
+         $('tbody').append("<tr class='danger'><td class='text-center'>"+value.username+"</td><td class='text-center'>"+value.fullname+"</td><td class='text-center'>"+value.address+"</td><td class='text-center'>"+value.phone+"</td><td class='text-center'>"+value.email+"</td><td class='text-center' style='color:red;'>"+value.status+"</td><td class='text-center' style='color:red;'>"+value.pay_type+"</td><td class='text-center' style='color:red;'>"+value.total_price+"</td><td class='text-center col-md-2'> <div class='btn-group'><a href='/admins/order_members/"+value.id+"' class='btn btn-info btn-xs'>Detail</a><a href='/admins/order_members/"+value.id+"/edit' class='btn btn-primary btn-xs'>Edit</a><a data-confirm='Are you sure?' data-method='delete'  href='/admins/order_members/"+value.id+"' class='btn btn-danger btn-xs'>Delete</a></div></td></tr>")
        })
      }
    });

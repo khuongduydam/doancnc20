@@ -11,13 +11,35 @@
     width:100%;
     margin: -18% 0 0 20%;
   }
-}
-
-.layout-adminproduct{
-  margin-top: -15%;
-  .page-title{
-    h1.page-header.pull-left{
-      border-bottom: none;
+  section.layout-adminproduct{
+    .container{
+      width: 100%;
+      margin: -1% 0 0 2%;
+      .row{
+        .main-adminproduct{
+          .page-title{
+            h1.page-header.pull-left{
+              border-bottom: none;
+            }
+            .pull-right{
+              .btn-group.btn-success{
+                margin-left: 140%;
+              }
+            }
+          }
+          .row.main-body{
+            .bodyad{
+              .search{
+                width: 50%;
+              }
+              .table-responsive{
+                width: 125%;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
+

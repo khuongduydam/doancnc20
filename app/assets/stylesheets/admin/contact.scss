@@ -1,5 +1,6 @@
 section.layout-admincontact{
   .container{
+    margin: -1% 0 0 3%;
     .row{
       .list-group{
         .active{
@@ -12,6 +13,24 @@ section.layout-admincontact{
         .main-body{
           .bodyad{
             padding: 0;
+            .search{
+              width: 50%;
+            }
+            .table-responsive{
+              width: 120%;
+              tr.info{
+                th.last-child{
+                  width: 300px;
+                }
+              }
+              tr.danger{
+                td{
+                  .btn-danger{
+                    margin-left: 20px;
+                  }
+                }
+              }
+            }
           }
         }
         margin-top: -13%;

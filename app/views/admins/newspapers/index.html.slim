@@ -1,8 +1,8 @@
-section.layout-admincategory
+section.layout-adminnewspaper
   .container
     .row
       .col-md-2.list-group
-      .col-md-10.main-adminproduct[style="margin-top:-13%;"]
+      .col-md-10.main-adminproduct
         .page-title
           h1.page-header.pull-left
             i.fa.fa-file
@@ -10,14 +10,12 @@ section.layout-admincategory
             = t('layouts.admins.index.newspaper')
           .pull-right
             .btn-group.btn-success
-              = link_to I18n.t('layouts.admins.index.new_newspaper'), new_admins_newspaper_path, class: 'btn btn-default', style:'float: right;'
+              = link_to I18n.t('layouts.admins.index.new_newspaper'), new_admins_newspaper_path, class: 'btn btn-default'
         .row.main-body
           .col-md-12.bodyad
             = form_tag admins_newspapers_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_newspaper'), class: 'form-control', style: 'width: 50%;'
-        .row.main-body
-          .col-md-12.bodyad[style="padding-right:0px;width:100%"]
+                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_newspaper'), class: 'form-control search'
             = render 'admins/form/index_newspaper'
 javascript:
  $('#search').keyup(function(){

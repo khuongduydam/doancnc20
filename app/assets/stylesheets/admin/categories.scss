@@ -1,0 +1,50 @@
+.content{
+  section.layout-admincategory{
+    .container{
+      width: 100%;
+      margin: -2% 0 0 3%;
+      .row{
+        .main-adminproduct{
+          margin-top:-13%;
+          .page-title{
+            h1.page-header.pull-left{
+              border-bottom:0px;
+            }
+            .pull-right{
+              .btn-group.btn-success{
+                  position: relative;
+                  right: -125%;
+                  margin-top: 19%;
+                .btn-default{
+                  float: right;
+                }
+              }
+            }
+          }
+          .row.main-body{
+            .bodyad{
+              .search{
+                width: 50%;
+              }
+              .table-responsive{
+                width: 125%;
+                tr.info{
+                  th:last-child{
+                    width: 300px;
+                  }
+                }
+                tr.danger{
+                  td:last-child{
+                    .btn-warning, .btn-danger{
+                      margin-left: 10%;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

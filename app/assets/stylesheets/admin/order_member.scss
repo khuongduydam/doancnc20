@@ -1,19 +1,41 @@
-@media screen and(width:1024px) {
-  .sidebar{
-    margin-top: -186px!important;
+.content{
+  .layout-adminmember{
+    width: 100%;
+    .container{
+      width: 100%;
+      margin-top:-14%;
+      .row{
+        width: 100%;
+        .main-adminproduct{
+          .page-title{
+            h1.page-header.pull-left{
+              color: #1995dc;
+              border-bottom: none;
+            }
+          }
+          .row.main-body{
+            .bodyad{
+              .search{
+                width: 50%;
+              }
+              .table-responsive{
+                tr.danger{
+                  td.status, td.pay, td.price{
+                    color: red;
+                  }
+                  td{
+                    .btn-group{
+                      .btn-xs{
+                        font-size: 14px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }    
   }
-  .content{
-    .layout-adminproduct{
-      margin-left: 25%;
-    }
-  }
-}
-
-@media screen and(width:1366px) {
- .sidebar{
-    margin-top: -223px;
- } 
- .btn-group{
-    margin-left: 3%;
- }
 }

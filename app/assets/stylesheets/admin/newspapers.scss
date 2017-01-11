@@ -1,0 +1,65 @@
+.content {
+  section.layout-adminnewspaper {
+    .container {
+      margin:-1% 0 0 2% !important;
+      .row {
+        .list-group{
+          .active{
+            background-color: #1995dc;
+            border-color: #1995dc;
+            color: #ffffff;
+          }
+        }
+        .main-adminproduct {
+          margin-top:-13%;
+          .page-title{
+            .page-header.pull-left{
+              color: #1995dc;
+              border-bottom: none;
+            }
+            .pull-right{
+              margin-right: -22%;
+              .btn-default{
+                background-color: #1995dc!important;
+                border-color:#1995dc;
+                color: #ffffff;
+                float: right;
+              }
+            }
+          }
+          .row.main-body {
+            .bodyad {
+              padding-right:0px;
+              width:100%;
+              .search{
+                width: 50%;
+              }
+              .table-responsive {
+                width: 120%;
+                table.table{
+                  thead{
+                    tr.info{
+                      th:last-child{
+                        width: 300px;
+                      }
+                    }
+                  }
+                  tbody{
+                    tr.danger{
+                      td:first-child{
+                        padding:8px 0px 8px 8px;
+                        .btn-warning, .btn-danger{
+                          margin-left: 20px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

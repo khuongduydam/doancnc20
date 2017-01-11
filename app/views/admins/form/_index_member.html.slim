@@ -19,10 +19,10 @@
           td.text-center = member.address
           td.text-center = member.phone
           td.text-center = member.email
-          td.text-center[style="color:red;"] = member.status
-          td.text-center[style="color:red;"] = member.pay_type
-          td.text-center[style="color:red;"] =  member.total_price
-          td.text-center
+          td.text-center.status = member.status
+          td.text-center.pay = member.pay_type
+          td.text-center.price =  member.total_price
+          td.text-center.col-md-2
             .btn-group
               = link_to I18n.t('layouts.admins.index.detail'), admins_order_member_path(params[:locale],member),class: 'btn btn-info btn-xs'
               = link_to I18n.t('layouts.admins.index.edit'), edit_admins_order_member_path(params[:locale],member),class: 'btn btn-primary btn-xs'

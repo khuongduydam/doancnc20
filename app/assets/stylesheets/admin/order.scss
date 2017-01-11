@@ -1,9 +1,41 @@
 .content{
-  .layout-adminproduct{
+  .layout-adminorder{
     width: 100%;
-    margin-left: 21%;
     .container{
       width: 100%;
+      margin-top:-14%;
+      .row{
+        width: 100%;
+        .main-adminproduct{
+          .page-title{
+            h1.page-header.pull-left{
+              color: #1995dc;
+              border-bottom: none;
+            }
+          }
+          .row.main-body{
+            .bodyad{
+              .search{
+                width: 50%;
+              }
+              .table-responsive{
+                tr.danger{
+                  td.status, td.pay, td.price{
+                    color: red;
+                  }
+                  td{
+                    .btn-group{
+                      .btn-xs{
+                        font-size: 14px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }    
   }
 }

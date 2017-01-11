@@ -2,17 +2,17 @@
   table.table
     thead
       tr.info
-        th = t('application.name')
-        th = t('layouts.admins.index.products_of_category')
-        th[style="width:300px;"] = t('layouts.admins.index.property')
+        th.col-xs-3 = t('application.name')
+        th.col-xs-3.text-center = t('layouts.admins.index.products_of_category')
+        th.col-xs-3 = t('layouts.admins.index.property')
     tbody
       - @categories.each do |category|
         tr.danger
-          td = category.name
-          td 
+          td.col-xs-3 = category.name
+          td.col-xs-3.text-center 
             = category.products.size
-          td 
+          td.col-xs-3 
             = link_to I18n.t('layouts.admins.index.detail'), admins_category_path(params[:locale],category),class: 'btn btn-info'
-            = link_to I18n.t('layouts.admins.index.edit'), edit_admins_category_path(params[:locale],category), class: 'btn btn-warning',style:'margin-left:10%'
-            = link_to I18n.t('layouts.admins.index.delete'), admins_category_path(params[:locale],category),method: :delete, data: {confirm: "All products of this category will be delete. Are you sure?"}, class: 'btn btn-danger',style:'margin-left:10%'
+            = link_to I18n.t('layouts.admins.index.edit'), edit_admins_category_path(params[:locale],category), class: 'btn btn-warning'
+            = link_to I18n.t('layouts.admins.index.delete'), admins_category_path(params[:locale],category),method: :delete, data: {confirm: "All products of this category will be delete. Are you sure?"}, class: 'btn btn-danger'
 = will_paginate @categories

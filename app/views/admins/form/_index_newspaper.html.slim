@@ -5,15 +5,15 @@
         th = t('layouts.admins.index.title')
         th = t('layouts.admins.index.content')
         th = t('application.created_at')
-        th[style="width:300px;"] = t('layouts.admins.index.property')
+        th = t('layouts.admins.index.property')
     tbody
       - @newspapers.each do |newspaper|
         tr.danger
-          td.col-md-2[style="padding:8px 0px 8px 8px"] = newspaper.title
+          td.col-md-2 = newspaper.title
           td.col-md-5 = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
           td.col-md-2 = newspaper.created_at
           td.col-md-3 
             = link_to I18n.t('layouts.admins.index.detail'), admins_newspaper_path(params[:locale],newspaper),class: 'btn btn-info'
-            = link_to I18n.t('layouts.admins.index.edit'), edit_admins_newspaper_path(params[:locale],newspaper), class: 'btn btn-warning',style: 'margin-left:20px;'
-            = link_to I18n.t('layouts.admins.index.delete'), admins_newspaper_path(params[:locale],newspaper),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'
+            = link_to I18n.t('layouts.admins.index.edit'), edit_admins_newspaper_path(params[:locale],newspaper), class: 'btn btn-warning'
+            = link_to I18n.t('layouts.admins.index.delete'), admins_newspaper_path(params[:locale],newspaper),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger'
   = will_paginate @newspapers

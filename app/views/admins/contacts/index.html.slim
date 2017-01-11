@@ -12,9 +12,7 @@ section.layout-admincontact
           .col-md-12.bodyad
             = form_tag admins_contacts_path, :method => 'get', :id => "products_search" do
               p
-                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_contact'), class: 'form-control', style: 'width: 50%;'
-        .main-body
-          .col-md-12.bodyad
+                = text_field_tag :search, params[:search], placeholder: t('layouts.admins.index.search_contact'), class: 'form-control search'
             = render 'admins/form/index_contact'
 javascript:
  $('#search').keyup(function(){

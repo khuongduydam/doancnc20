@@ -17,9 +17,9 @@
           td.text-center = order.address
           td.text-center = order.phone
           td.text-center = order.email
-          td.text-center[style="color:red;"] = order.status
-          td.text-center[style="color:red;"] = order.pay_type
-          td.text-center[style="color:red;"] =  order.total_price
+          td.text-center.status = order.status
+          td.text-center.pay = order.pay_type
+          td.text-center.price =  order.total_price
           td.text-center
             .btn-group
               = link_to I18n.t('layouts.admins.index.detail'), admins_order_path(params[:locale],order),class: 'btn btn-info btn-xs'

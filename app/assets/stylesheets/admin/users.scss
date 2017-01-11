@@ -1,5 +1,7 @@
 section.layout-adminuser{
 	.container{
+	    width: 100%;
+	    margin: -1% 0 0 3%;
 		.row{
 			.list-group{
 				.active{
@@ -13,12 +15,35 @@ section.layout-adminuser{
 				.page-title{
 					.page-header.pull-left{
 						color: #1995dc;
+						border-bottom: none;
 					}
 					.pull-right{
 						.btn-default{
 							background-color: #1995dc!important;
 							border-color:#1995dc;
 							color: #ffffff;}
+					}
+				}
+				.row.main-body{
+					.bodyad{
+						width: 120%;
+						.search{
+							width: 50%;
+						}
+						.table-responsive{
+							table.table{
+								tbody{
+									tr.danger{
+										td:last-child{
+											width: 230px;
+											.btn-warning, .btn-danger{
+												margin-left: 15px;
+											}
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 			}

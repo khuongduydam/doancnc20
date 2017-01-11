@@ -8,7 +8,6 @@
           th Email
           th = t('layouts.admins.index.first_name')
           th = t('layouts.admins.index.last_name')
-          th Coin
           th = t('layouts.admins.index.property')
       tbody
         - @users.each do |user|
@@ -18,9 +17,8 @@
             td = user.email
             td = user.first_name
             td = user.last_name
-            td = user.coin
-            td[style="width:230px;"]
+            td
               = link_to I18n.t('layouts.admins.index.detail'), admins_user_path(params[:locale], user),class: 'btn btn-info'
-              = link_to I18n.t('layouts.admins.index.edit'), edit_admins_user_path(params[:locale],user), class: 'btn btn-warning',style:'position:relative;right: -15px;'
-              = link_to I18n.t('layouts.admins.index.delete'), admins_user_path(params[:locale],user),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style:'position:relative;right: -30px;'
+              = link_to I18n.t('layouts.admins.index.edit'), edit_admins_user_path(params[:locale],user), class: 'btn btn-warning'
+              = link_to I18n.t('layouts.admins.index.delete'), admins_user_path(params[:locale],user),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger'
     = will_paginate @users
