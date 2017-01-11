@@ -46,13 +46,13 @@
               = t('layouts.admins.index.order_members')              
             #order_member  
               = render 'admins/order_member'
-.container[style="width:100%;margin:-17% 0 0 22%"]
+.container
   h1 Admin Dashboard 
-  .row[style="width:100%"]
+  .row.first
     .col-xs-6.col-md-6
-      .product[style="height:200px;width:80%;background:#76bded"]
-        i.fa.fa-shopping-basket[style="font-size:150px;float:left;opacity:0.2;position:absolute;bottom:0"]
-        .orders[style="float:right;color:#fff; margin-right:8px"] 
+      .order
+        i.fa.fa-shopping-basket
+        .orders
           h3
             - if Order.all.size == 0
               | 0 normal order
@@ -74,9 +74,9 @@
             - else
               = @uncomplete_orders > 1 ? "#{@uncomplete_orders} pending orders" : "1 pending order"
     .col-xs-6.col-md-6
-      .category[style="height:200px;width:80%;background:#32e591;margin-left:-10%"]
-        i.fa.fa-users[style="font-size:150px;float:right;opacity:0.2;position:absolute;bottom:0"]     
-        .users.text-right[style="float:right;color:#fff; margin-right:8px;"] 
+      .category
+        i.fa.fa-users
+        .users.text-right
           h3
             = User.all.size > 1 ? "#{User.all.size} users registered" : "1 user registered"
           h3
@@ -88,11 +88,11 @@
           h3
             | Last login ip: 
             = current_user.last_sign_in_ip
-  .row[style="width:100%;margin-top:5%"]
+  .row.second
     .col-xs-6.col-md-6
-      .newspaper[style="height:200px;width:80%;background:#95ef77"]
-        i.fa.fa-newspaper-o[style="font-size:150px;float:left;opacity:0.2;position:absolute;bottom:0"]
-        .info[style="float:right;color:#fff; margin-right:8px"] 
+      .newspaper
+        i.fa.fa-newspaper-o
+        .info
           h3
             - if Newspaper.all.size == 0
               | 0 newspaper
@@ -114,9 +114,9 @@
             - else
               = Product.all.size > 1 ? "#{Product.all.size} products" : "1 product"      
     .col-xs-6.col-md-6
-      .product[style="height:200px;width:80%;background:#edc650;margin-left:-10%"]
-        i.fa.fa-money[style="font-size:150px;float:right;opacity:0.2;position:absolute;bottom:0"]
-        .money[style="float:right;color:#fff; margin-right:8px;"] 
+      .product
+        i.fa.fa-money
+        .money
           h3
             - if Order.all.size == 0 && OrderMember.all.size == 0
               | 0 vnd in this month

@@ -25,30 +25,110 @@ a.list-group-item{
 .list-group-item.active{
   border-color: #fff!important;
 }
-
-.container{
-  h1{
-    font-family: inherit;
-    font-weight: 100;
-  }
-  .product{
-    .orders, .money{
-      h3{
-        font-size: 20px;
+.content{
+  .container{
+    width:100%;
+    margin:-17% 0 0 22%;
+    .row.first{
+      width: 100%;
+      .order{
+        height:200px;
+        width:90%;
+        background:#76bded;
+        i.fa.fa-shopping-basket{
+          font-size:150px;
+          float:left;
+          opacity:0.2;
+          position:absolute;
+          bottom:0;
+        }
+        .orders{
+          float:right;
+          color:#fff; 
+          margin-right:8px;
+        }
+      }
+      .category{
+        height:200px;
+        width:90%;
+        background:#32e591;
+        margin-left:-10%;
+        i.fa.fa-users{
+          font-size:150px;
+          float:right;
+          opacity:0.2;
+          position:absolute;
+          bottom:0;
+        }
+        .users{
+          float:right;
+          color:#fff;
+          margin-right:8px;
+        }
       }
     }
-  }
-  .category{
-    .users{
-      h3{
-        font-size: 20px;
+    .row.second{
+      width:100%;
+      margin-top:5%;
+      .newspaper{
+        height:200px;
+        width:90%;
+        background:#95ef77;
+        i.fa.fa-newspaper-o{
+          font-size:150px;
+          float:left;
+          opacity:0.2;
+          position:absolute;
+          bottom:0;
+        }
+        .info{
+          float:right;
+          color:#fff; 
+          margin-right:8px;
+        }
+      }
+      .product{
+        height:200px;
+        width:90%;
+        background:#edc650;
+        margin-left:-10%;
+        i.fa.fa-money{
+          font-size:150px;
+          float:right;
+          opacity:0.2;
+          position:absolute;
+          bottom:0;
+        }
+        .money{
+          float:right;
+          color:#fff; 
+          margin-right:8px;
+        }
       }
     }
-  }
-  .newspaper{
-    .info{
-      h3{
-        font-size: 20px;
+    h1{
+      font-family: inherit;
+      font-weight: 100;
+    }
+    .product{
+      .orders, .money{
+        h3{
+          font-size: 20px;
+        }
+      }
+    }
+    .category{
+      .users{
+        h3{
+          font-size: 20px;
+        }
+      }
+    }
+    .newspaper{
+      .info{
+        h3{
+          font-size: 20px;
+        }
       }
     }
   }
