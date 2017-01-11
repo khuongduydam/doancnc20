@@ -24,7 +24,7 @@ javascript:
      success: function(data){
        $('tbody').empty();
        $.each(data.data,function(key,value){
-         $('tbody').append("<tr class='danger'><td class='text-center'>"+value.name+"</td><td class='text-center'>"+value.address+"</td><td class='text-center'>"+value.phone+"</td><td class='text-center'>"+value.email+"</td><td class='text-center' style='color:red;'>"+value.status+"</td><td class='text-center' style='color:red;'>"+value.pay_type+"</td><td class='text-center' style='color:red;'>"+value.total_price+"</td><td class='text-center btn-group'><a href='/admins/orders/"+value.id+"' class='btn btn-info btn-xs'>Detail</a><a href='/admins/orders/"+value.id+"/edit' class='btn btn-warning btn-xs'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/orders/"+value.id+"' class='btn btn-danger btn-xs'>Delete</a></td></tr>")
+         $('tbody').append("<tr class='danger'><td class='text-center'>"+value.name+"</td><td class='text-center'>"+value.address+"</td><td class='text-center'>"+value.phone+"</td><td class='text-center'>"+value.email+"</td><td class='text-center' style='color:red;'>"+value.status+"</td><td class='text-center' style='color:red;'>"+value.pay_type+"</td><td class='text-center' style='color:red;'>"+value.total_price+"</td><td class='text-center'><div class='btn-group'><a href='/admins/orders/"+value.id+"' class='btn btn-info btn-xs'>Detail</a><a href='/admins/orders/"+value.id+"/edit' class='btn btn-warning btn-xs'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/orders/"+value.id+"' class='btn btn-danger btn-xs'>Delete</a></div></td></tr>")
        })
      }
    });
