@@ -8,3 +8,32 @@ hr[style="border:1px solid red"]
       = f.input :email, autofocus: true,class:'form-control',input_html:{style:'width:50%'}
     .btn-group
       = f.submit "Reset Password",class:'btn btn-success'
+javascript:
+  $('#new_user').validate({
+    rules:{
+      "user[email]":{
+        required: true,
+        email: true
+      }
+    },
+    messages:{
+      "user[email]":{
+        required: 'Please enter an email',
+        email: 'This is not email address'
+      }
+    },
+    highlight: function(element){
+      $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element){
+      $(element).closest('.form-group').removeClass('has-error');
+    },
+    submitHandler: function(form) {
+      $('form').find(":submit").attr("disabled", true).attr("value","Submitting...");
+      form.submit();
+    },
+    errorClass :'help-block',
+    errorPlacement: function(error, element){
+      error.insertAfter(element);
+    }
+  })

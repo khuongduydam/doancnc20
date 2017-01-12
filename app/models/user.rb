@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :confirmable,:database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook],
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2],
          :authentication_keys => [:username]
   enum role: [:member, :admin]
 
@@ -16,12 +16,33 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :order_members,dependent: :destroy
   validates :password, :password_confirmation,length: {minimum: 6, maximum: 12}, on: :update, allow_blank: true
+
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+      user.skip_confirmation!
+    end
+  end
+
+  def self.from_omniauth_google(access_token)
+    data = access_token.info
+    user = User.where(:email => data["email"]).first
+
+    unless user
+      password = Devise.friendly_token[0,20]
+      user = User.create(username: data["name"], email: data["email"],
+        password: password, password_confirmation: password
+      )
+      user.skip_confirmation!
+    end
+    user
+  end
+
+  def self.from_google(auth)
+    where(provider: auth[:provider], uid: auth[:uid]).first_or_initialize do |user|
+      user.email = auth[:info][:email]
     end
   end
 

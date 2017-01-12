@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
  gem 'rails-i18n'
-gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'omniauth-google-oauth2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 #gem 'therubyracer'

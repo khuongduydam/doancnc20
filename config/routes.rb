@@ -34,9 +34,9 @@ Rails.application.routes.draw do
     resources :newspapers,only: [:index, :show]
     resources :categories, only: :show
     resources :admins, only: :index
-    devise_for :users,skip: :omniauth_callbacks,path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},:controllers => { :omniauth_callbacks => "callbacks"}
     resources :users, only: :show
   end
+  devise_for :users,path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},:controllers => { :omniauth_callbacks => "callbacks"}
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
 

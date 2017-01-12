@@ -275,7 +275,7 @@ Devise.setup do |config|
   require 'omniauth-google-oauth2'
   Devise.setup do |config|
     #Replace example.com with your own domain name
-    config.mailer_sender = 'ron@vinova.sg'
+    config.mailer_sender = 'duyb0119@gmail.com'
 
     require 'devise/orm/active_record'
     config.case_insensitive_keys = [ :email ]
@@ -291,7 +291,6 @@ Devise.setup do |config|
     #Add your ID and secret here
     #ID first, secret second
     config.omniauth :facebook, "1872053286372823", "464c298378543753273fd5fd0649174a", scope: 'user_birthday'
-    config.omniauth :google_oauth2, ' 410939124399-1ifodqj9tsbrumu78tqirdrbe5frpqh1.apps.googleusercontent.com
- ','9f3NLMqjOSF29uokOHGEe4nu'
+    config.omniauth :google_oauth2, "712771227061-onmjfgji1biehohevsbggc7mn4eej4t7.apps.googleusercontent.com","ftOkDIZU9gNGGhcj3ytCVY8Y"
   end
 end
