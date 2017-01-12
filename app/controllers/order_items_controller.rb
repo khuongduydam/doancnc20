@@ -4,10 +4,14 @@ class OrderItemsController < ApplicationController
   def index
     @order_items = OrderItem.all
     order_item = OrderItem.find_by(id: params[:id])
-    order_item.update(quantity: params[:quantity])
+    unless order_item.update(quantity: params[:quantity])
+      flash.now[:error] = 'Update quantity failed'
+    end
     product = order_item.product
     product.quantity -= params[:quantity].to_i - 1
-    product.save
+    unless product.save
+      flash.now[:error] = 'Update quantity failed'
+    end
   end
 
   def new
@@ -20,7 +24,9 @@ class OrderItemsController < ApplicationController
     respond_to do |format|
       if @order_item.save
         product.quantity -= @order_item.quantity
-        product.save
+        unless product.save
+          flash.now[:error] = "Add product failed"
+        end
         format.html {redirect_to root_path}
         format.js
       else
@@ -45,7 +51,9 @@ class OrderItemsController < ApplicationController
       if @order_item.save
         product = Product.find_by(id: @order_item.product_id)
         product.quantity -= @order_item.quantity - 1
-        product.save
+        unless product.save
+          flash.now[:error] = 'Update quantity failed'
+        end
         @order_items = @cart.order_items
       else
         flash.now[:error] = 'Update quantity failed'
@@ -60,10 +68,14 @@ class OrderItemsController < ApplicationController
       if @order_item.destroy
         product = Product.find_by(id: @order_item.product_id)
         product.quantity += @order_item.quantity
-        product.save
+        unless product.save
+          flash.now[:error] = 'Can not destroy this item'
+        end
         @order_items = @cart.order_items
         format.html {redirect_to cart_path(session[:cart_id])}
         format.js 
+      else
+        flash.now[:error] = 'Can not destroy this item'
       end
     end
   end

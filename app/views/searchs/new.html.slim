@@ -3,16 +3,65 @@
 hr[style="border:1px solid red"]
 .container 
   = form_tag products_path, :method => 'get', :id => "products_search" do
-    = label_tag :search,t('find'),style:'font-family:Arial'
-    = text_field_tag :search, params[:search], placeholder: t('placeholder'),class:'form-control',style:'width:33%;border-radius:0;font-family:Arial'
+    .form-group
+      = label_tag :search,t('find'),style:'font-family:Arial'
+      = text_field_tag :search, params[:search], placeholder: t('placeholder'),class:'form-control',style:'width:33%;border-radius:0;font-family:Arial'
     br
     = label_tag :category,t('category'),style:'font-family:Arial'
     = select_tag :category, options_for_select(categories_list_head.map{|cate| [cate.name, cate.id]}),prompt:t('choose_one'),class:'form-control',style:'width:33%;border-radius:0;font-family:Arial'
     br
-    = label_tag :price, t('price')
-    = text_field_tag :minValue, params[:minValue], style: "width:150px;margin-left:30px;",placeholder:t('from')
-    |  - 
-    = text_field_tag :maxValue, params[:maxValue], style: "width:150px",placeholder:t('to')
-    br
+    .form-group
+      = label_tag :price, 'From'
+      = text_field_tag :minValue, params[:minValue], style: "width:150px;margin-left:30px;",placeholder:t('from')
+    .form-group
+      = label_tag :price, 'To'
+      = text_field_tag :maxValue, params[:maxValue], style: "width:150px", style: "width:150px;margin-left:48px;",placeholder:t('to')
+    br/
     br
     = submit_tag t('find'), :name => nil,class:'btn btn-success',style:'border-radius:0;width:15%'
+
+javascript:
+  $('#products_search').validate({
+    rules:{
+      search:{
+        lettersonly: true,
+        rangelength: [1,20]
+      },
+      minValue:{
+        number: true,
+        range:[1,1000000]
+      },
+      maxValue:{
+        number: true,
+        range:[1,1000000]
+      }
+    },
+    messages:{
+      search:{
+        lettersonly: 'Just allow only letters',
+        rangelength: 'Please input between 1 - 20 characters'
+      },
+      minValue:{
+        number: 'Just allow only number',
+        range:'Please input between 1 - 1000000'
+      },
+      maxValue:{
+        number: 'Just allow only number',
+        range:'Please input between 1 - 1000000'
+      }
+    },
+    highlight: function(element){
+      $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element){
+      $(element).closest('.form-group').removeClass('has-error');
+    },
+    submitHandler: function(form) {
+      $('form').find(":submit").attr("disabled", true).attr("value","Submitting...");
+      form.submit();
+    },
+    errorClass :'help-block',
+    errorPlacement: function(error, element){
+      error.insertAfter(element);
+    }
+  })

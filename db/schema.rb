@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109094735) do
+ActiveRecord::Schema.define(version: 20170112070109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,12 +95,12 @@ ActiveRecord::Schema.define(version: 20170109094735) do
     t.string   "phone"
     t.string   "pay_type"
     t.integer  "user_id"
-    t.string   "status"
+    t.string   "status",      default: "Uncomplete"
     t.text     "note"
     t.string   "email"
     t.integer  "total_price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "gift_code"
     t.index ["user_id"], name: "index_order_members_on_user_id", using: :btree
   end

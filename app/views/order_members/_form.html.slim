@@ -9,7 +9,7 @@
         = f.input :address, label: t('application.address'),input_html: {value: current_user.address,readonly: true}
         = f.input :email,input_html: {value: current_user.email,readonly: true}
         = f.input :phone, label: t('application.phone'),input_html: {value: current_user.phone,readonly: true}
-        = f.input :note,label: t('application.note')
+        = f.input :note,label: t('application.note'),input_html:{style:'resize:none'}
         = f.input :gift_code,label: t('order.new.gift_code')
         = f.select :pay_type, Order::PAYMENT_TYPES , prompt: t('application.choose_one')
         = f.submit I18n.t('application.submit'),class:' btn btn-success pull-right btn-sm'

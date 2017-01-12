@@ -1,5 +1,6 @@
 - flash.each do |name, msg|
  - if msg.is_a?(String)
-    div[class="alert alert-dismissible alert-#{name.to_s == 'notice' ? 'success' : 'error'} center-block text-center bg-danger" style="font-size:15px;font-family: monospace"]
+    div[class="alert alert-dismissible alert-#{name.to_s == 'notice' ? 'success' : 'error'} center-block text-center bg-danger" style="font-size:15px;font-family: monospace;margin-bottom:0;border-radius:0;"]
       = content_tag :div, msg, :id => "flash_#{name}"
-  
+javascript:
+  $('.alert-dismissible').delay(3000).fadeOut();

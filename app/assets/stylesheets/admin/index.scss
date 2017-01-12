@@ -25,6 +25,12 @@ a.list-group-item{
 .list-group-item.active{
   border-color: #fff!important;
 }
+.backend{
+  #flash_alert{
+    border:none;
+    background: none;
+  }
+}
 .content{
   .container{
     width:100%;

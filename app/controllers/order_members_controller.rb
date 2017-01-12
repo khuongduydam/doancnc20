@@ -41,7 +41,7 @@ class OrderMembersController < ApplicationController
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       if @order_member.pay_type == 'Direct'
-        flash[:success] = "Thank you for your OrderMember"
+        flash[:success] = "Thank you for your Order"
         redirect_to root_path
       else
         redirect_to @cart.paypal_url(products_url)    

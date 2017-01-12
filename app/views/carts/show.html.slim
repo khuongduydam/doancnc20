@@ -6,7 +6,7 @@
           tbody
             #order-items
               = render @order_items
-         
+= @product.quantity         
     
 
 javascript:
@@ -28,12 +28,13 @@ javascript:
       $('.total-money').text(sum);
     });
     $.ajax({
-      url: '/order_items/',
+      url: "/#{params[:locale]}/order_items/",
       dataType:'script',
       data: {quantity: number, id: id}
     });
-    if(parseInt(input.val()) <= 0){
+    if((parseInt(input.val()) <= 0) || (parseInt(input.val()) > "#{@product.quantity}")){
       input.css('border-color','red')
+      $('span.errors').empty()
       place.prepend('<span class="errors">Number not allow</span>')
       $(this).css('margin-top','10%')
       $('span.errors').css({'position':'relative','top':'100px','color':'red'})

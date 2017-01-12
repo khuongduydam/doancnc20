@@ -46,7 +46,6 @@ header.frontend.hidemobile
           = link_to t('layouts.header.checkout'),new_order_member_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
         - else
           = link_to t('layouts.header.checkout'),new_order_path,class:'btn btn-info',style:'width:100%;border-radius:0px;'
-      = render 'layouts/flash_messages'
       - if user_signed_in?
         = link_to 'Log out',destroy_user_session_path, method: :delete, class:'btn btn-danger',style:'width:100%;border-radius:0px;'
       = link_to_unless_current 'Eng',locale: "en"
