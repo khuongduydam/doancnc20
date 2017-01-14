@@ -14,6 +14,11 @@ body{
   .sidebar{
     margin-top: -10%!important;
     .side-menu{
+      li:first-child{
+        a:first-child{
+          border-top: 1px solid #ccc;
+        }
+      }
       li{
         height: 100px;
         a{
@@ -21,6 +26,102 @@ body{
           font-size: 40px;
           border-bottom:1px solid #ccc;
           padding-top: 9%!important;
+        }
+      }
+    }
+  }
+  .content {
+    section.layout-admincategory {
+      .container {
+        .row {
+          .main-adminproduct {
+            margin-top: -10%!important;
+            font-size: 50px;
+            width: 77%!important;
+            .row.main-body{
+              .bodyad{  
+                .search{
+                  height: 80px;
+                  font-size: 50px;
+                }
+              }
+            }
+            .page-title{
+              h1.page-header.pull-left  {
+                font-size:70px;
+              }
+              .pull-right{
+                .btn-group.btn-success{
+                  right: -80%!important ;
+                  .btn-default{
+                    font-size: 40px;
+                  }
+                }
+              }
+            }
+            .main-body{
+              .bodyad{
+                .table-responsive{
+                  .danger{
+                    td{
+                      a{
+                        font-size: 30px;
+                      }
+                    }
+                  }
+                }
+              }
+            } 
+          }
+        }
+      }
+    }
+    section.layout-adminproduct {
+      .container{
+        .row{
+          .main-adminproduct{
+            .page-title{
+              .page-header.pull-left{
+                font-size: 80px;
+                margin-left: 2%;
+                margin-top: 2%;
+              }
+            }
+            .main-body{
+              width: 92%;
+              margin-left: 1%;
+              font-size: 40px;
+              .bodyad{
+                .search{
+                  height: 80px;
+                  font-size: 50px;
+                }
+                .table-responsive{
+                  .danger{
+                    td:nth-child(3){
+                      padding-left: 5%!important;
+                    }
+                    td{
+                      a{
+                        font-size: 22px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .page-title{
+              .pull-right{
+                .btn-group.btn-success{
+                  margin-left: 77%;
+                  margin-top: 26%;
+                  .btn-default{
+                    font-size: 35px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
