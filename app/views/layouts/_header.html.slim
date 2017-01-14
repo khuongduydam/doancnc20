@@ -7,7 +7,7 @@ header.frontend.hidemobile
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        a.navbar-brand 
+        = link_to products_path, class:'navbar-brand' do 
           = image_tag("logo.jpg",class:'logo center-block',style:'width:55%')
         .icon.text-center
           = link_to '<i class="fa fa-user-o fa-2"></i>'.html_safe, new_user_session_path,style:"font-size:20px;"
@@ -37,7 +37,7 @@ header.frontend.hidemobile
           - if current_user.present?
             li
               = link_to I18n.t('layouts.header.wishlists'), wishlists_path
-      - if current_page?cart_path(@cart)      
+      /- if current_page?cart_path(@cart)      
         i.fa.fa-money[style="font-size:30px;margin-top:10%"]
           |  = 
         .total-money[style="margin:-17% 0 0 33%; font-size:2em;color:red"]

@@ -12,3 +12,27 @@
     margin-top: 25%;
   }
 }
+
+@media screen and(min-width: 2560px) {
+  .container.gift{
+    width: 95%;
+    .btn-info{
+      font-size: 35px!important;
+    }
+  }
+  .container.code{
+    .gift-code{
+      font-size: 35px;
+      height: 80px!important;
+    }
+  }
+}
+
+@media screen and (max-width: 1600px){
+  .container.code{
+    .gift-code{
+      font-size: 25px;
+      height: 70px!important;
+    }
+  }
+}

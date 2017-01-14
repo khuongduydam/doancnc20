@@ -54,3 +54,20 @@ section.layout-adminuser{
 .form-control{
 	border-radius: 0!important
 }
+
+@media screen and (min-width: 2560px) {
+	section.layout-adminuser{
+		.container{
+	    width: 94%;
+	    margin: 0 0 0 5%;
+	    font-size: 35px;
+	    .search{
+	    	font-size: 35px;
+	    	height: 70px;
+	    }
+	    .btn-info, .btn-warning, .btn-danger{
+	    	font-size: 20px;
+	    }
+	  }
+  }
+}

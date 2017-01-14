@@ -11,7 +11,7 @@
         tr.danger
           td.col-md-2 = newspaper.title
           td.col-md-5 = truncate(ActionView::Base.full_sanitizer.sanitize(newspaper.content), length: 200)
-          td.col-md-2 = newspaper.created_at
+          td.col-md-2 = newspaper.created_at.strftime("%d %m %Y")
           td.col-md-3 
             = link_to I18n.t('layouts.admins.index.detail'), admins_newspaper_path(params[:locale],newspaper),class: 'btn btn-info'
             = link_to I18n.t('layouts.admins.index.edit'), edit_admins_newspaper_path(params[:locale],newspaper), class: 'btn btn-warning'

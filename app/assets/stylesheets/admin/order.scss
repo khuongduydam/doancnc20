@@ -39,3 +39,43 @@
     }    
   }
 }
+
+@media screen and (min-width: 2560px) {
+  .content{
+    .layout-adminorder{
+      width: 100%;
+      .container{
+        width: 95%;
+        margin-top:-13%;
+        margin-left: 22%;
+        font-size: 35px;
+        .row {
+          .main-adminproduct {
+            .row.main-body {
+              .bodyad {
+                .table-responsive {
+                  tr.danger {
+                    td {
+                      .btn-group {
+                        .btn-xs{
+                          font-size: 25px;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .search{
+        font-size: 35px;
+        height: 70px;
+      }
+    }
+    .btn-xs{
+      font-size: 25px;
+    }
+  }
+}

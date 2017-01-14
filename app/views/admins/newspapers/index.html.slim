@@ -22,13 +22,13 @@ javascript:
    val = $(this).val();
    $.ajax({
      type:'get',
-     url: '/admins/newspapers',
+     url: '/#{params[:locale]}/admins/newspapers',
      dataType:'json',
      data: {search: val},
      success: function(data){
        $('tbody').empty();
        $.each(data.data,function(key,value){
-         $('tbody').append("<tr class='danger'><td>"+value.title+"</td><td>"+value.content.substr(0, 200)+"</td><td>"+value.created_at+"</td><td><a href='/admins/newspapers/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/newspapers/"+value.id+"/edit' class='btn btn-warning' style='margin-left:20px;'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/newspapers/"+value.id+"' class='btn btn-danger' style='margin-left:20px;'>Delete</a></td></tr>")
+         $('tbody').append("<tr class='danger'><td class='col-md-2'>"+value.title+"</td><td class='col-md-5'>"+value.content.substr(0, 200)+"</td><td class='col-md-2'>"+value.created_at+"</td><td class='col-md-3'><a href='/admins/newspapers/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/newspapers/"+value.id+"/edit' class='btn btn-warning'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/newspapers/"+value.id+"' class='btn btn-danger'>Delete</a></td></tr>")
        })
      }
    });

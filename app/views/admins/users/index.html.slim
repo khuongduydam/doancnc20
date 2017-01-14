@@ -25,7 +25,7 @@ javascript:
      success: function(data){
        $('tbody').empty();
        $.each(data.data,function(key,value){
-         $('tbody').append("<tr class='danger'><td>"+value.id+"</td><td>"+value.username+"</td><td>"+value.email+"</td><td>"+value.first_name+"</td><td>"+value.last_name+"<td><a href='/admins/users/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/users/"+value.id+"/edit' class='btn btn-warning'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/users/"+value.id+"' class='btn btn-danger'>Delete</a></td></tr>")
+         $('tbody').append("<tr class='danger'><td class='col-xs-2'>"+value.id+"</td><td class='col-xs-2'>"+value.username+"</td><td class='col-xs-2'>"+value.email+"</td><td class='col-xs-2'>"+value.first_name+"</td><td class='col-xs-2'>"+value.last_name+"<td class='col-xs-2'><a href='/admins/users/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/users/"+value.id+"/edit' class='btn btn-warning'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/users/"+value.id+"' class='btn btn-danger'>Delete</a></td></tr>")
        })
      }
    });

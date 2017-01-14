@@ -74,6 +74,18 @@
       }
     }
   }
+  .total-money{
+    float: right;
+    margin-right: 10%;
+    .btn.btn-info{
+      width: 100%;
+      border-radius: 0
+    }
+    i.fa.fa-money{
+      color:#c8311d;
+      font-size: 35px;
+    }
+  }
   .btn-group{
     .btn.btn-primary{
       width: 170px;

@@ -1,7 +1,7 @@
 .content {
   section.layout-adminnewspaper {
     .container {
-      margin:-1% 0 0 2% !important;
+      margin:-1% 0 0 2%;
       .row {
         .list-group{
           .active{
@@ -55,6 +55,41 @@
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and(min-width: 2560px) {
+  section.layout-adminnewspaper {
+    .container {
+      font-size: 40px;
+      margin: 0 0 0 5% !important;
+      width: 93%;
+      .page-title{
+        .pull-right{
+          margin-right: -16%!important;
+          .btn-success{
+            .btn-default{
+              font-size: 35px;
+            }
+          }
+        }
+      }
+      .row.main-body{
+        .bodyad{
+          .search{
+            height: 80px;
+            font-size: 40px;
+          }
+          tbody{
+            tr.danger{
+              .btn-info, .btn-warning, .btn-danger{
+                font-size: 35px;
+                margin-left: 7%;
               }
             }
           }

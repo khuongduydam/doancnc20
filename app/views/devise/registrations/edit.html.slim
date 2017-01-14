@@ -17,11 +17,6 @@
         = f.label :password
         i
         = f.password_field :password, autocomplete: "off", class:'form-control'
-        / - if @minimum_password_length
-        /   br
-        /   em
-        /     = @minimum_password_length
-        /     |  characters minimum
         br
         = f.label :password_confirmation
         = f.password_field :password_confirmation, autocomplete: "off",class: 'form-control'

@@ -28,11 +28,6 @@
               }
               .table-responsive{
                 width: 125%;
-                tr.info{
-                  th:last-child{
-                    width: 300px;
-                  }
-                }
                 tr.danger{
                   td:last-child{
                     .btn-warning, .btn-danger{

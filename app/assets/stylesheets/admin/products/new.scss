@@ -1,0 +1,17 @@
+@media screen and(min-width: 2560px) {
+  .modify-product{
+    margin: -13% 0 0 20%!important;
+    font-size: 35px;
+    h2{
+      font-size: 70px;
+    }
+    input, select,textarea{
+      width: 90%;
+      height: 70px;
+      font-size: 35px;
+    }
+    input.btn.btn-success.btn-md{
+      width: 30%;
+    }
+  }
+}

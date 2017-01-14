@@ -50,3 +50,20 @@ section.layout-admincontact{
     }
   }
 }
+
+@media screen and (min-width: 2560px) {
+  section.layout-admincontact{
+    .container{
+      margin: 0% 0 0 5%;
+      font-size: 35px;
+      width: 95%;
+    }
+    .search{
+      font-size: 35px;
+      height: 70px;
+    }
+    .btn-info, .btn-danger{
+      font-size:25px;
+    }
+  }
+}

@@ -6,7 +6,19 @@
           tbody
             #order-items
               = render @order_items
-= @product.quantity         
+      - if current_page?cart_path(@cart)
+        .total-money      
+          i.fa.fa-money
+            |  = 
+            = @cart.total_price
+            | (vnd)
+          br
+          br
+          - if user_signed_in?  
+            = link_to t('layouts.header.checkout'),new_order_member_path,class:'btn btn-info'
+          - else
+            = link_to t('layouts.header.checkout'),new_order_path,class:'btn btn-info'
+              
     
 
 javascript:

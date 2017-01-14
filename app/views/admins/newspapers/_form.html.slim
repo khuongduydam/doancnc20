@@ -12,13 +12,12 @@
         = image_tag picture.object.image_url
         = picture.file_field :image
   br
-  .form-group
+  .form-group.content
     = f.label :content
     - if @newspaper.errors.messages[:content].present?
       |  
       i[style="color:red"]
         = @newspaper.errors.messages[:content][0]
-  .form-group      
     = f.cktext_area :content
   br
   .btn-group
