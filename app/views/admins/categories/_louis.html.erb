@@ -9,7 +9,7 @@
        success: function(data){
          $('tbody').empty();
          $.each(data.data,function(key,value){
-           $('tbody').append("<tr class='danger'><td class='col-xs-3'>"+value.name_cat+"</td><td class='col-xs-3 text-center'>"+value.sl+"</td><td class='col-xs-3'><a href='/admins/categories/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/categories/"+value.id+"/edit' class='btn btn-warning'>Edit</a><a data-confirm='Are you sure? All products of this category will be delete.' data-method='delete' href='/admins/categories/"+value.id+"' class='btn btn-danger'>Delete</a></td></tr>")
+           $('tbody').append("<tr class='danger'><td class='col-xs-3'>"+value.name_cat+"</td><td class='col-xs-3 text-center'>"+value.sl+"</td><td class='col-xs-3'><a href='/en/admins/categories/"+value.category_id+"' class='btn btn-info'>Detail</a><a href='/en/admins/categories/"+value.category_id+"/edit' class='btn btn-warning'>Edit</a><a data-confirm='Are you sure? All products of this category will be delete.' data-method='delete' href='/admins/categories/"+value.category_id+"' class='btn btn-danger'>Delete</a></td></tr>")
          })
        }
      });

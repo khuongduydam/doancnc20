@@ -14,7 +14,7 @@ section.modify-category
       .about_product
         p 
           | Thời gian nhắn : 
-          = @contact.created_at
+          = @contact.created_at.strftime('%d-%m-%Y')
       .btn-lg.right
         = link_to "Back", :back, class: "btn btn-default"
         = link_to "Delete", admins_contact_path(@contact,locale: params[:locale]),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger',style: 'margin-left:20px;'

@@ -25,7 +25,7 @@ javascript:
      success: function(data){
        $('tbody').empty();
        $.each(data.data,function(key,value){
-         $('tbody').append("<tr class='danger'><td class='col-xs-2'>"+value.id+"</td><td class='col-xs-2'>"+value.username+"</td><td class='col-xs-2'>"+value.email+"</td><td class='col-xs-2'>"+value.first_name+"</td><td class='col-xs-2'>"+value.last_name+"<td class='col-xs-2'><a href='/admins/users/"+value.id+"' class='btn btn-info'>Detail</a><a href='/admins/users/"+value.id+"/edit' class='btn btn-warning'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/users/"+value.id+"' class='btn btn-danger'>Delete</a></td></tr>")
+         $('tbody').append("<tr class='danger'><td class='col-xs-1'>"+value.id+"</td><td class='col-xs-2'>"+value.username+"</td><td class='col-xs-2'>"+value.email+"</td><td class='col-xs-2'>"+value.first_name+"</td><td class='col-xs-2'>"+value.last_name+"<td class='col-xs-3'><a href='/#{params[:locale]}/admins/users/"+value.id+"' class='btn btn-info' style='font-size:13px;margin-left:3%'>Detail</a><a href='/#{params[:locale]}/admins/users/"+value.id+"/edit' class='btn btn-warning' style='font-size:13px;margin-left:3%'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/users/"+value.id+"' class='btn btn-danger' style='font-size:13px;margin-left:3%'>Delete</a></td></tr>")
        })
      }
    });

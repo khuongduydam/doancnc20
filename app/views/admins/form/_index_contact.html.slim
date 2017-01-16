@@ -12,9 +12,9 @@
         tr.danger
           td = contact.name
           td = contact.address
-          td = truncate(contact.message, length: 30)
+          td = truncate(contact.message, length: 60)
           td 
-            = contact.created_at  
+            = contact.created_at.strftime('%d-%m-%Y')  
           td 
             = link_to I18n.t('layouts.admins.index.detail'), admins_contact_path(params[:locale],contact),class: 'btn btn-info'
             = link_to I18n.t('layouts.admins.index.delete'), admins_contact_path(params[:locale],contact),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger'
