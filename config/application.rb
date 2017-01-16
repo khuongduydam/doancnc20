@@ -13,9 +13,6 @@ module FruitShop
     # -- all .rb files in that directory are automatically loaded.
     I18n.enforce_available_locales = true
     config.i18n.default_locale = :en
-    config.assets.precompile += Ckeditor.assets
-    config.assets.precompile += %w( ckeditor/* )
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end
 
