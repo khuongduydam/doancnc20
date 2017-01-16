@@ -12,12 +12,16 @@ header.frontend.hidemobile
         .icon.text-center
           = link_to '<i class="fa fa-user-o fa-2"></i>'.html_safe, new_user_session_path,style:"font-size:20px;"
           = link_to '<i class="fa fa-search fa-2"></i>'.html_safe, new_search_path, style:"font-size:20px;"
-          = link_to '<i class="fa fa-cart-plus fa-2"></i>'.html_safe, cart_path(@cart),style:"font-size:20px;"
+          = link_to '<i class="fa fa-cart-plus fa-2"></i>'.html_safe, cart_path(id: session[:cart_id]),style:"font-size:20px;"
           |
           .cart-text[style="position: relative;top: -257%;left: 79%;width: 10%;height: 37%;background: rgba(255, 0, 0, 0.83);border-radius: 15px;color: #fff"]
             = render 'layouts/cart_text'
       #bs-sidebar-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.text-center
+          .btn-group[style="width:100%"]
+            - if user_signed_in?
+              = link_to 'Edit', edit_user_registration_path(I18n.locale,id: current_user.id),class: 'btn btn-default',style: 'width:50%; border-radius:0'
+              = link_to 'Profile', user_path(I18n.locale,id: current_user.id),class: 'btn btn-default',style: 'width:50%; border-radius:0'
           li.active
             = link_to I18n.t('layouts.header.our_fruits'), products_path   
           li
@@ -27,7 +31,7 @@ header.frontend.hidemobile
             .list-cate.text-center[style="list-style-type: none;"]
               - categories_list_head.each do |category|
                 - if category.products.size!=0
-                  p = link_to category.name, category_path(category.id)             
+                  p = link_to category.name, category_path(I18n.locale,category.id)             
           li
             = link_to I18n.t('layouts.header.order_guide'), shoppingguides_path
           li
@@ -52,7 +56,7 @@ header.frontend.hidemobile
       = link_to_unless_current image_tag('vn_icon.jpg',style:'width:10%',class:'vn-icon'),locale: "vi"  
 javascript:
   list = $('.list-cate').hide();
-  cate = $('.navbar-nav>li:nth-child(2)');
+  cate = $('.navbar-nav>li:nth-child(3)');
   cate.on('click',function(){
     list.animate({height:'toggle'},300);
   });
@@ -69,3 +73,7 @@ javascript:
     $('.usa-icon').show()
     $('.vn-icon').hide()
   }
+  $(".btn-group").hide()
+  $(".icon.text-center>a>i.fa.fa-user-o.fa-2").hover(function(){
+    $(".btn-group").animate({height: 'toggle'},400).delay(10000)
+  })

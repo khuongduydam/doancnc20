@@ -291,6 +291,6 @@ Devise.setup do |config|
     #Add your ID and secret here
     #ID first, secret second
     config.omniauth :facebook, "1872053286372823", "464c298378543753273fd5fd0649174a", scope: 'user_birthday'
-    config.omniauth :google_oauth2, "712771227061-onmjfgji1biehohevsbggc7mn4eej4t7.apps.googleusercontent.com","ftOkDIZU9gNGGhcj3ytCVY8Y"
+    config.omniauth :google_oauth2, "712771227061-onmjfgji1biehohevsbggc7mn4eej4t7.apps.googleusercontent.com","ftOkDIZU9gNGGhcj3ytCVY8Y", { access_type: "offline", approval_prompt: "" }
   end
 end

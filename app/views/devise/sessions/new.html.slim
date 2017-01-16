@@ -18,13 +18,13 @@
         = f.input :username,label:t('layouts.user_layout.username'),label_html:{style:'font-weight:100;color:black;font-family:Arial'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family: arial,serif;'}
       .form-group[style="margin-left:-1px"]  
         = f.input :password,label:t('layouts.user_layout.password'),label_html:{style:'font-weight:100;color:black;padding-right:0;font-family:Arial'},class:'form-control',input_html:{style:'width:250%;border-radius:0px;margin-left:20px;color:black;font-family:Arial,serif;'}
-      = f.submit I18n.t('layouts.user_layout.login'), class:'btn btn-primary',style:'width: 80%;border-radius: 15px;background: #aad367;border-color: #aad367;margin-left:35%;;font-family: arial'
+      = f.submit I18n.t('layouts.user_layout.login'), class:'btn btn-primary',style:'width: 80%;border-radius: 0;background: #aad367;border-color: #aad367;margin-left:35%;;font-family: arial;margin-bottom:5%'
       |
       .form-group[style="margin:-9% 0 0 150%;width:100%"]
         = render 'devise/shared/forgot_password'
-    br   
-    /= render 'devise/shared/omniauth'
-    = link_to 'Sign in google', user_google_oauth2_omniauth_authorize_path
+      .btn-group[style="margin-left:35%;width:100%"]
+        = link_to 'Google', user_google_oauth2_omniauth_authorize_path,class:'btn btn-default',style:'background-color:#c9302c;color:#fff;border-radius:0;width:40%'
+        = link_to "Facebook", user_facebook_omniauth_authorize_path,class:'btn btn-default',style:'background-color:#286090;color:#fff;border-radius:0;width:40%'
 javascript:
   $(document).ready(function(){
     $('abbr').remove(); 

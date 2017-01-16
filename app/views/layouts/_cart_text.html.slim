@@ -1,1 +1,1 @@
-= @cart.order_items.size
+= Cart.find_by(id: session[:cart_id]).order_items.size

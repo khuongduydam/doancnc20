@@ -1,4 +1,4 @@
-.container.center-block.well[style="width:800px;"]
+.container.center-block[style="width:100%;"]
   h2.text-center
     | Edit 
   br  
@@ -6,45 +6,47 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , class:'form-group'}) do |f|
     = devise_error_messages!
     .row
-      .col-xs-4.col-md-4  
-        = f.label :username
-        = f.text_field :username, autofocus: true, class: 'form-control'
+      .col-xs-4.col-md-4
+        .form-group  
+          = f.label :username
+          = f.text_field :username, autofocus: true, class: 'form-control',style: 'border-radius:0;'
         br
-        = f.label :current_password
-        i
-        = f.password_field :current_password, autocomplete: "off", class:'form-control'
+        .form-group  
+          = f.label :current_password
+          = f.password_field :current_password, autocomplete: "off", class: 'form-control',style: 'border-radius:0;'
         br   
         = f.label :password
-        i
-        = f.password_field :password, autocomplete: "off", class:'form-control'
+        = f.password_field :password, autocomplete: "off", class: 'form-control',style: 'border-radius:0;'
         br
         = f.label :password_confirmation
-        = f.password_field :password_confirmation, autocomplete: "off",class: 'form-control'
+        = f.password_field :password_confirmation, autocomplete: "off",class: 'form-control',style: 'border-radius:0;'
         br
-        = f.label :email
-        = f.email_field :email, class: 'form-control'
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        div
-          | Currently waiting confirmation for: 
-        = resource.unconfirmed_email
+        .form-group  
+          = f.label :email
+          = f.email_field :email, class: 'form-control',style: 'border-radius:0;'
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          div
+            | Currently waiting confirmation for: 
+          = resource.unconfirmed_email
       .col-xs-5.col-md-5
         = f.label :address
-        = f.text_field :address, class:'form-control'
+        = f.text_field :address, class: 'form-control',style: 'border-radius:0;'
         br
         = f.label :first_name
-        = f.text_field :first_name, class:'form-control'
+        = f.text_field :first_name, class: 'form-control',style: 'border-radius:0;'
         br
         = f.label :last_name
-        = f.text_field :last_name, class:'form-control'
+        = f.text_field :last_name, class:'form-control',style: 'border-radius:0;'
         br
-        = f.label :phone
-        = f.number_field :phone, class:'form-control'
+        .form-group  
+          = f.label :phone
+          = f.number_field :phone, class: 'form-control',style: 'border-radius:0;'
       .col-xs-3.col-md-3
         = f.label :sex
-        = f.select :sex, options_for_select(['Male','Female']), {},class:'form-control'
+        = f.select :sex, options_for_select(['Male','Female']), {},class:'form-control',style: 'border-radius:0;'
         br
         = f.label :birth_day
-        = f.date_field :birth_day,class:'form-control'
+        = f.date_field :birth_day,class: 'form-control',style: 'border-radius:0;'
         br  
         br  
         = f.submit "Update",class:'btn btn-success actions',style:'position: relative; top:3px;width: 170px;'
@@ -56,3 +58,57 @@
         br
         br
         = link_to 'Back', :back, class:'btn btn-default' ,style:'width:170px;'
+
+javascript:
+  $('#edit_user').validate({
+    rules:{
+      "user[username]":{
+        required: true
+      },
+      "user[current_password]":{
+        required: true,
+        range: [1,15]
+      },
+      "user[email]":{
+        required: true,
+        email: true
+      },
+      "user[phone]":{
+        required: true,
+        number: true,
+        rangelength: [10,11]
+      }
+    },
+    messages:{
+      "user[username]":{
+        required: "Please enter username"
+      },
+      "user[current_password]":{
+        required: "Please enter current password",
+        range: "Password from 1-15 words"
+      },
+      "user[email]":{
+        required: "Please enter an email",
+        email: "This is not valid email address"
+      },
+      "user[phone]":{
+        required: "Please enter a phone number",
+        number: "Please enter number",
+        rangelength: "This number is not valid"
+      }
+    },
+    highlight: function(element){
+      $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element){
+      $(element).closest('.form-group').removeClass('has-error');
+    },
+    submitHandler: function(form) {
+      $('form').find(":submit").attr("disabled", true).attr("value","Submitting...");
+      form.submit();
+    },
+    errorClass :'help-block',
+    errorPlacement: function(error, element){
+      error.insertAfter(element);
+    }
+  })

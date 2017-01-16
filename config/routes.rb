@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     resources :newspapers,only: [:index, :show]
     resources :categories, only: :show
     resources :admins, only: :index
-    resources :users, only: :show
+    get '/users/:id' => 'users#show', as: :user
   end
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
