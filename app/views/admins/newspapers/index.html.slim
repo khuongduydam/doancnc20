@@ -28,7 +28,7 @@ javascript:
      success: function(data){
        $('tbody').empty();
        $.each(data.data,function(key,value){
-         $('tbody').append("<tr class='danger'><td class='col-md-2'>"+value.title+"</td><td class='col-md-5'>"+value.content.substr(0, 200)+"</td><td class='col-md-2'>"+value.created_at+"</td><td class='col-md-3'><a href='/#{params[:locale]}/admins/newspapers/"+value.id+"' class='btn btn-info'>Detail</a><a href='/#{params[:locale]}/admins/newspapers/"+value.id+"/edit' class='btn btn-warning'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/admins/newspapers/"+value.id+"' class='btn btn-danger'>Delete</a></td></tr>")
+         $('tbody').append("<tr class='danger'><td class='col-md-2'>"+value.title+"</td><td class='col-md-5'>"+value.content.substr(0, 200)+"</td><td class='col-md-2'>"+value.created_at+"</td><td class='col-md-3'><a href='/#{params[:locale]}/admins/newspapers/"+value.id+"' class='btn btn-info'>Detail</a><a href='/#{params[:locale]}/admins/newspapers/"+value.id+"/edit' class='btn btn-warning'>Edit</a><a data-confirm='Are you sure?' data-method='delete' href='/#{params[:locale]}/admins/newspapers/"+value.id+"' class='btn btn-danger'>Delete</a></td></tr>")
        })
      }
    });
