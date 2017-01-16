@@ -1,6 +1,6 @@
 $('#<%=@order_item.id%>').fadeOut(350);
 $(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")  
-if($('.total-money').text() === "0"){
+if($('span.total-price').text() === "0"){
   $('tbody').html('<div class="container well" style="width:100%;border-radius:0px;color:purple"><h1>Your cart is empty now, <br>please come back home page and buy something!!!</h1></div>').delay(2000).queue(function(){
     $('.btn-info')[0].click()
   });

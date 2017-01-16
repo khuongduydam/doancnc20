@@ -31,7 +31,7 @@ en:
 
   layouts:
     header:
-      our_fruits: 'OUT FRUITS'
+      our_fruits: 'ALL FRUITS'
       category: 'CATEGORY'
       order_guide: 'ORDER GUIDE'
       information: 'INFORMATION'

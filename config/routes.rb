@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users,path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},only: :omniauth_callbacks,:controllers => { :omniauth_callbacks => "callbacks"}
   scope ":locale", locale: /en|vi/ do
+    devise_for :users, skip: :omniauth_callbacks
     namespace :admins do
       get 'gift_codes' => 'gift_codes#index'
       post 'gift_codes' => 'gift_codes#create'
@@ -36,7 +38,6 @@ Rails.application.routes.draw do
     resources :admins, only: :index
     resources :users, only: :show
   end
-  devise_for :users,path_names: {sign_in: 'login', sign_up: 'new', sign_out:'logout'},:controllers => { :omniauth_callbacks => "callbacks"}
   mount Ckeditor::Engine => '/ckeditor'
   root 'products#index'
 

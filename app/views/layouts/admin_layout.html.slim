@@ -14,8 +14,8 @@ html
     .row.main-container
       .col-md-2.sidebar
         = render 'admins/sidebar'
-        = link_to_unless_current 'Eng',locale: "en"
-        = link_to_unless_current 'Vn',locale: "vi"                  
+        = link_to_unless_current image_tag('usa_icon.jpg',style: 'width: 10%;height: 20px;',class:'usa-icon'),locale: "en"
+        = link_to_unless_current image_tag('vn_icon.jpg',style: 'width: 10%;height: 20px;',class:'vn-icon'),locale: "vi"                  
       .col-md-10.content
         = yield
 javascript:
@@ -32,3 +32,11 @@ javascript:
       $('.search-input').focus();
     });
   });
+  if("#{params[:locale]}" == "en"){
+    $('img.usa-icon').hide();
+    $('img.vn-icon').show();
+  }
+  else{
+    $('img.usa-icon').show();
+    $('img.vn-icon').hide();
+  }

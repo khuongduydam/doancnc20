@@ -48,9 +48,9 @@
                     tr.danger{
                       td:first-child{
                         padding:8px 0px 8px 8px;
-                        .btn-warning, .btn-danger{
-                          margin-left: 20px;
-                        }
+                      }
+                      .btn-warning, .btn-danger{
+                        margin-left: 5%;
                       }
                     }
                   }

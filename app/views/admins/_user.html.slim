@@ -12,12 +12,12 @@
       tbody
         - @users.each do |user|
           tr.danger
-            td.col-xs-2 = user.id
+            td.col-xs-1 = user.id
             td.col-xs-2 = user.username
             td.col-xs-2 = user.email
             td.col-xs-2 = user.first_name
             td.col-xs-2 = user.last_name
-            td.col-xs-2
+            td.col-xs-3
               = link_to I18n.t('layouts.admins.index.detail'), admins_user_path(params[:locale], user),class: 'btn btn-info'
               = link_to I18n.t('layouts.admins.index.edit'), edit_admins_user_path(params[:locale],user), class: 'btn btn-warning'
               = link_to I18n.t('layouts.admins.index.delete'), admins_user_path(params[:locale],user),method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-danger'

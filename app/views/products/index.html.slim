@@ -14,26 +14,26 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
                 /img[style="max-width: 200px;" data-animation="animated zoomInLeft" src="http://s20.postimg.org/pfmmo6qj1/window_domain.png"]
               .col-md-9.text-left
                 h3[data-animation="animated bounceInDown"]
-                  | Add images, or even your logo!
+                  / | Add images, or even your logo!
                 h4[data-animation="animated bounceInUp"]
-                  | Easily use stunning effects
+                  / | Easily use stunning effects
         .item.slide2
           .row
             .container
               .col-md-7.text-left
                 h3[data-animation="animated bounceInDown"]
-                  |  50 animation options A beautiful
+                  / |  50 animation options A beautiful
                 h4[data-animation="animated bounceInUp"]
-                  | Create beautiful slideshows 
+                  / | Create beautiful slideshows 
               .col-md-5.text-right
         .item.slide3
           .row
             .container
               .col-md-7.text-left
                 h3[data-animation="animated bounceInDown"]
-                  | Simple Bootstrap Carousel
+                  / | Simple Bootstrap Carousel
                 h4[data-animation="animated bounceInUp"]
-                  | Bootstrap Image Carousel Slider with Animate.css
+                  / | Bootstrap Image Carousel Slider with Animate.css
               .col-md-5.text-right
       a.left.carousel-control[href="#carousel-example-generic" role="button" data-slide="prev"]
         i.fa.fa-angle-left
@@ -92,8 +92,7 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
                   | (
                   = t("products.index.money")
                   | )
-                br
-                  = button_to_with_icon I18n.t('products.index.button'), order_items_path(product_id: product), class: 'btn btn-info',style:'margin: -89% 0 0 -9%'  
+          = link_to I18n.t('products.index.button'), order_items_path(product_id: product),method: :post, class: 'btn btn-info',style:'position: absolute;top: -59%;left: 0%;'  
                 
     #premium-fruits.tab-pane.fade
       br

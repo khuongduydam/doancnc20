@@ -207,6 +207,14 @@ nav.sidebar {
     }
     .navbar-collapse, .container-fluid {
       padding: 0 0px 0 0px;
+      .btn-group{
+        width: 100%;
+        .btn-warning, .btn-primary{
+          width: 50%;
+          border-radius: 0;
+          margin: 0;
+        }
+      }
     }
   }
   nav.sidebar {

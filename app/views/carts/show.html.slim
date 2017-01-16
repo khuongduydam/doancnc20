@@ -10,8 +10,7 @@
         .total-money      
           i.fa.fa-money
             |  = 
-            = @cart.total_price
-            | (vnd)
+            span.total-price = @cart.total_price
           br
           br
           - if user_signed_in?  
@@ -37,7 +36,7 @@ javascript:
     sum = 0;
     $.each($('.total_price'),function(){
       sum += parseFloat($(this).text());
-      $('.total-money').text(sum);
+      $('span.total-price').text(sum);
     });
     $.ajax({
       url: "/#{params[:locale]}/order_items/",
@@ -47,7 +46,7 @@ javascript:
     if((parseInt(input.val()) <= 0) || (parseInt(input.val()) > "#{@product.quantity}")){
       input.css('border-color','red')
       $('span.errors').empty()
-      place.prepend('<span class="errors">Number not allow</span>')
+      place.prepend('<span class="errors">Wrong number quantity</span>')
       $(this).css('margin-top','10%')
       $('span.errors').css({'position':'relative','top':'100px','color':'red'})
       $('a.btn.btn-info').attr('disabled','disabled')
@@ -65,9 +64,9 @@ javascript:
   });  
   $('.btn-danger.btn-xs').one('click',function(){
     price = $(this).closest('tr').find('.price').text();
-    total = $('.total-money').text();
+    total = $('span.total-price').text();
     total = (parseFloat(total)-parseFloat(price));
-    return $('.total-money').text(total);
+    return $('span.total-price').text(total);
   });
   
 

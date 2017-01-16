@@ -35,9 +35,12 @@ section.layout-adminuser{
 								tbody{
 									tr.danger{
 										td:last-child{
+											padding-left: 0; 
+											padding-right: 0;
 											width: 230px;
-											.btn-warning, .btn-danger{
-												margin-left: 15px;
+											.btn-warning, .btn-danger, .btn-info{
+												font-size: 13px;
+												margin-left: 3%;
 											}
 										}
 									}
