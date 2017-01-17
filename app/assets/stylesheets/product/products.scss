@@ -175,6 +175,10 @@
 		padding: 0px;
 		.tab-content{
 			#all-fruits.tab-pane.fade.in.active{
+				.col-xs-6.col-sm-4.col-md-3{
+					width: 230px;
+					height: 300px;
+				}
 				.img2{
 					width: 16.666666%;
 					.img-thumbnail{
@@ -188,13 +192,36 @@
 								display: inline-block;
 						    width: 150px;
 						    height: 40px;
-						    margin-top: -180%;
-						    margin-left: -10%;
+						    margin-top: -70%	;
+						    margin-left: -5%;
 							}
 						}
 					}
 				}
 			}
+			#premium-fruits{
+				.product-hot{
+					width: 230px;
+					height: 300px;
+				}
+				.btn-info{
+					margin: -174% 0px 0px -25%!important;
+				}
+			}
+		}
+	}
+	.container-fluid{
+		.navbar-header{
+			.icon.text-center{
+				margin-top: 100%!important;
+				.cart-text{
+					left: 75%!important;
+					height: 40%!important;
+				}
+			}
+		}
+		.nav.navbar-nav.text-center{
+			margin-top: 20%;
 		}
 	}
 }

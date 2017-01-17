@@ -29,3 +29,12 @@ section.page-section-contact{
     }
   }
 }
+
+@media screen and(min-width: 2560px) {
+  .left{
+    margin-top: -2%!important;
+  }
+  .right{
+    margin-top: -4%!important;
+  }
+}
