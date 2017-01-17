@@ -6,7 +6,7 @@ tr id="#{order_item.id}"
       = order_item.product.name
   td.col-xs-3.col-md-3
     = simple_form_for order_item do |f|
-      = f.input :quantity,as: :string,label_html:{style:'display:none'},input_html:{style:'margin-top:20%;padding:0px;text-align:center'}
+      = f.input :quantity,label_html:{style:'display:none'},input_html:{style:'margin-top:20%;padding:0px;text-align:center;width:20%!important'}
     .icon[style="margin:-18% 0 0 23%"]
       | x
     .price[style="color:red;margin:-8% 0 0 32%"] 

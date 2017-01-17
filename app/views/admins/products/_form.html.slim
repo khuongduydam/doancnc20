@@ -41,15 +41,17 @@ javascript:
     $("#form_product").validate({
       rules: {
         "product[name]": {required: true, minlength: 2},
-        "product[price]": {required: true, number: true, min: 0},
-        "product[origin]": {required: true, minlength: 3},
+        "product[price]": {required: true, number: true, min: 1},
+        "product[price_discount]": {required: true, number: true, min: 1},
+        "product[origin]": {required: false, minlength: 3},
         "product[quantity]": {required: true, digits: true, range: [1,1000]},
         "product[description]": {required: true, minlength: 10},
         "product[pictures_attributes][][image]": {required: true, accept: true}
       },
       messages:{
         "product[name]": {required: 'Please enter a product name', minlength: 'Name is too short'},
-        "product[price]": {required: 'Please enter a product price', number: 'Must be number', min: 'Number is too low'},
+        "product[price]": {required: 'Please enter a product price', number: 'Must be number', min: 'Number must be greater than 0'},
+        "product[price_discount]": { number: 'Must be number', min: 'Number must be greater than 0'},
         "product[origin]": {required: 'Please enter product\'s origin', minlength: 'Origin is to short'},
         "product[quantity]": {required: 'Please enter product\s quantity', digits: 'Must be digital number', range: 'Number is not allow'},
         "product[description]": {required: 'Please descript for product', minlength: 'Not enough characters'},

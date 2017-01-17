@@ -10,7 +10,7 @@
         .total-money      
           i.fa.fa-money
             |  = 
-            span.total-price = @cart.total_price
+            span.total-price = number_with_delimiter(@cart.total_price, delimiter: '.')
           br
           br
           - if user_signed_in?  
@@ -44,16 +44,38 @@ javascript:
       data: {quantity: number, id: id}
     });
     value = parseInt(input.val())
-    if( (value <= 0) || (value > "#{@product.quantity}") ){
+    if (value <= 0)  {
       input.css('border-color','red')
       $('span.errors').empty()
-      place.prepend('<span class="errors">Wrong number quantity</span>')
+      place.prepend('<span class="errors"> Can not less than 0</span>')
       $(this).css('margin-top','10%')
       $('span.errors').css({'position':'relative','top':'100px','color':'red'})
       $('a.btn.btn-info').attr('disabled','disabled')
       $('a.btn.btn-info').click(function(event){
         event.preventDefault();
       })
+    }
+    else if (value > "#{@product.quantity}") {
+      input.css('border-color','red')
+      $('span.errors').empty()
+      place.prepend('<span class="errors"> Quantity is not enough</span>')
+      $(this).css('margin-top','10%')
+      $('span.errors').css({'position':'relative','top':'100px','color':'red'})
+      $('a.btn.btn-info').attr('disabled','disabled')
+      $('a.btn.btn-info').click(function(event){
+        event.preventDefault();
+      }) 
+    }
+    else if ( value != true ) {
+      input.css('border-color','red')
+      $('span.errors').empty()
+      place.prepend('<span class="errors"> Number allow only </span>')
+      $(this).css('margin-top','10%')
+      $('span.errors').css({'position':'relative','top':'100px','color':'red'})
+      $('a.btn.btn-info').attr('disabled','disabled')
+      $('a.btn.btn-info').click(function(event){
+        event.preventDefault();
+      }) 
     }
     else{
       input.css('border-color','#ccc')
