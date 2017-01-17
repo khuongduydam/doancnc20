@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'non-stupid-digest-assets', '~> 1.0.4'
 gem 'seed_dump', '~> 3.2', '>= 3.2.4'
 gem 'ratyrate'
 gem 'rails-i18n'
