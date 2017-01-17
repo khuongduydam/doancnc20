@@ -43,7 +43,8 @@ javascript:
       dataType:'script',
       data: {quantity: number, id: id}
     });
-    if((parseInt(input.val()) <= 0) || (parseInt(input.val()) > "#{@product.quantity}") || $.type(input.val()) === "string"){
+    value = parseInt(input.val())
+    if( (value <= 0) || (value > "#{@product.quantity}") ){
       input.css('border-color','red')
       $('span.errors').empty()
       place.prepend('<span class="errors">Wrong number quantity</span>')
