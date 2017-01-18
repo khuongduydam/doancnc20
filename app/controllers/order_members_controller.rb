@@ -38,6 +38,22 @@ class OrderMembersController < ApplicationController
       flash[:error] = "Your order is not complete"
       render :new
     else
+      @order_member.order_items.each do |item|
+        product = Product.find_by(id: item.product.id)
+        if product.price_discount.present?
+          product.price_to_buy = product.price_discount
+        else
+          product.price_to_buy = product.price
+        end
+        unless product.save
+          flash[:error] = "Price to buy failed to save"
+        else
+          p "**********************************"
+          p product.price_to_buy
+          p "**********************************"
+          flash[:success] = "Price to buy save success"
+        end
+      end
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       if (params[:order_member][:gift_code].present?) && gift_code.present?

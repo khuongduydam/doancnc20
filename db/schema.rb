@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115171018) do
+ActiveRecord::Schema.define(version: 20170118074123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,13 +94,14 @@ ActiveRecord::Schema.define(version: 20170115171018) do
     t.string   "phone"
     t.string   "pay_type"
     t.integer  "user_id"
-    t.string   "status",      default: "Uncomplete"
+    t.string   "status",       default: "Uncomplete"
     t.text     "note"
     t.string   "email"
     t.integer  "total_price"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "gift_code"
+    t.integer  "price_at_buy"
     t.index ["user_id"], name: "index_order_members_on_user_id", using: :btree
   end
 
@@ -110,11 +111,13 @@ ActiveRecord::Schema.define(version: 20170115171018) do
     t.string   "phone"
     t.string   "email"
     t.string   "pay_type"
-    t.string   "status",      default: "Uncomplete"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.string   "status",       default: "Uncomplete"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "total_price"
     t.text     "note"
+    t.string   "gift_code"
+    t.integer  "price_to_buy"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -137,6 +140,7 @@ ActiveRecord::Schema.define(version: 20170115171018) do
     t.datetime "updated_at",     null: false
     t.integer  "price_discount"
     t.string   "status"
+    t.integer  "price_to_buy"
     t.index ["category_id", "created_at"], name: "index_products_on_category_id_and_created_at", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end

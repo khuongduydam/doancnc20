@@ -17,6 +17,23 @@ class OrdersController < ApplicationController
       flash.now[:error] = "Can not create order, please try again"
       render :new
     else
+      @order.order_items.each do |item|
+        product = Product.find_by(id: item.product.id)
+         p product
+        if product.price_discount.present?
+          product.price_to_buy = product.price_discount
+        else
+          product.price_to_buy = product.price
+        end
+        unless product.save
+          flash[:error] = "Price to buy failed to save"
+        else
+          p "**********************************"
+          p product.price_to_buy
+          p "**********************************"
+          flash[:success] = "Price to buy save success"
+        end
+      end
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       if @order.pay_type == 'Direct'

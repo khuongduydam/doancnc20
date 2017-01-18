@@ -7,19 +7,17 @@ section.layout-adminorder
           table.table
             thead
               tr.danger
-                th.text-left.col-md-2 Tên sản phẩm
-                th.text-left.col-md-2 Số lượng(kg)
-                th.text-left.col-md-2 Giá
-                th.text-left.col-md-2 Thành tiền
-                th.text-center.col-md-4 Ghi chú
+                th.text-left.col-md-3 Tên sản phẩm
+                th.text-left.col-md-3 Số lượng(kg)
+                th.text-left.col-md-3 Giá
+                th.text-center.col-md-3 Ghi chú
             tbody
               - @order.order_items.map do |item|
                 tr.info
-                  td.text-left.col-md-2 = item.product.name
-                  td.text-left.col-md-2 = item.quantity
-                  td.text-left.col-md-2 = item.product.price_discount
-                  td.text-left.col-md-2 = item.total_price 
-                  td.text-left.col-md-4
+                  td.text-left.col-md-3 = item.product.name
+                  td.text-left.col-md-3 = item.quantity
+                  td.text-left.col-md-3 = item.product.price_to_buy
+                  td.text-center.col-md-3
         h4[style="color:red"] 
           | Tổng : 
           =  @order.total_price 
