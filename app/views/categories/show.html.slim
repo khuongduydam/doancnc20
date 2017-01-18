@@ -16,18 +16,25 @@ section.sections-product
               h5.name[style="font-size:20px;font-weight:200"]
                 = product.name
               h4.discount[style="color:red;font-weight:200"]
-                |  Gía : 
-                =  product.price_discount 
-                | (
-                = t('products.index.money')
-                | )
-                |  /kg
-              h4.price[style="text-decoration:line-through;font-weight:200"]
-                = product.price
-                | (
-                = t('products.index.money')
-                | )
-                | /kg  
+                |  Gía :
+                - if product.price_discount.present? 
+                  =  product.price_discount 
+                  | (
+                  = t('products.index.money')
+                  | )
+                  |  /kg
+                  h4.price[style="text-decoration:line-through;font-weight:200"]
+                    = product.price
+                    | (
+                    = t('products.index.money')
+                    | )
+                    | /kg  
+                - else
+                  =  product.price   
+                  | (
+                  = t('products.index.money')
+                  | )
+                  |  /kg  
               p
                 - if current_user != nil
                   = link_to t('products.index.button_wishlist'), wishlists_path(params[:locale],product.id), method: :post

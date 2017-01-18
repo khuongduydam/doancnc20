@@ -108,13 +108,19 @@ link[rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min
               = product.name
               br
               .price_discount[style="color:red"]
+              - if product.price_discount.present?
                 = number_with_delimiter(product.price_discount,delimiter: '.')
+                | (
+                = t("products.index.money")
+                | )/kg
+              - else
+                = number_with_delimiter(product.price,delimiter: '.')  
                 | (
                 = t("products.index.money")
                 | )/kg
               = product.origin  
             .col-xs-12
-              = button_to_with_icon I18n.t('products.index.button'), order_items_path(product_id: product), class: 'btn btn-info',style:"margin:-143% 0 0 -23%"
+              = button_to_with_icon I18n.t('products.index.button'), order_items_path(product_id: product), class: 'btn btn-info',style:"margin:-110% 0 0 -23%"
 
 javascript:
   function htmlbodyHeightUpdate(){
