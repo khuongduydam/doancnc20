@@ -18,7 +18,90 @@
               button.btn.btn-info.60 Gift Code 60%   
 .container.code
   input.gift-code.form-control.center-block
+br
+br
+.list
+  .row
+    .col-xs-4
+      .table-responsive
+        table.table.table-bordered
+          thead
+            tr
+              th Code 10%
+          tbody    
+            - code(20,21,22,23,24,25).join(" ").split.map do |val|
+              tr
+                - if val.size === 20  
+                  td = val 
+                - else
+                  nil  
+    .col-xs-4              
+      .table-responsive
+        table.table.table-bordered
+          thead
+            tr
+              th Code 20%
+          tbody    
+            - code(20,21,22,23,24,25).join(" ").split.map do |val|
+              tr
+                - if val.size === 21 
+                  td = val 
+                - else
+                  nil   
+    .col-xs-4              
+      .table-responsive
+        table.table.table-bordered
+          thead
+            tr
+              th Code 30%
+          tbody    
+            - code(20,21,22,23,24,25).join(" ").split.map do |val|
+              tr
+                - if val.size === 22
+                  td = val 
+                - else
+                  nil                          
 
+  .row        
+    .col-xs-4              
+      .table-responsive
+        table.table.table-bordered
+          thead
+            tr
+              th Code 40%
+          tbody    
+            - code(20,21,22,23,24,25).join(" ").split.map do |val|
+              tr
+                - if val.size === 23
+                  td = val 
+                - else
+                  nil      
+    .col-xs-4              
+      .table-responsive
+        table.table.table-bordered
+          thead
+            tr
+              th Code 50%
+          tbody    
+            - code(20,21,22,23,24,25).join(" ").split.map do |val|
+              tr
+                - if val.size === 24
+                  td = val 
+                - else
+                  nil 
+    .col-xs-4              
+      .table-responsive
+        table.table.table-bordered
+          thead
+            tr
+              th Code 60%
+          tbody    
+            - code(20,21,22,23,24,25).join(" ").split.map do |val|
+              tr
+                - if val.size === 25
+                  td = val 
+                - else
+                  nil                                         
 javascript:
   function makeCode(){
     var text = "";

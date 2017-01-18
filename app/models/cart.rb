@@ -13,7 +13,7 @@ class Cart < ApplicationRecord
 
   def total_price(number=1)
     if number != 1
-      order_items.to_a.sum{|item| item.total_price / number}
+      order_items.to_a.sum{|item| item.total_price * number}
     else
       order_items.to_a.sum{|item| item.total_price}
     end

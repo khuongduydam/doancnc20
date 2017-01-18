@@ -2,6 +2,7 @@ class Admins::GiftCodesController < ApplicationController
   def index
     render layout: 'layouts/admin_layout'
   end
+
   def create
     begin
       @gift_code = Giftcode.create!(gift_code: params[:code])

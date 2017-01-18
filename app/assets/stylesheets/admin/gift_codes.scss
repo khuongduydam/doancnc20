@@ -7,10 +7,15 @@
   width:100%;
   input.gift-code{
     border:1px solid #ccc;
-    height:50px;
+    height:30px;
     width:50%;
-    margin-top: 25%;
+    margin-top: 20%;
+    border:none;
   }
+}
+.list{
+  margin-left: 21%;
+  width: 100%;
 }
 
 @media screen and(min-width: 2560px) {
@@ -23,7 +28,7 @@
   .container.code{
     .gift-code{
       font-size: 35px;
-      height: 80px!important;
+      height: 80px;
     }
   }
 }
@@ -32,7 +37,7 @@
   .container.code{
     .gift-code{
       font-size: 25px;
-      height: 70px!important;
+      height: 70px;
     }
   }
 }
