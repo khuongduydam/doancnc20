@@ -66,7 +66,7 @@ javascript:
         event.preventDefault();
       }) 
     }
-    else if ( value != true ) {
+    else if ( $('span.total-price').text() == "NaN" ) {
       input.css('border-color','red')
       $('span.errors').empty()
       place.prepend('<span class="errors"> Number allow only </span>')
@@ -86,7 +86,7 @@ javascript:
     }     
   });  
   $('.btn-danger.btn-xs').one('click',function(){
-    price = $(this).closest('tr').find('.price').text();
+    price = $(this).closest('tr').find('.total_price').text();
     total = $('span.total-price').text();
     total = (parseFloat(total)-parseFloat(price));
     return $('span.total-price').text(total);
