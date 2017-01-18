@@ -1,7 +1,7 @@
 .banner[style="font-family: 'Arial', serif;padding-left:50px;"]
   h1 = t('find')
 hr[style="border:1px solid red"]
-.container 
+.container[style="width:100%"] 
   = form_tag products_path, :method => 'get', :id => "products_search" do
     .form-group
       = label_tag :search,t('find'),style:'font-family:Arial'

@@ -36,7 +36,7 @@ en:
       order_guide: 'ORDER GUIDE'
       information: 'INFORMATION'
       contacts: 'CONTACTS'
-      wishlists: 'WISHLISHS'
+      wishlists: 'WISHLISTS'
       checkout: 'Checkout'
     user_layout:  
       title: 'Register&Login'
