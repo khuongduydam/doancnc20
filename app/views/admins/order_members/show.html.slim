@@ -6,16 +6,14 @@
           th.text-left.col-md-2 Ten San Pham
           th.text-left.col-md-2 So luong(kg)
           th.text-left.col-md-1 Gia
-          th.text-left.col-md-1 Thanh tien
-          th.text-center.col-md-4 Ghi chu
+          th.text-center.col-md-5 Ghi chu
       tbody
         - @order_member.order_items.map do |item|
           tr.info
             td.text-left.col-md-2 = item.product.name
             td.text-left.col-md-2 = item.quantity
-            td.text-left.col-md-1 =  item.product.price_discount
-            td.text-left.col-md-1 =  item.total_price 
-            td.text-left.col-md-4
+            td.text-left.col-md-1 = @order_member.total_price
+            td.text-center.col-md-5 = break_the_lines(item.order_member.note)
   h4[style="color:red"] 
     | Tong cong: 
     =  @order_member.total_price

@@ -40,6 +40,10 @@ class OrderMembersController < ApplicationController
     else
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
+      if (params[:order_member][:gift_code].present?) && gift_code.present?
+        @order_member.note << "\nThis order used gift code"
+        @order_member.save
+      end
       if @order_member.pay_type == 'Direct'
         flash[:success] = "Thank you for your Order"
         redirect_to root_path

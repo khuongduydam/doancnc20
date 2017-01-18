@@ -37,4 +37,8 @@ module ApplicationHelper
   def findProduct(p_ID)
     Product.find(p_ID)
   end
+
+  def break_the_lines(text)
+    text.to_s.gsub(/\n/, '<br/>').html_safe
+  end
 end
